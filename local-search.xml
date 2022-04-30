@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>解决Hexo deploy到GithubPages时自定义域名失效的问题</title>
+    <link href="/2022/04/30/resolve-githubpages-CNAME-Hexo/"/>
+    <url>/2022/04/30/resolve-githubpages-CNAME-Hexo/</url>
+    
+    <content type="html"><![CDATA[<p>Github的repo有个自定义域名的功能，其实就是在repo的根目录下生成一个CNAME文件，里面放着自定义的域名，然而Hexo每次deploy都会把这个CNAME文件覆盖掉，结果就是自定义域名失效了。</p><p>解决方案很简单，<strong>把repo里的CNAME文件下载下来，放到Hexo的&#x2F;source目录里</strong>，个人猜测deploy是增量更新，只需经过第一次的deploy就不会出现丢CNAME的情况。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Mac环境下使用hexo搭建个人博客</title>
     <link href="/2022/04/30/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <url>/2022/04/30/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
