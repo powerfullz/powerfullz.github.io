@@ -16,21 +16,40 @@
   <meta name="author" content="L3ZC">
   <meta name="keywords" content="">
   
-    <meta name="description" content="且将新火试新茶，诗酒趁年华。个人博客，关注科技，解决问题。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="L3ZC">
-<meta property="og:url" content="https://l3zc.com/index.html">
+    <meta name="description" content="昨晚，也就是2022-05-07晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尝试绕过智慧树对刷课脚本的检测">
+<meta property="og:url" content="https://l3zc.com/2022/05/08/fuck-zhihuishu/index.html">
 <meta property="og:site_name" content="L3ZC">
-<meta property="og:description" content="且将新火试新茶，诗酒趁年华。个人博客，关注科技，解决问题。">
+<meta property="og:description" content="昨晚，也就是2022-05-07晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508170818.png">
+<meta property="article:published_time" content="2022-05-08T09:03:16.000Z">
+<meta property="article:modified_time" content="2022-05-08T09:43:42.795Z">
 <meta property="article:author" content="L3ZC">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508170818.png">
   
   
-  <title>L3ZC</title>
+  <title>尝试绕过智慧树对刷课脚本的检测 - L3ZC</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -57,7 +76,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 50vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -158,17 +177,52 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="且将新火试新茶">
+            <span class="h2" id="subtitle" title="尝试绕过智慧树对刷课脚本的检测">
               
             </span>
 
             
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      L3ZC
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-05-08 17:03" pubdate>
+        2022年5月8日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      297 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -177,181 +231,114 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">尝试绕过智慧树对刷课脚本的检测</h1>
+            
+            <div class="markdown-body">
+              <p>昨晚，也就是<code>2022-05-07</code>晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。</p>
+<span id="more"></span>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/05/08/fuck-zhihuishu/" target="_self">
-          <img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508170818.png" srcset="/img/loading.gif" lazyload alt="尝试绕过智慧树对刷课脚本的检测">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/05/08/fuck-zhihuishu/" target="_self">
-          尝试绕过智慧树对刷课脚本的检测
-        </a>
-      </h1>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png" srcset="/img/loading.gif" lazyload alt="zhihuishu_script_detect"></p>
+<h2 id="摸爬滚打"><a href="#摸爬滚打" class="headerlink" title="摸爬滚打"></a>摸爬滚打</h2><p>经过一番摸爬滚打，大致掌握了一些信息：</p>
+<ul>
+<li>不论是通过Tamper Monkey还是通过开发者工具控制台注入脚本都会被检测到（废话）</li>
+<li>在检查元素时，发现了一些奇怪的JS，毫无格式可言，但又正在运作，应该是经过混淆</li>
+<li>在禁用了一些名称可疑的奇怪JS后问题并没有解决，难道检测机制直接写在index.html里了？</li>
+</ul>
+<p>还好是在帮同学刷课，不用考虑时效的问题，就慢慢研究了。~~~今天先鸽了，懒得搞(bushi)~~~</p>
 
-      <p class="index-excerpt">
-        <a href="/2022/05/08/fuck-zhihuishu/" target="_self">
-          
-          昨晚，也就是2022-05-07晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-08 17:03" pubdate>
-              2022-05-08
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/04/30/resolve-githubpages-CNAME-Hexo/" target="_self">
-          <img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/900.jpg" srcset="/img/loading.gif" lazyload alt="解决Hexo deploy到GithubPages时自定义域名失效的问题">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/04/30/resolve-githubpages-CNAME-Hexo/" target="_self">
-          解决Hexo deploy到GithubPages时自定义域名失效的问题
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/04/30/resolve-githubpages-CNAME-Hexo/" target="_self">
-          
-          Github的repo有个自定义域名的功能，其实就是在repo的根目录下生成一个CNAME文件，里面放着自定义的域名，然而Hexo每次deploy都会把这个CNAME文件覆盖掉，结果就是自定义域名失效了。
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-30 18:07" pubdate>
-              2022-04-30
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/04/30/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          <img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/532-1600x900.jpg" srcset="/img/loading.gif" lazyload alt="Mac OS环境下使用Hexo搭建个人博客">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/04/30/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          Mac OS环境下使用Hexo搭建个人博客
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/04/30/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          
-          网上大部分基于Hexo搭建个人博客的教程都是在Windows环境下实现的，Mac OS的教程很少，然而，Mac OS下完成这个任务远比Windows要容易。
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-30 16:27" pubdate>
-              2022-04-30
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/04/30/Hello-World-0/" target="_self">
-          <img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/220-1600x900.jpg" srcset="/img/loading.gif" lazyload alt="Hello, World!">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/04/30/Hello-World-0/" target="_self">
-          Hello, World!
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/04/30/Hello-World-0/" target="_self">
-          
-          世界，你好！ 『我只记得，我好像看过一幅漫画，讲述一枚鸡蛋和一只小鸡的故事，在那副漫画中，小鸡说了一句‘Hello World’』
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-30 16:16" pubdate>
-              2022-04-30
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/30/resolve-githubpages-CNAME-Hexo/">
+                        <span class="hidden-mobile">解决Hexo deploy到GithubPages时自定义域名失效的问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"167DfKpEhUNFAX1CObC7JMom-gzGzoHsz","appKey":"tLopTocNdfEsjXGGhPcTOgRA","path":"window.location.pathname","placeholder":"Enter Your Comments","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -459,6 +446,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
