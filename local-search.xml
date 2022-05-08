@@ -8,7 +8,7 @@
     <link href="/2022/05/08/fuck-zhihuishu/"/>
     <url>/2022/05/08/fuck-zhihuishu/</url>
     
-    <content type="html"><![CDATA[<p>昨晚，也就是<code>2022-05-07</code>晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。</p><span id="more"></span><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png" alt="zhihuishu_script_detect"></p><h2 id="摸爬滚打"><a href="#摸爬滚打" class="headerlink" title="摸爬滚打"></a>摸爬滚打</h2><p>经过一番摸爬滚打，大致掌握了一些信息：</p><ul><li>不论是通过Tamper Monkey还是通过开发者工具控制台注入脚本都会被检测到（废话）</li><li>在检查元素时，发现了一些奇怪的JS，毫无格式可言，但又正在运作，应该是经过混淆</li><li>在禁用了一些名称可疑的奇怪JS后问题并没有解决，难道检测机制直接写在index.html里了？</li></ul><p>还好是在帮同学刷课，不用考虑时效的问题，就慢慢研究了。~~~今天先鸽了，懒得搞(bushi)~~~</p>]]></content>
+    <content type="html"><![CDATA[<p>昨晚，也就是<code>2022-05-07</code>晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。</p><span id="more"></span><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png" alt="zhihuishu_script_detect"></p><h2 id="摸爬滚打"><a href="#摸爬滚打" class="headerlink" title="摸爬滚打"></a>摸爬滚打</h2><p>经过一番摸爬滚打，大致掌握了一些信息：</p><ul><li>不论是通过Tamper Monkey还是通过开发者工具控制台注入脚本都会被检测到（废话）</li><li>在检查元素时，发现了一些奇怪的JS，毫无格式可言，但又正在运作，应该是经过混淆</li><li>在禁用了一些名称可疑的奇怪JS后问题并没有解决，难道检测机制直接写在index.html里了？</li></ul><p>还好是在帮同学刷课，不用考虑时效的问题，就慢慢研究了。<del>今天先鸽了(bushi)</del></p>]]></content>
     
     
     
