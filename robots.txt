@@ -6,4 +6,3 @@ Allow: /tags
 Allow: /links
 
 Sitemap: https://l3zc.com/sitemap.xml
-Sitemap: https://l3zc.com/search.xml
