@@ -4,13 +4,32 @@
   
   
   <entry>
+    <title>在Mac上使用VS Code搭建轻量化C/C++开发环境</title>
+    <link href="/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <url>/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</url>
+    
+    <content type="html"><![CDATA[<p>一直都在用VS Code，<del>奈何以前太懒</del>可惜高中的时候很忙，很长一段时间里一直只把VS Code当作自己的文本编辑器，大学有了写C&#x2F;C++的需求，Xcode实在太大，于是转战在线编辑器<a href="repl.it">repl.it</a>，然而这类Cloud Based IDE链接不够稳定，也没有办法离线作业，于是我开始寻找一个轻量化的C语言开发环境满足我的实际需求。</p><span id="more"></span><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p><strong>本文基于intel Mac，M1 Mac自行对应</strong><del>主要还是因为我太穷了(狗头)</del></p><p><strong>默认你已经装好了VS Code，并且已经会用VS Code编辑文本，比如Markdown</strong></p><h2 id="安装VS-Code相关扩展"><a href="#安装VS-Code相关扩展" class="headerlink" title="安装VS Code相关扩展"></a>安装VS Code相关扩展</h2><p>在VS Code扩展库里搜索C&#x2F;C++，安装来自微软的C&#x2F;C++扩展包，这个扩展包里包含了大部分我们需要的组件</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>尝试绕过智慧树对刷课脚本的检测</title>
     <link href="/fuck-zhihuishu/"/>
     <url>/fuck-zhihuishu/</url>
     
-    <content type="html"><![CDATA[<p>昨晚，也就是<code>2022-05-07</code>晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。</p><span id="more"></span><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png" alt="zhihuishu_script_detect"></p><h2 id="摸爬滚打"><a href="#摸爬滚打" class="headerlink" title="摸爬滚打"></a>摸爬滚打</h2><p>经过一番摸爬滚打，大致掌握了一些信息：</p><ul><li>不论是通过Tamper Monkey还是通过开发者工具控制台注入脚本都会被检测到（废话）</li><li>在检查元素时，发现了一些奇怪的JS，毫无格式可言，但又正在运作，应该是经过混淆</li><li>在禁用了一些名称可疑的奇怪JS后问题并没有解决，难道检测机制直接写在index.html里了？</li></ul><p>还好是在帮同学刷课，不用考虑时效的问题，就慢慢研究了。<del>今天先鸽了(bushi)</del></p>]]></content>
+    <content type="html"><![CDATA[<p>昨晚，也就是<code>2022-05-07</code>晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测机制。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。</p><span id="more"></span><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png" alt="zhihuishu_script_detect"></p><h2 id="摸爬滚打"><a href="#摸爬滚打" class="headerlink" title="摸爬滚打"></a>摸爬滚打</h2><p>经过一番摸爬滚打，大致掌握了一些信息：</p><ul><li>不论是通过Tamper Monkey还是通过开发者工具控制台注入脚本都会被检测到（废话）</li><li>在检查元素时，发现了一些奇怪的JS，毫无可读性可言，但又正在运作，应该是经过混淆</li><li>在禁用了一些名称可疑的奇怪JS后问题并没有解决，难道检测机制直接写在index.html里了？</li></ul><h2 id="试图替换页面上的JS"><a href="#试图替换页面上的JS" class="headerlink" title="试图替换页面上的JS"></a>试图替换页面上的JS</h2><p>没办法了，那就一个一个JS的看吧。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512123350.png" alt="这啥啊？"></p><p>这么乱怎么读？那就先用工具规范一下格式</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512123528.png" alt="舒服多了"></p><p>先从第一个开始找吧，本来准备一个一个找，然而第一个脚本就出现了一些意想不到的东西。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512124131.png" alt="找到的一些片段"></p><p>将所有一眼就知道是检测的机制给替换成无意义的输出</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512124819.png" alt="console.log(&quot;检测个屁&quot;)"></p><p>然后替换网页上原始的脚本</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512125220.png" alt="居然成功了？"></p><p>似乎是成功了，不过脚本刷课自动切换的功能似乎失效。</p><p>是在帮同学刷课，暂时手动切换，<del>今天先鸽了</del>，最近事情多是真的忙。</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>牢骚</tag>
+      
+    </tags>
     
   </entry>
   
@@ -25,6 +44,12 @@
     
     
     
+    <tags>
+      
+      <tag>技术</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -38,6 +63,16 @@
     
     
     
+    <tags>
+      
+      <tag>Mac</tag>
+      
+      <tag>Hexo</tag>
+      
+      <tag>教程</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -50,6 +85,12 @@
     <content type="html"><![CDATA[<p>世界，你好！</p><p>『我只记得，我好像看过一幅漫画，讲述一枚鸡蛋和一只小鸡的故事，在那副漫画中，小鸡说了一句‘Hello World’』</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>牢骚</tag>
+      
+    </tags>
     
   </entry>
   
