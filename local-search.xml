@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>从某个项目里找出csust办公区网络的密码</title>
+    <link href="/how-csust-bg-network-passwd-leaked/"/>
+    <url>/how-csust-bg-network-passwd-leaked/</url>
+    
+    <content type="html"><![CDATA[<p>某天在网上闲逛，发现一位名为linfangzhi老哥写的Github项目——CSUST_network_autologin。于是<del>白嫖</del>下载了一份用来在图书馆上网，但是这个项目只发布了Windows版，没发给手机和电脑用，所以，为了<del>折腾</del>满足需求，自己动手，丰衣足食。</p><span id="more"></span><h2 id="管你怎么样先Fork一份再说"><a href="#管你怎么样先Fork一份再说" class="headerlink" title="管你怎么样先Fork一份再说"></a>管你怎么样先Fork一份再说</h2><p>古语有云：“管你怎么样先fork一份再说“（大雾），<a href="https://github.com/linfangzhi/CSUST_network_auto_login">这个项目的源码</a>公开，原理非常简单，就是模拟帮你填个账号登陆让你上网，所以说，整个项目最有价值的东西其实就是登陆上CSUST办公区网络的账号和密码。</p><p>“既然这个项目源码公开，那直接在源码里找到账号密码不就可以了吗？”</p><p>还真不行。</p><blockquote><p>账号信息不会公布（公布是不可能公布的，这辈子都不可能公布）</p><p>——linfangzhi</p></blockquote><p>事实上，他也确实做到了这一点，当你打开项目仅有的一个main.py文件就会看到如下的代码片段</p><figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs python">init(autoreset=<span class="hljs-literal">True</span>)<br><br>account_info = [[]]<br><span class="hljs-comment"># 隐私内容</span><br></code></pre></td></tr></table></figure><p>linfangzhi学长早就把核心的account_info信息删去，留下一个摆着好看的坯子供你欣赏。他把这一个应用打包成了exe程序，只能用，不能看到隐私内容。</p><p>可是我有iPad和Mac要登陆就只能洗洗睡了吗？</p><h2 id="想办法找到账号信息"><a href="#想办法找到账号信息" class="headerlink" title="想办法找到账号信息"></a>想办法找到账号信息</h2><h3 id="先试着直接拆开exe程序"><a href="#先试着直接拆开exe程序" class="headerlink" title="先试着直接拆开exe程序"></a>先试着直接拆开exe程序</h3><p>有的exe程序可以直接用7-zip解压，然而这个不行</p><p>去网上找了一些方法，终于感觉此路不通，放弃</p><h3 id="抓取登陆的时候发送给认证服务器的数据包"><a href="#抓取登陆的时候发送给认证服务器的数据包" class="headerlink" title="抓取登陆的时候发送给认证服务器的数据包"></a>抓取登陆的时候发送给认证服务器的数据包</h3><p>学校的认证服务器用的是万年http，没有s</p><p>估计学校没有想到觉得有人会在校园网里抓别人的包，这意味着抓包会省不少事，只需要把程序发出的流量都引到抓包软件上就可以直接获取到裸奔的账号信息。这个办法的可行性明显高得多，实际操作起来也更容易。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>未分类</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>摸索</tag>
+      
+      <tag>大学</tag>
+      
+      <tag>技术</tag>
+      
+      <tag>学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>在Mac上使用VS Code搭建轻量化C/C++开发环境</title>
     <link href="/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     <url>/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</url>
