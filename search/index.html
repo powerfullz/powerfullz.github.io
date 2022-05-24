@@ -25,7 +25,7 @@
         
     
     <!-- title -->
-    <title>网站日志</title>
+    <title>搜索</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -77,23 +77,13 @@
     
     <div class="content" itemprop="articleBody">
         
-            <h5 id="2022-05-23"><a href="#2022-05-23" class="headerlink" title="2022.05.23"></a>2022.05.23</h5><ul>
-<li>将部分静态资源托管到爆米兔CDN以加快站点的速度</li>
-</ul>
-<h5 id="2022-05-11"><a href="#2022-05-11" class="headerlink" title="2022.05.11"></a>2022.05.11</h5><ul>
-<li>对站点进行SEO优化</li>
-<li>基于Valine和LeanCloud实现评论功能</li>
-<li>将busuanzi替换为百度统计</li>
-</ul>
-<h5 id="2022-05-01"><a href="#2022-05-01" class="headerlink" title="2022.05.01"></a>2022.05.01</h5><ul>
-<li>陆续更新文章</li>
-<li>微调站点风格</li>
-<li>使用busuanzi统计网站数据</li>
-</ul>
-<h5 id="2022-04-30"><a href="#2022-04-30" class="headerlink" title="2022.04.30"></a>2022.04.30</h5><ul>
-<li>在Github Pages上正式发出网站的第一声Hello,world！</li>
-</ul>
-
+            <section id="search">
+    <form>
+        <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+    </form>
+    <div id="search-result"></div>
+    <p class="search-no-result">抱歉，没有符合您搜索条件的结果。请换其它关键词再试。</p>
+</section>
         
     </div>
 </article>
@@ -145,6 +135,43 @@
 <script src="/js/main.js"></script>
 
 <!-- search -->
+
+    
+<script src="/js/search.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var $inputArea = $("input#search-input");
+            var $resultArea = document.querySelector("div#search-result");
+
+            $inputArea.focus(function () {
+                var search_path = "search.xml";
+                if (search_path.length == 0) {
+                    search_path = "search.xml";
+                }
+                var path = "/" + search_path;
+                searchFunc(path, 'search-input', 'search-result');
+            });
+
+            $inputArea.keydown(function (e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                }
+            });
+
+            var observer = new MutationObserver(function (mutationsList, observer) {
+                if (mutationsList[0].addedNodes) {
+                    $(".search-no-result").show(200);
+                } else {
+                    $(".search-no-result").hide();
+                }
+            });
+
+            observer.observe($resultArea, {childList: true});
+
+        });
+    </script>
 
 </body>
 
