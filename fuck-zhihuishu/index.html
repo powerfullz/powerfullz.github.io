@@ -1,21 +1,11 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html lang=zh>
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.JPG">
-  <link rel="icon" href="/img/favicon.JPG">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="L3ZC">
-  <meta name="keywords" content="智慧树,智慧树刷课,智慧树刷课脚本,脚本检测,折腾,javascript,JS">
-  
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="昨晚，也就是2022-05-07晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测机制。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尝试绕过智慧树对刷课脚本的检测">
@@ -23,245 +13,159 @@
 <meta property="og:site_name" content="L3ZC">
 <meta property="og:description" content="昨晚，也就是2022-05-07晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测机制。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508170818.png">
+<meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png">
+<meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512123350.png">
+<meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512123528.png">
+<meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512124131.png">
+<meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512124819.png">
+<meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512125220.png">
 <meta property="article:published_time" content="2022-05-08T09:03:16.000Z">
 <meta property="article:modified_time" content="2022-05-21T04:48:28.048Z">
 <meta property="article:author" content="L3ZC">
 <meta property="article:tag" content="牢骚">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508170818.png">
-  
-  
-  <title>尝试绕过智慧树对刷课脚本的检测 - L3ZC</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png">
     
     
       
-      <link  rel="stylesheet" href="https://lib.baomitu.com/highlight.js/10.7.3/styles/github-gist.min.css" />
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
     
-  
+    <!-- title -->
+    <title>尝试绕过智慧树对刷课脚本的检测</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
-  
-    <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-  
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"l3zc.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"3c805120e17e9a58f5775dfc78e7051a","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"167DfKpEhUNFAX1CObC7JMom-gzGzoHsz","app_key":"tLopTocNdfEsjXGGhPcTOgRA","server_url":"https://167dfkpe.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
 <meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/rss.xml" title="L3ZC" type="application/rss+xml">
 </head>
 
-
-<body>
-  <header style="height: 50vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>L3ZC</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/changelog">
-                <i class="iconfont icon-archive-fill"></i>
-                网站日志
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/powerfullz">项目</a></li><!--
+     --><!--
+       --><li><a href="/changelog">日志</a></li><!--
+     -->
       </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/resolve-githubpages-CNAME-Hexo/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://l3zc.com/fuck-zhihuishu/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://l3zc.com/fuck-zhihuishu/&text=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://l3zc.com/fuck-zhihuishu/&is_video=false&description=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=尝试绕过智慧树对刷课脚本的检测&body=Check out this article: https://l3zc.com/fuck-zhihuishu/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://l3zc.com/fuck-zhihuishu/&name=尝试绕过智慧树对刷课脚本的检测&description=&lt;p&gt;昨晚，也就是&lt;code&gt;2022-05-07&lt;/code&gt;晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测机制。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://l3zc.com/fuck-zhihuishu/&t=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://picked-1301273887.cos.ap-nanjing.myqcloud.com/bannerdefault.jpeg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="尝试绕过智慧树对刷课脚本的检测">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-author" aria-hidden="true"></i>
-      L3ZC
-    </span>
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-08 17:03" pubdate>
-        2022年5月8日 下午
-      </time>
-    </span>
-  
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%B8%E7%88%AC%E6%BB%9A%E6%89%93"><span class="toc-number">1.</span> <span class="toc-text">摸爬滚打</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%95%E5%9B%BE%E6%9B%BF%E6%8D%A2%E9%A1%B5%E9%9D%A2%E4%B8%8A%E7%9A%84JS"><span class="toc-number">2.</span> <span class="toc-text">试图替换页面上的JS</span></a></li></ol>
+    </div>
+  </span>
 </div>
 
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      486 字
-    </span>
-  
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        尝试绕过智慧树对刷课脚本的检测
+    </h1>
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">L3ZC</span>
+      </span>
       
+    <div class="postdate">
       
-      5 分钟
-    </span>
-  
+        <time datetime="2022-05-08T09:03:16.000Z" itemprop="datePublished">2022-05-08</time>
+        
+        (Updated: <time datetime="2022-05-21T04:48:28.048Z" itemprop="dateModified">2022-05-21</time>)
+        
+      
+    </div>
 
-  
-  
-</div>
 
-            
-          </div>
+      
 
-          
-        </div>
-      </div>
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%89%A2%E9%AA%9A/" rel="tag">牢骚</a>
+    </div>
+
+
     </div>
   </header>
+  
 
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">尝试绕过智慧树对刷课脚本的检测</h1>
-            
-            <div class="markdown-body">
-              <p>昨晚，也就是<code>2022-05-07</code>晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测机制。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。</p>
+  <div class="content" itemprop="articleBody">
+    <p>昨晚，也就是<code>2022-05-07</code>晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测机制。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。</p>
 <span id="more"></span>
 
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png" srcset="/img/loading.gif" lazyload alt="zhihuishu_script_detect"></p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220508172108.png" alt="zhihuishu_script_detect"></p>
 <h2 id="摸爬滚打"><a href="#摸爬滚打" class="headerlink" title="摸爬滚打"></a>摸爬滚打</h2><p>经过一番摸爬滚打，大致掌握了一些信息：</p>
 <ul>
 <li>不论是通过Tamper Monkey还是通过开发者工具控制台注入脚本都会被检测到（废话）</li>
@@ -269,296 +173,170 @@
 <li>在禁用了一些名称可疑的奇怪JS后问题并没有解决，难道检测机制直接写在index.html里了？</li>
 </ul>
 <h2 id="试图替换页面上的JS"><a href="#试图替换页面上的JS" class="headerlink" title="试图替换页面上的JS"></a>试图替换页面上的JS</h2><p>没办法了，那就一个一个JS的看吧。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512123350.png" srcset="/img/loading.gif" lazyload alt="这啥啊？"></p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512123350.png" alt="这啥啊？"></p>
 <p>这么乱怎么读？那就先用工具规范一下格式</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512123528.png" srcset="/img/loading.gif" lazyload alt="舒服多了"></p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512123528.png" alt="舒服多了"></p>
 <p>先从第一个开始找吧，本来准备一个一个找，然而第一个脚本就出现了一些意想不到的东西。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512124131.png" srcset="/img/loading.gif" lazyload alt="找到的一些片段"></p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512124131.png" alt="找到的一些片段"></p>
 <p>将所有一眼就知道是检测的机制给替换成无意义的输出</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512124819.png" srcset="/img/loading.gif" lazyload alt="console.log(&quot;检测个屁&quot;)"></p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512124819.png" alt="console.log(&quot;检测个屁&quot;)"></p>
 <p>然后替换网页上原始的脚本</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512125220.png" srcset="/img/loading.gif" lazyload alt="居然成功了？"></p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512125220.png" alt="居然成功了？"></p>
 <p>似乎是成功了，不过脚本刷课自动切换的功能似乎失效。</p>
 <p>是在帮同学刷课，暂时手动切换，<del>今天先鸽了</del>，最近事情多是真的忙。</p>
 <hr>
 <p>20220518更新：到现在，GreasyFork上还在更新的脚本基本都实现了屏蔽检测的功能，可以直接下载使用。</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E7%89%A2%E9%AA%9A/">牢骚</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">在Mac上使用VS Code搭建轻量化C/C++开发环境</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/resolve-githubpages-CNAME-Hexo/">
-                        <span class="hidden-mobile">解决Hexo deploy到GithubPages时自定义域名失效的问题</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-              <!-- Comments -->
-              <article class="comments" id="comments" lazyload>
-                
-                  
-                
-                
-  <div id="valine"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#valine', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
-        var options = Object.assign(
-          {"appId":"167DfKpEhUNFAX1CObC7JMom-gzGzoHsz","appKey":"tLopTocNdfEsjXGGhPcTOgRA","path":"window.location.pathname","placeholder":"Enter Your Comments","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
-          {
-            el: "#valine",
-            path: window.location.pathname
-          }
-        )
-        new Valine(options);
-        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
-          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
-        })
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+</article>
 
 
-              </article>
-            
-          </article>
-        </div>
-      </div>
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/powerfullz">项目</a></li>
+         
+          <li><a href="/changelog">日志</a></li>
+        
+      </ul>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
 
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%B8%E7%88%AC%E6%BB%9A%E6%89%93"><span class="toc-number">1.</span> <span class="toc-text">摸爬滚打</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%95%E5%9B%BE%E6%9B%BF%E6%8D%A2%E9%A1%B5%E9%9D%A2%E4%B8%8A%E7%9A%84JS"><span class="toc-number">2.</span> <span class="toc-text">试图替换页面上的JS</span></a></li></ol>
     </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://l3zc.com/fuck-zhihuishu/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://l3zc.com/fuck-zhihuishu/&text=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://l3zc.com/fuck-zhihuishu/&is_video=false&description=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=尝试绕过智慧树对刷课脚本的检测&body=Check out this article: https://l3zc.com/fuck-zhihuishu/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://l3zc.com/fuck-zhihuishu/&title=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://l3zc.com/fuck-zhihuishu/&name=尝试绕过智慧树对刷课脚本的检测&description=&lt;p&gt;昨晚，也就是&lt;code&gt;2022-05-07&lt;/code&gt;晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测机制。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://l3zc.com/fuck-zhihuishu/&t=尝试绕过智慧树对刷课脚本的检测"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
   </div>
 </div>
-    
 
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
     
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <p>Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> / Theme: <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> </p> 
+    
+    2018-2022
+    L3ZC
   </div>
-  
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- LeanCloud 统计PV -->
-        <span id="leancloud-site-pv-container" style="display: none">
-            总访问量 
-            <span id="leancloud-site-pv"></span>
-             次
-          </span>
-      
-      
-        <!-- LeanCloud 统计UV -->
-        <span id="leancloud-site-uv-container" style="display: none">
-            总访客数 
-            <span id="leancloud-site-uv"></span>
-             人
-          </span>
-      
-
-    
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/powerfullz">项目</a></li><!--
+     --><!--
+       --><li><a href="/changelog">日志</a></li><!--
+     -->
+      </ul>
+    </nav>
   </div>
-
-
-  
-
-  
 </footer>
 
+    </div>
+    <!-- styles -->
 
-  <!-- SCRIPTS -->
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
   
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
     })
+  })
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script src="/js/main.js"></script>
 
-<!-- Plugins -->
+<!-- search -->
 
+<!-- Google Analytics -->
 
-  <script  src="/js/local-search.js" ></script>
+<!-- Baidu Analytics -->
 
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?3c805120e17e9a58f5775dfc78e7051a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
 
+<!-- Cloudflare Analytics -->
 
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
+<!-- Umami Analytics -->
 
+<!-- Disqus Comments -->
 
-
-  
-
-
-
-  
-    <script  src="https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
-  
-
-
-
-
-  <script defer src="/js/leancloud.js" ></script>
-
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?3c805120e17e9a58f5775dfc78e7051a";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
+<!-- utterances Comments -->
 
 </body>
 </html>
