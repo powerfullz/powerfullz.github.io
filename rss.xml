@@ -9,8 +9,41 @@
     <atom:link href="https://l3zc.com/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>且将新火试新茶，诗酒趁年华。</description>
-    <pubDate>Wed, 25 May 2022 11:35:37 GMT</pubDate>
+    <pubDate>Fri, 27 May 2022 13:57:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>在OpenWRT路由器上使用iptables对英雄联盟随机丢包</title>
+      <link>https://l3zc.com/use-iptables-to-ban-lol-in-dorm/</link>
+      <guid>https://l3zc.com/use-iptables-to-ban-lol-in-dorm/</guid>
+      <pubDate>Thu, 26 May 2022 15:34:25 GMT</pubDate>
+      
+      <description>&lt;p&gt;室友天天开黑，这就算了，还老是用外放，讲也讲不听，不得已，只能让他们打不爽，从根本上阻止他们开黑，还我寝室一个安静的环境，至少，让他们按时睡觉。&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>室友天天开黑，这就算了，还老是用外放，讲也讲不听，不得已，只能让他们打不爽，从根本上阻止他们开黑，还我寝室一个安静的环境，至少，让他们按时睡觉。</p><span id="more"></span><h2 id="寝室的网络环境"><a href="#寝室的网络环境" class="headerlink" title="寝室的网络环境"></a>寝室的网络环境</h2><h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><p>一台捡垃圾的小米CR6608，刷入了 OpenWRT ，承担我们寝室所有的网络流量，由于是一所垃圾大学，校园网限制一套餐一终端，寝室里又只有一个网络口，于是，大家都用我的套餐，整个寝室的网络控制权就落到了我的手里。</p><h3 id="室友上网的设备"><a href="#室友上网的设备" class="headerlink" title="室友上网的设备"></a>室友上网的设备</h3><p>三个室友都打英雄联盟，其中两个使用笔记本，一个是台式机，没有无线网卡，而且台式机恰巧是打的最凶的那位。</p><h2 id="决定采用的方案"><a href="#决定采用的方案" class="headerlink" title="决定采用的方案"></a>决定采用的方案</h2><p>首先，肯定不能彻底阻断寝室网络与英雄联盟服务器的连接，这样明显感知太强，容易被发现，其次由于另外两个室友都是笔记本电脑，发现丢包率太高肯定会开热点换移动网络，所以最终的方案确定为模仿GFW对网站随机丢包的干扰模式。</p><h2 id="具体行动"><a href="#具体行动" class="headerlink" title="具体行动"></a>具体行动</h2><p>首先先给每个室友分配静态的IP地址，原因看到后面你就知道了。</p><p>上网查找<a href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/4407290569747-Advanced-Connections-Troubleshooting-Guide">资料</a>，可以知道英雄联盟所使用的端口:</p><p><strong>List of ports to forward:</strong></p><table><thead><tr><th align="left">League of Legends Game Client</th><th>5000 - 5500 UDP</th></tr></thead><tbody><tr><td align="left">Patcher and Maestro</td><td>8393 - 8400 TCP</td></tr><tr><td align="left">PVP.Net</td><td>2099 TCP</td></tr><tr><td align="left">PVP.Net</td><td>5223 TCP</td></tr><tr><td align="left">PVP.Net</td><td>5222 TCP</td></tr><tr><td align="left">HTTP Connections</td><td>80 TCP</td></tr><tr><td align="left">HTTPS Connections</td><td>443 TCP</td></tr><tr><td align="left">Spectator Mode</td><td>8088 UDP and TCP</td></tr></tbody></table><p>向路由器的iptables里添加以下随机丢包的规则：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Block LOL</span></span><br><span class="line">iptables -I FORWARD -p udp --dport 5000:5500 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -p tcp --dport 8393:8400 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 2099 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5223 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5222 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5233 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 8088 -m statistic --mode random --probability 0.3 -j DROP </span><br></pre></td></tr></table></figure><p>生效后，室友打英雄联盟就会在校园网本就1%到5%丢包率的基础上增加30%的丢包率。经过室友的盲测反馈（我怎么可能会让室友知情呢？！）放技能总是放不出去，打的非常不爽。</p><p>但是这种方法似乎不适用于室友开加速器的情况，所以我们可以针对这种情况直接限制室友所有的流量，也就是说，不论室友的电脑发出什么数据包，都能享受到30%的丢包率，除非室友开热点，当然台式机是不可能的，这种方法就可以让所有的加速器都失效。前提是，室友的ip地址必须要提前确定，这也就是为什么需要提前给室友的电脑分配静态IP。</p><p>向路由器的iptables里添加以下规则</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Block specific roommate</span></span><br><span class="line">iptables -I FORWARD -s 你室友的内网ip -m statistic --mode random --probability 0.3 -j DROP</span><br><span class="line"><span class="comment"># 以此类推</span></span><br></pre></td></tr></table></figure><p>即可“照顾”室友所有的流量。</p><p>很好，现在每天11点我都会准时更新防火墙规则，至少让寝室安静一点。</p><h2 id="后期计划"><a href="#后期计划" class="headerlink" title="后期计划"></a>后期计划</h2><p>后续可能会写一个每天指定时间自动添加，自动删除iptables规则的脚本，实现应该相对容易。最近要期末考试，备考要紧。</p><p>其次可能会补充iptables的常用功能解说。</p>]]></content:encoded>
+      
+      
+      <category domain="https://l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <category domain="https://l3zc.com/tags/OpenWRT/">OpenWRT</category>
+      
+      <category domain="https://l3zc.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</category>
+      
+      <category domain="https://l3zc.com/tags/iptables/">iptables</category>
+      
+      <category domain="https://l3zc.com/tags/Linux/">Linux</category>
+      
+      <category domain="https://l3zc.com/tags/%E5%AF%9D%E5%AE%A4/">寝室</category>
+      
+      <category domain="https://l3zc.com/tags/%E7%BD%91%E7%BB%9C/">网络</category>
+      
+      
+      <comments>https://l3zc.com/use-iptables-to-ban-lol-in-dorm/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>为什么价格高昂的付费自习室能够在大学里存在</title>
@@ -32,9 +65,9 @@
       <category domain="https://l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
       
       
-      <category domain="https://l3zc.com/tags/%E5%A4%A7%E5%AD%A6/">大学</category>
-      
       <category domain="https://l3zc.com/tags/%E7%89%A2%E9%AA%9A/">牢骚</category>
+      
+      <category domain="https://l3zc.com/tags/%E5%A4%A7%E5%AD%A6/">大学</category>
       
       
       <comments>https://l3zc.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/#disqus_thread</comments>
@@ -57,11 +90,11 @@
       <category domain="https://l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
       
       
-      <category domain="https://l3zc.com/tags/%E6%8A%80%E6%9C%AF/">技术</category>
+      <category domain="https://l3zc.com/tags/%E6%91%B8%E7%B4%A2/">摸索</category>
       
       <category domain="https://l3zc.com/tags/%E5%A4%A7%E5%AD%A6/">大学</category>
       
-      <category domain="https://l3zc.com/tags/%E6%91%B8%E7%B4%A2/">摸索</category>
+      <category domain="https://l3zc.com/tags/%E6%8A%80%E6%9C%AF/">技术</category>
       
       <category domain="https://l3zc.com/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
       
