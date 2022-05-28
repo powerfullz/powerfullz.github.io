@@ -230,7 +230,35 @@
   </div>
 </article>
 
-
+    <div class="blog-post-comments">
+      <section id="comment">
+        <div id="valine_container" class="valine_thread"></div>
+      </section>
+      <script src="https://unpkg.com/leancloud-storage@4.12.0/dist/av-min.js"></script>
+      <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+      <script>
+        var GUEST_INFO = ["nick", "mail", "link"];
+        var guest_info = "nick,mail,link"
+          .split(",")
+          .filter(function (item) {
+            return GUEST_INFO.indexOf(item) > -1;
+          });
+        var valine = new Valine();
+        valine.init({
+          el: "#valine_container",
+          appId: "167DfKpEhUNFAX1CObC7JMom-gzGzoHsz",
+          appKey: "tLopTocNdfEsjXGGhPcTOgRA",
+          placeholder: "Enter your Comments",
+          pageSize: "15",
+          avatar: "mp",
+          lang: "zh-cn",
+          requiredField: ['nick'],
+          // 表情title和图片映射
+        });
+      </script>
+    </div>
+    
+    
 
         
           <div id="footer-post-container">
@@ -362,11 +390,5 @@
 
 <!-- Umami Analytics -->
 
-<!-- Disqus Comments -->
-
-<!-- utterances Comments -->
-
-
-  
 </body>
 </html>
