@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220709153914893.webp">
 <meta property="og:image" content="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220709154219470.webp">
 <meta property="article:published_time" content="2022-07-09T06:55:10.000Z">
-<meta property="article:modified_time" content="2022-07-09T14:23:45.216Z">
+<meta property="article:modified_time" content="2022-07-09T14:56:44.638Z">
 <meta property="article:author" content="L3ZC">
 <meta property="article:tag" content="iPhone">
 <meta property="article:tag" content="优化">
@@ -123,7 +123,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E8%B5%84%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">查找资料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Continue-Foreground-Work-in-the-Background"><span class="toc-number">1.1.</span> <span class="toc-text">Continue Foreground Work in the Background</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Defer-Intensive-Work"><span class="toc-number">1.2.</span> <span class="toc-text">Defer Intensive Work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-Your-App%E2%80%99s-Content"><span class="toc-number">1.3.</span> <span class="toc-text">Update Your App’s Content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wake-Your-App-with-a-Background-Push"><span class="toc-number">1.4.</span> <span class="toc-text">Wake Your App with a Background Push</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Request-Background-Time-and-Notify-the-User"><span class="toc-number">1.5.</span> <span class="toc-text">Request Background Time and Notify the User</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%80%E5%90%8E%E5%8F%B0%E6%98%AF%E5%90%A6%E6%9C%89%E5%8A%A9%E4%BA%8E%E6%8F%90%E5%8D%87%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">杀后台是否有助于提升使用体验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E8%B5%84%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">查找资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%80%E5%90%8E%E5%8F%B0%E6%98%AF%E5%90%A6%E6%9C%89%E5%8A%A9%E4%BA%8E%E6%8F%90%E5%8D%87%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">杀后台是否有助于提升使用体验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -149,7 +149,7 @@
       
         <time datetime="2022-07-09T06:55:10.000Z" itemprop="datePublished">2022-07-09</time>
         
-        (Updated: <time datetime="2022-07-09T14:23:45.216Z" itemprop="dateModified">2022-07-09</time>)
+        (Updated: <time datetime="2022-07-09T14:56:44.638Z" itemprop="dateModified">2022-07-09</time>)
         
       
     </div>
@@ -191,11 +191,16 @@
 </blockquote>
 <p>苹果不会也不能一刀切死后台，相反，苹果举了五种场景的例子。</p>
 <ul>
-<li><h3 id="Continue-Foreground-Work-in-the-Background"><a href="#Continue-Foreground-Work-in-the-Background" class="headerlink" title="Continue Foreground Work in the Background"></a>Continue Foreground Work in the Background</h3></li>
-<li><h3 id="Defer-Intensive-Work"><a href="#Defer-Intensive-Work" class="headerlink" title="Defer Intensive Work"></a>Defer Intensive Work</h3></li>
-<li><h3 id="Update-Your-App’s-Content"><a href="#Update-Your-App’s-Content" class="headerlink" title="Update Your App’s Content"></a>Update Your App’s Content</h3></li>
-<li><h3 id="Wake-Your-App-with-a-Background-Push"><a href="#Wake-Your-App-with-a-Background-Push" class="headerlink" title="Wake Your App with a Background Push"></a>Wake Your App with a Background Push</h3></li>
-<li><h3 id="Request-Background-Time-and-Notify-the-User"><a href="#Request-Background-Time-and-Notify-the-User" class="headerlink" title="Request Background Time and Notify the User"></a>Request Background Time and Notify the User</h3></li>
+<li><p>Continue Foreground Work in the Background</p>
+</li>
+<li><p>Defer Intensive Work</p>
+</li>
+<li><p>Update Your App’s Content</p>
+</li>
+<li><p>Wake Your App with a Background Push</p>
+</li>
+<li><p>Request Background Time and Notify the User</p>
+</li>
 </ul>
 <p>针对这五种场景，苹果设计了多样且易于使用的 API 来满足不同的需求，在默认情况下，当一个 App 进入后台时，系统会给 App 最多5秒的时间来进行回写数据等操作，随后系统便会将这个 App 挂起（Suspend），5秒的时间对于大多数 App 来说已经足够。当 App 需要在后台完成更多操作时，可以参照苹果给出的 5种场景设计 App 的后台策略。例如：一个新闻类 App 可以在收到新闻时被系统唤醒到后台接收这则新闻，调用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></a>，App 便可以取得至多 30 秒的时间完成接收新闻的操作。同时，App 完成操作后必须要调用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/uiapplication/1622970-endbackgroundtask"><code>endBackgroundTask(_:)</code></a> 以告知系统自己完成了操作。否则在超过30秒后，系统便会杀死（Kill） App 的进程。得益于 AppStore 严格的审核，上架的 App 基本都经过了规范的编写。</p>
 <p>又例如：某网盘需要备份用户今天新拍摄的照片，这是一个密集且工作量大的工作（不知道怎么翻译，原文是 Intensive Works），那么调用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/backgroundtasks/bgprocessingtask"><code>BGProcessingTask</code></a>以计划一个备份工作，系统会自动根据用户充电的时段、睡觉的时段等信息训练出来的模型自动选择最佳的时段来执行计划好的 Intensive Works。</p>
@@ -258,7 +263,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E8%B5%84%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">查找资料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Continue-Foreground-Work-in-the-Background"><span class="toc-number">1.1.</span> <span class="toc-text">Continue Foreground Work in the Background</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Defer-Intensive-Work"><span class="toc-number">1.2.</span> <span class="toc-text">Defer Intensive Work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-Your-App%E2%80%99s-Content"><span class="toc-number">1.3.</span> <span class="toc-text">Update Your App’s Content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wake-Your-App-with-a-Background-Push"><span class="toc-number">1.4.</span> <span class="toc-text">Wake Your App with a Background Push</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Request-Background-Time-and-Notify-the-User"><span class="toc-number">1.5.</span> <span class="toc-text">Request Background Time and Notify the User</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%80%E5%90%8E%E5%8F%B0%E6%98%AF%E5%90%A6%E6%9C%89%E5%8A%A9%E4%BA%8E%E6%8F%90%E5%8D%87%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">杀后台是否有助于提升使用体验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E8%B5%84%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">查找资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%80%E5%90%8E%E5%8F%B0%E6%98%AF%E5%90%A6%E6%9C%89%E5%8A%A9%E4%BA%8E%E6%8F%90%E5%8D%87%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">杀后台是否有助于提升使用体验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
