@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>同时发布三个版本的站点？我的博客工作流及对每个版本的优化方案</title>
+      <link href="/my-blog-workflow/"/>
+      <url>/my-blog-workflow/</url>
+      
+        <content type="html"><![CDATA[<p><del>众所周知，我闲的蛋疼</del>为了对比不同的博客系统并找出最适合我的那一个，我的博客设立了三个版本，一个是 Hexo、一个 是Typecho、一个是Wordpress。这三个版本的博客各有特点，写作和发布文章的方式是各有千秋，功能的多少和轻重也互不相同。因此，尽可能的减少文章“移植”到不同的博客系统的工作量成为了刚需。</p><span id="more"></span><h2 id="用-Markdown-写作"><a href="#用-Markdown-写作" class="headerlink" title="用 Markdown 写作"></a>用 Markdown 写作</h2><p>自从第一次使用 Hexo 搭建博客而第一次使用 Markdown 写作以来，我的写作变从未离开过 Markdown。不光不需要考虑排版的问题，不需要时不时就操作一下鼠标的感觉体验过了就真的离不开。再者，我还在使用 Hexo 作为我的一套博客框架，必须使用 Markdown 写作，写好的 Markdown 直接发布在 Hexo 博客上，不需要任何的二次修改。因此，肯定是用 Markdown 写作了。在确定了写作的主题后，我会用 Hexo 生成一个 Markdown 文件。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/hexo_generate.webp" alt="用Hexo生成一个Markdown文件"></p><p>之后，我会使用 Typora 编辑这份 Markdown 文件，写好文章。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220712151727345.webp" alt="用Typora编辑Markdown文件"></p><h2 id="发布到-Hexo"><a href="#发布到-Hexo" class="headerlink" title="发布到 Hexo"></a>发布到 Hexo</h2><p>文章写好以后，下面就是刻进骨子里的操作:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">hexo g</span><br><span class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>直接将文章发布到 Hexo 博客。为什么在有了 Typecho 以后我还是在使用看上去不那么方便的 Hexo？就像 Markdown，只要配置得当，Hexo 对 Markdown （Github Flavoured Markdown）近乎完美的支持可以让我更专注于写博客本身，不需要考虑任何关于格式方面的问题。</p><h2 id="发布到-Typecho"><a href="#发布到-Typecho" class="headerlink" title="发布到 Typecho"></a>发布到 Typecho</h2><p>现在还是相对简单的部分。Typecho 虽然支持 Markdown，但对于 Github Flavoured Markdown 支持的程度显然没有 Hexo 好，例如<code>- [x]</code>在使用 Hexo 时就可以正确渲染，但 Typecho 就不能识别。这时我们便不得不用 HTML 替换掉原本的 Markdown 代码。</p><ul><li><input checked="" disabled="" type="checkbox"> 这里我使用了 Markdown</li></ul><p>要是你在<a href="https://typecho.l3zc.com/">黑土地</a>看这篇文章，你可能会发现上面的 Checkbox 并没有被正确渲染，如果直接以 HTML 代码替换掉这个 Checkbox，显示的效果如下：</p><ul><li><input checked="" disabled="" type="checkbox"> 这里我使用了 HTML</li></ul><p>替换好以后文章方可正常显示。</p><h2 id="发布到-Wordpress"><a href="#发布到-Wordpress" class="headerlink" title="发布到 Wordpress"></a>发布到 Wordpress</h2><p>Wordpress 的编辑器真的是个大麻烦。不光默认没有代码高亮，也是个连 Markdown 都不支持的东西。不过好在 Wordpress 的编辑器支持插入自定义的 HTML 内容。经过简单的尝试，在将 Markdown 文章转换成 HTML 格式直接粘贴在 Wordpress 的 HTML 内容编辑器后切换回可视化编辑器会直接变为 Wordpress 经典编辑器，这使得我想要进一步编辑文章添加一些 Wordpress 特有的区块时很不方便。所以，在 Typora 里直接复制文章粘贴到 Wordpress 的默认编辑器里，随后更改渲染错误的地方替换为自定义 HTML 代码块。</p><h2 id="对-Typecho-和-Wordpress-的小修小补"><a href="#对-Typecho-和-Wordpress-的小修小补" class="headerlink" title="对 Typecho 和 Wordpress 的小修小补"></a>对 Typecho 和 Wordpress 的小修小补</h2><p>你可能会注意到，我写文章的时候时常需要添加代码块和 Mermaid 流程图，<a href="https://github.com/probberechts/hexo-theme-cactus">hexo-theme-cactus</a>自带代码高亮，而我又通过修改主题加入了<a href="https://github.com/mermaid-js/mermaid">mermaid.js</a>，但 Typecho 和 Wordpress 默认都无上述两个功能。为了尽可能的减少文章“移植”到不同的博客系统的工作量，我对这俩货进行了一些小修小补。</p><h3 id="Wordpress"><a href="#Wordpress" class="headerlink" title="Wordpress"></a>Wordpress</h3><p>我采用的 Wordpress 主题是 <a href="https://github.com/yrccondor/mdx">MDx</a>，并不带有代码高亮功能，因此我使用了 <a href="https://github.com/EnlighterJS/EnlighterJS">enlighter.js</a> 官方提供的 Wordpress 插件。安装这个插件后，Wordpress 编辑器里会多出一种名叫 Enlighter 的区块，使用它作为代码的载体即可实现代码高亮的功能。这款插件提供的自定义样式选项不足，这个区块本身的样式又过于棱角分明，与 MDx 圆润的边角格格不入。好在这款插件的 CSS 文件能够被找到，只要学过 CSS ，修改出一个圆润的边角也不是什么难事。</p><p>打开博客的安装目录，找到<code>/wp-content/plugins/enlighter/resources/enlighterjs</code>里的<code>enlightenjs.min.css</code>文件，编辑这个文件，找到其中的<code>enlighter-default</code>类，修改<code>padding</code>参数为<code>10px</code>，添加<code>border-radius</code>参数为<code>10px</code>后保存，就可以得到一个圆润的高亮代码块。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220712230431707.webp" alt="image-20220712230431707"></p><p>说到 Mermaid，虽然 Wordpress 原生不自带 Mermaid，但只要装一个插件就能实现支持 Mermaid 流程图，直接在 Wordpress 的应用商店里搜索 Mermaid 即可。</p><h3 id="Typecho"><a href="#Typecho" class="headerlink" title="Typecho"></a>Typecho</h3><p>我采用的 Typecho 主题是 <a href="https://github.com/txperl/Story-for-Typecho">Story</a>，代码高亮功能是自带的，但很遗憾，Typecho 并不支持 Mermaid，同时我似乎没有找到为Typecho 添加 Mermaid 的插件。这意味着我们只能自己去添加这个功能。</p><p>给我等着，我先去学一会 PHP，这事没完！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+            <tag> 工作流 </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Typora </tag>
+            
+            <tag> HTML </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制</title>
       <link href="/do-i-need-to-force-kill-apps-on-iphone/"/>
       <url>/do-i-need-to-force-kill-apps-on-iphone/</url>
