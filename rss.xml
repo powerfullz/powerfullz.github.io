@@ -4,9 +4,9 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>L3ZC</title>
-    <link>https://l3zc.com/</link>
+    <link>https://hexo.l3zc.com/</link>
     
-    <atom:link href="https://l3zc.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://hexo.l3zc.com/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>且将新火试新茶</description>
     <pubDate>Fri, 15 Jul 2022 09:54:02 GMT</pubDate>
@@ -14,8 +14,8 @@
     
     <item>
       <title>同时发布三个版本的站点？我的博客工作流及对每个版本的优化方案</title>
-      <link>https://l3zc.com/my-blog-workflow/</link>
-      <guid>https://l3zc.com/my-blog-workflow/</guid>
+      <link>https://hexo.l3zc.com/my-blog-workflow/</link>
+      <guid>https://hexo.l3zc.com/my-blog-workflow/</guid>
       <pubDate>Tue, 12 Jul 2022 06:34:06 GMT</pubDate>
       
       <description>&lt;p&gt;&lt;del&gt;众所周知，我闲的蛋疼&lt;/del&gt;为了对比不同的博客系统并找出最适合我的那一个，我的博客设立了三个版本，一个是 Hexo、一个 是Typecho、一个是Wordpress。这三个版本的博客各有特点，写作和发布文章的方式是各有千秋，功能的多少和轻重也互不相同。因此，尽可能的减少文章“移植”到不同的博客系统的工作量成为了刚需。&lt;/p&gt;</description>
@@ -25,28 +25,28 @@
       <content:encoded><![CDATA[<p><del>众所周知，我闲的蛋疼</del>为了对比不同的博客系统并找出最适合我的那一个，我的博客设立了三个版本，一个是 Hexo、一个 是Typecho、一个是Wordpress。这三个版本的博客各有特点，写作和发布文章的方式是各有千秋，功能的多少和轻重也互不相同。因此，尽可能的减少文章“移植”到不同的博客系统的工作量成为了刚需。</p><span id="more"></span><h2 id="用-Markdown-写作"><a href="#用-Markdown-写作" class="headerlink" title="用 Markdown 写作"></a>用 Markdown 写作</h2><p>自从第一次使用 Hexo 搭建博客而第一次使用 Markdown 写作以来，我的写作变从未离开过 Markdown。不光不需要考虑排版的问题，不需要时不时就操作一下鼠标的感觉体验过了就真的离不开。再者，我还在使用 Hexo 作为我的一套博客框架，必须使用 Markdown 写作，写好的 Markdown 直接发布在 Hexo 博客上，不需要任何的二次修改。因此，肯定是用 Markdown 写作了。在确定了写作的主题后，我会用 Hexo 生成一个 Markdown 文件。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/hexo_generate.webp" alt="用Hexo生成一个Markdown文件"></p><p>之后，我会使用 Typora 编辑这份 Markdown 文件，写好文章。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220712151727345.webp" alt="用Typora编辑Markdown文件"></p><h2 id="发布到-Hexo"><a href="#发布到-Hexo" class="headerlink" title="发布到 Hexo"></a>发布到 Hexo</h2><p>文章写好以后，下面就是刻进骨子里的操作:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">hexo g</span><br><span class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>直接将文章发布到 Hexo 博客。为什么在有了 Typecho 以后我还是在使用看上去不那么方便的 Hexo？就像 Markdown，只要配置得当，Hexo 对 Markdown （Github Flavoured Markdown）近乎完美的支持可以让我更专注于写博客本身，不需要考虑任何关于格式方面的问题。</p><h2 id="发布到-Typecho"><a href="#发布到-Typecho" class="headerlink" title="发布到 Typecho"></a>发布到 Typecho</h2><p>现在还是相对简单的部分。Typecho 虽然支持 Markdown，但对于 Github Flavoured Markdown 支持的程度显然没有 Hexo 好，例如<code>- [x]</code>在使用 Hexo 时就可以正确渲染，但 Typecho 就不能识别。这时我们便不得不用 HTML 替换掉原本的 Markdown 代码。</p><ul><li><input checked="" disabled="" type="checkbox"> 这里我使用了 Markdown</li></ul><p>要是你在<a href="https://typecho.l3zc.com/">黑土地</a>看这篇文章，你可能会发现上面的 Checkbox 并没有被正确渲染，如果直接以 HTML 代码替换掉这个 Checkbox，显示的效果如下：</p><ul><li><input checked="" disabled="" type="checkbox"> 这里我使用了 HTML</li></ul><p>替换好以后文章方可正常显示。</p><h2 id="发布到-Wordpress"><a href="#发布到-Wordpress" class="headerlink" title="发布到 Wordpress"></a>发布到 Wordpress</h2><p>Wordpress 的编辑器真的是个大麻烦。不光默认没有代码高亮，也是个连 Markdown 都不支持的东西。不过好在 Wordpress 的编辑器支持插入自定义的 HTML 内容。经过简单的尝试，在将 Markdown 文章转换成 HTML 格式直接粘贴在 Wordpress 的 HTML 内容编辑器后切换回可视化编辑器会直接变为 Wordpress 经典编辑器，这使得我想要进一步编辑文章添加一些 Wordpress 特有的区块时很不方便。所以，在 Typora 里直接复制文章粘贴到 Wordpress 的默认编辑器里，随后更改渲染错误的地方替换为自定义 HTML 代码块。</p><h2 id="对-Typecho-和-Wordpress-的小修小补"><a href="#对-Typecho-和-Wordpress-的小修小补" class="headerlink" title="对 Typecho 和 Wordpress 的小修小补"></a>对 Typecho 和 Wordpress 的小修小补</h2><p>你可能会注意到，我写文章的时候时常需要添加代码块和 Mermaid 流程图，<a href="https://github.com/probberechts/hexo-theme-cactus">hexo-theme-cactus</a>自带代码高亮，而我又通过修改主题加入了<a href="https://github.com/mermaid-js/mermaid">mermaid.js</a>，但 Typecho 和 Wordpress 默认都无上述两个功能。为了尽可能的减少文章“移植”到不同的博客系统的工作量，我对这俩货进行了一些小修小补。</p><h3 id="Wordpress"><a href="#Wordpress" class="headerlink" title="Wordpress"></a>Wordpress</h3><p>我采用的 Wordpress 主题是 <a href="https://github.com/yrccondor/mdx">MDx</a>，并不带有代码高亮功能，因此我使用了 <a href="https://github.com/EnlighterJS/EnlighterJS">enlighter.js</a> 官方提供的 Wordpress 插件。安装这个插件后，Wordpress 编辑器里会多出一种名叫 Enlighter 的区块，使用它作为代码的载体即可实现代码高亮的功能。这款插件提供的自定义样式选项不足，这个区块本身的样式又过于棱角分明，与 MDx 圆润的边角格格不入。好在这款插件的 CSS 文件能够被找到，只要学过 CSS ，修改出一个圆润的边角也不是什么难事。</p><p>打开博客的安装目录，找到<code>/wp-content/plugins/enlighter/resources/enlighterjs</code>里的<code>enlightenjs.min.css</code>文件，编辑这个文件，找到其中的<code>enlighter-default</code>类，修改<code>padding</code>参数为<code>10px</code>，添加<code>border-radius</code>参数为<code>10px</code>后保存，就可以得到一个圆润的高亮代码块。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220712230431707.webp" alt="image-20220712230431707"></p><p>说到 Mermaid，虽然 Wordpress 原生不自带 Mermaid，但只要装一个插件就能实现支持 Mermaid 流程图，直接在 Wordpress 的应用商店里搜索 Mermaid 即可。</p><h3 id="Typecho"><a href="#Typecho" class="headerlink" title="Typecho"></a>Typecho</h3><p>我采用的 Typecho 主题是 <a href="https://github.com/txperl/Story-for-Typecho">Story</a>，代码高亮功能是自带的，但很遗憾，Typecho 并不支持 Mermaid，同时我似乎没有找到为Typecho 添加 Mermaid 的插件。这意味着我们只能自己去添加这个功能。</p><p>给我等着，我先去学一会 PHP，这事没完！</p>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
       
       
-      <category domain="https://l3zc.com/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
       
-      <category domain="https://l3zc.com/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">工作流</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">工作流</category>
       
-      <category domain="https://l3zc.com/tags/Markdown/">Markdown</category>
+      <category domain="https://hexo.l3zc.com/tags/Markdown/">Markdown</category>
       
-      <category domain="https://l3zc.com/tags/HTML/">HTML</category>
+      <category domain="https://hexo.l3zc.com/tags/CSS/">CSS</category>
       
-      <category domain="https://l3zc.com/tags/CSS/">CSS</category>
+      <category domain="https://hexo.l3zc.com/tags/HTML/">HTML</category>
       
       
-      <comments>https://l3zc.com/my-blog-workflow/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/my-blog-workflow/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制</title>
-      <link>https://l3zc.com/do-i-need-to-force-kill-apps-on-iphone/</link>
-      <guid>https://l3zc.com/do-i-need-to-force-kill-apps-on-iphone/</guid>
+      <link>https://hexo.l3zc.com/do-i-need-to-force-kill-apps-on-iphone/</link>
+      <guid>https://hexo.l3zc.com/do-i-need-to-force-kill-apps-on-iphone/</guid>
       <pubDate>Sat, 09 Jul 2022 06:55:10 GMT</pubDate>
       
       <description>&lt;p&gt;从安卓手机换到 iPhone 就想要改掉清理后台的习惯，查阅了一些资料，知道 iOS 后台机制不需要用户介入，在使用中也实行了这一点，奈何心里总有幽灵作祟，总是会感觉到不清理后台续航会降低，手机会发热，进而管不住清后台的手。&lt;/p&gt;</description>
@@ -56,24 +56,24 @@
       <content:encoded><![CDATA[<p>从安卓手机换到 iPhone 就想要改掉清理后台的习惯，查阅了一些资料，知道 iOS 后台机制不需要用户介入，在使用中也实行了这一点，奈何心里总有幽灵作祟，总是会感觉到不清理后台续航会降低，手机会发热，进而管不住清后台的手。</p><span id="more"></span><blockquote><p>Let me be as clear as I can be: <strong>the iOS multitasking bar does not contain “a list of all running apps”. It contains “a list of recently used apps”. The user never has to manage background tasks on iOS.</strong></p><p>Fraser Speirs</p></blockquote><p>在网上搜索到的大部分中文内容会引用 Fraser Speirs 在他的一篇博客里很明确的指出的内容：iOS 的 Multitasking bar 实际上是 A list of recently used apps，所以，你不需要清理后台。但当我顺藤摸瓜找到这篇博客的原文时，却发现这篇博客发表时间在 2012 年。10 年过去了，我已经从四年级一路读到大二，这篇文章的内容自然是经不住沧海桑田，早已过时，我早已不是原来那个我，这位作者的网站也早已不是从前的网站，只能通过 Web Archieve 看到它昔日的荣光，苹果则更不是以前那个特立独行的苹果，情况早已发生了微妙的变化，苹果早就加入了各式各样的后台机制。这就衍生出了两个问题，苹果的后台机制是否真的会影响 iPhone 的续航和发热？杀后台是否有助于提升使用体验？</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220709153914893.webp" alt="一篇引用Fraser Speirs的文章"></p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220709154219470.webp" alt="Wayback Machine里的原文"></p><p>有趣的是，作者在某个时候关闭并存档了他的博客，在他的存档里却并未出现这篇文章，这意味着作者可能刻意删除了它。既然这种流传已久的说法是基于一篇早已过时的文章，结果自然是不可信的，根据这篇文章得出结论，是一个不负责任的营销号行为，我能做的唯有查找更新的资料以及亲身实践。</p><h2 id="查找资料"><a href="#查找资料" class="headerlink" title="查找资料"></a>查找资料</h2><blockquote><p>Some apps perform work for a short time while in the foreground and must continue uninterrupted if they go to the background. Other apps defer that work to perform in the background at a later time or even at night while the device charges. And some apps need background processing time at varied and unpredictable times, such as when an external event or message arrives.</p><p>Apple Developer Docs</p></blockquote><p>苹果不会也不能一刀切死后台，相反，针对不同应用对后台运行的需求，苹果举了五种场景的例子。</p><ul><li><p>Continue Foreground Work in the Background</p></li><li><p>Defer Intensive Work</p></li><li><p>Update Your App’s Content</p></li><li><p>Wake Your App with a Background Push</p></li><li><p>Request Background Time and Notify the User</p></li></ul><p>为了用户体验，苹果对应用的后台限制非常严格。针对这五种场景，苹果设计了多样且易于使用的 API 来满足不同的需求，在默认情况下，当一个 App 进入后台时，系统会给 App 最多5秒的时间来进行回写数据等操作，随后系统便会将这个 App 挂起（Suspend），5秒的时间对于大多数 App 来说已经足够。当 App 需要在后台完成更多操作时，可以参照苹果给出的 5种场景设计 App 的后台策略。例如：一个新闻类 App 可以在收到新闻时被系统唤醒到后台接收这则新闻，调用<a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></a>，App 便可以取得至多 30 秒的时间完成接收新闻的操作。同时，App 完成操作后必须要调用<a href="https://developer.apple.com/documentation/uikit/uiapplication/1622970-endbackgroundtask"><code>endBackgroundTask(_:)</code></a> 以告知系统自己完成了操作。否则在超过30秒后，系统便会杀死（Kill） App 的进程。得益于 AppStore 严格的审核，上架的 App 基本都经过了规范的编写。</p><p>又例如：某网盘需要备份用户今天新拍摄的照片，这是一个密集且工作量大的工作（不知道怎么翻译，原文是 Intensive Works），那么调用<a href="https://developer.apple.com/documentation/backgroundtasks/bgprocessingtask"><code>BGProcessingTask</code></a>以计划一个备份工作，系统会自动根据用户充电的时段、睡觉的时段等信息训练出来的模型自动选择最佳的时段来执行计划好的 Intensive Works。</p><blockquote><p>Schedule these types of background tasks using <a href="https://developer.apple.com/documentation/backgroundtasks/bgprocessingtask"><code>BGProcessingTask</code></a>, and the system decides the best time to launch your background task.</p></blockquote><p>如你所见，得益于苹果给开发者提供的一套强大易用的 API 以及 AppStore 对于应用在上架前严格的审核，iOS 的后台机制在保持对应用严格限制的情况下却没有增加开发难度，在开发文档里，出现的最频繁的一句话是。</p><blockquote><p>The system decides the best time to launch your task.</p></blockquote><p>苹果将自己用心开发的优质 API 提供给开发者，这些 API 看似简单，实则需要有大量的技术沉淀，看似简单的“选择最佳时间”，背后却充斥着大量的机器学习算法，既然开发者直接调用现成优质的 API 就能将用户体验提升几个层级，那么何乐而不为呢？在同一个开发者付出相同的工作量的情况下，开发 iPhone App 能够实现同功能 Andriod App 高出几个层次的质量，这也难怪早期 iPhone 在抢占市场份额时，App Store 能够在审核如此严格，抽成如此高的情况下涌现大量优质应用。AppStore 里应用调用后台的规范程度也就不必多言了。完全可以像谷歌一样用1倍的努力把体验做到90分，却还是要花10倍的努力把体验做到极致，这很苹果。</p><h2 id="杀后台是否有助于提升使用体验？"><a href="#杀后台是否有助于提升使用体验？" class="headerlink" title="杀后台是否有助于提升使用体验？"></a>杀后台是否有助于提升使用体验？</h2><p>我们已经知晓苹果的后台机制是十分智能的，可后台机制再智能也依旧有失灵的时候。这就是第二个问题，杀后台是否有助于提升使用体验？</p><p>可以说，除了能让心里更好受，以及可能在这几个咖喱味十足的iOS版本提升滑动桌面的顺滑度以外，杀后台无助于提升使用体验，甚至会降低使用体验。</p><blockquote><p>滑动关闭后台应用程序可能会降低iPhone的续航时间，除非是无响应的情况，否则不应该强制关闭应用。</p><p>Craig Federighi</p></blockquote><p>当应用程序被从“后台”划掉，其会被移出RAM，这样，应用程序将不会再运行。按照苹果的逻辑，前面所提到的一系列智能的后台机制都不会运作。不仅如此，重新从闪存载入APP会增加电量的消耗且徒增发热，比从直接从RAM“解冻”APP更加费时。这么一看，Craig说的是不是很有道理？是的，在Craig所处的环境里，这句话绝对可以称得上是“金玉良言”。</p><p>可惜在中国，情况有些许不同。第一种情况是流氓应用，以中国第一产品经理的微信为例，在之前很长一段时间里（可能现在也是）微信会通过某种手段尽可能延长自己的后台存活时间，甚至于后台活动超过前台使用的时间。这自然会使耗电量增加。从后台列表，准确的说，是最近使用的应用列表强行杀掉微信，的确可以避免这种情况的发生。但微信在国内的地位不必我多说，从后台划掉微信会大幅增加微信的启动时长，每次打开微信看到“连接中……收取中”转圈转个老半天可比耗电更烦人。再者，没有人会希望为了省电而错过女朋友或者上司只打一次的微信电话。这种时候，停用微信的后台刷新可能是一个更好的选择。类似的情况发生在国内被墙的服务上，在没有代理的情况下，除非开发者专门对此作过优化，国内被封锁的服务、应用会出现一个较为尴尬的问题：按照计划，这些应用需要更新内容，但因遭到GFW的封锁，一直收不到服务器的回应，于是一直运行，直到触发系统的时间限制。前面已经提到过，这种情况下，APP会被系统“杀死”。对于第二种情况，解决方法有二：一是做好分流，24小时挂代理。二是和微信一样，停用这些应用的后台刷新。但无论如何，不要从后台直接杀死这些应用，因为直接杀死这些应用造成的体验远比耗电更糟。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/IMG_BF6525BCB5C1-1.webp" alt="QQ微信大量的后台时间"></p><h2 id="写个总结"><a href="#写个总结" class="headerlink" title="写个总结"></a>写个总结</h2><p>在写这篇文章时，我发现，越是写下去，越是背离了写这篇文章的初衷，即“提升使用体验”。技术为人文服务，智能手机归根结底只是我们手边的一个工具，与其费尽心机省电，不如按照自己觉得舒服的方式使用手机。耗电也好，卡顿也好，都由技术的进步解决。我们可以因兴趣使然研究这些技术问题，但绝不能让这些技术问题成为我们生活的全部，放下手机，放下这些技术问题，我们还有很多更有意义的事可以做，很多人可以聚，很多地方可以去玩。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><p><a href="https://developer.apple.com/documentation/backgroundtasks/choosing_background_strategies_for_your_app">Choosing Background Strategies for Your App</a></p></li><li><p><a href="https://developer.apple.com/documentation/backgroundtasks">Background Tasks</a></p></li><li><p><a href="https://developer.apple.com/documentation/uikit/uiapplication/1623051-beginbackgroundtask">beginBackgroundTask(withName:expirationHandler:)</a></p></li><li><p><a href="https://developer.apple.com/documentation/uikit/app_and_environment/scenes/preparing_your_ui_to_run_in_the_background/extending_your_app_s_background_execution_time">Extending Your App’s Background Execution Time </a></p></li><li><p><a href="https://developer.apple.com/videos/play/wwdc2019/707">WWDC2019: Advances in App Background Execution</a></p></li><li><p><a href="https://apple.stackexchange.com/questions/252239/do-ios-apps-run-in-the-background">Do iOS apps run in the background?</a></p></li><li><p><a href="https://web.archive.org/web/20190403181657/http://www.speirs.org/blog/2012/1/2/misconceptions-about-ios-multitasking.html">Misconceptions About iOS Multitasking</a></p></li><li><p><a href="https://peroty.com/blog/wrote-about/ios-multitasking-misconception/">iOS Multitasking Misconception</a></p></li></ol>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
       
       
-      <category domain="https://l3zc.com/tags/iPhone/">iPhone</category>
+      <category domain="https://hexo.l3zc.com/tags/iPhone/">iPhone</category>
       
-      <category domain="https://l3zc.com/tags/%E4%BC%98%E5%8C%96/">优化</category>
+      <category domain="https://hexo.l3zc.com/tags/%E4%BC%98%E5%8C%96/">优化</category>
       
-      <category domain="https://l3zc.com/tags/%E6%B1%82%E8%AF%81/">求证</category>
+      <category domain="https://hexo.l3zc.com/tags/%E6%B1%82%E8%AF%81/">求证</category>
       
       
-      <comments>https://l3zc.com/do-i-need-to-force-kill-apps-on-iphone/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/do-i-need-to-force-kill-apps-on-iphone/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Wordpress？Typecho？还是Hexo？哪个博客系统适合我？</title>
-      <link>https://l3zc.com/comparison-of-different-blog-systems/</link>
-      <guid>https://l3zc.com/comparison-of-different-blog-systems/</guid>
+      <link>https://hexo.l3zc.com/comparison-of-different-blog-systems/</link>
+      <guid>https://hexo.l3zc.com/comparison-of-different-blog-systems/</guid>
       <pubDate>Mon, 04 Jul 2022 09:28:43 GMT</pubDate>
       
       <description>&lt;p&gt;最近拿到了 Azure 的学生服务器，Hexo 缺少好看而功能完备的主题，于是我开始筹建我的动态博客网站。我将分别使用我所提到的博客系统一段时间，看哪一个更适合。&lt;/p&gt;</description>
@@ -83,26 +83,26 @@
       <content:encoded><![CDATA[<p>最近拿到了 Azure 的学生服务器，Hexo 缺少好看而功能完备的主题，于是我开始筹建我的动态博客网站。我将分别使用我所提到的博客系统一段时间，看哪一个更适合。</p><span id="more"></span><p>我不想把这篇文章写成维基百科，所以我尽量的只讲我的体验和理解，你可以很容易的在网上查到这些博客框架的相关资料。</p><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul><li>直接生成静态网站，轻便，稳定，快速</li><li>原生支持Markdown</li><li>方便托管，可以托管在如Github Pages等平台上节省服务器费用</li></ul><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul><li>静态网站没有后台，不方便管理</li><li>很难实现跨设备编辑，除非部署Github自动化等</li><li>插入图片比较困难，需要配合图床和如Pic Go等软件进行</li><li>对新手不友好，实际使用过程中改改主题的源码实现某些功能是难免的事</li></ul><p>样例：<a href="https://l3zc.com" target="_blank">L3ZC主站</a></p><p>Hexo是一个基于Node.js的静态博客框架，这个就不消说了，光从它35k的stars就可以知道大家有多喜爱这个框架。</p><p>Hexo直接生成静态网站，这意味着无比快速。原生支持Markdown，配合一个简洁的Markdown编辑器如Typora，可以让你集中精力到内容本身，这毫无疑问可以提高写文章的效率。只有静态网站可以被托管到Github Pages上，这也就是为什么我当初选择了Hexo作为自己博客的博客框架，而后为了迎合Hexo，我开始用Markdown写作，做了自己的图床，试着修改Hexo主题，即使我还没开始学Java Script。自从用上了Hexo，我爱上了用Markdown写作，以至于后面切回Wordpress的古腾堡编辑器的时候我都很不适应。</p><p>Hexo 自身的特性决定了它新手不友好，他没有原生的评论系统，实现一个功能要对主题的源码进行改动，这可不是人人都会并且愿意的，新手很容易过分纠结网站的外观和功能而忽略了内容本身。Markdown 难以插入图片，需要额外建立图床，这也是相对麻烦的事情。Hexo 没有后台，只能通过命令行生成网站，这就意味着你别想在移动设备上编辑文章，也不能在两台电脑之间交替编辑（当然如果配合坚果云等那另说）。</p><p>即使有这些缺点，Hexo 依然是一个优秀的博客框架，即使用上了动态博客框架， 我也依然不会放弃使用 Hexo 写作。</p><h2 id="Typecho"><a href="#Typecho" class="headerlink" title="Typecho"></a>Typecho</h2><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul><li>小巧快速</li><li>原生支持Markdown</li><li>提供了友好的图片插入功能，当然你也可以用图床</li></ul><h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul><li>新手不友好，虽然比Hexo已经好很多</li><li>移动设备不好编辑文章</li></ul><p>样例：<a href="https://typecho.l3zc.com" target="_blank">L3ZCの黑土地</a></p><p>对于个人博客用途的网站，个人认为 Typecho 是一个相对理想的选择，不像 Wordpress 那么重，也不像 Hexo 那么折腾，并且原生支持 Markdown 。</p><p>Typecho 是动态博客框架，有原生的后台和评论系统，不像 Hexo 这种静态博客框架想要实现评论功能都要修改主题源码，原生支持 Markdown 让 Typecho 用起来非常舒服，如果计划从 Hexo 迁移到 Typecho，绝对无需担心出现不适应的情况，我完全可以像在 Hexo 写博客一样，在 Typora 里写好文章，然后直接复制粘贴到 Typecho 的文章编辑页面，设置好文章标题和标签等直接点击发布，大功告成。如果是第一次使用 Typecho，也大可不必担心图床的问题，Typecho支持上传附件，足以让你在完全不用任何图床的情况下写出一篇图文并茂的文章。嫌默认主题不好看？可以去网上找一找 Typecho 的主题，基本都可以找到自己想要的主题，烂大街的 Handsome 就是一个很好的例子。</p><p>对于个人博客来说 Typecho 几乎完美，但也不是没有任何问题，例如，新手必须要学习怎么写 Markdown。移动设备不好编辑文章等等。总之Typecho 是一个比较适合我的博客框架。</p><h2 id="Wordpress"><a href="#Wordpress" class="headerlink" title="Wordpress"></a>Wordpress</h2><h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul><li>界面好懂，新手友好</li><li>后台管理很容易，只要能上网，很容易就可以在任何时间地点用任何设备更新网站</li><li>用户基数大，主题、插件丰富，实现某个功能很容易</li></ul><h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul><li>不原生支持Markdown</li><li>出了名的重，速度相对比较慢，占用服务器资源</li></ul><p>样例：<a href="https://wordpress.l3zc.com" target="_blank">L3ZCの试验田</a></p><p>全世界 30% 的网站都在使用 Wordpress，这可不是吹的。Wordpress 的功能有多丰富可想而知。</p><p>这些 Wordpress 网站不光包括博客网站，还有论坛，甚至电子商务网站，你没看错，Wordpress 就是能实现很多功能。也更容易实现华丽的效果，如果你的网站有这种需求，那么 Wordpress 是个不错的选择。Wordpress 对新手很友好，从部署网站开始，不仅可以直接使用 Wordpress 官方提供的托管服务，得益于 Wordpress 庞大的用户基数，很多服务器提供商更是直接提供了一键部署 Wordpress 到服务器的功能。部署完成开始写作，Wordpress 的编辑器直观好懂，很容易就能上手写出图文并茂的文章。Wordpress 有功能丰富的后台，很容易就能完成博客的管理，即使在手机上也是如此。用户多就是任性，主题和插件多的挑不过来，直观好用。</p><p>当然，缺点也很明显，Wordpress 非常臃肿，速度会相对较慢，在服务器性能低和网络差的环境下则更明显。其次是不原生支持Markdown这一点让我非常恼火，在Typora里写好的文章复制粘贴到 Wordpress 的编辑器里大概率需要重新排版，这也导致我很不愿意在 Wordpress 上多发表文章，排版这种基础的东西都需要花费精力，自然就没法好好写文章了。</p><h2 id="Blogger"><a href="#Blogger" class="headerlink" title="Blogger"></a>Blogger</h2><p>先用一段时间再说。</p>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
       
       
-      <category domain="https://l3zc.com/tags/Hexo/">Hexo</category>
+      <category domain="https://hexo.l3zc.com/tags/Hexo/">Hexo</category>
       
-      <category domain="https://l3zc.com/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
       
-      <category domain="https://l3zc.com/tags/Wordpress/">Wordpress</category>
+      <category domain="https://hexo.l3zc.com/tags/Wordpress/">Wordpress</category>
       
-      <category domain="https://l3zc.com/tags/Typecho/">Typecho</category>
+      <category domain="https://hexo.l3zc.com/tags/Typecho/">Typecho</category>
       
       
-      <comments>https://l3zc.com/comparison-of-different-blog-systems/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/comparison-of-different-blog-systems/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>在拿到了Azure的学生免费额度以后，我增设了两个新站点</title>
-      <link>https://l3zc.com/new-site-on-azure/</link>
-      <guid>https://l3zc.com/new-site-on-azure/</guid>
+      <link>https://hexo.l3zc.com/new-site-on-azure/</link>
+      <guid>https://hexo.l3zc.com/new-site-on-azure/</guid>
       <pubDate>Tue, 28 Jun 2022 14:41:07 GMT</pubDate>
       
       <description>&lt;p&gt;我成功薅到羊毛，拿到了Azure的学生赠送额度，重新拥有了VPS，当前的博客是基于Hexo构建，静态网站的局限性让我考虑了设立动态网站的可能。&lt;/p&gt;</description>
@@ -112,30 +112,30 @@
       <content:encoded><![CDATA[<p>我成功薅到羊毛，拿到了Azure的学生赠送额度，重新拥有了VPS，当前的博客是基于Hexo构建，静态网站的局限性让我考虑了设立动态网站的可能。</p><span id="more"></span><h2 id="什么？Azure有学生免费羊毛？"><a href="#什么？Azure有学生免费羊毛？" class="headerlink" title="什么？Azure有学生免费羊毛？"></a>什么？Azure有学生免费羊毛？</h2><p>这些天我一直在寻找一个适合我的虚拟服务器，我只是想搭建一个网站而已，我是学生，无法承受每月动辄一两百配置却低的可怜的正价服务器，看到Azure有羊毛可以薅那真是再好不过了。Azure有两种试用方式，第一种赠送200美刀，但需要信用卡，我一学生怎么可能有Visa卡？第二种方式赠送100美刀，只需要学生邮箱账户，既然只需要建站，100刀用一年其实不成问题，实际使用基本感觉不到很大的差异。</p><p>先打开<a href="https://azure.microsoft.com/zh-cn/free/students/">Azure学生免费申请入口</a>，点击免费开始使用，填入你的教育邮箱账号（支持中国大陆的教育邮箱账号，良心），收邮件验证一下，你的免费额度就可以领到了。什么？学校没有给你教育邮箱？自己去要，什么东西都要塞你手上吗？据这个页面上的介绍，每年100刀用完以后，如果你仍然是学生，可以再次申请到100刀的额度。如果这句话是真的，不出意外，那么学生时代就不需要额外为云服务器付费，想想就很香。</p><h2 id="这服务器怎么样呢？"><a href="#这服务器怎么样呢？" class="headerlink" title="这服务器怎么样呢？"></a>这服务器怎么样呢？</h2><p>真要我说的话，一般。</p><p>在中国大陆，开 Azure 服务器一般会选择 South East Asia（新加坡）或者 East Asia（香港）两个数据中心。这两个数据中心却没有一个为大陆的网络环境做过优化（虽然这也不能怪人家），简单说，联通连香港数据中心会绕路新加坡，电信连新加坡数据中心会绕路香港，移动则都会绕路东京，想要一个数据中心三大运营商的宽带都不绕路约等于做梦。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220629230805540.png" alt="联通连Azure香港数据中心会绕新加坡"></p><p>更坑爹的是，新加坡数据中心因为这个原因常年爆满根本开不到服务器。大部分时候只能选择香港数据中心，我也不例外。不过他们的服务器的网速倒是挺快，万兆网用来从Github上Clone之类的挺舒服，听我一句劝，不要跑测速，一跑就是一美刀（哭死）。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/QQ20220626-224302@2x.png" alt="QQ20220626-224302@2x"></p><p>顺带一提，上下行不对等那肯定是没有独立 IP 流媒体解锁就别想了。因为在用别的上网方案，所以暂时没有用这玩意来科学上网，过一阵子可能会装上不同的协议测个速。另外服务器跑分什么的有时间就弄。</p><h2 id="回到正题"><a href="#回到正题" class="headerlink" title="回到正题"></a>回到正题</h2><p>终于要说我的两个新动态网站了。本站新增了两个动态网站，分别是基于 Wordpress 的<a href="https://wordpress.l3zc.com/">L3ZCの试验田</a>和基于 Typecho 的<a href="https://typecho.l3zc.com/">L3ZCの黑土地</a>，加上基于 Hexo 的<a href="https://l3zc.com/">L3ZC主站</a>，三者并行。</p><p>其中，试验田是全新的网站，主要发布技术类文章，日后可能会做出频繁的改动；黑土地则追求稳定与快速，<del>并且与主站保持一致的样式</del>，在时机成熟的时候可能会与主站的角色互换；主站是基于Hexo构建的静态网站，托管在 Github 上，长期稳定存在。</p><pre class="mermaid">graph TBA[发布文章] --全部--> B[主站]B -- 技术类 --> C[试验田]B -- 所有 --> D[黑土地]</pre><h2 id="To-Do-List"><a href="#To-Do-List" class="headerlink" title="To Do List"></a>To Do List</h2><p>有一大堆要做的事，例如修好黑土地的评论系统，做好SEO等。总之，有得忙活了。</p>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
       
       
-      <category domain="https://l3zc.com/tags/Wordpress/">Wordpress</category>
+      <category domain="https://hexo.l3zc.com/tags/Wordpress/">Wordpress</category>
       
-      <category domain="https://l3zc.com/tags/Typecho/">Typecho</category>
+      <category domain="https://hexo.l3zc.com/tags/Typecho/">Typecho</category>
       
-      <category domain="https://l3zc.com/tags/Azure/">Azure</category>
+      <category domain="https://hexo.l3zc.com/tags/Azure/">Azure</category>
       
-      <category domain="https://l3zc.com/tags/%E5%AD%A6%E7%94%9F/">学生</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%AD%A6%E7%94%9F/">学生</category>
       
-      <category domain="https://l3zc.com/tags/%E8%96%85%E7%BE%8A%E6%AF%9B/">薅羊毛</category>
+      <category domain="https://hexo.l3zc.com/tags/%E8%96%85%E7%BE%8A%E6%AF%9B/">薅羊毛</category>
       
-      <category domain="https://l3zc.com/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E7%AB%99/">动态网站</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E7%AB%99/">动态网站</category>
       
       
-      <comments>https://l3zc.com/new-site-on-azure/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/new-site-on-azure/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>看上去没有病，就真的没有病吗？我对“瘾”的思考</title>
-      <link>https://l3zc.com/my-thoughts-on-addictions/</link>
-      <guid>https://l3zc.com/my-thoughts-on-addictions/</guid>
+      <link>https://hexo.l3zc.com/my-thoughts-on-addictions/</link>
+      <guid>https://hexo.l3zc.com/my-thoughts-on-addictions/</guid>
       <pubDate>Wed, 22 Jun 2022 14:22:01 GMT</pubDate>
       
       <description>&lt;p&gt;生活相对有规律，比较自律，早睡早起，锻炼身体，甚至每天绝大部分上网时间都没有花在游戏上，可能这就是你的样子，人们根本就不会觉得这种人会和网瘾扯上关系。很多情况下，事情并非如此。&lt;/p&gt;</description>
@@ -145,18 +145,18 @@
       <content:encoded><![CDATA[<p>生活相对有规律，比较自律，早睡早起，锻炼身体，甚至每天绝大部分上网时间都没有花在游戏上，可能这就是你的样子，人们根本就不会觉得这种人会和网瘾扯上关系。很多情况下，事情并非如此。</p><span id="more"></span><h2 id="我到底是怎么了？"><a href="#我到底是怎么了？" class="headerlink" title="我到底是怎么了？"></a>我到底是怎么了？</h2><p>“瘾”这个词，并不形容短期心理状态，而形容长期大脑的变化。你绝对在某一时刻体验过短时间内多巴胺爆棚的快感，并且从此喜欢上了这个状态，这并不是上瘾，仅仅是喜欢。更进一步，你可能并没有察觉到你的大脑里正在发生的某些事情，成瘾的过程无法被大脑察觉，你的大脑可能在尝到这种快感以后发生了微妙的变化，产生了对这种状态的依赖，这时才算是真的成瘾。</p><p>既然成瘾无法被大脑察觉，如果不去刻意感知，绝不会知道自己正在上瘾。自很早以前，在打开 YouTube、Twitter 等网站时即使知道自己正在虚度光阴，即使屏幕上的内容毫无乐趣也于我无用，我也还是会继续看下去，并且不知不觉的看掉一个下午。在逛 AppStore 的时候，通常都是为了用一个 App 而用一个 App，即使不需要用到这个 App，我也会下载下来，摸索许久。在找资源、信息的时候，即使我用不到这个资源、信息，我也会不断收集。即使还有更要紧的事要做，即使这对我无意义甚至有害，我却无法停下。</p><h2 id="这算生病吗？"><a href="#这算生病吗？" class="headerlink" title="这算生病吗？"></a>这算生病吗？</h2><p>大脑倾向于寻找更多的多巴胺，自然也想要重复获得多巴胺的体验。物极必反，太多的多巴胺亦不是一件好事，人类进化出一套平衡机制：当你获得太多的多巴胺时，大脑就会产生与多巴胺作用相反的物质来平衡。飞的越高，摔得越惨，放在这里简直再也合适不过，大脑体验多巴胺爆棚的极乐之后，会立刻陷入生与多巴胺作用相反的物质所带来的痛苦反噬的深渊。这种感觉实在是太过于痛苦，大脑倾向于找到更多的多巴胺来平衡痛苦反噬，却又引发更多的痛苦反噬，从而陷入恶性循环。</p><pre class="mermaid">graph LRA[想要获得多巴胺] --> B[获得多巴胺]B --> C[产生痛苦反噬]C --> D[痛苦]D --> A</pre><p>这就是上瘾，一个无法挣脱的泥潭。其实任何东西成瘾都可以算作是生病，就像吸毒一样，即使你已深知吸毒的危害，即使毒品让你的身体承受很大的痛苦反噬，你也还是想要吸毒，因为那里有大脑迫切需要的多巴胺。得不到多巴胺的痛苦远甚于做这件让你获得多巴胺的事所带来的痛苦。</p><p>人们从来没有认真思考过这种现象是否是病，从某种意义上来说，这已经算是生病了。</p><h2 id="还是接着开头说"><a href="#还是接着开头说" class="headerlink" title="还是接着开头说"></a>还是接着开头说</h2><p>我曾经把大把的时间花在上网上，看上去，我在学习。表面上，陷入这恶性循环的人看上去会很健康，包括生活方式。他们可能看起来在努力的工作，努力学习。他们自己也不知道自己已经患病。注意区分，两种人很容易混淆，一种是大脑已经因为长期食用 Dopamine snacks 发生变化，一种则是纯粹的追求舒适的感觉，大脑没有变化。这里所讨论的人属于第一种。</p><p>从书籍到文章，从文章到博客，从博客到微博客，从微博客到视频，再从视频到短视频，网络连接的速度越来越快，人们接受信息的媒介却变得越来越浮躁，每当学到一些新的东西，人类的大脑就会产生多巴胺奖励自己，信息媒介的不断进步把获得多巴胺的门槛变得越来越低，简单的来说，既然能以更小的代价获得短期快乐，那么大脑就不愿意花更大的价钱去买长期来看更好但更贵的长期稳定的快乐了。</p><h2 id="不停的学新东西？听上去很好啊？"><a href="#不停的学新东西？听上去很好啊？" class="headerlink" title="不停的学新东西？听上去很好啊？"></a>不停的学新东西？听上去很好啊？</h2><blockquote><p>We’re now in a day and age of Twitter and Facebook. We’re getting bite-sized, pithy wisdom, which is really hard to absorb.</p><p>——Naval</p></blockquote><p>我们所看到的短信息，即使看上去是十分正确的大道理，十分有用的小知识，实际上全然无用，正所谓大道理只能自己悟出来，听别人讲大道理是没用的。别人是在自己经历和实践上加以理解的基础上总结，我们却不能通过别人的总结反推出理解。</p><p>大多数人被误导：可以通过别人所发出的感悟学习到一些道理。事实上，从来都没有这一回事。只有彻底明白某个道理的人才能发出感悟。想要从发出的感悟回溯被想明白的道理无异于从三条杠看出天地轮回——都是自己的感悟，而非他的。当对问题的认识越透彻（这是一个笼统的感觉，只是借用了中文的这种表达方式），达到某个高度，才能从那个高度出发，发表一些本质上的感悟。这些感悟通常不具备实际的指导价值，可以透过现象看本质，即通过低层次的知识领悟高层次的知识，但若要通过高层次的知识倒退出作者是<strong>怎么</strong>从低层次的知识获得感悟，除瞎猜外，别无他法。</p><p>自我感动改变不了看这些内容学不到东西的事实。</p><h2 id="这就像是吸毒"><a href="#这就像是吸毒" class="headerlink" title="这就像是吸毒"></a>这就像是吸毒</h2><p>为了满足大脑对多巴胺不断增长的需求，我开始熬夜，我虚度光阴。得到了需要的多巴胺却开始懊悔。</p><blockquote><p>一天不熬难受，熬了难受一天</p><p>——我室友</p></blockquote><p>陷入前面提到的死循环的人症状就像是吸毒，虽然知道毒品的危害，却因为过度的痛苦不得不再次吸食毒品。一些药品剂量大了就会变成毒品。一些本来对我们有益的举动走火入魔就会变成追寻多巴胺的痛苦恶性循环。</p><h2 id="既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾"><a href="#既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾" class="headerlink" title="既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾"></a>既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾</h2><p>根据 <a href="https://youtu.be/0yw2y-vd2V8">WHO 发布的一段关于如何戒烟的视频</a>，为了戒烟，吸烟者需要克服尼古丁上瘾，从大脑里移除条件反射和打破潜意识的想法，以及移除社交上的关系纽带。显然，戒除这种看上去不像是成瘾的成瘾要比戒烟容易，因为我们不需要完成第一个挑战以及最后一个挑战，我们只需要移除条件反射和潜意识里的想法，充其量算上克服我们的某个上瘾，学习怎么脱离某个事物生活。</p><p>我会试着去戒除我的轻度网瘾：</p><ul><li><input disabled="" type="checkbox"> 戒除早晨起来拿起手机玩的条件反射</li></ul>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
       
       
       
-      <comments>https://l3zc.com/my-thoughts-on-addictions/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/my-thoughts-on-addictions/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>那些年用过的音乐软件</title>
-      <link>https://l3zc.com/music-apps-i-use/</link>
-      <guid>https://l3zc.com/music-apps-i-use/</guid>
+      <link>https://hexo.l3zc.com/music-apps-i-use/</link>
+      <guid>https://hexo.l3zc.com/music-apps-i-use/</guid>
       <pubDate>Tue, 14 Jun 2022 08:00:52 GMT</pubDate>
       
       <description>&lt;p&gt;音乐是几乎我生活中不可分割的一部分，我也不吝惜向音乐软件里付钱，用每月少量的钱换来舒适的音乐体验，我认为很划算，这些年跌跌撞撞用过四款音乐软件，想起来也算是回忆了。&lt;/p&gt;</description>
@@ -166,24 +166,24 @@
       <content:encoded><![CDATA[<p>音乐是几乎我生活中不可分割的一部分，我也不吝惜向音乐软件里付钱，用每月少量的钱换来舒适的音乐体验，我认为很划算，这些年跌跌撞撞用过四款音乐软件，想起来也算是回忆了。</p><span id="more"></span><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220614160428377.png" alt="我正在用的三家"></p><h2 id="QQ音乐"><a href="#QQ音乐" class="headerlink" title="QQ音乐"></a>QQ音乐</h2><p>小时候的我，住在一个悠闲而慵懒的小城。</p><blockquote><p>独钓寒江雪。</p></blockquote><p>2015年，梦开始的地方，那时的我拿着一台充话费送的手机，跑着安卓2.3，第一次体验到听音乐带来的快乐，轻快的吉他声在我耳边响起，我在蓝天白云下自由的奔跑，跑累，瘫在地上。</p><blockquote><p>越是长大，我越是感到忧郁。</p></blockquote><p>气压越来越大，温度越来越高，我的呼吸愈发困难，小城的慵懒与我无缘，整天与我陪伴的只有培训课与作业，而音乐是我唯一的空间，只可惜，这点空间，我都无缘享受太久。</p><h2 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h2><p>2017年，初中开始，我渐渐的转向了网易云音乐，出于某些原因，我不得不搬走，要论宜居度，那么我搬去的绝对不是一个宜居的地方。</p><blockquote><p>除了崭新却散发着令人作呕的气味的钢筋水泥森林和宽阔却死气沉沉的道路，这里什么都没有。</p></blockquote><p>是的，比温馨的小城市更可怕的是光鲜亮丽而处于文化荒漠中的“大”城市。</p><p>手机变成了一台当年的价格屠夫，耳机变成了一副Ear Pods，论外文歌曲，网易云音乐显然比QQ音乐更加适合。当时的网易云音乐，评论区里还充满着有趣的灵魂，或许，交流一下，就没那么不开心了。</p><p>都说，“山雨欲来风满楼”“黑云压城城欲摧”，乌云已经压了过来，空旷的广场上没有给我遮雨的地方。</p><p>也许，在设计时就没考虑有人会在广场上走吧。</p><p>雨没有落下，但是阴天更可怕。凉风刮来，落叶飘零，街上本就不多的行人更加难觅踪迹。想要Peace of mind？恐怕只有这种时候了。</p><h2 id="Apple-Music"><a href="#Apple-Music" class="headerlink" title="Apple Music"></a>Apple Music</h2><p>一台划痕遍布，看上去就很沧桑的 iPhone 6 到了我的手上。</p><p>这段时光有些不堪回首。但总是忍不住回忆。说实在的，这一年，课业压力并不繁重。但放假安排可并不这么想，假期一再缩水，一周两天变成半个月两天，再到两年后的一个月两天。</p><blockquote><p>迟早是要来的。</p></blockquote><p>Apple Music 简洁，没有冗余的功能，更重要的是，没有评论区。原先，网易云的评论区里有很多有趣的灵魂，那时甚至算得上没有被发现的宝藏。只可惜，好地方总会被人发现，用的人多了，就容易变味。那种感觉，与看见一个又一个自然景观被开发成不伦不类的旅游景点无异。</p><p>那些年，我见过多少原本险以远的地方，被开发成不伦不类的旅游景点。</p><p>烈日可以烤焦一切，包括人。不幸的是，烈日天在此地并不少见。</p><p>动辄39度的天气显然不是什么好受的天气，有空调的教室里很舒适，我不否认这一点。烈日炎炎，愈是炎热，空气中的味道愈是复杂，石板铺就的地面被烤出的“石头味”，水塘里散发的“水味”，植物蒸腾的“草地味”…… 楼下传来割草机的声音，原本生长旺盛的杂草就这么倒下。太阳的炙烤放大了这种味道，一种比血腥还难闻味道。是的，植物也有血腥味，当走过那片刚被割过的草地，唯一的反应就是快些跑开。其实，这些杂草，很“美”，整齐划一的马尼拉草不过他们的陪衬罢了。</p><blockquote><p>奇怪的动植物要保护起来，奇怪的人却受到排挤。</p></blockquote><p>总有一种力量想要扫清一切所谓的“杂草”，好不容易找到的一小片领地，总是这么容易失去。</p><h2 id="Spotify"><a href="#Spotify" class="headerlink" title="Spotify"></a>Spotify</h2><p>2021年，高三的我接触到了 Spotify 。</p><p>没有人会爱我，包括我的家人，没有人值得信任，包括自己的亲人。接受现实，没有人会喜欢你。即使没有人会喜欢你，即使全世界都站在你的对立面，也得犹然笑之。</p><blockquote><p>而宋荣子犹然笑之，且夫举世誉之而不加劝，举世非之而不加沮。</p></blockquote><p>我如是告诉自己。要像宋荣子一样，当所有人都不值得信任的时候只有自己最值得信任。家长真的值得信任吗？他们所谓的为你好，不过一厢情愿的自我感动，他们所谓的给了你最好的，为你牺牲，为你付出，不过连他们自己都不曾发觉的自我感动的遮羞布。自私是人的本性，事实无可避免，当你想要去信任某个人，最好先考虑清楚那个人是否值得信任。</p><p>高三的我，不断的质疑自己，怀疑我所经历的、所看到的一切。</p><p>第一次接触到 Spotify ，用到 Spotify 的免费版。Spotify 免费版广告重重，听歌体验很差，迁移过来，毫不夸张的说，我立刻回到了我原先使用的音乐软件。当时我不想使用 Spotify ，真的不想，99刀一年的价格实在是超出了我的接受范围。再者，我没有 Spotify 接受的付款方式。</p><p>高中阶段在忧郁的情绪里结束的高考以一个不怎么理想的成绩结束了，我没有如释重负的感觉，也没有兴奋，再也找不到无忧无虑。直到这种时候，顶着与父母在填报志愿时吵架的压力，在与5人合租的账号上开始听起 Spotify。虽然 Spotify 锁区，但曲库足够全，音质也是可以接受的水准。</p><p>听歌让我心情变好，但总是驱散不去我心头的阴霾。也许根本就不存在，也许没必要，谁知道呢。（未完待续）</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=1462808598&auto=0&height=66"></iframe>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
       
       
-      <category domain="https://l3zc.com/tags/%E9%9F%B3%E4%B9%90/">音乐</category>
+      <category domain="https://hexo.l3zc.com/tags/%E9%9F%B3%E4%B9%90/">音乐</category>
       
-      <category domain="https://l3zc.com/tags/%E5%9B%9E%E5%BF%86/">回忆</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%9B%9E%E5%BF%86/">回忆</category>
       
-      <category domain="https://l3zc.com/tags/%E9%9A%8F%E6%83%B3/">随想</category>
+      <category domain="https://hexo.l3zc.com/tags/%E9%9A%8F%E6%83%B3/">随想</category>
       
       
-      <comments>https://l3zc.com/music-apps-i-use/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/music-apps-i-use/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>各国中央政府网站对比</title>
-      <link>https://l3zc.com/comparingGovWebsites/</link>
-      <guid>https://l3zc.com/comparingGovWebsites/</guid>
+      <link>https://hexo.l3zc.com/comparingGovWebsites/</link>
+      <guid>https://hexo.l3zc.com/comparingGovWebsites/</guid>
       <pubDate>Sun, 05 Jun 2022 07:47:19 GMT</pubDate>
       
         
@@ -197,22 +197,22 @@
       <content:encoded><![CDATA[<p>这个选题可能比较危险，尽可能客观的对比，只是陈述事实。尽可能做到对比项目的科学性，不断寻找更优解。有的是门户网站，有的是服务网站，凭直觉找到网站。</p><p>（2022.6.14日更新）网站全都对比政府服务性质的网站，由于客观条件的限制，无法体验到网站的实际服务质量，具体情况不得而知，只能从网站的设计等方面对比。</p><h2 id="中华人民共和国"><a href="#中华人民共和国" class="headerlink" title="中华人民共和国"></a>中华人民共和国</h2><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220603223823014.png" alt="gov.cn"></p><table><thead><tr><th>项目</th><th>得分</th></tr></thead><tbody><tr><td>是否在新技术和兼容性之间取得一个平衡？</td><td>2&#x2F;4</td></tr><tr><td>是否针对移动设备进行优化？</td><td>3&#x2F;4</td></tr><tr><td>是否遵循无障碍的设计理念？</td><td>1&#x2F;3</td></tr><tr><td>照顾到了国内少数群体吗？</td><td>1&#x2F;3</td></tr><tr><td>是否保持了全站的一致性？</td><td>2&#x2F;2</td></tr><tr><td>设计是否符与时俱进？</td><td>2&#x2F;4</td></tr></tbody></table><p>大家所熟悉的政府网站gov.cn，网站采用的技术很旧，在现代浏览器早已普及开来，chromium内核一统天下的今天，却仍然没有启用全站强制https，其次，一些已经非常成熟且能显著提升网站体验的技术并没有被采用，即使采用，也是早已停止维护的旧版本，整个站点有些年久失修的感觉。</p><p>在中国，由于大部分人习惯使用app或者微信小程序等统一的入口，大家普遍不重视网站，网站针对移动设备做出了适配，但在移动设备上，访问速度明显要慢很多，并且网站中链接多且密集，明显是将本应用鼠标操作的页面强行搬到触摸屏上。网站的设计上并没有遵循无障碍的设计理念，同时并没有提供任何的无障碍选项，残障人士想要访问可能较为困难。网站只支持简体中文、繁体中文和英语，少数民族的语言，例如藏语和蒙古语并没有在网站上出现。基本保持了全站的一致性，没有出现网站更新时时常出现的首页翻新内容陈旧的现象。</p><h2 id="美利坚合众国"><a href="#美利坚合众国" class="headerlink" title="美利坚合众国"></a>美利坚合众国</h2><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220614173723653.png" alt="usa.gov"></p><table><thead><tr><th>项目</th><th>得分</th></tr></thead><tbody><tr><td>是否在新技术和兼容性之间取得一个平衡？</td><td>4&#x2F;4</td></tr><tr><td>是否针对移动设备进行优化？</td><td>4&#x2F;4</td></tr><tr><td>是否遵循无障碍的设计理念？</td><td>2&#x2F;3</td></tr><tr><td>照顾到了国内少数群体吗？</td><td>2&#x2F;3</td></tr><tr><td>是否保持了全站的一致性？</td><td>2&#x2F;2</td></tr><tr><td>设计是否符与时俱进？</td><td>3&#x2F;4</td></tr></tbody></table><p>Usa.gov，网站整体符合USA的平均水平，设计比较保守，但采用了新且稳定的技术。</p><p>网站对移动设备进行了优化，很好的适应了移动设备，虽然遵循了无障碍的设计，例如采用了高对比度的方案，但并未提供无障碍的选项。网站提供了西班牙语以照顾国内的西班牙语州，但并未提供其他族裔语言的翻译选项。网站保持了全站的一致性，没有出现新旧网页并行的现象。网站的设计是保守的现代化，并不是非常的与时俱进，但总体上说得过去。</p><h2 id="联合王国"><a href="#联合王国" class="headerlink" title="联合王国"></a>联合王国</h2><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220605163102367.png" alt="gov.uk"></p><table><thead><tr><th>项目</th><th>得分</th></tr></thead><tbody><tr><td>是否在新技术和兼容性之间取得一个平衡？</td><td>4&#x2F;4</td></tr><tr><td>是否针对移动设备进行优化？</td><td>4&#x2F;4</td></tr><tr><td>是否遵循无障碍的设计理念？</td><td>2&#x2F;3</td></tr><tr><td>照顾到了国内少数群体吗？</td><td>3&#x2F;3</td></tr><tr><td>是否保持了全站的一致性？</td><td>2&#x2F;2</td></tr><tr><td>设计是否符与时俱进？</td><td>3&#x2F;4</td></tr></tbody></table><p>联合王国的政府服务网站gov.uk，采用了扁平化的设计风格。</p><p>网站采用了成熟稳定且普及率高的新技术，并且针对移动设备进行了优化，字体足够大，对比度足够高。网站遵循了无障碍的设计理念，但没有提供足够的无障碍选项。网站只有英语版本，但考虑到其国内的语言构成，已经足矣。网站保持了全站的一致性，没有出现新旧网页并行的现象。网站的设计较为innovative，同时不失严肃。</p><h2 id="俄罗斯联邦"><a href="#俄罗斯联邦" class="headerlink" title="俄罗斯联邦"></a>俄罗斯联邦</h2><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220605163359645.png" alt="government.ru"></p><table><thead><tr><th>项目</th><th>得分</th></tr></thead><tbody><tr><td>是否在新技术和兼容性之间取得一个平衡？</td><td>2&#x2F;4</td></tr><tr><td>是否针对移动设备进行优化？</td><td>4&#x2F;4</td></tr><tr><td>是否遵循无障碍的设计理念？</td><td>2&#x2F;3</td></tr><tr><td>照顾到了国内少数群体吗？</td><td>2&#x2F;3</td></tr><tr><td>是否保持了全站的一致性？</td><td>1&#x2F;2</td></tr><tr><td>设计是否符与时俱进？</td><td>2&#x2F;4</td></tr></tbody></table><p>俄罗斯联邦的政府服务网站，看上去有一股第一代 Material Design的风格。</p><p>网站不知出于什么原因没有https，用还在更新的主流浏览器打开都会出现“不安全”的字样，虽然采用了新技术，但都停留在了很老的版本，例如 jQuery 都 2022 年了居然还在用 1.12 ？？？网站上保留了一大堆鸟用没有的 js 文件拖慢加载速度，不过政府网站都有经费采购大带宽和稳定的服务器，这也就是为什么这篇文章没有把加载速度考虑进得分项。网站只有俄语，甚至没有前苏联主要加盟国的语言。连少数民族的语言都不照顾，也没有针对弱势群体的优化，网站并未提供无障碍选项，也没有遵循无障碍的设计理念。网站大体上保持了全站的一致性，但存在新旧网页交替的现象，没有一致感。</p><h2 id="法兰西共和国"><a href="#法兰西共和国" class="headerlink" title="法兰西共和国"></a>法兰西共和国</h2><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220605163526411.png" alt="gouvernement.fr"></p><p>法兰西共和国的政府服务网站，整体设计中规中矩。</p>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
       
       
-      <category domain="https://l3zc.com/tags/%E7%BD%91%E7%AB%99/">网站</category>
+      <category domain="https://hexo.l3zc.com/tags/%E7%BD%91%E7%AB%99/">网站</category>
       
-      <category domain="https://l3zc.com/tags/%E8%AE%BE%E8%AE%A1/">设计</category>
+      <category domain="https://hexo.l3zc.com/tags/%E8%AE%BE%E8%AE%A1/">设计</category>
       
       
-      <comments>https://l3zc.com/comparingGovWebsites/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/comparingGovWebsites/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>在OpenWRT路由器上使用iptables对英雄联盟随机丢包</title>
-      <link>https://l3zc.com/use-iptables-to-ban-lol-in-dorm/</link>
-      <guid>https://l3zc.com/use-iptables-to-ban-lol-in-dorm/</guid>
+      <link>https://hexo.l3zc.com/use-iptables-to-ban-lol-in-dorm/</link>
+      <guid>https://hexo.l3zc.com/use-iptables-to-ban-lol-in-dorm/</guid>
       <pubDate>Thu, 26 May 2022 15:34:25 GMT</pubDate>
       
       <description>&lt;p&gt;室友天天开黑，这就算了，还老是用外放，不得已，只能让他们打不爽，从根本上阻止他们开黑，还我寝室一个安静的环境，至少，让他们按时睡觉。&lt;/p&gt;</description>
@@ -222,30 +222,30 @@
       <content:encoded><![CDATA[<p>室友天天开黑，这就算了，还老是用外放，不得已，只能让他们打不爽，从根本上阻止他们开黑，还我寝室一个安静的环境，至少，让他们按时睡觉。</p><span id="more"></span><h2 id="寝室的网络环境"><a href="#寝室的网络环境" class="headerlink" title="寝室的网络环境"></a>寝室的网络环境</h2><h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><p>一台捡垃圾的小米CR6608，刷入了 OpenWRT ，承担我们寝室所有的网络流量，由于是一所垃圾大学，校园网限制一套餐一终端，寝室里又只有一个网络口，大家都用我的套餐，整个寝室的网络控制权当然在我的手上。</p><h3 id="室友上网的设备"><a href="#室友上网的设备" class="headerlink" title="室友上网的设备"></a>室友上网的设备</h3><p>其余三个室友都打英雄联盟，其中两个使用笔记本，一个是台式机，没有无线网卡，而且台式机恰巧是打的最凶的那位。</p><h2 id="决定采用的方案"><a href="#决定采用的方案" class="headerlink" title="决定采用的方案"></a>决定采用的方案</h2><p>首先，肯定不能彻底阻断寝室网络与英雄联盟服务器的连接，这样明显感知太强，容易被发现，其次由于另外两个室友都是笔记本电脑，发现丢包率太高肯定会开热点换移动网络，所以最终的方案确定为模仿GFW对网站随机丢包的干扰模式。</p><h2 id="具体行动"><a href="#具体行动" class="headerlink" title="具体行动"></a>具体行动</h2><p>首先先给每个室友分配静态的IP地址，原因看到后面你就知道了。</p><p>上网查找<a href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/4407290569747-Advanced-Connections-Troubleshooting-Guide">资料</a>，可以知道英雄联盟所使用的端口:</p><p><strong>List of ports to forward:</strong></p><table><thead><tr><th align="left">League of Legends Game Client</th><th>5000 - 5500 UDP</th></tr></thead><tbody><tr><td align="left">Patcher and Maestro</td><td>8393 - 8400 TCP</td></tr><tr><td align="left">PVP.Net</td><td>2099 TCP</td></tr><tr><td align="left">PVP.Net</td><td>5223 TCP</td></tr><tr><td align="left">PVP.Net</td><td>5222 TCP</td></tr><tr><td align="left">HTTP Connections</td><td>80 TCP</td></tr><tr><td align="left">HTTPS Connections</td><td>443 TCP</td></tr><tr><td align="left">Spectator Mode</td><td>8088 UDP and TCP</td></tr></tbody></table><p>向路由器的iptables里添加以下随机丢包的规则：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Block LOL</span></span><br><span class="line">iptables -I FORWARD -p udp --dport 5000:5500 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 8393:8400 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 2099 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5223 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5222 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5233 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 8088 -m statistic --mode random --probability 0.3 -j DROP </span><br></pre></td></tr></table></figure><p>2022.6.17更新：关于如何在 OpenWRT 上自定义 iptables 规则，有两种方法，第一种方法，打开 系统 -&gt; TTYD终端 将上面的命令一行一行复制进去回车，用这种方法，规则会在路由器重启或者 iptables 重启后失效，第二种方法，打开 网络 -&gt; 防火墙 找到 自定义规则 选项卡，将上述内容粘贴到这个页面已有内容的后面，<strong>注意不要覆盖文本框里原先的内容</strong>，完成后点击页面下方的 保存并应用，这样即使是重启路由器也不会重置 iptables 规则。</p><p>生效后，室友打英雄联盟就会在校园网本就1%到5%丢包率的基础上增加30%的丢包率。经过室友的盲测反馈（我怎么可能会让室友知情呢？！）放技能总是放不出去，打的非常不爽。</p><p>但是这种方法似乎不适用于室友开加速器的情况，所以我们可以针对这种情况直接限制室友所有的流量，也就是说，不论室友的电脑发出什么数据包，都能享受到30%的丢包率，除非室友开热点，当然台式机是不可能的，这种方法就可以让所有的加速器都失效。前提是，室友的ip地址必须要提前确定，这也就是为什么需要提前给室友的电脑分配静态IP。</p><p>向路由器的iptables里添加以下规则</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Block specific roommate</span></span><br><span class="line">iptables -I FORWARD -s 你室友的内网ip -m statistic --mode random --probability 0.3 -j DROP</span><br><span class="line"><span class="comment"># 以此类推</span></span><br></pre></td></tr></table></figure><p>即可“照顾”室友所有的流量。</p><p>很好，现在每天11点我都会准时更新防火墙规则，至少让寝室安静一点。</p><h2 id="授人以鱼不如授人以渔"><a href="#授人以鱼不如授人以渔" class="headerlink" title="授人以鱼不如授人以渔"></a>授人以鱼不如授人以渔</h2><p>这些参数都是些什么？</p><h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><blockquote><p><strong>iptables</strong>是运行在<a href="https://zh.wikipedia.org/wiki/%E4%BD%BF%E7%94%A8%E8%80%85%E7%A9%BA%E9%96%93">用户空间</a>的应用软件，通过控制<a href="https://zh.wikipedia.org/wiki/Linux%E5%85%A7%E6%A0%B8">Linux内核</a><a href="https://zh.wikipedia.org/wiki/Netfilter">netfilter</a>模块，来管理网络数据包的处理和转发。</p><p>——维基百科</p></blockquote><p>简单点说：iptables是Linux的防火墙软件，可以通过设定的规则过滤掉特定的数据包达到防火墙的目的。OpenWRT基于Linux，自然也用iptables作为防火墙。</p><h3 id="I-FORWARD"><a href="#I-FORWARD" class="headerlink" title="-I FORWARD"></a>-I FORWARD</h3><p>iptables有所谓的“五链”和“四表”。</p><p>“五链”是指 netfilter 定义的 5 个规则链。每个规则表中包含多个数据链：INPUT（入站数据链）、OUTPUT（出站数据链）、FORWARD（转发数据链）、PREROUTING（路由前数据链）和POSTROUTING（路由后数据链），防火墙规则存储在这些数据链里。</p><p>“五链”的结构如下：</p><pre class="mermaid">graph LR    A[PREROUTING] --> B[路由决策]    B --> C[FORWARD]    B --> D[INPUT]    D --> E[Local Process]    E & C --> F[POSTROUTING]</pre><p>四表分别是：</p><ul><li>filter：过滤整个数据包，在 INPUT、FORWARD 和 OUTPUT 链可用</li><li>nat：控制数据包的地址转换，在 PREROUTING 、INPUT、OUTPUT 和 POSTROUTING 链可用</li><li>mangle：修改过滤数据包中的原数据，在 PREROUTING、INPUT、OUTPUT、FORWARD 和 POSTROUTING 链可用</li><li>raw：控制 nat 表连接追踪机制的启用与否，在 PREROUTING、OUTPUT 链可用</li></ul><p>路由器的功能是转发数据，这些数据显然经过 FORWARD 链，故规则都在 FORWARD 链上添加。在 iptables 上使用 -I 参数插入规则时，默认会插入 filter 表，也就是我们需要的表。</p><h3 id="p-xxx-–dport-xxxx"><a href="#p-xxx-–dport-xxxx" class="headerlink" title="-p xxx –dport xxxx"></a>-p xxx –dport xxxx</h3><p>使用 iptables 时，-p 参数用于指定规则适用的协议，–dport，即destination port的缩写，支持范围匹配，可以匹配数据包所去往的端口，这里参照英雄联盟所使用的端口和与之对应的协议一一阻止。</p><h3 id="m-statistic-–mode-random-–probability-0-3"><a href="#m-statistic-–mode-random-–probability-0-3" class="headerlink" title="-m statistic –mode random –probability 0.3"></a>-m statistic –mode random –probability 0.3</h3><p>这些都是自定义的 丢包参数，可以实现很多其他的功能，因为iptables功能太多，故这里不做赘述，感兴趣的话可以自行查阅iptables相关的教程。</p><h3 id="j-DROP"><a href="#j-DROP" class="headerlink" title="-j DROP"></a>-j DROP</h3><p>iptables 可以对符合规则条件的数据包做多种处理：</p><ul><li>ACCEPT：允许数据包通过</li><li>DROP：丢弃数据包</li><li>REJECT：拒绝数据包通过</li><li>LOG：记录日志</li><li>DNAT：目标地址NAT</li><li>SNAT：源地址NAT</li><li>MASQUERADE：地址欺骗</li><li>REDIRECT：重定向</li></ul><p>需要随机丢弃数据包，自然是选择DROP。</p><h2 id="特定时间自动添加-x2F-删除丢包规则"><a href="#特定时间自动添加-x2F-删除丢包规则" class="headerlink" title="特定时间自动添加&#x2F;删除丢包规则"></a>特定时间自动添加&#x2F;删除丢包规则</h2><p>在路由器的 Crontab 里添加如下规则</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Automatic Block</span></span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p udp --dport 5000:5500 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 8393:8400 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 2099 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 5223 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 5222 -m statistic --mode random --probability 0.3 -j DROP</span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 5233 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 8088 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line"><span class="comment">#Automatic unblock</span></span><br><span class="line">0 0 7 * * ? iptables iptables -D FORWARD -p udp --dport 5000:5500 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 8393:8400 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 2099 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 5223 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 5222 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 5233 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 8088 -m statistic --mode random --probability 0.3 -j DROP </span><br></pre></td></tr></table></figure><p>即可实现每天晚上11点自动添加丢包规则，每天早晨7点自动删除丢包规则。</p><h2 id="后期计划"><a href="#后期计划" class="headerlink" title="后期计划"></a>后期计划</h2><ul><li><p><input checked="" disabled="" type="checkbox"> 后续可能会写一个每天指定时间自动添加，自动删除iptables规则的脚本，实现应该相对容易。最近要期末考试，备考要紧。</p></li><li><p><input checked="" disabled="" type="checkbox"> 其次可能会补充iptables的常用功能解说。</p></li></ul>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%8A%80%E6%9C%AF/">技术</category>
       
       
-      <category domain="https://l3zc.com/tags/OpenWRT/">OpenWRT</category>
+      <category domain="https://hexo.l3zc.com/tags/OpenWRT/">OpenWRT</category>
       
-      <category domain="https://l3zc.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</category>
+      <category domain="https://hexo.l3zc.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</category>
       
-      <category domain="https://l3zc.com/tags/iptables/">iptables</category>
+      <category domain="https://hexo.l3zc.com/tags/iptables/">iptables</category>
       
-      <category domain="https://l3zc.com/tags/Linux/">Linux</category>
+      <category domain="https://hexo.l3zc.com/tags/Linux/">Linux</category>
       
-      <category domain="https://l3zc.com/tags/%E5%AF%9D%E5%AE%A4/">寝室</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%AF%9D%E5%AE%A4/">寝室</category>
       
-      <category domain="https://l3zc.com/tags/%E7%BD%91%E7%BB%9C/">网络</category>
+      <category domain="https://hexo.l3zc.com/tags/%E7%BD%91%E7%BB%9C/">网络</category>
       
       
-      <comments>https://l3zc.com/use-iptables-to-ban-lol-in-dorm/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/use-iptables-to-ban-lol-in-dorm/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>为什么价格高昂的付费自习室能够在大学里存在</title>
-      <link>https://l3zc.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/</link>
-      <guid>https://l3zc.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/</guid>
+      <link>https://hexo.l3zc.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/</link>
+      <guid>https://hexo.l3zc.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/</guid>
       <pubDate>Tue, 24 May 2022 12:54:21 GMT</pubDate>
       
         
@@ -259,22 +259,22 @@
       <content:encoded><![CDATA[<p>2022年3月，某大学的一个角落，一间名为北岸自习室的付费自习室分店开始营业，挂牌价格高达每小时5元，VIP区更甚。</p><p>在一份北岸自习室的广告上，“新风空调全天开放、千兆wifi、安静私密、免费茶水“的优点被放在了非常显眼的位置。根据一位在前台接待的人士介绍，如果办卡，在每天都来的情况下，可将每个月的成本控制在100元左右。</p><p>自习室的环境其实并没有宣传的那么好：新风空调全天开放只是一个噱头，实际操作时在生意不好的时候，新风空调会处于关闭的状态；千兆Wi-Fi实际上会给每人限速到40兆左右；更要命的是，自习室暴露在一个娱乐场所的噪声下，周六周日等时间，游玩的学生络绎不绝，噪声冲天。</p><p>且不说是否值得用每月100元换取一个附带所宣传的优点的自习环境，每月100元的价格对于多数每月生活费并不宽裕的学生群体来说，是一个不小的负担，《2020中国大学生消费行为调查研究报告》的数据显示，在中国，大学生每月的平均生活费为1954元&#x2F;月，其中饮食花费至少占据每位大学生生活费的50%，那么，对于绝大多数大学生，与其支付昂贵的自习费用，换取一个并不怎么愉快的学习环境，绝大部分人会选择省下这100元，多喝几杯奶茶。</p><p>我不相信，会有人在开始一门新生意时，连市场调查都不会做。不妨暂且假设，在消耗大量成本开设付费自习室之前，老板做了充足的市场调查，并且确定了这种调查是有利可图的。</p><p>所以，利益究竟在哪里呢。</p><p>以我的切身体会来看，比较容易联想到的原因有以下几个：图书馆里人太多，找不到位置是常有的事；图书馆里网络环境不佳；以及图书馆里的卫生条件比不上付费自习室（可能是我所在学校的特例）。</p><blockquote><p>健身房赚谁的钱？赚那些办了卡但是一年只来三四次的人的钱。</p></blockquote><p>据我了解的信息，这间自习室的会员数量不少，但正如前面所述，新风空调甚至在多数时候都是关闭的状态，这说明，有很多人办理了会员却并未经常前来自习。</p><p>（未完待续）</p>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
       
       
-      <category domain="https://l3zc.com/tags/%E7%89%A2%E9%AA%9A/">牢骚</category>
+      <category domain="https://hexo.l3zc.com/tags/%E7%89%A2%E9%AA%9A/">牢骚</category>
       
-      <category domain="https://l3zc.com/tags/%E5%A4%A7%E5%AD%A6/">大学</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%A4%A7%E5%AD%A6/">大学</category>
       
       
-      <comments>https://l3zc.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>从某个项目里找出csust办公区网络的密码</title>
-      <link>https://l3zc.com/how-csust-bg-network-passwd-leaked/</link>
-      <guid>https://l3zc.com/how-csust-bg-network-passwd-leaked/</guid>
+      <link>https://hexo.l3zc.com/how-csust-bg-network-passwd-leaked/</link>
+      <guid>https://hexo.l3zc.com/how-csust-bg-network-passwd-leaked/</guid>
       <pubDate>Sat, 21 May 2022 05:45:26 GMT</pubDate>
       
       <description>&lt;p&gt;某天在网上闲逛，发现一位名为linfangzhi老哥写的Github项目——CSUST_network_autologin。于是&lt;del&gt;白嫖&lt;/del&gt;下载了一份用来在图书馆上网，但是这个项目只发布了Windows版，没发给手机和电脑用，所以，为了&lt;del&gt;折腾&lt;/del&gt;满足需求，自己动手，丰衣足食。&lt;/p&gt;</description>
@@ -284,28 +284,28 @@
       <content:encoded><![CDATA[<p>某天在网上闲逛，发现一位名为linfangzhi老哥写的Github项目——CSUST_network_autologin。于是<del>白嫖</del>下载了一份用来在图书馆上网，但是这个项目只发布了Windows版，没发给手机和电脑用，所以，为了<del>折腾</del>满足需求，自己动手，丰衣足食。</p><span id="more"></span><h2 id="管你怎么样先Fork一份再说"><a href="#管你怎么样先Fork一份再说" class="headerlink" title="管你怎么样先Fork一份再说"></a>管你怎么样先Fork一份再说</h2><p>古语有云：“管你怎么样先fork一份再说“（大雾），<a href="https://github.com/linfangzhi/CSUST_network_auto_login">这个项目的源码</a>公开，原理非常简单，就是模拟帮你填个账号登陆让你上网，所以说，整个项目最有价值的东西其实就是登陆上长沙理工大学办公区网络的账号和密码。</p><p>“既然这个项目源码公开，那直接在源码里找到账号密码不就可以了吗？”</p><p>还真不行。</p><blockquote><p>账号信息不会公布（公布是不可能公布的，这辈子都不可能公布）</p><p>——linfangzhi</p></blockquote><p>事实上，他也确实做到了这一点，当你打开项目仅有的一个main.py文件就会看到如下的代码片段</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">init(autoreset=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">account_info = [[]]</span><br><span class="line"><span class="comment"># 隐私内容</span></span><br></pre></td></tr></table></figure><p>linfangzhi学长早就把核心的account_info信息删去，留下一个摆着好看的坯子供你欣赏。他把这一个应用打包成了exe程序，只能用，不能看到隐私内容。</p><p>可是我有iPad和Mac要登陆就只能洗洗睡了吗？</p><h2 id="想办法找到账号信息"><a href="#想办法找到账号信息" class="headerlink" title="想办法找到账号信息"></a>想办法找到账号信息</h2><h3 id="先试着直接拆开exe程序"><a href="#先试着直接拆开exe程序" class="headerlink" title="先试着直接拆开exe程序"></a>先试着直接拆开exe程序</h3><p>有的exe程序可以直接用7-zip解压，然而这个不行</p><p>去网上找了一些方法，终于感觉此路不通，放弃</p><h3 id="抓取登陆的时候发送给认证服务器的数据包"><a href="#抓取登陆的时候发送给认证服务器的数据包" class="headerlink" title="抓取登陆的时候发送给认证服务器的数据包"></a>抓取登陆的时候发送给认证服务器的数据包</h3><p>长沙理工大学的认证服务器用的是万年http，没有s</p><p>估计学校没有想到觉得有人会在校园网里抓别人的包，这意味着抓包会省不少事，只需要把程序发出的流量都引到抓包软件上就可以直接获取到裸奔的账号信息。这个办法的可行性明显高得多，实际操作起来也更容易。</p><h2 id="那就抓包吧"><a href="#那就抓包吧" class="headerlink" title="那就抓包吧"></a>那就抓包吧</h2><p>这个项目发布了exe文件，可我只有Mac，所以我在Crossover里运行这个项目，不过需要一个简单的python环境，crossover默认的wine容器环境完全没有问题。于是我把用于Steam的容器用作这个exe的启动器就可以。</p><p>至于抓包，Mac上有很多优质的应用，这里用到了<a href="https://www.proxyman.io/">Proxyman</a></p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220522143748392.png" alt="Proxyman"></p><p>弄好Proxyman以后在容器的Internet设置里设置一下本地的代理服务器让所有的流量都走Proxyman，这样就可以在Proxyman里看到所有的包</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220522143935127.png" alt="设置代理服务器成Proxyman"></p><p>如前面所说，长沙理工大学的上网认证页还在用着http，账号密码都在裸奔。其实用https也只是多一个安装证书解密https的步骤。所以，到了这一步，直接在Crossover里打开exe文件，在Proxyman里观察这个程序发出的网络请求。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">POST /eportal/?c=ACSetting&amp;a=Login&amp;protocol=http:&amp;hostname=192.168.7.221&amp;iTermType=1&amp;wlanuserip=10.171.184.114&amp;wlanacip=192.168.132.254&amp;wlanacname=JPL-ME60-1&amp;mac=6a-72-0c-e8-4e-15&amp;ip=10.171.184.114&amp;enAdvert=0&amp;queryACIP=0&amp;loginMethod=1 HTTP/1.1</span><br><span class="line">Host: 192.168.7.221:801</span><br><span class="line">User-Agent: python-requests/2.18.4</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept: */*</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Content-Length: 74</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">DDDDD=%2C0%2Cxxxxxx&amp;upass=xxxxxx&amp;R1=0&amp;R2=0&amp;R3=0&amp;R6=0&amp;para=00&amp;0MKKey=123456</span><br></pre></td></tr></table></figure><p>很明显，这个POST请求就是python的requests库发出的登陆请求。因为linfangzhi学长不希望公布账号信息，我把账号信息都换成了xxxxxx。</p><p>将这段请求的原文还原一下（就是解码）可以得到下面的内容：</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220522145450840.png" alt="解码以后"></p><p>查看项目里放出的源码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;</span><br><span class="line">            <span class="string">&#x27;DDDDD&#x27;</span>: <span class="string">&#x27;,0,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(account),</span><br><span class="line">            <span class="string">&#x27;upass&#x27;</span>: <span class="string">&#x27;&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(pswd),</span><br><span class="line">            <span class="string">&#x27;R1&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;R2&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;R3&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;R6&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;para&#x27;</span>: <span class="string">&#x27;00&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;0MKKey&#x27;</span>: <span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">        requests.post(url=post_url, data=data)</span><br></pre></td></tr></table></figure><p>可以轻易的知道账号和密码就在图中两个xxxxxx所在的位置。</p><h2 id="登陆和测速"><a href="#登陆和测速" class="headerlink" title="登陆和测速"></a>登陆和测速</h2><p>在iPad上填入账号信息尝试登陆</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/IMG_0030.PNG" alt="成功登陆"></p><p>在长沙理工大学图书馆A馆二楼测速</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220522150706404.png" alt="测速结果"></p><p>速度还能接受。虽然用4G也可以实现相似的速度，但是免流量，加上找出来密码的成就感，还是划算的，</p><h2 id="有一个小问题"><a href="#有一个小问题" class="headerlink" title="有一个小问题"></a>有一个小问题</h2><p>每次连上半个小时就大概率会掉线，DHCP续租后又可以重新上线，可能是DHCP租约太短的原因，暂时还没有找到解决办法，可能以后会试着写一个自动续租的脚本来勉强解决问题。</p><p>（20220525更新：这个问题似乎被解决了）</p><h2 id="最后…"><a href="#最后…" class="headerlink" title="最后…"></a>最后…</h2><p><del>如果想要账号密码可以在评论区留下邮箱2333</del></p>]]></content:encoded>
       
       
-      <category domain="https://l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
+      <category domain="https://hexo.l3zc.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</category>
       
       
-      <category domain="https://l3zc.com/tags/%E6%91%B8%E7%B4%A2/">摸索</category>
+      <category domain="https://hexo.l3zc.com/tags/%E6%91%B8%E7%B4%A2/">摸索</category>
       
-      <category domain="https://l3zc.com/tags/%E5%A4%A7%E5%AD%A6/">大学</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%A4%A7%E5%AD%A6/">大学</category>
       
-      <category domain="https://l3zc.com/tags/%E6%8A%80%E6%9C%AF/">技术</category>
+      <category domain="https://hexo.l3zc.com/tags/%E6%8A%80%E6%9C%AF/">技术</category>
       
-      <category domain="https://l3zc.com/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      <category domain="https://hexo.l3zc.com/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
       
-      <category domain="https://l3zc.com/tags/%E9%95%BF%E6%B2%99%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6/">长沙理工大学</category>
+      <category domain="https://hexo.l3zc.com/tags/%E9%95%BF%E6%B2%99%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6/">长沙理工大学</category>
       
       
-      <comments>https://l3zc.com/how-csust-bg-network-passwd-leaked/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/how-csust-bg-network-passwd-leaked/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>在Mac上使用VS Code搭建轻量化C/C++开发环境</title>
-      <link>https://l3zc.com/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
-      <guid>https://l3zc.com/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <link>https://hexo.l3zc.com/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <guid>https://hexo.l3zc.com/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
       <pubDate>Tue, 10 May 2022 11:42:57 GMT</pubDate>
       
       <description>&lt;p&gt;一直都在用VS Code，&lt;del&gt;奈何以前太懒&lt;/del&gt;可惜高中的时候很忙，很长一段时间里一直只把VS Code当作自己的文本编辑器，大学有了写C&amp;#x2F;C++的需求，Xcode实在太大，于是转战在线编辑器&lt;a href=&quot;https://repl.it/&quot;&gt;repl.it&lt;/a&gt;，然而这类Cloud Based IDE链接不够稳定，也没有办法离线作业，于是我开始寻找一个轻量化的C语言开发环境满足我的实际需求。&lt;/p&gt;</description>
@@ -316,19 +316,19 @@
       
       
       
-      <category domain="https://l3zc.com/tags/Mac/">Mac</category>
+      <category domain="https://hexo.l3zc.com/tags/Mac/">Mac</category>
       
-      <category domain="https://l3zc.com/tags/%E6%8A%98%E8%85%BE/">折腾</category>
+      <category domain="https://hexo.l3zc.com/tags/%E6%8A%98%E8%85%BE/">折腾</category>
       
       
-      <comments>https://l3zc.com/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>尝试绕过智慧树对刷课脚本的检测</title>
-      <link>https://l3zc.com/fuck-zhihuishu/</link>
-      <guid>https://l3zc.com/fuck-zhihuishu/</guid>
+      <link>https://hexo.l3zc.com/fuck-zhihuishu/</link>
+      <guid>https://hexo.l3zc.com/fuck-zhihuishu/</guid>
       <pubDate>Sun, 08 May 2022 09:03:16 GMT</pubDate>
       
       <description>&lt;p&gt;昨晚，也就是&lt;code&gt;2022-05-07&lt;/code&gt;晚上，正准备刷学校强制要求的智慧树上的垃圾网课，却发现智慧树引入了一个刷课脚本的检测机制。直接打断了我的刷课进程。随后试图绕过这个机制，然而事情似乎并没有那么简单。&lt;/p&gt;</description>
@@ -339,17 +339,17 @@
       
       
       
-      <category domain="https://l3zc.com/tags/%E7%89%A2%E9%AA%9A/">牢骚</category>
+      <category domain="https://hexo.l3zc.com/tags/%E7%89%A2%E9%AA%9A/">牢骚</category>
       
       
-      <comments>https://l3zc.com/fuck-zhihuishu/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/fuck-zhihuishu/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>解决Hexo deploy到GithubPages时自定义域名失效的问题</title>
-      <link>https://l3zc.com/resolve-githubpages-CNAME-Hexo/</link>
-      <guid>https://l3zc.com/resolve-githubpages-CNAME-Hexo/</guid>
+      <link>https://hexo.l3zc.com/resolve-githubpages-CNAME-Hexo/</link>
+      <guid>https://hexo.l3zc.com/resolve-githubpages-CNAME-Hexo/</guid>
       <pubDate>Sat, 30 Apr 2022 10:07:38 GMT</pubDate>
       
       <description>&lt;p&gt;Github的repo有个自定义域名的功能，其实就是在repo的根目录下生成一个CNAME文件，里面放着自定义的域名，然而Hexo每次deploy都会把这个CNAME文件覆盖掉，结果就是自定义域名失效了。&lt;/p&gt;</description>
@@ -360,17 +360,17 @@
       
       
       
-      <category domain="https://l3zc.com/tags/%E6%8A%80%E6%9C%AF/">技术</category>
+      <category domain="https://hexo.l3zc.com/tags/%E6%8A%80%E6%9C%AF/">技术</category>
       
       
-      <comments>https://l3zc.com/resolve-githubpages-CNAME-Hexo/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/resolve-githubpages-CNAME-Hexo/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Mac OS环境下使用Hexo搭建个人博客</title>
-      <link>https://l3zc.com/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-      <guid>https://l3zc.com/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <link>https://hexo.l3zc.com/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <guid>https://hexo.l3zc.com/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
       <pubDate>Sat, 30 Apr 2022 08:27:30 GMT</pubDate>
       
       <description>&lt;p&gt;网上大部分基于Hexo搭建个人博客的教程都是在Windows环境下实现的，Mac OS的教程很少，然而，Mac OS下完成这个任务远比Windows要容易。&lt;/p&gt;</description>
@@ -381,21 +381,21 @@
       
       
       
-      <category domain="https://l3zc.com/tags/Mac/">Mac</category>
+      <category domain="https://hexo.l3zc.com/tags/Mac/">Mac</category>
       
-      <category domain="https://l3zc.com/tags/Hexo/">Hexo</category>
+      <category domain="https://hexo.l3zc.com/tags/Hexo/">Hexo</category>
       
-      <category domain="https://l3zc.com/tags/%E6%95%99%E7%A8%8B/">教程</category>
+      <category domain="https://hexo.l3zc.com/tags/%E6%95%99%E7%A8%8B/">教程</category>
       
       
-      <comments>https://l3zc.com/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Hello, World!</title>
-      <link>https://l3zc.com/Hello-World-0/</link>
-      <guid>https://l3zc.com/Hello-World-0/</guid>
+      <link>https://hexo.l3zc.com/Hello-World-0/</link>
+      <guid>https://hexo.l3zc.com/Hello-World-0/</guid>
       <pubDate>Sat, 30 Apr 2022 08:16:01 GMT</pubDate>
       
         
@@ -411,10 +411,10 @@
       
       
       
-      <category domain="https://l3zc.com/tags/%E7%89%A2%E9%AA%9A/">牢骚</category>
+      <category domain="https://hexo.l3zc.com/tags/%E7%89%A2%E9%AA%9A/">牢骚</category>
       
       
-      <comments>https://l3zc.com/Hello-World-0/#disqus_thread</comments>
+      <comments>https://hexo.l3zc.com/Hello-World-0/#disqus_thread</comments>
       
     </item>
     
