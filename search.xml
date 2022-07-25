@@ -4,6 +4,88 @@
   
     
     <entry>
+      <title>替换Wordpress和Typecho的Gravatar源为国内源实现国内加载Gravatar</title>
+      <link href="/replace-gravatar-source-on-my-blog/"/>
+      <url>/replace-gravatar-source-on-my-blog/</url>
+      
+        <content type="html"><![CDATA[<p>出于种种原因，Gravatar 在国内的访问极其不稳定，而 Wordpress 和 Typecho 都使用 Gravatar 作为头像源，这导致网站的上文章出现评论时，页面会因为几个 Gravatar 头像而一直处于加载状态。为了解决这个问题，我尝试自行搭建 Gravatar 镜像并将其更换到 Wordpress 和 Typecho，彻底而完美的解决了问题，<del>并且水出了一篇文章。</del></p><span id="more"></span><p>为什么不直接关了 Gravatar？一句话：没有灵魂。Gravatar可能是世界上使用范围最广的通用头像，若是直接关了 Gravatar，评论里的人就失去了“灵魂”，只剩下一个冷冰冰的人物模具。</p><p>回到正题，想要替换 Gravatar 源，首先你得有一个 Gravatar 源。在一开始的时候，我在网上找了一圈 Gravatar 源，并对它们进行了逐一测试。结果就是发现他们不是太慢就是早已失效，例如网上满天飞的 V2EX 源 <a href="https://cdn.v2ex.com/gravatar/">https://cdn.v2ex.com/gravatar/</a> 在国内就已经被封锁。于是我决定自行搭建一个 Gravatar 镜像。</p><h2 id="自建Gravatar镜像：Nginx-反代-Gravatar-官方源"><a href="#自建Gravatar镜像：Nginx-反代-Gravatar-官方源" class="headerlink" title="自建Gravatar镜像：Nginx 反代 Gravatar 官方源"></a>自建Gravatar镜像：Nginx 反代 Gravatar 官方源</h2><p><strong>注意：这一部分仅适用于服务器在海外的同学，如果服务器在国内请直接绕道去看后面的部分</strong></p><p>首先声明，为了方便管理网站，我使用了宝塔面板。在宝塔面板里使用你想要的域名新建一个网站，纯静态，数据库和FTP都不需要。完成后，转到这个网站的设置，找到反向代理选项，新建一个新的反向代理，填入目标 URL 为 <code>https://secure.gravatar.com</code>提交保存即可。到了这一步，尝试访问指派给网站的域名，别忘了加上&#x2F;avatar，如果出现了默认 Gravatar 头像即代表配置成功。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220724223648262.webp" alt="在宝塔面板里新建一个网站"></p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220724224045361.webp" alt="反向代理Gravatar官方源"></p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220724224804758.webp" alt="出现默认Gravatar头像即配置成功"></p><p>配置成功后，除非你想看到 Chrome “不安全”的提示，否则别忘了给刚刚搭建好的镜像申请一个 SSL 证书。通常情况下直接使用 Let’s Encrypt 即可，打开网站的 SSL 选项，用 DNS 验证的方式申请一个 SSL 证书后开启强制 HTTPS 即可。到这一步，我们自己的 Gravatar 镜像就搭建完成了。</p><h2 id="更换博客上的-Gravatar-源为国内可访问源"><a href="#更换博客上的-Gravatar-源为国内可访问源" class="headerlink" title="更换博客上的 Gravatar 源为国内可访问源"></a>更换博客上的 Gravatar 源为国内可访问源</h2><h3 id="Wordpress"><a href="#Wordpress" class="headerlink" title="Wordpress"></a>Wordpress</h3><p>对于 Wordpress，Google 上搜索到的相关文章大部分都通过修改主题的<code>functions.php</code>文件，加入如下的函数来实现。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getV2exAvatar</span>(<span class="params"><span class="variable">$avatar</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$avatar</span> = <span class="title function_ invoke__">str_replace</span>(<span class="keyword">array</span>(<span class="string">&quot;www.gravatar.com/avatar&quot;</span>,<span class="string">&quot;0.gravatar.com/avatar&quot;</span>,<span class="string">&quot;1.gravatar.com/avatar&quot;</span>,<span class="string">&quot;2.gravatar.com/avatar&quot;</span>),<span class="string">&quot;cdn.v2ex.com/gravatar&quot;</span>,<span class="variable">$avatar</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$avatar</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">add_filter</span>(<span class="string">&#x27;get_avatar&#x27;</span>, <span class="string">&#x27;getV2exAvatar&#x27;</span>);</span><br></pre></td></tr></table></figure><p>实测在 MDx 主题上这种方法无效，故使用了另一种方法：打开网站目录，找到<code>/wp-includes</code>里的<code>link-templates.php</code>，在这个文件中搜索“gravatar”，大约在这个文件4378行的位置就可以发现 Gravatar 的链接，替换链接为国内可访问的镜像源即可。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220724231147789.webp" alt="替换链接为国内的镜像源"></p><p>至于插件，暂时没有找到还在更新且能完美实现这个功能的插件，如果有欢迎评论。</p><h2 id="Typecho"><a href="#Typecho" class="headerlink" title="Typecho"></a>Typecho</h2><p>对于 Typecho，方法与 Wordpress 大同小异，找到网站根目录，打开<code>/var/Typecho/</code>目录下的<code>Common.php</code>文件。大约在 836 行左右的地方可以找到 Gravatar 官方源的地址，替换为国内可访问源即可。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220725104210264.webp" alt="Typecho替换Gravatar官方源后的效果"></p><p>不过，某些 Typecho 主题可能不会调用 Typecho 的模板函数，而是使用主题内的函数，这时需要对主题文件作额外的修改。回到网站根目录，打开<code>/usr/themes/</code>下你的主题根目录，主题获取 Gravatar 的相关代码一般在<code>comments.php</code>里，打开<code>comments.php</code>搜索”avatar” 找到 Gravatar 官方源的地址替换为国内可访问源即可。</p><p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220725105114445.webp" alt="某些Typecho主题会自写模板函数"></p><h2 id="推荐的Gravatar源"><a href="#推荐的Gravatar源" class="headerlink" title="推荐的Gravatar源"></a>推荐的Gravatar源</h2><p>目前只推荐自建源和七牛云源，后续可能会寻找新源，如果有欢迎评论。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://gravatar.l3zc.com#自建源，已停用</span><br><span class="line">https://dn-qiniu-avatar.qbox.me/avatar/#七牛云源，很快，推荐</span><br></pre></td></tr></table></figure><h2 id="需要注意的是"><a href="#需要注意的是" class="headerlink" title="需要注意的是"></a>需要注意的是</h2><p>你可能已经注意到，在 Typecho 自带的模版函数里，调用 Gravatar 源时不需要加<code>/avatar</code>，这是因为 Typecho 自带的函数里已经自动为之加上。同理，有的源调用avatar的路径可能是<code>/gravatar</code>，应用到网站上时需要做出相应的修改。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 未分类 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>家人真的值得信赖吗？</title>
+      <link href="/are-parents-really-trustable/"/>
+      <url>/are-parents-really-trustable/</url>
+      
+        <content type="html"><![CDATA[<p>翻一翻以前的日记，总觉得大脑里神经错乱难以持继。</p><blockquote><p>那些试图控制你的所谓家人，不配叫做家人，他们只不过是一群为一时肉体快感，为满足自身控制欲将你可怜的灵魂带到世上，让你饱受痛苦的孽障。他们只不过是一群借所谓的忠孝仁义控制别人而为自己带来好处的流氓。他们只不过是一群虚有其表在你面前狂吼乱叫的贱狗。</p><p>——2020年2月12日</p></blockquote><blockquote><p>都说家人将帮助你，某些情况下，家人却会成为你的枷锁，你真的需要家人吗？目前来看，确实需要，但是，家人的存在是否是你后续人生的威胁？道德，什么是道德？什么是仁义？都是狗屁，家人利用仁义时，道德上的弱者将会被无情的压榨殆尽。</p><p>——2021年3月20日</p></blockquote><p>这里所谓的“家人”，给我带来了什么，为什么要给我带来这些，我失去了什么，我又得到了什么？很久以来我一直在问自己这样一些问题。严格来说，这个道理不值得我长篇大论：显而易见，繁衍是人的本能，繁衍的欲望会随年龄逐渐加强，在这个欲望没有那么强的时候，这会与人的本能互相制衡，达到一个平衡。当欲望愈发强烈，这一套平衡系统就会被崩溃。为了追求快感，后面的事情大家都知道了，一个大冤种就此降世。</p><p>事情就是这么简单，大方向上，人的本能决定了没有第二种情况：最亲的亲人贪图一时的肉体快感，却不想承担与之对应的繁重生育工作——欲火焚身，哪管那么多？这种情形下，亲人的智商为负，但这没能阻止他们开始“权衡”生育子女的利弊：</p><ul><li>夫妻恩爱是必要的啦</li><li>有个孩子很幸福的</li><li>等孩子考上清华北大我们就可以等着享福了</li><li>……</li></ul><p>明眼人都能看出来，这样分析下去，无论如何都会得出“生个孩子血赚”的结论。因为这根本就不是理性分析，这仅仅是为自己纵欲找个理由以便早日缓解欲火焚身的局面。上述是一个情况较为极端的个例，但也不失参考价值。事情在细节上可能有所偏差：有的人过分理性，压倒了欲望，综合分析后决定生育；有的人甚至更加感性，纯粹出于欲望使然；有的人甚是好笑，采取的防护措施不到位发生意外而将错就错。在生育上，“亲人”是大同小异的。</p><p>（未完待续）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 未分类 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>城市的核心，是人</title>
+      <link href="/my-thoughts-on-cities/"/>
+      <url>/my-thoughts-on-cities/</url>
+      
+        <content type="html"><![CDATA[<p>My-thoughts-on-cities，未完待续。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 未分类 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>多数情况下，我们说话就只是想说说话</title>
+      <link href="/in-most-cases-we-just-need-to-talk/"/>
+      <url>/in-most-cases-we-just-need-to-talk/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>“我总感觉我们住的这个地方，没有什么文化底蕴，像是那种土包子盖起来的城市，这不是一个宜居的地方”，“那你就去改变啊”，“……”</p></blockquote><p>以上是我与父亲之间的一段谈论，原本纯粹的一段闲聊调侃活生生的变成了家长味十足的说教。这种情况发生过多次，以至于我早已对此麻木。我知道这肯定不是个例，随意找找钢铁直男与其女友“和睦相处”就能抓出一大把远比这更糟的情况。这次无语后，我出门运动以避免进一步的“说教”，也算是一种无奈之举吧。</p><p>记得以前不知从哪里听来的俗语：会打哈哈的人，官升的快。会打哈哈的人并非舔狗，相反，这类人内心十分自信，很有尊严和主见。他们很清楚的知道自己付出了什么，得到了什么，以及两者之间的比例是否值得。只要他们想，他们会在一个他们自己明知而又可以接受的范围内尽可能的给人们以舒适。回到开头的场景，换作一个正常一些的人，也只会听一听，顶多与我扯上两句。但是家长不一样，他们出于自我的快感和成就感，会找尽一切机会对我们进行说教。</p><p>所以这篇文章其实应该是《家长是不是真的爱我们？（血缘关系是否能够带来爱？）血缘关系真的能够带来爱吗？》？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 未分类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 家人 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>同时发布三个版本的站点？我的博客工作流及对每个版本的优化方案</title>
       <link href="/my-blog-workflow/"/>
       <url>/my-blog-workflow/</url>
@@ -136,7 +218,7 @@
       <link href="/my-thoughts-on-addictions/"/>
       <url>/my-thoughts-on-addictions/</url>
       
-        <content type="html"><![CDATA[<p>生活相对有规律，比较自律，早睡早起，锻炼身体，甚至每天绝大部分上网时间都没有花在游戏上，可能这就是你的样子，人们根本就不会觉得这种人会和网瘾扯上关系。很多情况下，事情并非如此。</p><span id="more"></span><h2 id="我到底是怎么了？"><a href="#我到底是怎么了？" class="headerlink" title="我到底是怎么了？"></a>我到底是怎么了？</h2><p>“瘾”这个词，并不形容短期心理状态，而形容长期大脑的变化。你绝对在某一时刻体验过短时间内多巴胺爆棚的快感，并且从此喜欢上了这个状态，这并不是上瘾，仅仅是喜欢。更进一步，你可能并没有察觉到你的大脑里正在发生的某些事情，成瘾的过程无法被大脑察觉，你的大脑可能在尝到这种快感以后发生了微妙的变化，产生了对这种状态的依赖，这时才算是真的成瘾。</p><p>既然成瘾无法被大脑察觉，如果不去刻意感知，绝不会知道自己正在上瘾。自很早以前，在打开 YouTube、Twitter 等网站时即使知道自己正在虚度光阴，即使屏幕上的内容毫无乐趣也于我无用，我也还是会继续看下去，并且不知不觉的看掉一个下午。在逛 AppStore 的时候，通常都是为了用一个 App 而用一个 App，即使不需要用到这个 App，我也会下载下来，摸索许久。在找资源、信息的时候，即使我用不到这个资源、信息，我也会不断收集。即使还有更要紧的事要做，即使这对我无意义甚至有害，我却无法停下。</p><h2 id="这算生病吗？"><a href="#这算生病吗？" class="headerlink" title="这算生病吗？"></a>这算生病吗？</h2><p>大脑倾向于寻找更多的多巴胺，自然也想要重复获得多巴胺的体验。物极必反，太多的多巴胺亦不是一件好事，人类进化出一套平衡机制：当你获得太多的多巴胺时，大脑就会产生与多巴胺作用相反的物质来平衡。飞的越高，摔得越惨，放在这里简直再也合适不过，大脑体验多巴胺爆棚的极乐之后，会立刻陷入生与多巴胺作用相反的物质所带来的痛苦反噬的深渊。这种感觉实在是太过于痛苦，大脑倾向于找到更多的多巴胺来平衡痛苦反噬，却又引发更多的痛苦反噬，从而陷入恶性循环。</p><pre class="mermaid">graph LRA[想要获得多巴胺] --> B[获得多巴胺]B --> C[产生痛苦反噬]C --> D[痛苦]D --> A</pre><p>这就是上瘾，一个无法挣脱的泥潭。其实任何东西成瘾都可以算作是生病，就像吸毒一样，即使你已深知吸毒的危害，即使毒品让你的身体承受很大的痛苦反噬，你也还是想要吸毒，因为那里有大脑迫切需要的多巴胺。得不到多巴胺的痛苦远甚于做这件让你获得多巴胺的事所带来的痛苦。</p><p>人们从来没有认真思考过这种现象是否是病，从某种意义上来说，这已经算是生病了。</p><h2 id="还是接着开头说"><a href="#还是接着开头说" class="headerlink" title="还是接着开头说"></a>还是接着开头说</h2><p>我曾经把大把的时间花在上网上，看上去，我在学习。表面上，陷入这恶性循环的人看上去会很健康，包括生活方式。他们可能看起来在努力的工作，努力学习。他们自己也不知道自己已经患病。注意区分，两种人很容易混淆，一种是大脑已经因为长期食用 Dopamine snacks 发生变化，一种则是纯粹的追求舒适的感觉，大脑没有变化。这里所讨论的人属于第一种。</p><p>从书籍到文章，从文章到博客，从博客到微博客，从微博客到视频，再从视频到短视频，网络连接的速度越来越快，人们接受信息的媒介却变得越来越浮躁，每当学到一些新的东西，人类的大脑就会产生多巴胺奖励自己，信息媒介的不断进步把获得多巴胺的门槛变得越来越低，简单的来说，既然能以更小的代价获得短期快乐，那么大脑就不愿意花更大的价钱去买长期来看更好但更贵的长期稳定的快乐了。</p><h2 id="不停的学新东西？听上去很好啊？"><a href="#不停的学新东西？听上去很好啊？" class="headerlink" title="不停的学新东西？听上去很好啊？"></a>不停的学新东西？听上去很好啊？</h2><blockquote><p>We’re now in a day and age of Twitter and Facebook. We’re getting bite-sized, pithy wisdom, which is really hard to absorb.</p><p>——Naval</p></blockquote><p>我们所看到的短信息，即使看上去是十分正确的大道理，十分有用的小知识，实际上全然无用，正所谓大道理只能自己悟出来，听别人讲大道理是没用的。别人是在自己经历和实践上加以理解的基础上总结，我们却不能通过别人的总结反推出理解。</p><p>大多数人被误导：可以通过别人所发出的感悟学习到一些道理。事实上，从来都没有这一回事。只有彻底明白某个道理的人才能发出感悟。想要从发出的感悟回溯被想明白的道理无异于从三条杠看出天地轮回——都是自己的感悟，而非他的。当对问题的认识越透彻（这是一个笼统的感觉，只是借用了中文的这种表达方式），达到某个高度，才能从那个高度出发，发表一些本质上的感悟。这些感悟通常不具备实际的指导价值，可以透过现象看本质，即通过低层次的知识领悟高层次的知识，但若要通过高层次的知识倒退出作者是<strong>怎么</strong>从低层次的知识获得感悟，除瞎猜外，别无他法。</p><p>自我感动改变不了看这些内容学不到东西的事实。</p><h2 id="这就像是吸毒"><a href="#这就像是吸毒" class="headerlink" title="这就像是吸毒"></a>这就像是吸毒</h2><p>为了满足大脑对多巴胺不断增长的需求，我开始熬夜，我虚度光阴。得到了需要的多巴胺却开始懊悔。</p><blockquote><p>一天不熬难受，熬了难受一天</p><p>——我室友</p></blockquote><p>陷入前面提到的死循环的人症状就像是吸毒，虽然知道毒品的危害，却因为过度的痛苦不得不再次吸食毒品。一些药品剂量大了就会变成毒品。一些本来对我们有益的举动走火入魔就会变成追寻多巴胺的痛苦恶性循环。</p><h2 id="既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾"><a href="#既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾" class="headerlink" title="既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾"></a>既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾</h2><p>根据 <a href="https://youtu.be/0yw2y-vd2V8">WHO 发布的一段关于如何戒烟的视频</a>，为了戒烟，吸烟者需要克服尼古丁上瘾，从大脑里移除条件反射和打破潜意识的想法，以及移除社交上的关系纽带。显然，戒除这种看上去不像是成瘾的成瘾要比戒烟容易，因为我们不需要完成第一个挑战以及最后一个挑战，我们只需要移除条件反射和潜意识里的想法，充其量算上克服我们的某个上瘾，学习怎么脱离某个事物生活。</p><p>我会试着去戒除我的轻度网瘾：</p><ul><li><input disabled="" type="checkbox"> 戒除早晨起来拿起手机玩的条件反射</li></ul>]]></content>
+        <content type="html"><![CDATA[<p>生活相对有规律，比较自律，早睡早起，锻炼身体，甚至每天绝大部分上网时间都没有花在游戏上，可能这就是你的样子，人们根本就不会觉得这种人会和网瘾扯上关系。很多情况下，事情并非如此。</p><span id="more"></span><h2 id="我到底是怎么了？"><a href="#我到底是怎么了？" class="headerlink" title="我到底是怎么了？"></a>我到底是怎么了？</h2><p>“瘾”这个词，并不形容短期心理状态，而形容长期大脑的变化。你绝对在某一时刻体验过短时间内多巴胺爆棚的快感，并且从此喜欢上了这个状态，这并不是上瘾，仅仅是喜欢。更进一步，你可能并没有察觉到你的大脑里正在发生的某些事情，成瘾的过程无法被大脑察觉，你的大脑可能在尝到这种快感以后发生了微妙的变化，产生了对这种状态的依赖，这时才算是真的成瘾。</p><p>既然成瘾无法被大脑察觉，如果不去刻意感知，绝不会知道自己正在上瘾。自很早以前，在打开 YouTube、Twitter 等网站时即使知道自己正在虚度光阴，即使屏幕上的内容毫无乐趣也于我无用，我也还是会继续看下去，并且不知不觉的看掉一个下午。在逛 AppStore 的时候，通常都是为了用一个 App 而用一个 App，即使不需要用到这个 App，我也会下载下来，摸索许久。在找资源、信息的时候，即使我用不到这个资源、信息，我也会不断收集。即使还有更要紧的事要做，即使这对我无意义甚至有害，我却无法停下。</p><h2 id="这算生病吗？"><a href="#这算生病吗？" class="headerlink" title="这算生病吗？"></a>这算生病吗？</h2><p>大脑倾向于寻找更多的多巴胺，自然也想要重复获得多巴胺的体验。物极必反，太多的多巴胺亦不是一件好事，人类进化出一套平衡机制：当你获得太多的多巴胺时，大脑就会产生与多巴胺作用相反的物质来平衡。飞的越高，摔得越惨，放在这里简直再也合适不过，大脑体验多巴胺爆棚的极乐之后，会立刻陷入生与多巴胺作用相反的物质所带来的痛苦反噬的深渊。这种感觉实在是太过于痛苦，大脑倾向于找到更多的多巴胺来平衡痛苦反噬，却又引发更多的痛苦反噬，从而陷入恶性循环。</p><pre class="mermaid">graph LRA[想要获得多巴胺] --> B[获得多巴胺]B --> C[产生痛苦反噬]C --> D[痛苦]D --> A</pre><p>这就是上瘾，一个无法挣脱的泥潭。其实任何东西成瘾都可以算作是生病，就像吸毒一样，即使你已深知吸毒的危害，即使毒品让你的身体承受很大的痛苦反噬，你也还是想要吸毒，因为那里有大脑迫切需要的多巴胺。得不到多巴胺的痛苦远甚于做这件让你获得多巴胺的事所带来的痛苦。</p><p>人们从来没有认真思考过这种现象是否是病，从某种意义上来说，这已经算是生病了。</p><h2 id="还是接着开头说"><a href="#还是接着开头说" class="headerlink" title="还是接着开头说"></a>还是接着开头说</h2><p>我曾经把大把的时间花在上网上，看上去，我在学习。表面上，陷入这恶性循环的人看上去会很健康，包括生活方式。他们可能看起来在努力的工作，努力学习。他们自己也不知道自己已经患病。注意区分，两种人很容易混淆，一种是大脑已经因为长期食用 Dopamine snacks 发生变化，一种则是纯粹的追求舒适的感觉，大脑没有变化。这里所讨论的人属于第一种。</p><p>从书籍到文章，从文章到博客，从博客到微博客，从微博客到视频，再从视频到短视频，网络连接的速度越来越快，人们接受信息的媒介却变得越来越浮躁，每当学到一些新的东西，人类的大脑就会产生多巴胺奖励自己，信息媒介的不断进步把获得多巴胺的门槛变得越来越低，简单的来说，既然能以更小的代价获得短期快乐，那么大脑就不愿意花更大的价钱去买长期来看更好但更贵的长期稳定的快乐了。</p><h2 id="不停的学新东西？听上去很好啊？"><a href="#不停的学新东西？听上去很好啊？" class="headerlink" title="不停的学新东西？听上去很好啊？"></a>不停的学新东西？听上去很好啊？</h2><blockquote><p>We’re now in a day and age of Twitter and Facebook. We’re getting bite-sized, pithy wisdom, which is really hard to absorb.</p><p>——Naval</p></blockquote><p>我们所看到的短信息，即使看上去是十分正确的大道理，十分有用的小知识，实际上全然无用，正所谓大道理只能自己悟出来，听别人讲大道理是没用的。别人是在自己经历和实践上加以理解的基础上总结，我们却不能通过别人的总结反推出理解。</p><p>大多数人被误导：可以通过别人所发出的感悟学习到一些道理。事实上，从来都没有这一回事。只有彻底明白某个道理的人才能发出感悟。想要从发出的感悟回溯被想明白的道理无异于从三条杠看出天地轮回——都是自己的感悟，而非他的。当对问题的认识越透彻（这是一个笼统的感觉，只是借用了中文的这种表达方式），达到某个高度，才能从那个高度出发，发表一些本质上的感悟。这些感悟通常不具备实际的指导价值，可以透过现象看本质，即通过低层次的知识领悟高层次的知识，但若要通过高层次的知识倒退出作者是<strong>怎么</strong>从低层次的知识获得感悟，除瞎猜外，别无他法。</p><p>自我感动改变不了看这些内容学不到东西的事实。</p><h2 id="这就像是吸毒"><a href="#这就像是吸毒" class="headerlink" title="这就像是吸毒"></a>这就像是吸毒</h2><p>为了满足大脑对多巴胺不断增长的需求，我开始熬夜，我虚度光阴。得到了需要的多巴胺却开始懊悔。</p><blockquote><p>一天不熬难受，熬了难受一天</p><p>——我室友</p></blockquote><p>陷入前面提到的死循环的人症状就像是吸毒，虽然知道毒品的危害，却因为过度的痛苦不得不再次吸食毒品。一些药品剂量大了就会变成毒品。一些本来对我们有益的举动走火入魔就会变成追寻多巴胺的痛苦恶性循环。</p><h2 id="既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾"><a href="#既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾" class="headerlink" title="既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾"></a>既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾</h2><p>根据 <a href="https://youtu.be/0yw2y-vd2V8">WHO 发布的一段关于如何戒烟的视频</a>，为了戒烟，吸烟者需要克服尼古丁上瘾，从大脑里移除条件反射和打破潜意识的想法，以及移除社交上的关系纽带。显然，戒除这种看上去不像是成瘾的成瘾要比戒烟容易，因为我们不需要完成第一个挑战以及最后一个挑战，我们只需要移除条件反射和潜意识里的想法，充其量算上克服我们的某个上瘾，学习怎么脱离某个事物生活。</p><p>我会试着去做出一些改变：</p><ul><li><input checked="" disabled="" type="checkbox"> 戒除早晨起来拿起手机玩的条件反射</li><li><input disabled="" type="checkbox"> 戒除闲下来就想要碰电子产品的条件反射</li><li><input disabled="" type="checkbox"> 戒除睡前“不能就这么睡了”进而拿起手机的习惯</li></ul><p>当然，仅仅做出这些改变还远远不够。究其根源，瘾的形成是因为更强烈的快感冲淡了其他一切能获得的快乐。那么更进一步，想要彻底戒除成瘾，我们需要重拾那些能给我们带来快乐的小事，体验虽然小但是稳定的幸福感。不去追求一时的极致欢乐，自然也不会跌入痛苦的谷底而陷入恶性循环。</p>]]></content>
       
       
       <categories>
