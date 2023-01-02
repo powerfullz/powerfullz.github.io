@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>在中国，漫展已经失去了灵魂</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/08/nano-pi-r2s-hands-on/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/08/why-upload-speed-is-typically-slower-than-download-speed-in-china/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/08/my-thoughts-on-anime-shows-in-china/&title=在中国，漫展已经失去了灵魂"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/08/my-thoughts-on-anime-shows-in-china/&title=在中国，漫展已经失去了灵魂"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/08/my-thoughts-on-anime-shows-in-china/&text=在中国，漫展已经失去了灵魂"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=在中国，漫展已经失去了灵魂&body=Check out this article: https://hexo.l3zc.com/2022/08/my-thoughts-on-anime-shows-in-china/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E9%9C%80%E8%A6%81%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E6%BC%AB%E5%B1%95%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">我们到底需要什么样的漫展？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E4%B8%8D%E6%98%AF%E4%B8%8D%E7%9C%8B%E6%BC%AB%E5%B1%95%E5%90%97%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">你不是不看漫展吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%86%8D%E6%B4%97%E7%99%BD%E6%96%87%E5%8C%96%E5%AE%A1%E6%9F%A5"><span class="toc-number">3.</span> <span class="toc-text">别再洗白文化审查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E7%9A%84%E8%BD%A6%E8%BD%AE%E6%BB%9A%E6%BB%9A%E5%90%91%E5%89%8D%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">历史的车轮滚滚向前？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E9%BB%91%E6%9A%97%E7%9A%84%E6%97%B6%E5%80%99%E2%80%A6"><span class="toc-number">5.</span> <span class="toc-text">最黑暗的时候…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E2%80%A6"><span class="toc-number">6.</span> <span class="toc-text">最后…</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在中国，漫展已经失去了灵魂
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-08-11T03:44:17.000Z"
+                  itemprop="datePublished">2022-08-11</time>
+            
+                (Updated:
+                <time datetime="2022-08-11T03:45:37.000Z"
+                      itemprop="dateModified">2022-08-11</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%89%A2%E9%AA%9A/" rel="tag">牢骚</a>
+    </div>
+
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>我从未去过漫展，并且可能在今后相当长的一段时间里也不打算去了。看到一位推友发送的广州漫展的情况后，我的心情却不比当年 Pixiv 被墙更加简单。</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/653FBD7AF04B464C4EA55DFC39C670E4.webp" alt="653FBD7AF04B464C4EA55DFC39C670E4"></p>
+<h2 id="我们到底需要什么样的漫展？"><a href="#我们到底需要什么样的漫展？" class="headerlink" title="我们到底需要什么样的漫展？"></a>我们到底需要什么样的漫展？</h2><p>在维基百科上搜索“漫展”，你会发现这个词条之中文版是一个年久失修的词条。所以我们来看看英文版：</p>
+<blockquote>
+<p>An <strong>anime convention</strong> is an event or gathering with a primary focus on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Anime">anime</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Manga">manga</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Culture_of_Japan">Japanese culture</a>. Commonly, anime conventions are multi-day events hosted at <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Convention_center">convention centers</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hotel">hotels</a> or college campuses. They feature a wide variety of activities and panels, with a larger number of attendees participating in <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cosplay">cosplay</a> than most other types of fan conventions. Anime conventions are also used as a vehicle for industry, in which studios, distributors, and publishers represent their anime related releases.</p>
+</blockquote>
+<p>最初的漫展在1975年举行，是位于东京举行的 Comiket。上面这段话大致的翻译是：漫展是将焦点放在动漫，漫画以及日本文化上的展览。通常分多日在会议中心、酒店、校园等地举行，分为各种活动。漫展中参加 Cosplay 的人数远比参加其他活动的人更多。漫展也被当作二次元商业活动的载体，签售等各种商业活动都可以通过漫展进行。</p>
+<p>可以看出，漫展在中文和英语环境下都是一个较为冷门的词汇。就连在编辑战频发的维基百科都少人问津。在我的印象里，漫展是一个传播ACG(Anime, Cartoon, Gaming)文化之地。虽然这类文化大抵起源于日本，但像英文维基百科片面的将其归结于日本文化显然非常偏激。</p>
+<blockquote>
+<p>漫展在官僚主义、形式主义、和沙文主义三座大山的夹缝中求生存、图发展，漫展的堕落是中国畸形的文化现象的缩影。</p>
+</blockquote>
+<p>审查并非一定是政府行为，亦可以是民间自发行为，过度的审查让原本正常生长的文化变成了畸形的文化，这已经不是第一次：民国时期的散文诗作者抒情之地，建国后大部分却变成了刻意拍马屁的垃圾；京剧是我国国粹，文革时期极端的审查与文化专制让京剧畸形发展出了面目全非的样板戏；藏传佛教本是至美的纯粹信仰，过分的审查却将其变成了政治意味浓厚的工具。毫不夸张的说，过分的审查本质上是在同化文化，是对多元文化的不容忍，简单来说，这就是在破坏文化。</p>
+<p>我们到底需要什么样的漫展？我们需要的，只不过是未经污染的一片净土，是一片原汁原味的文化，可是在极端的审查下，连对多元文化基本的保留，基本的原汁原味都成了奢望。</p>
+<h2 id="你不是不看漫展吗？"><a href="#你不是不看漫展吗？" class="headerlink" title="你不是不看漫展吗？"></a>你不是不看漫展吗？</h2><p>若是问及这在现实世界中对我的影响，可以说是几乎为零。我虽然喜爱二次元文化，但就我痴迷的程度而言，我甚至不配被称为ACG爱好者。我一苦逼大学生的生活状态，直截了当的说，与那些花天酒地的大学生相比，我过得可能更接近于苦行僧。毕竟从第一句话我就说了：我从未去过漫展，在夏日祭事件后环境每况愈下的情况下更加不打算去。</p>
+<p>在我的意识里，一种声音告诉我：等某一天我喜爱的某个东西，比如最近在玩的 Cytus 2 被拉清单，或者说发生更加难以接受的事国内进一步封闭互联网，我才会站出来发声。现在的事对你没什么影响，事不关己，高高挂起？但我却不得不提到这首著名的墓志铭：</p>
+<blockquote>
+<p>在德国，起初他们追杀共产主义者，我没有说话，因为我不是共产主义者；</p>
+<p>接着，他们追杀犹太人，我没有说话…，因为我不是犹太人；</p>
+<p>后来，他们追杀工会成员，我没有说话…，因为我不是工会成员；</p>
+<p>此后，他们追杀天主教徒，我没有说话…，因为我是新教徒；</p>
+<p>最后，他们奔我而来，却再也没有人站起来为我说话了。</p>
+</blockquote>
+<p>这是一位牧师的墓志铭，相信很多人都看过。对于每况愈下的沉默是可怕的，不在沉默中爆发，就在沉默中灭亡。不如我来仿写一下这首诗墓志铭：</p>
+<blockquote>
+<p>起初他们打压“娘炮”，我保持沉默，因为我不是“娘炮”。</p>
+<p>接着，他们打压明星，我保持沉默，因为我不追星。</p>
+<p>后来，他们审查游戏，要求游戏必须拿到版号，我保持沉默，因为我玩的游戏没有受到影响。</p>
+<p>此后，他们借着莫须有的“夏日祭”事件对漫展施压，我保持沉默，因为我不看漫展。</p>
+<p>最后，他们只允许高唱赞歌，整个民族却不再容忍其他文化了。</p>
+</blockquote>
+<h2 id="别再洗白文化审查"><a href="#别再洗白文化审查" class="headerlink" title="别再洗白文化审查"></a>别再洗白文化审查</h2><blockquote>
+<p>Freedom of speech is that you could say anything you want, but it doesn’t mean I have to listen to it.</p>
+</blockquote>
+<p>言论自由的意思是：你可以发表任何你想要发表的言论，但这并不代表我一定要听。社会文化同理，我们的社会可以有“正能量”的主流文化，但并不代表我们的社会不能有其他文化。畸形的文化审查就是对文化的破坏。在中国，审查并非单纯的一种制度，而是一种现象，中国的审查现象是官僚主义、形式主义和沙文主义互相结合的产物。为什么会有人为这种畸形中的畸形现象洗白？长期只接受单一的文化，人的思想就会愈发偏激，愈发地不能接受其他文化，不能容忍文化多样性的存在。当一个国家，一个民族不能容忍多样性时，势必造成灾难性的后果。想想纳粹德国是如何发动二战以及他们在二战中的各种反人类行为，你就能明白这一点。</p>
+<p>及时行乐。情况虽然不容乐观，但我们依旧可以掌控当下。与其等待文化被阉割，不如尽早的感受多元文化。前面已经反复提到，中国的审查现象是一种十分畸形的现象，与其担惊受怕不断自我审查，不如趁早、趁更加开放的时候感受文化。不得不说，现今社会在倒退，Totally reversing all the progress we’ve made，让人看不到希望，我们能看到的，只有黑暗，一眼望不到头的黑暗。</p>
+<h2 id="历史的车轮滚滚向前？"><a href="#历史的车轮滚滚向前？" class="headerlink" title="历史的车轮滚滚向前？"></a>历史的车轮滚滚向前？</h2><blockquote>
+<p>刚被历史的车轮碾过，好不容易爬起身来，却发现历史在开倒车。</p>
+</blockquote>
+<p>我们本应在上世纪80年代迎来一个更加开放的社会，可我们没有。我们本应在20世纪初加入WTO后逐渐转型，我们亦在20世纪初呈现了短暂的繁荣，没有畸形的政治正确，没有过分的审查，青年一代朝气蓬勃，踌躇满志，整个社会呈现出变革的态势。现在回想起童年时的社会生活，虽然亦有审查，但绝无现在的压抑之感。我们能明显的感觉到，当时的社会正在进步，理论上来说，十几年过去，我们应当迎来一个更为进步、开放的社会。十几年后的今天，社会却事与愿违，正加剧着偏激与极端。</p>
+<h2 id="最黑暗的时候…"><a href="#最黑暗的时候…" class="headerlink" title="最黑暗的时候…"></a>最黑暗的时候…</h2><p>虽然正在陷入无尽的黑暗，但人们还是努力生活，努力在生活中寻找幸福感。在1940年，也就是第二次世界大战最激烈，法西斯看上去就要征服世界的时候，人们依然会憧憬战后的生活。即使生活在绝望里，人们还是会以这句话安慰自己：</p>
+<blockquote>
+<p>The darkest hour is before the dawn.</p>
+</blockquote>
+<p>最黑暗的时候往往是清晨第一丝曙光前。即使黑暗看上去无尽，但总有一天，它会到头，即使生活在绝望中，也切莫放弃对生活的信心。在每况愈下，充满无力感时，这是我们能做且唯一能做到的。</p>
+<h2 id="最后…"><a href="#最后…" class="headerlink" title="最后…"></a>最后…</h2><p>我想看到我们的社会是包容的，而不是越来越偏激，越来越有攻击性。当然，这也没那么容易。社会变革是痛苦的，山雨欲来风满楼，这是变革前的阵痛吗？我们究竟何处去？是更加光明，还是更加黑暗？也许现在我不该考虑这个问题，要下雨了，赶紧收衣服去。</p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%88%B0%E5%BA%95%E9%9C%80%E8%A6%81%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E6%BC%AB%E5%B1%95%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">我们到底需要什么样的漫展？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E4%B8%8D%E6%98%AF%E4%B8%8D%E7%9C%8B%E6%BC%AB%E5%B1%95%E5%90%97%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">你不是不看漫展吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%86%8D%E6%B4%97%E7%99%BD%E6%96%87%E5%8C%96%E5%AE%A1%E6%9F%A5"><span class="toc-number">3.</span> <span class="toc-text">别再洗白文化审查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E7%9A%84%E8%BD%A6%E8%BD%AE%E6%BB%9A%E6%BB%9A%E5%90%91%E5%89%8D%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">历史的车轮滚滚向前？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E9%BB%91%E6%9A%97%E7%9A%84%E6%97%B6%E5%80%99%E2%80%A6"><span class="toc-number">5.</span> <span class="toc-text">最黑暗的时候…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E2%80%A6"><span class="toc-number">6.</span> <span class="toc-text">最后…</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/08/my-thoughts-on-anime-shows-in-china/&title=在中国，漫展已经失去了灵魂"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/08/my-thoughts-on-anime-shows-in-china/&title=在中国，漫展已经失去了灵魂"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/08/my-thoughts-on-anime-shows-in-china/&text=在中国，漫展已经失去了灵魂"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=在中国，漫展已经失去了灵魂&body=Check out this article: https://hexo.l3zc.com/2022/08/my-thoughts-on-anime-shows-in-china/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

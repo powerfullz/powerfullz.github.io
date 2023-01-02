@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>从某个项目里找出csust办公区网络的密码</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/05/how-csust-bg-network-passwd-leaked/&title=从某个项目里找出csust办公区网络的密码"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/05/how-csust-bg-network-passwd-leaked/&title=从某个项目里找出csust办公区网络的密码"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/05/how-csust-bg-network-passwd-leaked/&text=从某个项目里找出csust办公区网络的密码"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=从某个项目里找出csust办公区网络的密码&body=Check out this article: https://hexo.l3zc.com/2022/05/how-csust-bg-network-passwd-leaked/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E4%BD%A0%E6%80%8E%E4%B9%88%E6%A0%B7%E5%85%88Fork%E4%B8%80%E4%BB%BD%E5%86%8D%E8%AF%B4"><span class="toc-number">1.</span> <span class="toc-text">管你怎么样先Fork一份再说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%B3%E5%8A%9E%E6%B3%95%E6%89%BE%E5%88%B0%E8%B4%A6%E5%8F%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text">想办法找到账号信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E8%AF%95%E7%9D%80%E7%9B%B4%E6%8E%A5%E6%8B%86%E5%BC%80exe%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">先试着直接拆开exe程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%93%E5%8F%96%E7%99%BB%E9%99%86%E7%9A%84%E6%97%B6%E5%80%99%E5%8F%91%E9%80%81%E7%BB%99%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-number">2.2.</span> <span class="toc-text">抓取登陆的时候发送给认证服务器的数据包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E5%B0%B1%E6%8A%93%E5%8C%85%E5%90%A7"><span class="toc-number">3.</span> <span class="toc-text">那就抓包吧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BB%E9%99%86%E5%92%8C%E6%B5%8B%E9%80%9F"><span class="toc-number">4.</span> <span class="toc-text">登陆和测速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E4%B8%80%E4%B8%AA%E5%B0%8F%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">有一个小问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E2%80%A6"><span class="toc-number">6.</span> <span class="toc-text">最后…</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        从某个项目里找出csust办公区网络的密码
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-05-21T05:45:26.000Z"
+                  itemprop="datePublished">2022-05-21</time>
+            
+                (Updated:
+                <time datetime="2022-07-04T12:23:30.000Z"
+                      itemprop="dateModified">2022-07-04</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a>, <a class="tag-link-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a>, <a class="tag-link-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a>, <a class="tag-link-link" href="/tags/%E6%91%B8%E7%B4%A2/" rel="tag">摸索</a>, <a class="tag-link-link" href="/tags/%E9%95%BF%E6%B2%99%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6/" rel="tag">长沙理工大学</a>
+    </div>
+
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>某天在网上闲逛，发现一位名为linfangzhi老哥写的Github项目——CSUST_network_autologin。于是<del>白嫖</del>下载了一份用来在图书馆上网，但是这个项目只发布了Windows版，没发给手机和电脑用，所以，为了<del>折腾</del>满足需求，自己动手，丰衣足食。</p>
+<span id="more"></span>
+
+<h2 id="管你怎么样先Fork一份再说"><a href="#管你怎么样先Fork一份再说" class="headerlink" title="管你怎么样先Fork一份再说"></a>管你怎么样先Fork一份再说</h2><p>古语有云：“管你怎么样先fork一份再说“（大雾），<a target="_blank" rel="noopener" href="https://github.com/linfangzhi/CSUST_network_auto_login">这个项目的源码</a>公开，原理非常简单，就是模拟帮你填个账号登陆让你上网，所以说，整个项目最有价值的东西其实就是登陆上长沙理工大学办公区网络的账号和密码。</p>
+<p>“既然这个项目源码公开，那直接在源码里找到账号密码不就可以了吗？”</p>
+<p>还真不行。</p>
+<blockquote>
+<p>账号信息不会公布（公布是不可能公布的，这辈子都不可能公布）</p>
+<p>——linfangzhi</p>
+</blockquote>
+<p>事实上，他也确实做到了这一点，当你打开项目仅有的一个main.py文件就会看到如下的代码片段</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">init(autoreset=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">account_info = [[]]</span><br><span class="line"><span class="comment"># 隐私内容</span></span><br></pre></td></tr></table></figure>
+
+<p>linfangzhi学长早就把核心的account_info信息删去，留下一个摆着好看的坯子供你欣赏。他把这一个应用打包成了exe程序，只能用，不能看到隐私内容。</p>
+<p>可是我有iPad和Mac要登陆就只能洗洗睡了吗？</p>
+<h2 id="想办法找到账号信息"><a href="#想办法找到账号信息" class="headerlink" title="想办法找到账号信息"></a>想办法找到账号信息</h2><h3 id="先试着直接拆开exe程序"><a href="#先试着直接拆开exe程序" class="headerlink" title="先试着直接拆开exe程序"></a>先试着直接拆开exe程序</h3><p>有的exe程序可以直接用7-zip解压，然而这个不行</p>
+<p>去网上找了一些方法，终于感觉此路不通，放弃</p>
+<h3 id="抓取登陆的时候发送给认证服务器的数据包"><a href="#抓取登陆的时候发送给认证服务器的数据包" class="headerlink" title="抓取登陆的时候发送给认证服务器的数据包"></a>抓取登陆的时候发送给认证服务器的数据包</h3><p>长沙理工大学的认证服务器用的是万年http，没有s</p>
+<p>估计学校没有想到觉得有人会在校园网里抓别人的包，这意味着抓包会省不少事，只需要把程序发出的流量都引到抓包软件上就可以直接获取到裸奔的账号信息。这个办法的可行性明显高得多，实际操作起来也更容易。</p>
+<h2 id="那就抓包吧"><a href="#那就抓包吧" class="headerlink" title="那就抓包吧"></a>那就抓包吧</h2><p>这个项目发布了exe文件，可我只有Mac，所以我在Crossover里运行这个项目，不过需要一个简单的python环境，crossover默认的wine容器环境完全没有问题。于是我把用于Steam的容器用作这个exe的启动器就可以。</p>
+<p>至于抓包，Mac上有很多优质的应用，这里用到了<a target="_blank" rel="noopener" href="https://www.proxyman.io/">Proxyman</a></p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220522143748392.png" alt="Proxyman"></p>
+<p>弄好Proxyman以后在容器的Internet设置里设置一下本地的代理服务器让所有的流量都走Proxyman，这样就可以在Proxyman里看到所有的包</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220522143935127.png" alt="设置代理服务器成Proxyman"></p>
+<p>如前面所说，长沙理工大学的上网认证页还在用着http，账号密码都在裸奔。其实用https也只是多一个安装证书解密https的步骤。所以，到了这一步，直接在Crossover里打开exe文件，在Proxyman里观察这个程序发出的网络请求。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">POST /eportal/?c=ACSetting&amp;a=Login&amp;protocol=http:&amp;hostname=192.168.7.221&amp;iTermType=1&amp;wlanuserip=10.171.184.114&amp;wlanacip=192.168.132.254&amp;wlanacname=JPL-ME60-1&amp;mac=6a-72-0c-e8-4e-15&amp;ip=10.171.184.114&amp;enAdvert=0&amp;queryACIP=0&amp;loginMethod=1 HTTP/1.1</span><br><span class="line">Host: 192.168.7.221:801</span><br><span class="line">User-Agent: python-requests/2.18.4</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept: */*</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Content-Length: 74</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">DDDDD=%2C0%2Cxxxxxx&amp;upass=xxxxxx&amp;R1=0&amp;R2=0&amp;R3=0&amp;R6=0&amp;para=00&amp;0MKKey=123456</span><br></pre></td></tr></table></figure>
+
+<p>很明显，这个POST请求就是python的requests库发出的登陆请求。因为linfangzhi学长不希望公布账号信息，我把账号信息都换成了xxxxxx。</p>
+<p>将这段请求的原文还原一下（就是解码）可以得到下面的内容：</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220522145450840.png" alt="解码以后"></p>
+<p>查看项目里放出的源码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;</span><br><span class="line">            <span class="string">&#x27;DDDDD&#x27;</span>: <span class="string">&#x27;,0,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(account),</span><br><span class="line">            <span class="string">&#x27;upass&#x27;</span>: <span class="string">&#x27;&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(pswd),</span><br><span class="line">            <span class="string">&#x27;R1&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;R2&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;R3&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;R6&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;para&#x27;</span>: <span class="string">&#x27;00&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;0MKKey&#x27;</span>: <span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">        requests.post(url=post_url, data=data)</span><br></pre></td></tr></table></figure>
+
+<p>可以轻易的知道账号和密码就在图中两个xxxxxx所在的位置。</p>
+<h2 id="登陆和测速"><a href="#登陆和测速" class="headerlink" title="登陆和测速"></a>登陆和测速</h2><p>在iPad上填入账号信息尝试登陆</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/IMG_0030.PNG" alt="成功登陆"></p>
+<p>在长沙理工大学图书馆A馆二楼测速</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220522150706404.png" alt="测速结果"></p>
+<p>速度还能接受。虽然用4G也可以实现相似的速度，但是免流量，加上找出来密码的成就感，还是划算的，</p>
+<h2 id="有一个小问题"><a href="#有一个小问题" class="headerlink" title="有一个小问题"></a>有一个小问题</h2><p>每次连上半个小时就大概率会掉线，DHCP续租后又可以重新上线，可能是DHCP租约太短的原因，暂时还没有找到解决办法，可能以后会试着写一个自动续租的脚本来勉强解决问题。</p>
+<p>（20220525更新：这个问题似乎被解决了）</p>
+<h2 id="最后…"><a href="#最后…" class="headerlink" title="最后…"></a>最后…</h2><p><del>如果想要账号密码可以在评论区留下邮箱2333</del></p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E4%BD%A0%E6%80%8E%E4%B9%88%E6%A0%B7%E5%85%88Fork%E4%B8%80%E4%BB%BD%E5%86%8D%E8%AF%B4"><span class="toc-number">1.</span> <span class="toc-text">管你怎么样先Fork一份再说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%B3%E5%8A%9E%E6%B3%95%E6%89%BE%E5%88%B0%E8%B4%A6%E5%8F%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text">想办法找到账号信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E8%AF%95%E7%9D%80%E7%9B%B4%E6%8E%A5%E6%8B%86%E5%BC%80exe%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">先试着直接拆开exe程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%93%E5%8F%96%E7%99%BB%E9%99%86%E7%9A%84%E6%97%B6%E5%80%99%E5%8F%91%E9%80%81%E7%BB%99%E8%AE%A4%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-number">2.2.</span> <span class="toc-text">抓取登陆的时候发送给认证服务器的数据包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E5%B0%B1%E6%8A%93%E5%8C%85%E5%90%A7"><span class="toc-number">3.</span> <span class="toc-text">那就抓包吧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BB%E9%99%86%E5%92%8C%E6%B5%8B%E9%80%9F"><span class="toc-number">4.</span> <span class="toc-text">登陆和测速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E4%B8%80%E4%B8%AA%E5%B0%8F%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">有一个小问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E2%80%A6"><span class="toc-number">6.</span> <span class="toc-text">最后…</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/05/how-csust-bg-network-passwd-leaked/&title=从某个项目里找出csust办公区网络的密码"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/05/how-csust-bg-network-passwd-leaked/&title=从某个项目里找出csust办公区网络的密码"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/05/how-csust-bg-network-passwd-leaked/&text=从某个项目里找出csust办公区网络的密码"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=从某个项目里找出csust办公区网络的密码&body=Check out this article: https://hexo.l3zc.com/2022/05/how-csust-bg-network-passwd-leaked/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

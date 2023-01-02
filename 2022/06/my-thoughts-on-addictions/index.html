@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>看上去没有病，就真的没有病吗？我对“瘾”的思考</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/06/new-site-on-azure/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/06/music-apps-i-use/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/06/my-thoughts-on-addictions/&title=看上去没有病，就真的没有病吗？我对“瘾”的思考"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/06/my-thoughts-on-addictions/&title=看上去没有病，就真的没有病吗？我对“瘾”的思考"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/06/my-thoughts-on-addictions/&text=看上去没有病，就真的没有病吗？我对“瘾”的思考"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=看上去没有病，就真的没有病吗？我对“瘾”的思考&body=Check out this article: https://hexo.l3zc.com/2022/06/my-thoughts-on-addictions/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E4%BA%86%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">我到底是怎么了？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E7%AE%97%E7%94%9F%E7%97%85%E5%90%97%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">这算生病吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E6%98%AF%E6%8E%A5%E7%9D%80%E5%BC%80%E5%A4%B4%E8%AF%B4"><span class="toc-number">3.</span> <span class="toc-text">还是接着开头说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%81%9C%E7%9A%84%E5%AD%A6%E6%96%B0%E4%B8%9C%E8%A5%BF%EF%BC%9F%E5%90%AC%E4%B8%8A%E5%8E%BB%E5%BE%88%E5%A5%BD%E5%95%8A%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">不停的学新东西？听上去很好啊？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E5%B0%B1%E5%83%8F%E6%98%AF%E5%90%B8%E6%AF%92"><span class="toc-number">5.</span> <span class="toc-text">这就像是吸毒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A2%E7%84%B6%E8%BF%99%E5%B0%B1%E5%83%8F%E6%98%AF%E5%90%B8%E6%AF%92%EF%BC%8C%E4%B9%9F%E8%AE%B8%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E4%BB%A5%E6%88%92%E6%AF%92%E7%9A%84%E6%96%B9%E6%B3%95%E6%B6%88%E9%99%A4%E8%BF%99%E7%A7%8D%E7%9C%8B%E4%B8%8A%E5%8E%BB%E4%B8%8D%E5%83%8F%E6%98%AF%E6%88%90%E7%98%BE%E7%9A%84%E6%88%90%E7%98%BE"><span class="toc-number">6.</span> <span class="toc-text">既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        看上去没有病，就真的没有病吗？我对“瘾”的思考
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-06-22T14:22:01.000Z"
+                  itemprop="datePublished">2022-06-22</time>
+            
+                (Updated:
+                <time datetime="2022-07-20T05:06:15.000Z"
+                      itemprop="dateModified">2022-07-20</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
+    </div>
+
+            
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>生活相对有规律，比较自律，早睡早起，锻炼身体，甚至每天绝大部分上网时间都没有花在游戏上，可能这就是你的样子，人们根本就不会觉得这种人会和网瘾扯上关系。很多情况下，事情并非如此。</p>
+<span id="more"></span>
+
+<h2 id="我到底是怎么了？"><a href="#我到底是怎么了？" class="headerlink" title="我到底是怎么了？"></a>我到底是怎么了？</h2><p>“瘾”这个词，并不形容短期心理状态，而形容长期大脑的变化。你绝对在某一时刻体验过短时间内多巴胺爆棚的快感，并且从此喜欢上了这个状态，这并不是上瘾，仅仅是喜欢。更进一步，你可能并没有察觉到你的大脑里正在发生的某些事情，成瘾的过程无法被大脑察觉，你的大脑可能在尝到这种快感以后发生了微妙的变化，产生了对这种状态的依赖，这时才算是真的成瘾。</p>
+<p>既然成瘾无法被大脑察觉，如果不去刻意感知，绝不会知道自己正在上瘾。自很早以前，在打开 YouTube、Twitter 等网站时即使知道自己正在虚度光阴，即使屏幕上的内容毫无乐趣也于我无用，我也还是会继续看下去，并且不知不觉的看掉一个下午。在逛 AppStore 的时候，通常都是为了用一个 App 而用一个 App，即使不需要用到这个 App，我也会下载下来，摸索许久。在找资源、信息的时候，即使我用不到这个资源、信息，我也会不断收集。即使还有更要紧的事要做，即使这对我无意义甚至有害，我却无法停下。</p>
+<h2 id="这算生病吗？"><a href="#这算生病吗？" class="headerlink" title="这算生病吗？"></a>这算生病吗？</h2><p>大脑倾向于寻找更多的多巴胺，自然也想要重复获得多巴胺的体验。物极必反，太多的多巴胺亦不是一件好事，人类进化出一套平衡机制：当你获得太多的多巴胺时，大脑就会产生与多巴胺作用相反的物质来平衡。飞的越高，摔得越惨，放在这里简直再也合适不过，大脑体验多巴胺爆棚的极乐之后，会立刻陷入生与多巴胺作用相反的物质所带来的痛苦反噬的深渊。这种感觉实在是太过于痛苦，大脑倾向于找到更多的多巴胺来平衡痛苦反噬，却又引发更多的痛苦反噬，从而陷入恶性循环。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[想要获得多巴胺] --&gt; B[获得多巴胺]</span><br><span class="line">B --&gt; C[产生痛苦反噬]</span><br><span class="line">C --&gt; D[痛苦]</span><br><span class="line">D --&gt; A</span><br></pre></td></tr></table></figure>
+
+<p>这就是上瘾，一个无法挣脱的泥潭。其实任何东西成瘾都可以算作是生病，就像吸毒一样，即使你已深知吸毒的危害，即使毒品让你的身体承受很大的痛苦反噬，你也还是想要吸毒，因为那里有大脑迫切需要的多巴胺。得不到多巴胺的痛苦远甚于做这件让你获得多巴胺的事所带来的痛苦。</p>
+<p>人们从来没有认真思考过这种现象是否是病，从某种意义上来说，这已经算是生病了。</p>
+<h2 id="还是接着开头说"><a href="#还是接着开头说" class="headerlink" title="还是接着开头说"></a>还是接着开头说</h2><p>我曾经把大把的时间花在上网上，看上去，我在学习。表面上，陷入这恶性循环的人看上去会很健康，包括生活方式。他们可能看起来在努力的工作，努力学习。他们自己也不知道自己已经患病。注意区分，两种人很容易混淆，一种是大脑已经因为长期食用 Dopamine snacks 发生变化，一种则是纯粹的追求舒适的感觉，大脑没有变化。这里所讨论的人属于第一种。</p>
+<p>从书籍到文章，从文章到博客，从博客到微博客，从微博客到视频，再从视频到短视频，网络连接的速度越来越快，人们接受信息的媒介却变得越来越浮躁，每当学到一些新的东西，人类的大脑就会产生多巴胺奖励自己，信息媒介的不断进步把获得多巴胺的门槛变得越来越低，简单的来说，既然能以更小的代价获得短期快乐，那么大脑就不愿意花更大的价钱去买长期来看更好但更贵的长期稳定的快乐了。</p>
+<h2 id="不停的学新东西？听上去很好啊？"><a href="#不停的学新东西？听上去很好啊？" class="headerlink" title="不停的学新东西？听上去很好啊？"></a>不停的学新东西？听上去很好啊？</h2><blockquote>
+<p>We’re now in a day and age of Twitter and Facebook. We’re getting bite-sized, pithy wisdom, which is really hard to absorb.</p>
+<p>——Naval</p>
+</blockquote>
+<p>我们所看到的短信息，即使看上去是十分正确的大道理，十分有用的小知识，实际上全然无用，正所谓大道理只能自己悟出来，听别人讲大道理是没用的。别人是在自己经历和实践上加以理解的基础上总结，我们却不能通过别人的总结反推出理解。</p>
+<p>大多数人被误导：可以通过别人所发出的感悟学习到一些道理。事实上，从来都没有这一回事。只有彻底明白某个道理的人才能发出感悟。想要从发出的感悟回溯被想明白的道理无异于从三条杠看出天地轮回——都是自己的感悟，而非他的。当对问题的认识越透彻（这是一个笼统的感觉，只是借用了中文的这种表达方式），达到某个高度，才能从那个高度出发，发表一些本质上的感悟。这些感悟通常不具备实际的指导价值，可以透过现象看本质，即通过低层次的知识领悟高层次的知识，但若要通过高层次的知识倒退出作者是<strong>怎么</strong>从低层次的知识获得感悟，除瞎猜外，别无他法。</p>
+<p>自我感动改变不了看这些内容学不到东西的事实。</p>
+<h2 id="这就像是吸毒"><a href="#这就像是吸毒" class="headerlink" title="这就像是吸毒"></a>这就像是吸毒</h2><p>为了满足大脑对多巴胺不断增长的需求，我开始熬夜，我虚度光阴。得到了需要的多巴胺却开始懊悔。</p>
+<blockquote>
+<p>一天不熬难受，熬了难受一天</p>
+<p>——我室友</p>
+</blockquote>
+<p>陷入前面提到的死循环的人症状就像是吸毒，虽然知道毒品的危害，却因为过度的痛苦不得不再次吸食毒品。一些药品剂量大了就会变成毒品。一些本来对我们有益的举动走火入魔就会变成追寻多巴胺的痛苦恶性循环。</p>
+<h2 id="既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾"><a href="#既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾" class="headerlink" title="既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾"></a>既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾</h2><p>根据 <a target="_blank" rel="noopener" href="https://youtu.be/0yw2y-vd2V8">WHO 发布的一段关于如何戒烟的视频</a>，为了戒烟，吸烟者需要克服尼古丁上瘾，从大脑里移除条件反射和打破潜意识的想法，以及移除社交上的关系纽带。显然，戒除这种看上去不像是成瘾的成瘾要比戒烟容易，因为我们不需要完成第一个挑战以及最后一个挑战，我们只需要移除条件反射和潜意识里的想法，充其量算上克服我们的某个上瘾，学习怎么脱离某个事物生活。</p>
+<p>我会试着去做出一些改变：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 戒除早晨起来拿起手机玩的条件反射</li>
+<li><input disabled="" type="checkbox"> 戒除闲下来就想要碰电子产品的条件反射</li>
+<li><input disabled="" type="checkbox"> 戒除睡前“不能就这么睡了”进而拿起手机的习惯</li>
+</ul>
+<p>当然，仅仅做出这些改变还远远不够。究其根源，瘾的形成是因为更强烈的快感冲淡了其他一切能获得的快乐。那么更进一步，想要彻底戒除成瘾，我们需要重拾那些能给我们带来快乐的小事，体验虽然小但是稳定的幸福感。不去追求一时的极致欢乐，自然也不会跌入痛苦的谷底而陷入恶性循环。</p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E5%88%B0%E5%BA%95%E6%98%AF%E6%80%8E%E4%B9%88%E4%BA%86%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">我到底是怎么了？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E7%AE%97%E7%94%9F%E7%97%85%E5%90%97%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">这算生病吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E6%98%AF%E6%8E%A5%E7%9D%80%E5%BC%80%E5%A4%B4%E8%AF%B4"><span class="toc-number">3.</span> <span class="toc-text">还是接着开头说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%81%9C%E7%9A%84%E5%AD%A6%E6%96%B0%E4%B8%9C%E8%A5%BF%EF%BC%9F%E5%90%AC%E4%B8%8A%E5%8E%BB%E5%BE%88%E5%A5%BD%E5%95%8A%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">不停的学新东西？听上去很好啊？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E5%B0%B1%E5%83%8F%E6%98%AF%E5%90%B8%E6%AF%92"><span class="toc-number">5.</span> <span class="toc-text">这就像是吸毒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A2%E7%84%B6%E8%BF%99%E5%B0%B1%E5%83%8F%E6%98%AF%E5%90%B8%E6%AF%92%EF%BC%8C%E4%B9%9F%E8%AE%B8%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E4%BB%A5%E6%88%92%E6%AF%92%E7%9A%84%E6%96%B9%E6%B3%95%E6%B6%88%E9%99%A4%E8%BF%99%E7%A7%8D%E7%9C%8B%E4%B8%8A%E5%8E%BB%E4%B8%8D%E5%83%8F%E6%98%AF%E6%88%90%E7%98%BE%E7%9A%84%E6%88%90%E7%98%BE"><span class="toc-number">6.</span> <span class="toc-text">既然这就像是吸毒，也许我们可以以戒毒的方法消除这种看上去不像是成瘾的成瘾</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/06/my-thoughts-on-addictions/&title=看上去没有病，就真的没有病吗？我对“瘾”的思考"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/06/my-thoughts-on-addictions/&title=看上去没有病，就真的没有病吗？我对“瘾”的思考"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/06/my-thoughts-on-addictions/&text=看上去没有病，就真的没有病吗？我对“瘾”的思考"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=看上去没有病，就真的没有病吗？我对“瘾”的思考&body=Check out this article: https://hexo.l3zc.com/2022/06/my-thoughts-on-addictions/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

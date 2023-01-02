@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>在Mac上使用VS Code搭建轻量化C/C++开发环境</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/05/how-csust-bg-network-passwd-leaked/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/05/fuck-zhihuishu/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/&title=在Mac上使用VS Code搭建轻量化C/C++开发环境"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/&title=在Mac上使用VS Code搭建轻量化C/C++开发环境"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/&text=在Mac上使用VS Code搭建轻量化C/C++开发环境"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=在Mac上使用VS Code搭建轻量化C/C++开发环境&body=Check out this article: https://hexo.l3zc.com/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85C-x2F-C-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">安装C&#x2F;C++编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VS-Code%E7%9B%B8%E5%85%B3%E6%89%A9%E5%B1%95"><span class="toc-number">3.</span> <span class="toc-text">安装VS Code相关扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%B9%B6%E9%85%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">4.</span> <span class="toc-text">新建并配置工作区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95C-x2F-C-%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8"><span class="toc-number">5.</span> <span class="toc-text">测试C&#x2F;C++环境是否正常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEDebugger%E4%BB%A5%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="toc-number">6.</span> <span class="toc-text">配置Debugger以调试程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A2%E9%AA%9A"><span class="toc-number">7.</span> <span class="toc-text">牢骚</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在Mac上使用VS Code搭建轻量化C/C++开发环境
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-05-10T11:42:57.000Z"
+                  itemprop="datePublished">2022-05-10</time>
+            
+                (Updated:
+                <time datetime="2022-06-29T15:45:44.000Z"
+                      itemprop="dateModified">2022-06-29</time>)
+            
+        
+    </div>
+
+          
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Mac/" rel="tag">Mac</a>, <a class="tag-link-link" href="/tags/%E6%8A%98%E8%85%BE/" rel="tag">折腾</a>
+    </div>
+
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>一直都在用VS Code，<del>奈何以前太懒</del>可惜高中的时候很忙，很长一段时间里一直只把VS Code当作自己的文本编辑器，大学有了写C&#x2F;C++的需求，Xcode实在太大，于是转战在线编辑器<a target="_blank" rel="noopener" href="https://repl.it/">repl.it</a>，然而这类Cloud Based IDE链接不够稳定，也没有办法离线作业，于是我开始寻找一个轻量化的C语言开发环境满足我的实际需求。</p>
+<span id="more"></span>
+
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p><strong>本文基于intel Mac，M1 Mac自行安装&#x2F;执行对应的版本&#x2F;命令</strong><del>主要还是因为我太穷了(狗头)</del>其实现在这些工具大部分都适配了M1，应该不会有什么问题</p>
+<p><strong>默认你已经装好了VS Code，没有自行去<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code官网</a>下载安装</strong></p>
+<p><strong>本文所提到的是Visual Studio Code，不是Visual Studio，如果分不清请自行搜索两者的区别</strong></p>
+<h2 id="安装C-x2F-C-编译器"><a href="#安装C-x2F-C-编译器" class="headerlink" title="安装C&#x2F;C++编译器"></a>安装C&#x2F;C++编译器</h2><p>在Mac上，我用的C&#x2F;C++编译器是clang，相比于gcc，clang运行更快，能在程序出现语法错误编译失败时提供更加明确的错误信息和处理建议（这点我在Windows上用gcc时深有体会，gcc给的信息总是非常的confusing）。</p>
+<p>先检查你的Mac是否自带clang编译器，执行<code>clang -v</code>或者<code>clang --version</code>，没有出现clang的版本号则需要安装clang，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+
+<p>按照提示安装完成。</p>
+<h2 id="安装VS-Code相关扩展"><a href="#安装VS-Code相关扩展" class="headerlink" title="安装VS Code相关扩展"></a>安装VS Code相关扩展</h2><p>在VS Code里安装以下拓展（括号里的是作者）</p>
+<ul>
+<li>C&#x2F;C++(Microsoft)</li>
+<li>Code Runner(Jun Han)</li>
+<li>简体中文拓展：Chinese(Simplified)（可选）</li>
+</ul>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512191912.png" alt="C/C++扩展包"></p>
+<h2 id="新建并配置工作区"><a href="#新建并配置工作区" class="headerlink" title="新建并配置工作区"></a>新建并配置工作区</h2><p>新建一个文件夹作为工作区，注意<strong>文件夹名称不能出现中文和空格！！</strong>，这里根据我的需求，新建一个名为C_Homework的文件夹，随后在VS Code的菜单栏里选择：文件-&gt;打开文件夹，并信任此文件夹中文件的作者。</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512204431.png" alt="你总不可能连自己都不信任吧？"></p>
+<h2 id="测试C-x2F-C-环境是否正常"><a href="#测试C-x2F-C-环境是否正常" class="headerlink" title="测试C&#x2F;C++环境是否正常"></a>测试C&#x2F;C++环境是否正常</h2><p>打开后在VS Code左侧文件面板中刚刚创建好的文件夹里新建一个C&#x2F;C++文件，以.c&#x2F;.cpp作为拓展文件名，例如hello.c&#x2F;hello.cpp，然后写一个基本的C&#x2F;C++程序</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hello VSCode!&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完成后按command + S保存文件，如果在之前的步骤里正确安装了Code Runner，则可以方便的编译运行代码，点击右上角的运行图标或者在编辑区右键选择Run Code，如果配置正确即可看到输出。注意Code Runner只是帮你简化了在控制台输命令的过程，所以需要自行保存文件后才能运作，当然也可以在设置成运行前自动保存。</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512205834.png"></p>
+<h2 id="配置Debugger以调试程序"><a href="#配置Debugger以调试程序" class="headerlink" title="配置Debugger以调试程序"></a>配置Debugger以调试程序</h2><p>进入左侧的Debug菜单，点击上方运行与调试按钮，选择<strong>C++(GDB&#x2F;LLDB)</strong>-&gt;<strong>C&#x2F;C++: clang 生成活动文件</strong>以生成tasks.json文件</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512214410.png"></p>
+<p>再次进入Debug菜单，点击<strong>创建lauch.json文件</strong>，选择C++(GDB&#x2F;LLDB)以创建launch.json，将以下配置粘贴到launch.json里，覆盖掉原本的内容</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;clang++ - Build and debug active file&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppdbg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;externalConsole&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;MIMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lldb&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;preLaunchTask&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C/C++: clang 生成活动文件&quot;</span> <span class="comment">//没有安装简体中文插件则自行在task.json里复制粘贴换掉</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这里我将”externalConsole”项设置为true，避免在debug需要输入的程序时找不到地方输入的尴尬。</p>
+<p>替换后按command + S保存，以后碰到你需要debug的程序，打好断点，在VS Code的上方菜单里选择<strong>运行</strong>-&gt;<strong>启动调试</strong>就可以<del>痛苦的</del>愉快的debug了。</p>
+<h2 id="牢骚"><a href="#牢骚" class="headerlink" title="牢骚"></a>牢骚</h2><p>在此之前，我是真的没有想到，文件夹名称里有空格能让一个程序出现各种包括但不限于报错，不识别等莫名其妙的问题，这种问题很烦，很耗费精力。所以，这次让我文件和文件夹命名的时候，空格用下划线代替，能用英文用英文。大学里杂七杂八的事情真的多，养成好习惯把精力省在更有意义的事情上绝对是血赚。</p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85C-x2F-C-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">安装C&#x2F;C++编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VS-Code%E7%9B%B8%E5%85%B3%E6%89%A9%E5%B1%95"><span class="toc-number">3.</span> <span class="toc-text">安装VS Code相关扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%B9%B6%E9%85%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">4.</span> <span class="toc-text">新建并配置工作区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95C-x2F-C-%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8"><span class="toc-number">5.</span> <span class="toc-text">测试C&#x2F;C++环境是否正常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEDebugger%E4%BB%A5%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="toc-number">6.</span> <span class="toc-text">配置Debugger以调试程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A2%E9%AA%9A"><span class="toc-number">7.</span> <span class="toc-text">牢骚</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/&title=在Mac上使用VS Code搭建轻量化C/C++开发环境"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/&title=在Mac上使用VS Code搭建轻量化C/C++开发环境"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/&text=在Mac上使用VS Code搭建轻量化C/C++开发环境"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=在Mac上使用VS Code搭建轻量化C/C++开发环境&body=Check out this article: https://hexo.l3zc.com/2022/05/%E5%9C%A8Mac%E4%B8%8A%E4%BD%BF%E7%94%A8VSCode%E6%90%AD%E5%BB%BA%E8%BD%BB%E9%87%8F%E5%8C%96C%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

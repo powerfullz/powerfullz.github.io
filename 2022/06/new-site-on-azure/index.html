@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>在拿到了Azure的学生免费额度以后，我增设了两个新站点</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/07/comparison-of-different-blog-systems/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/06/my-thoughts-on-addictions/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/06/new-site-on-azure/&title=在拿到了Azure的学生免费额度以后，我增设了两个新站点"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/06/new-site-on-azure/&title=在拿到了Azure的学生免费额度以后，我增设了两个新站点"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/06/new-site-on-azure/&text=在拿到了Azure的学生免费额度以后，我增设了两个新站点"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=在拿到了Azure的学生免费额度以后，我增设了两个新站点&body=Check out this article: https://hexo.l3zc.com/2022/06/new-site-on-azure/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%EF%BC%9FAzure%E6%9C%89%E5%AD%A6%E7%94%9F%E5%85%8D%E8%B4%B9%E7%BE%8A%E6%AF%9B%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么？Azure有学生免费羊毛？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%8E%E4%B9%88%E6%A0%B7%E5%91%A2%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">这服务器怎么样呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%88%B0%E6%AD%A3%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">回到正题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To-Do-List"><span class="toc-number">4.</span> <span class="toc-text">To Do List</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在拿到了Azure的学生免费额度以后，我增设了两个新站点
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-06-28T14:41:07.000Z"
+                  itemprop="datePublished">2022-06-28</time>
+            
+                (Updated:
+                <time datetime="2022-07-01T12:08:53.000Z"
+                      itemprop="dateModified">2022-07-01</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Typecho/" rel="tag">Typecho</a>, <a class="tag-link-link" href="/tags/Wordpress/" rel="tag">Wordpress</a>, <a class="tag-link-link" href="/tags/%E5%8A%A8%E6%80%81%E7%BD%91%E7%AB%99/" rel="tag">动态网站</a>, <a class="tag-link-link" href="/tags/%E5%AD%A6%E7%94%9F/" rel="tag">学生</a>, <a class="tag-link-link" href="/tags/%E8%96%85%E7%BE%8A%E6%AF%9B/" rel="tag">薅羊毛</a>
+    </div>
+
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>我成功薅到羊毛，拿到了Azure的学生赠送额度，重新拥有了VPS，当前的博客是基于Hexo构建，静态网站的局限性让我考虑了设立动态网站的可能。</p>
+<span id="more"></span>
+
+<h2 id="什么？Azure有学生免费羊毛？"><a href="#什么？Azure有学生免费羊毛？" class="headerlink" title="什么？Azure有学生免费羊毛？"></a>什么？Azure有学生免费羊毛？</h2><p>这些天我一直在寻找一个适合我的虚拟服务器，我只是想搭建一个网站而已，我是学生，无法承受每月动辄一两百配置却低的可怜的正价服务器，看到Azure有羊毛可以薅那真是再好不过了。Azure有两种试用方式，第一种赠送200美刀，但需要信用卡，我一学生怎么可能有Visa卡？第二种方式赠送100美刀，只需要学生邮箱账户，既然只需要建站，100刀用一年其实不成问题，实际使用基本感觉不到很大的差异。</p>
+<p>先打开<a target="_blank" rel="noopener" href="https://azure.microsoft.com/zh-cn/free/students/">Azure学生免费申请入口</a>，点击免费开始使用，填入你的教育邮箱账号（支持中国大陆的教育邮箱账号，良心），收邮件验证一下，你的免费额度就可以领到了。什么？学校没有给你教育邮箱？自己去要，什么东西都要塞你手上吗？据这个页面上的介绍，每年100刀用完以后，如果你仍然是学生，可以再次申请到100刀的额度。如果这句话是真的，不出意外，那么学生时代就不需要额外为云服务器付费，想想就很香。</p>
+<h2 id="这服务器怎么样呢？"><a href="#这服务器怎么样呢？" class="headerlink" title="这服务器怎么样呢？"></a>这服务器怎么样呢？</h2><p>真要我说的话，一般。</p>
+<p>在中国大陆，开 Azure 服务器一般会选择 South East Asia（新加坡）或者 East Asia（香港）两个数据中心。这两个数据中心却没有一个为大陆的网络环境做过优化（虽然这也不能怪人家），简单说，联通连香港数据中心会绕路新加坡，电信连新加坡数据中心会绕路香港，移动则都会绕路东京，想要一个数据中心三大运营商的宽带都不绕路约等于做梦。</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220629230805540.png" alt="联通连Azure香港数据中心会绕新加坡"></p>
+<p>更坑爹的是，新加坡数据中心因为这个原因常年爆满根本开不到服务器。大部分时候只能选择香港数据中心，我也不例外。不过他们的服务器的网速倒是挺快，万兆网用来从Github上Clone之类的挺舒服，听我一句劝，不要跑测速，一跑就是一美刀（哭死）。</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/QQ20220626-224302@2x.png" alt="QQ20220626-224302@2x"></p>
+<p>顺带一提，上下行不对等那肯定是没有独立 IP 流媒体解锁就别想了。因为在用别的上网方案，所以暂时没有用这玩意来科学上网，过一阵子可能会装上不同的协议测个速。另外服务器跑分什么的有时间就弄。</p>
+<h2 id="回到正题"><a href="#回到正题" class="headerlink" title="回到正题"></a>回到正题</h2><p>终于要说我的两个新动态网站了。本站新增了两个动态网站，分别是基于 Wordpress 的<a target="_blank" rel="noopener" href="https://wordpress.l3zc.com/">L3ZCの试验田</a>和基于 Typecho 的<a target="_blank" rel="noopener" href="https://typecho.l3zc.com/">L3ZCの黑土地</a>，加上基于 Hexo 的<a target="_blank" rel="noopener" href="https://l3zc.com/">L3ZC主站</a>，三者并行。</p>
+<p>其中，试验田是全新的网站，主要发布技术类文章，日后可能会做出频繁的改动；黑土地则追求稳定与快速，<del>并且与主站保持一致的样式</del>，在时机成熟的时候可能会与主站的角色互换；主站是基于Hexo构建的静态网站，托管在 Github 上，长期稳定存在。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A[发布文章] --全部--&gt; B[主站]</span><br><span class="line">B -- 技术类 --&gt; C[试验田]</span><br><span class="line">B -- 所有 --&gt; D[黑土地]</span><br></pre></td></tr></table></figure>
+
+<h2 id="To-Do-List"><a href="#To-Do-List" class="headerlink" title="To Do List"></a>To Do List</h2><p>有一大堆要做的事，例如修好黑土地的评论系统，做好SEO等。总之，有得忙活了。</p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%EF%BC%9FAzure%E6%9C%89%E5%AD%A6%E7%94%9F%E5%85%8D%E8%B4%B9%E7%BE%8A%E6%AF%9B%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么？Azure有学生免费羊毛？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%8E%E4%B9%88%E6%A0%B7%E5%91%A2%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">这服务器怎么样呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%88%B0%E6%AD%A3%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">回到正题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To-Do-List"><span class="toc-number">4.</span> <span class="toc-text">To Do List</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/06/new-site-on-azure/&title=在拿到了Azure的学生免费额度以后，我增设了两个新站点"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/06/new-site-on-azure/&title=在拿到了Azure的学生免费额度以后，我增设了两个新站点"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/06/new-site-on-azure/&text=在拿到了Azure的学生免费额度以后，我增设了两个新站点"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=在拿到了Azure的学生免费额度以后，我增设了两个新站点&body=Check out this article: https://hexo.l3zc.com/2022/06/new-site-on-azure/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

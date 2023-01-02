@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>浅谈 OCSP Stapling</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/08/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E8%AE%BF%E9%97%AE%E5%85%A8%E7%90%83%E7%BD%91%E7%BB%9C%E5%A6%82%E6%AD%A4%E6%85%A2/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/08/nano-pi-r2s-hands-on/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/08/something-about-ocsp-stapling/&title=浅谈 OCSP Stapling"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/08/something-about-ocsp-stapling/&title=浅谈 OCSP Stapling"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/08/something-about-ocsp-stapling/&text=浅谈 OCSP Stapling"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=浅谈 OCSP Stapling&body=Check out this article: https://hexo.l3zc.com/2022/08/something-about-ocsp-stapling/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%81%8F%E5%81%8F%E5%9C%A8-iPhone-%E4%B8%8A%E5%B0%B1%E6%89%93%E5%BC%80%E6%85%A2%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">为什么偏偏在 iPhone 上就打开慢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OCSP-%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">OCSP 的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BB%8E-SSL-%E8%AF%81%E4%B9%A6%E7%9A%84%E6%9C%89%E6%95%88%E6%9C%9F%E8%AF%B4%E8%B5%B7"><span class="toc-number">1.1.1.</span> <span class="toc-text">先从 SSL 证书的有效期说起</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%99%E5%92%8C-OCSP-%E6%9C%89%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB%EF%BC%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">这和 OCSP 有什么关系？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E4%BB%A5%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%93%E5%BC%80%E6%85%A2%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">所以为什么打开慢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%86%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AA%E6%9C%89-iPhone-%E4%BC%9A%E5%8A%A0%E8%BD%BD%E6%85%A2%E5%91%A2%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">但为什么只有 iPhone 会加载慢呢？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">怎么解决？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF%E8%BF%99%E4%B9%88%E7%89%9B%E9%80%BC%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">什么东西这么牛逼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF-OCSP-Stapling%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">为什么不默认开启 OCSP Stapling？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        浅谈 OCSP Stapling
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-08-17T05:19:36.000Z"
+                  itemprop="datePublished">2022-08-17</time>
+            
+                (Updated:
+                <time datetime="2022-08-17T05:47:29.000Z"
+                      itemprop="dateModified">2022-08-17</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </div>
+
+            
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>自从把博客系统换成 Wordpress 以后，又是缓存，又是精简，又是各种替换，为了优化网站的速度不可不谓花了一番心思，然而在 iPhone 上，我的网站的打开速度却依然时快时慢。在之前两个月里，我一直认为是服务器的性能问题所致。直到有一天我看到并且为网站部署了 OCSP Stapling。</p>
+<span id="more"></span>
+
+<h2 id="为什么偏偏在-iPhone-上就打开慢？"><a href="#为什么偏偏在-iPhone-上就打开慢？" class="headerlink" title="为什么偏偏在 iPhone 上就打开慢？"></a>为什么偏偏在 iPhone 上就打开慢？</h2><p>你可能已经注意到我使用了「打开」而非「加载」，如果你调用 iPhone 上 Safari 的开发者模式查看一个网页的 Handshake 时间，你就会发现一个不容忽视的 1 秒，至于这一秒都花在了哪里，我们先来看看 OCSP 究竟是什么。</p>
+<h3 id="OCSP-的概念"><a href="#OCSP-的概念" class="headerlink" title="OCSP 的概念"></a>OCSP 的概念</h3><h4 id="先从-SSL-证书的有效期说起"><a href="#先从-SSL-证书的有效期说起" class="headerlink" title="先从 SSL 证书的有效期说起"></a>先从 SSL 证书的有效期说起</h4><p>曾经我有一个困惑，为什么没有永久有效的 SSL 证书？难道是单纯因为商业原因？其实并不是，主要原因是为了安全。每次签发机构（CA）签发 SSL 证书时，CA 都会为这个 SSL 证书生成一个私钥。就像家里任何一把钥匙一样，HTTPS 证书的私钥有丢失、泄露的风险，当网站的私钥丢失时，网站应该向证书 CA 申请将他们的证书加入到证书吊销列表（CRL）里。当用户访问 https 站点时，浏览器会自动向 CA 请求吊销列表，如果用户访问的站点提供的证书在 CRL 里，浏览器就不信任这个证书，因为私钥泄漏后，攻击者可能拥有同样的证书。</p>
+<p>所以，如果证书永久有效，随着越来越多的私钥丢失，吊销列表也越来越大（因为只有加进去的，没有剔出去的），这既给 CA 的服务器增加流量压力，也会增加浏览器需要下载的数据量。而一旦有效期只有一年或几年，那么CA就可以将那些已经过期了的证书从 CRL 里剔除，因为反正浏览器也不信任过期证书。这种问题也就随之消失，于是，今天看到的证书，有效期都随着安全等级的提高而加长，但除非自签，没有永久有效的证书。</p>
+<h4 id="这和-OCSP-有什么关系？"><a href="#这和-OCSP-有什么关系？" class="headerlink" title="这和 OCSP 有什么关系？"></a>这和 OCSP 有什么关系？</h4><p>OCSP 即 Oline Certificate Status Protocol，是用于替代 CRL 的协议，解决了一些 CRL 协议存在的问题，以下信息来译自 Wikipedia：</p>
+<blockquote>
+<p>OCSP 响应通常比典型的 CRL 响应更小，这意味着对于客户端和服务器更小的网络负担。</p>
+<p>OCSP 响应中需要解析的数据更少，因此客户端需要的运行库比解析典型的 CRL 响应更少更简单</p>
+<p>OCSP 中，服务器可以记录主机在何时验证过特定的证书，由于请求不强制加密，相关信息可能被第三方获取。</p>
+</blockquote>
+<p>简单来说，OCSP 做的就是 CRL 的事——验证这个网站的 https 证书是否处于被吊销的状态。</p>
+<h3 id="所以为什么打开慢？"><a href="#所以为什么打开慢？" class="headerlink" title="所以为什么打开慢？"></a>所以为什么打开慢？</h3><p>我们搭建个人网站时大都没有很高的预算，例如我的网站原本托管在免费的 Github Pages 上，预算能省则省，更别提动辄几千一年的 SSL 证书了。于是你看到的非商业性质的个人网站大都采用了免费的 Let’s Encrypt 证书。而 Let’s Encrypt 的 OCSP 服务器 <code>ocsp.int-x3.letsencrypt.org</code> 线路非常垃圾，实测中部地区联通 traceroute 以供参考：</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220816165046969.webp" alt="Let&#39;s Encrypt OCSP服务器的拉胯线路"></p>
+<p>可以看到服务器在香港，线路却绕美国。这导致 一个很简单的 OCSP 查询请求需要 1 秒的时间来返回结果。这意味着无论你的服务器性能有多强，网络延迟有多低，只要部署的证书是 Let’s Encrypt，网站在 iPhone 上的加载时间就绝对不会快过一秒。这还不是最坏的情况，因为各种莫名其妙的原因，Let’s Encrypt 的 OCSP 服务器域名会时不时的被 GFW 通过 DNS 污染等方式阻断，这就导致客户端在一部分时间里根本无法查询 OCSP。</p>
+<h3 id="但为什么只有-iPhone-会加载慢呢？"><a href="#但为什么只有-iPhone-会加载慢呢？" class="headerlink" title="但为什么只有 iPhone 会加载慢呢？"></a>但为什么只有 iPhone 会加载慢呢？</h3><p>OCSP 协议有一个很要命的问题：用 https 的人越来越多，验证证书有效性的需求自然会越来越大，OCSP 服务器难道硬扛访问量？当然不是，不同浏览器都会有不同的 OCSP 验证超时时间，超时就先默认证书有效继续进行访问。但是有些”「注重用户体验」 的浏览器，比如 Chrome，自己在浏览器内部做了个本地列表，通过每次浏览器更新实现列表更新。直接查本地的列表速度就非常快了，当然也不存在什么 CA 的 OCSP 服务器被屏蔽的问题。缺点是并非实时更新。但并非所有浏览器都是所谓「注重用户体验」的浏览器，比如 Safari 就默认开启 OCSP 验证。自然无法避免这种中国特色的问题。Chrome 在全球有超过 70% 的市占率，而受 Chromium 开源项目的影响，国内一众「安全」「极速」浏览器都不存在这种问题，这几乎覆盖了国内桌面端所有用户群体。而苹果要求包括 Chrome 在内的所有 iOS 应用都要使用 Webkit 内核，这直接干死了所有的 iPhone 用户。</p>
+<h2 id="怎么解决？"><a href="#怎么解决？" class="headerlink" title="怎么解决？"></a>怎么解决？</h2><p>总不可能要求所有 iPhone 用户都自己关掉 OCSP 吧？那么解决方法就是——<del>换证书</del>。怎么可能，要是我真换了证书你也就看不到这篇文章了。虽然换证书，比如 Trust Asia 证书的确可以解决问题。但我不想因为换一个证书而告别 Let’s Encrypt 自动续期和支持泛域名的特性。</p>
+<p>终于可以谈到 OCSP Stapling 了，即 OCSP 封装，想要开启 OCSP Stapling 非常简单：首先到亚洲诚信提供的 <a target="_blank" rel="noopener" href="https://myssl.com/">https 检测服务</a>检测自己的证书链是否完整，若是不完整则<a target="_blank" rel="noopener" href="https://myssl.com/chain_download.html">修复证书链</a>后将修复好的证书重新部署，完成操作后在 Nginx 配置里加上如下两行：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssl_stapling</span> <span class="literal">on</span>; </span><br><span class="line"><span class="attribute">ssl_stapling_verify</span> <span class="literal">on</span>;</span><br></pre></td></tr></table></figure>
+
+<p>然后重启 Nginx 服务，大功告成。由于我自己使用的是 Nginx，Apache 请自行搜索相关方法。</p>
+<p>然后，iPhone 用户也能愉快的访问你的网站而无需忍受恼人的 GFW 干扰 Let’s Encrypt 的 OCSP 服务器。</p>
+<p>那么效果如何呢？</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/ocsp-stapling-not-enabled.webp" alt="开启OCSP Stapling前排队时间超过1秒"></p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/ocsp-stapling-enabled.webp" alt="开启OCSP Stapling后排队时间仅200毫秒"></p>
+<p>可以看到，开启 OCSP Stapling 后，查询验证结果所需要的时间大幅缩短，反映到网站打开速度上是非常明显的感知。</p>
+<h2 id="什么东西这么牛逼？"><a href="#什么东西这么牛逼？" class="headerlink" title="什么东西这么牛逼？"></a>什么东西这么牛逼？</h2><p>OCSP 封装，顾名思义，即服务器缓存 OCSP 服务器的验证结果，并且在与客户端 SSL 握手时直接发送缓存结果。</p>
+<blockquote>
+<p>OCSP装订，是TLS证书状态查询扩展，作为在线证书状态协议的替代方法对X.509证书状态进行查询，服务器在TLS握手时发送事先缓存的OCSP响应，用户只要验证该响应的时效性而不用再向数字证书认证机构(CA)发送请求，可以加快握手速度。</p>
+</blockquote>
+<p>我的服务器线路虽然亦非很好，但比 Let’s Encrypt 的弟中弟线路好到不知道哪里去了。开启 OCSP Stapling 后，客户端只需要验证服务器事先缓存的 OCSP 查询结果的有效性，免去了向“神优化”的服务器发请求的痛苦，速度自然会快上一大截，在有 OCSP 强制验证的浏览器上初次打开网页的效果尤为明显，统计数据显示，在开启 OCSP Stapling 后，新访客量明显有所提高，大概是拜 OCSP Stapling 节省的大量握手时间所赐。</p>
+<h2 id="为什么不默认开启-OCSP-Stapling？"><a href="#为什么不默认开启-OCSP-Stapling？" class="headerlink" title="为什么不默认开启 OCSP Stapling？"></a>为什么不默认开启 OCSP Stapling？</h2><p>听上去 OCSP Stapling 简直就是完美的万金油优化——每个网站都开启 OCSP Stapling，既提升用户的访问体验，也为 OCSP 服务器减轻负担。那为什么新的 Nginx 配置文件不默认开启 OCSP Stapling 呢？其实这是一个很简单的问题。</p>
+<ul>
+<li>不是所有网站都有 SSL 证书</li>
+<li>OCSP Stapling 并非在所有情况下都能提供更好的访问体验</li>
+<li>现存方案中 OCSP 并不是唯一的证书验证方案</li>
+<li>引入新功能时通常是需要谨慎的，Nginx 用户群体非常复杂，不同用户不同需求</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20803288">为什么https证书要设有有效期？</a></li>
+<li>找不到了</li>
+<li>Wikipedia</li>
+<li><a target="_blank" rel="noopener" href="https://wangejiba.com/4725.html">玩个机吧</a></li>
+</ol>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%81%8F%E5%81%8F%E5%9C%A8-iPhone-%E4%B8%8A%E5%B0%B1%E6%89%93%E5%BC%80%E6%85%A2%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">为什么偏偏在 iPhone 上就打开慢？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OCSP-%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">OCSP 的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BB%8E-SSL-%E8%AF%81%E4%B9%A6%E7%9A%84%E6%9C%89%E6%95%88%E6%9C%9F%E8%AF%B4%E8%B5%B7"><span class="toc-number">1.1.1.</span> <span class="toc-text">先从 SSL 证书的有效期说起</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%99%E5%92%8C-OCSP-%E6%9C%89%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB%EF%BC%9F"><span class="toc-number">1.1.2.</span> <span class="toc-text">这和 OCSP 有什么关系？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E4%BB%A5%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%93%E5%BC%80%E6%85%A2%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">所以为什么打开慢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%86%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AA%E6%9C%89-iPhone-%E4%BC%9A%E5%8A%A0%E8%BD%BD%E6%85%A2%E5%91%A2%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">但为什么只有 iPhone 会加载慢呢？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">怎么解决？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF%E8%BF%99%E4%B9%88%E7%89%9B%E9%80%BC%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">什么东西这么牛逼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF-OCSP-Stapling%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">为什么不默认开启 OCSP Stapling？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/08/something-about-ocsp-stapling/&title=浅谈 OCSP Stapling"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/08/something-about-ocsp-stapling/&title=浅谈 OCSP Stapling"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/08/something-about-ocsp-stapling/&text=浅谈 OCSP Stapling"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=浅谈 OCSP Stapling&body=Check out this article: https://hexo.l3zc.com/2022/08/something-about-ocsp-stapling/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

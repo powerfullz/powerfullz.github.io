@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/07/my-blog-workflow/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/07/comparison-of-different-blog-systems/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/07/do-i-need-to-force-kill-apps-on-iphone/&title=我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/07/do-i-need-to-force-kill-apps-on-iphone/&title=我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/07/do-i-need-to-force-kill-apps-on-iphone/&text=我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制&body=Check out this article: https://hexo.l3zc.com/2022/07/do-i-need-to-force-kill-apps-on-iphone/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E8%B5%84%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">查找资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%80%E5%90%8E%E5%8F%B0%E6%98%AF%E5%90%A6%E6%9C%89%E5%8A%A9%E4%BA%8E%E6%8F%90%E5%8D%87%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">杀后台是否有助于提升使用体验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%AA%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">写个总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-07-09T06:55:10.000Z"
+                  itemprop="datePublished">2022-07-09</time>
+            
+                (Updated:
+                <time datetime="2022-07-15T09:23:36.000Z"
+                      itemprop="dateModified">2022-07-15</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/iPhone/" rel="tag">iPhone</a>, <a class="tag-link-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a>, <a class="tag-link-link" href="/tags/%E6%B1%82%E8%AF%81/" rel="tag">求证</a>
+    </div>
+
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>从安卓手机换到 iPhone 就想要改掉清理后台的习惯，查阅了一些资料，知道 iOS 后台机制不需要用户介入，在使用中也实行了这一点，奈何心里总有幽灵作祟，总是会感觉到不清理后台续航会降低，手机会发热，进而管不住清后台的手。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>Let me be as clear as I can be: <strong>the iOS multitasking bar does not contain “a list of all running apps”. It contains “a list of recently used apps”. The user never has to manage background tasks on iOS.</strong></p>
+<p>Fraser Speirs</p>
+</blockquote>
+<p>在网上搜索到的大部分中文内容会引用 Fraser Speirs 在他的一篇博客里很明确的指出的内容：iOS 的 Multitasking bar 实际上是 A list of recently used apps，所以，你不需要清理后台。但当我顺藤摸瓜找到这篇博客的原文时，却发现这篇博客发表时间在 2012 年。10 年过去了，我已经从四年级一路读到大二，这篇文章的内容自然是经不住沧海桑田，早已过时，我早已不是原来那个我，这位作者的网站也早已不是从前的网站，只能通过 Web Archieve 看到它昔日的荣光，苹果则更不是以前那个特立独行的苹果，情况早已发生了微妙的变化，苹果早就加入了各式各样的后台机制。这就衍生出了两个问题，苹果的后台机制是否真的会影响 iPhone 的续航和发热？杀后台是否有助于提升使用体验？</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220709153914893.webp" alt="一篇引用Fraser Speirs的文章"></p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220709154219470.webp" alt="Wayback Machine里的原文"></p>
+<p>有趣的是，作者在某个时候关闭并存档了他的博客，在他的存档里却并未出现这篇文章，这意味着作者可能刻意删除了它。既然这种流传已久的说法是基于一篇早已过时的文章，结果自然是不可信的，根据这篇文章得出结论，是一个不负责任的营销号行为，我能做的唯有查找更新的资料以及亲身实践。</p>
+<h2 id="查找资料"><a href="#查找资料" class="headerlink" title="查找资料"></a>查找资料</h2><blockquote>
+<p>Some apps perform work for a short time while in the foreground and must continue uninterrupted if they go to the background. Other apps defer that work to perform in the background at a later time or even at night while the device charges. And some apps need background processing time at varied and unpredictable times, such as when an external event or message arrives.</p>
+<p>Apple Developer Docs</p>
+</blockquote>
+<p>苹果不会也不能一刀切死后台，相反，针对不同应用对后台运行的需求，苹果举了五种场景的例子。</p>
+<ul>
+<li><p>Continue Foreground Work in the Background</p>
+</li>
+<li><p>Defer Intensive Work</p>
+</li>
+<li><p>Update Your App’s Content</p>
+</li>
+<li><p>Wake Your App with a Background Push</p>
+</li>
+<li><p>Request Background Time and Notify the User</p>
+</li>
+</ul>
+<p>为了用户体验，苹果对应用的后台限制非常严格。针对这五种场景，苹果设计了多样且易于使用的 API 来满足不同的需求，在默认情况下，当一个 App 进入后台时，系统会给 App 最多5秒的时间来进行回写数据等操作，随后系统便会将这个 App 挂起（Suspend），5秒的时间对于大多数 App 来说已经足够。当 App 需要在后台完成更多操作时，可以参照苹果给出的 5种场景设计 App 的后台策略。例如：一个新闻类 App 可以在收到新闻时被系统唤醒到后台接收这则新闻，调用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></a>，App 便可以取得至多 30 秒的时间完成接收新闻的操作。同时，App 完成操作后必须要调用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/uiapplication/1622970-endbackgroundtask"><code>endBackgroundTask(_:)</code></a> 以告知系统自己完成了操作。否则在超过30秒后，系统便会杀死（Kill） App 的进程。得益于 AppStore 严格的审核，上架的 App 基本都经过了规范的编写。</p>
+<p>又例如：某网盘需要备份用户今天新拍摄的照片，这是一个密集且工作量大的工作（不知道怎么翻译，原文是 Intensive Works），那么调用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/backgroundtasks/bgprocessingtask"><code>BGProcessingTask</code></a>以计划一个备份工作，系统会自动根据用户充电的时段、睡觉的时段等信息训练出来的模型自动选择最佳的时段来执行计划好的 Intensive Works。</p>
+<blockquote>
+<p>Schedule these types of background tasks using <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/backgroundtasks/bgprocessingtask"><code>BGProcessingTask</code></a>, and the system decides the best time to launch your background task.</p>
+</blockquote>
+<p>如你所见，得益于苹果给开发者提供的一套强大易用的 API 以及 AppStore 对于应用在上架前严格的审核，iOS 的后台机制在保持对应用严格限制的情况下却没有增加开发难度，在开发文档里，出现的最频繁的一句话是。</p>
+<blockquote>
+<p>The system decides the best time to launch your task.</p>
+</blockquote>
+<p>苹果将自己用心开发的优质 API 提供给开发者，这些 API 看似简单，实则需要有大量的技术沉淀，看似简单的“选择最佳时间”，背后却充斥着大量的机器学习算法，既然开发者直接调用现成优质的 API 就能将用户体验提升几个层级，那么何乐而不为呢？在同一个开发者付出相同的工作量的情况下，开发 iPhone App 能够实现同功能 Andriod App 高出几个层次的质量，这也难怪早期 iPhone 在抢占市场份额时，App Store 能够在审核如此严格，抽成如此高的情况下涌现大量优质应用。AppStore 里应用调用后台的规范程度也就不必多言了。完全可以像谷歌一样用1倍的努力把体验做到90分，却还是要花10倍的努力把体验做到极致，这很苹果。</p>
+<h2 id="杀后台是否有助于提升使用体验？"><a href="#杀后台是否有助于提升使用体验？" class="headerlink" title="杀后台是否有助于提升使用体验？"></a>杀后台是否有助于提升使用体验？</h2><p>我们已经知晓苹果的后台机制是十分智能的，可后台机制再智能也依旧有失灵的时候。这就是第二个问题，杀后台是否有助于提升使用体验？</p>
+<p>可以说，除了能让心里更好受，以及可能在这几个咖喱味十足的iOS版本提升滑动桌面的顺滑度以外，杀后台无助于提升使用体验，甚至会降低使用体验。</p>
+<blockquote>
+<p>滑动关闭后台应用程序可能会降低iPhone的续航时间，除非是无响应的情况，否则不应该强制关闭应用。</p>
+<p>Craig Federighi</p>
+</blockquote>
+<p>当应用程序被从“后台”划掉，其会被移出RAM，这样，应用程序将不会再运行。按照苹果的逻辑，前面所提到的一系列智能的后台机制都不会运作。不仅如此，重新从闪存载入APP会增加电量的消耗且徒增发热，比从直接从RAM“解冻”APP更加费时。这么一看，Craig说的是不是很有道理？是的，在Craig所处的环境里，这句话绝对可以称得上是“金玉良言”。</p>
+<p>可惜在中国，情况有些许不同。第一种情况是流氓应用，以中国第一产品经理的微信为例，在之前很长一段时间里（可能现在也是）微信会通过某种手段尽可能延长自己的后台存活时间，甚至于后台活动超过前台使用的时间。这自然会使耗电量增加。从后台列表，准确的说，是最近使用的应用列表强行杀掉微信，的确可以避免这种情况的发生。但微信在国内的地位不必我多说，从后台划掉微信会大幅增加微信的启动时长，每次打开微信看到“连接中……收取中”转圈转个老半天可比耗电更烦人。再者，没有人会希望为了省电而错过女朋友或者上司只打一次的微信电话。这种时候，停用微信的后台刷新可能是一个更好的选择。类似的情况发生在国内被墙的服务上，在没有代理的情况下，除非开发者专门对此作过优化，国内被封锁的服务、应用会出现一个较为尴尬的问题：按照计划，这些应用需要更新内容，但因遭到GFW的封锁，一直收不到服务器的回应，于是一直运行，直到触发系统的时间限制。前面已经提到过，这种情况下，APP会被系统“杀死”。对于第二种情况，解决方法有二：一是做好分流，24小时挂代理。二是和微信一样，停用这些应用的后台刷新。但无论如何，不要从后台直接杀死这些应用，因为直接杀死这些应用造成的体验远比耗电更糟。</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/IMG_BF6525BCB5C1-1.webp" alt="QQ微信大量的后台时间"></p>
+<h2 id="写个总结"><a href="#写个总结" class="headerlink" title="写个总结"></a>写个总结</h2><p>在写这篇文章时，我发现，越是写下去，越是背离了写这篇文章的初衷，即“提升使用体验”。技术为人文服务，智能手机归根结底只是我们手边的一个工具，与其费尽心机省电，不如按照自己觉得舒服的方式使用手机。耗电也好，卡顿也好，都由技术的进步解决。我们可以因兴趣使然研究这些技术问题，但绝不能让这些技术问题成为我们生活的全部，放下手机，放下这些技术问题，我们还有很多更有意义的事可以做，很多人可以聚，很多地方可以去玩。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/backgroundtasks/choosing_background_strategies_for_your_app">Choosing Background Strategies for Your App</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/backgroundtasks">Background Tasks</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/uiapplication/1623051-beginbackgroundtask">beginBackgroundTask(withName:expirationHandler:)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/app_and_environment/scenes/preparing_your_ui_to_run_in_the_background/extending_your_app_s_background_execution_time">Extending Your App’s Background Execution Time </a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/play/wwdc2019/707">WWDC2019: Advances in App Background Execution</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://apple.stackexchange.com/questions/252239/do-ios-apps-run-in-the-background">Do iOS apps run in the background?</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://web.archive.org/web/20190403181657/http://www.speirs.org/blog/2012/1/2/misconceptions-about-ios-multitasking.html">Misconceptions About iOS Multitasking</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://peroty.com/blog/wrote-about/ios-multitasking-misconception/">iOS Multitasking Misconception</a></p>
+</li>
+</ol>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E8%B5%84%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">查找资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%80%E5%90%8E%E5%8F%B0%E6%98%AF%E5%90%A6%E6%9C%89%E5%8A%A9%E4%BA%8E%E6%8F%90%E5%8D%87%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">杀后台是否有助于提升使用体验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%AA%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">写个总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/07/do-i-need-to-force-kill-apps-on-iphone/&title=我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/07/do-i-need-to-force-kill-apps-on-iphone/&title=我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/07/do-i-need-to-force-kill-apps-on-iphone/&text=我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=我需要清理iPhone的“后台”吗？在2022年看iPhone的后台机制&body=Check out this article: https://hexo.l3zc.com/2022/07/do-i-need-to-force-kill-apps-on-iphone/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>在OpenWRT路由器上使用iptables对英雄联盟随机丢包</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/06/comparingGovWebsites/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/05/use-iptables-to-ban-lol-in-dorm/&title=在OpenWRT路由器上使用iptables对英雄联盟随机丢包"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/05/use-iptables-to-ban-lol-in-dorm/&title=在OpenWRT路由器上使用iptables对英雄联盟随机丢包"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/05/use-iptables-to-ban-lol-in-dorm/&text=在OpenWRT路由器上使用iptables对英雄联盟随机丢包"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=在OpenWRT路由器上使用iptables对英雄联盟随机丢包&body=Check out this article: https://hexo.l3zc.com/2022/05/use-iptables-to-ban-lol-in-dorm/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%9D%E5%AE%A4%E7%9A%84%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">寝室的网络环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">路由器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A4%E5%8F%8B%E4%B8%8A%E7%BD%91%E7%9A%84%E8%AE%BE%E5%A4%87"><span class="toc-number">1.2.</span> <span class="toc-text">室友上网的设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E5%AE%9A%E9%87%87%E7%94%A8%E7%9A%84%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">决定采用的方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E8%A1%8C%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">具体行动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%88%E4%BA%BA%E4%BB%A5%E9%B1%BC%E4%B8%8D%E5%A6%82%E6%8E%88%E4%BA%BA%E4%BB%A5%E6%B8%94"><span class="toc-number">4.</span> <span class="toc-text">授人以鱼不如授人以渔</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iptables"><span class="toc-number">4.1.</span> <span class="toc-text">iptables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-FORWARD"><span class="toc-number">4.2.</span> <span class="toc-text">-I FORWARD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-xxx-%E2%80%93dport-xxxx"><span class="toc-number">4.3.</span> <span class="toc-text">-p xxx –dport xxxx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#m-statistic-%E2%80%93mode-random-%E2%80%93probability-0-3"><span class="toc-number">4.4.</span> <span class="toc-text">-m statistic –mode random –probability 0.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#j-DROP"><span class="toc-number">4.5.</span> <span class="toc-text">-j DROP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E6%97%B6%E9%97%B4%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0-x2F-%E5%88%A0%E9%99%A4%E4%B8%A2%E5%8C%85%E8%A7%84%E5%88%99"><span class="toc-number">5.</span> <span class="toc-text">特定时间自动添加&#x2F;删除丢包规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E6%9C%9F%E8%AE%A1%E5%88%92"><span class="toc-number">6.</span> <span class="toc-text">后期计划</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在OpenWRT路由器上使用iptables对英雄联盟随机丢包
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-05-26T15:34:25.000Z"
+                  itemprop="datePublished">2022-05-26</time>
+            
+                (Updated:
+                <time datetime="2022-07-06T09:17:52.000Z"
+                      itemprop="dateModified">2022-07-06</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="tag-link-link" href="/tags/OpenWRT/" rel="tag">OpenWRT</a>, <a class="tag-link-link" href="/tags/iptables/" rel="tag">iptables</a>, <a class="tag-link-link" href="/tags/%E5%AF%9D%E5%AE%A4/" rel="tag">寝室</a>, <a class="tag-link-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>, <a class="tag-link-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a>
+    </div>
+
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>室友天天开黑，这就算了，还老是用外放，不得已，只能让他们打不爽，从根本上阻止他们开黑，还我寝室一个安静的环境，至少，让他们按时睡觉。</p>
+<span id="more"></span>
+
+<h2 id="寝室的网络环境"><a href="#寝室的网络环境" class="headerlink" title="寝室的网络环境"></a>寝室的网络环境</h2><h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><p>一台捡垃圾的小米CR6608，刷入了 OpenWRT ，承担我们寝室所有的网络流量，由于是一所垃圾大学，校园网限制一套餐一终端，寝室里又只有一个网络口，大家都用我的套餐，整个寝室的网络控制权当然在我的手上。</p>
+<h3 id="室友上网的设备"><a href="#室友上网的设备" class="headerlink" title="室友上网的设备"></a>室友上网的设备</h3><p>其余三个室友都打英雄联盟，其中两个使用笔记本，一个是台式机，没有无线网卡，而且台式机恰巧是打的最凶的那位。</p>
+<h2 id="决定采用的方案"><a href="#决定采用的方案" class="headerlink" title="决定采用的方案"></a>决定采用的方案</h2><p>首先，肯定不能彻底阻断寝室网络与英雄联盟服务器的连接，这样明显感知太强，容易被发现，其次由于另外两个室友都是笔记本电脑，发现丢包率太高肯定会开热点换移动网络，所以最终的方案确定为模仿GFW对网站随机丢包的干扰模式。</p>
+<h2 id="具体行动"><a href="#具体行动" class="headerlink" title="具体行动"></a>具体行动</h2><p>首先先给每个室友分配静态的IP地址，原因看到后面你就知道了。</p>
+<p>上网查找<a target="_blank" rel="noopener" href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/4407290569747-Advanced-Connections-Troubleshooting-Guide">资料</a>，可以知道英雄联盟所使用的端口:</p>
+<p><strong>List of ports to forward:</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">League of Legends Game Client</th>
+<th>5000 - 5500 UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Patcher and Maestro</td>
+<td>8393 - 8400 TCP</td>
+</tr>
+<tr>
+<td align="left">PVP.Net</td>
+<td>2099 TCP</td>
+</tr>
+<tr>
+<td align="left">PVP.Net</td>
+<td>5223 TCP</td>
+</tr>
+<tr>
+<td align="left">PVP.Net</td>
+<td>5222 TCP</td>
+</tr>
+<tr>
+<td align="left">HTTP Connections</td>
+<td>80 TCP</td>
+</tr>
+<tr>
+<td align="left">HTTPS Connections</td>
+<td>443 TCP</td>
+</tr>
+<tr>
+<td align="left">Spectator Mode</td>
+<td>8088 UDP and TCP</td>
+</tr>
+</tbody></table>
+<p>向路由器的iptables里添加以下随机丢包的规则：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Block LOL</span></span><br><span class="line">iptables -I FORWARD -p udp --dport 5000:5500 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 8393:8400 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 2099 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5223 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5222 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5233 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 8088 -m statistic --mode random --probability 0.3 -j DROP </span><br></pre></td></tr></table></figure>
+
+<p>2022.6.17更新：关于如何在 OpenWRT 上自定义 iptables 规则，有两种方法，第一种方法，打开 系统 -&gt; TTYD终端 将上面的命令一行一行复制进去回车，用这种方法，规则会在路由器重启或者 iptables 重启后失效，第二种方法，打开 网络 -&gt; 防火墙 找到 自定义规则 选项卡，将上述内容粘贴到这个页面已有内容的后面，<strong>注意不要覆盖文本框里原先的内容</strong>，完成后点击页面下方的 保存并应用，这样即使是重启路由器也不会重置 iptables 规则。</p>
+<p>生效后，室友打英雄联盟就会在校园网本就1%到5%丢包率的基础上增加30%的丢包率。经过室友的盲测反馈（我怎么可能会让室友知情呢？！）放技能总是放不出去，打的非常不爽。</p>
+<p>但是这种方法似乎不适用于室友开加速器的情况，所以我们可以针对这种情况直接限制室友所有的流量，也就是说，不论室友的电脑发出什么数据包，都能享受到30%的丢包率，除非室友开热点，当然台式机是不可能的，这种方法就可以让所有的加速器都失效。前提是，室友的ip地址必须要提前确定，这也就是为什么需要提前给室友的电脑分配静态IP。</p>
+<p>向路由器的iptables里添加以下规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Block specific roommate</span></span><br><span class="line">iptables -I FORWARD -s 你室友的内网ip -m statistic --mode random --probability 0.3 -j DROP</span><br><span class="line"><span class="comment"># 以此类推</span></span><br></pre></td></tr></table></figure>
+
+<p>即可“照顾”室友所有的流量。</p>
+<p>很好，现在每天11点我都会准时更新防火墙规则，至少让寝室安静一点。</p>
+<h2 id="授人以鱼不如授人以渔"><a href="#授人以鱼不如授人以渔" class="headerlink" title="授人以鱼不如授人以渔"></a>授人以鱼不如授人以渔</h2><p>这些参数都是些什么？</p>
+<h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><blockquote>
+<p><strong>iptables</strong>是运行在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BD%BF%E7%94%A8%E8%80%85%E7%A9%BA%E9%96%93">用户空间</a>的应用软件，通过控制<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Linux%E5%85%A7%E6%A0%B8">Linux内核</a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Netfilter">netfilter</a>模块，来管理网络数据包的处理和转发。</p>
+<p>——维基百科</p>
+</blockquote>
+<p>简单点说：iptables是Linux的防火墙软件，可以通过设定的规则过滤掉特定的数据包达到防火墙的目的。OpenWRT基于Linux，自然也用iptables作为防火墙。</p>
+<h3 id="I-FORWARD"><a href="#I-FORWARD" class="headerlink" title="-I FORWARD"></a>-I FORWARD</h3><p>iptables有所谓的“五链”和“四表”。</p>
+<p>“五链”是指 netfilter 定义的 5 个规则链。每个规则表中包含多个数据链：INPUT（入站数据链）、OUTPUT（出站数据链）、FORWARD（转发数据链）、PREROUTING（路由前数据链）和POSTROUTING（路由后数据链），防火墙规则存储在这些数据链里。</p>
+<p>“五链”的结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">	A[PREROUTING] --&gt; B[路由决策]</span><br><span class="line">	B --&gt; C[FORWARD]</span><br><span class="line">	B --&gt; D[INPUT]</span><br><span class="line">	D --&gt; E[Local Process]</span><br><span class="line">	E &amp; C --&gt; F[POSTROUTING]</span><br></pre></td></tr></table></figure>
+
+<p>四表分别是：</p>
+<ul>
+<li>filter：过滤整个数据包，在 INPUT、FORWARD 和 OUTPUT 链可用</li>
+<li>nat：控制数据包的地址转换，在 PREROUTING 、INPUT、OUTPUT 和 POSTROUTING 链可用</li>
+<li>mangle：修改过滤数据包中的原数据，在 PREROUTING、INPUT、OUTPUT、FORWARD 和 POSTROUTING 链可用</li>
+<li>raw：控制 nat 表连接追踪机制的启用与否，在 PREROUTING、OUTPUT 链可用</li>
+</ul>
+<p>路由器的功能是转发数据，这些数据显然经过 FORWARD 链，故规则都在 FORWARD 链上添加。在 iptables 上使用 -I 参数插入规则时，默认会插入 filter 表，也就是我们需要的表。</p>
+<h3 id="p-xxx-–dport-xxxx"><a href="#p-xxx-–dport-xxxx" class="headerlink" title="-p xxx –dport xxxx"></a>-p xxx –dport xxxx</h3><p>使用 iptables 时，-p 参数用于指定规则适用的协议，–dport，即destination port的缩写，支持范围匹配，可以匹配数据包所去往的端口，这里参照英雄联盟所使用的端口和与之对应的协议一一阻止。</p>
+<h3 id="m-statistic-–mode-random-–probability-0-3"><a href="#m-statistic-–mode-random-–probability-0-3" class="headerlink" title="-m statistic –mode random –probability 0.3"></a>-m statistic –mode random –probability 0.3</h3><p>这些都是自定义的 丢包参数，可以实现很多其他的功能，因为iptables功能太多，故这里不做赘述，感兴趣的话可以自行查阅iptables相关的教程。</p>
+<h3 id="j-DROP"><a href="#j-DROP" class="headerlink" title="-j DROP"></a>-j DROP</h3><p>iptables 可以对符合规则条件的数据包做多种处理：</p>
+<ul>
+<li>ACCEPT：允许数据包通过</li>
+<li>DROP：丢弃数据包</li>
+<li>REJECT：拒绝数据包通过</li>
+<li>LOG：记录日志</li>
+<li>DNAT：目标地址NAT</li>
+<li>SNAT：源地址NAT</li>
+<li>MASQUERADE：地址欺骗</li>
+<li>REDIRECT：重定向</li>
+</ul>
+<p>需要随机丢弃数据包，自然是选择DROP。</p>
+<h2 id="特定时间自动添加-x2F-删除丢包规则"><a href="#特定时间自动添加-x2F-删除丢包规则" class="headerlink" title="特定时间自动添加&#x2F;删除丢包规则"></a>特定时间自动添加&#x2F;删除丢包规则</h2><p>在路由器的 Crontab 里添加如下规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Automatic Block</span></span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p udp --dport 5000:5500 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 8393:8400 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 2099 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 5223 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 5222 -m statistic --mode random --probability 0.3 -j DROP</span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 5233 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 23 * * ? iptables -I FORWARD -p tcp --dport 8088 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line"><span class="comment">#Automatic unblock</span></span><br><span class="line">0 0 7 * * ? iptables iptables -D FORWARD -p udp --dport 5000:5500 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 8393:8400 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 2099 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 5223 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 5222 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 5233 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">0 0 7 * * ? iptables -D FORWARD -p tcp --dport 8088 -m statistic --mode random --probability 0.3 -j DROP </span><br></pre></td></tr></table></figure>
+
+<p>即可实现每天晚上11点自动添加丢包规则，每天早晨7点自动删除丢包规则。</p>
+<h2 id="后期计划"><a href="#后期计划" class="headerlink" title="后期计划"></a>后期计划</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+后续可能会写一个每天指定时间自动添加，自动删除iptables规则的脚本，实现应该相对容易。最近要期末考试，备考要紧。</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+其次可能会补充iptables的常用功能解说。</p>
+</li>
+</ul>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%9D%E5%AE%A4%E7%9A%84%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">寝室的网络环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">路由器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A4%E5%8F%8B%E4%B8%8A%E7%BD%91%E7%9A%84%E8%AE%BE%E5%A4%87"><span class="toc-number">1.2.</span> <span class="toc-text">室友上网的设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E5%AE%9A%E9%87%87%E7%94%A8%E7%9A%84%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">决定采用的方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E8%A1%8C%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">具体行动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%88%E4%BA%BA%E4%BB%A5%E9%B1%BC%E4%B8%8D%E5%A6%82%E6%8E%88%E4%BA%BA%E4%BB%A5%E6%B8%94"><span class="toc-number">4.</span> <span class="toc-text">授人以鱼不如授人以渔</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iptables"><span class="toc-number">4.1.</span> <span class="toc-text">iptables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-FORWARD"><span class="toc-number">4.2.</span> <span class="toc-text">-I FORWARD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-xxx-%E2%80%93dport-xxxx"><span class="toc-number">4.3.</span> <span class="toc-text">-p xxx –dport xxxx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#m-statistic-%E2%80%93mode-random-%E2%80%93probability-0-3"><span class="toc-number">4.4.</span> <span class="toc-text">-m statistic –mode random –probability 0.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#j-DROP"><span class="toc-number">4.5.</span> <span class="toc-text">-j DROP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E6%97%B6%E9%97%B4%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0-x2F-%E5%88%A0%E9%99%A4%E4%B8%A2%E5%8C%85%E8%A7%84%E5%88%99"><span class="toc-number">5.</span> <span class="toc-text">特定时间自动添加&#x2F;删除丢包规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E6%9C%9F%E8%AE%A1%E5%88%92"><span class="toc-number">6.</span> <span class="toc-text">后期计划</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/05/use-iptables-to-ban-lol-in-dorm/&title=在OpenWRT路由器上使用iptables对英雄联盟随机丢包"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/05/use-iptables-to-ban-lol-in-dorm/&title=在OpenWRT路由器上使用iptables对英雄联盟随机丢包"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/05/use-iptables-to-ban-lol-in-dorm/&text=在OpenWRT路由器上使用iptables对英雄联盟随机丢包"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=在OpenWRT路由器上使用iptables对英雄联盟随机丢包&body=Check out this article: https://hexo.l3zc.com/2022/05/use-iptables-to-ban-lol-in-dorm/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>Nano Pi R2S 上手，小小升级一下家庭网络环境</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/08/something-about-ocsp-stapling/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/08/my-thoughts-on-anime-shows-in-china/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/08/nano-pi-r2s-hands-on/&title=Nano Pi R2S 上手，小小升级一下家庭网络环境"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/08/nano-pi-r2s-hands-on/&title=Nano Pi R2S 上手，小小升级一下家庭网络环境"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/08/nano-pi-r2s-hands-on/&text=Nano Pi R2S 上手，小小升级一下家庭网络环境"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Nano Pi R2S 上手，小小升级一下家庭网络环境&body=Check out this article: https://hexo.l3zc.com/2022/08/nano-pi-r2s-hands-on/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E6%89%8B"><span class="toc-number">1.</span> <span class="toc-text">上手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E4%B8%AA-OpenWRT-%E8%B7%91%E8%B5%B7%E6%9D%A5%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">刷个 OpenWRT 跑起来！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A9%E8%BF%99%E7%8E%A9%E6%84%8F%E5%8A%A0%E5%85%A5%E6%88%91%E7%9A%84%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C"><span class="toc-number">3.</span> <span class="toc-text">让这玩意加入我的家庭网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%8A%8A%E5%8E%9F%E6%9D%A5%E7%9A%84%E8%B7%AF%E7%94%B1%E5%99%A8%E8%AE%BE%E7%BD%AE%E6%88%90%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">3.1.</span> <span class="toc-text">手动把原来的路由器设置成交换机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%88%E4%BA%8E%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B%E6%8A%98%E8%85%BE%E4%BA%86"><span class="toc-number">4.</span> <span class="toc-text">终于可以正式开始折腾了</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Passwall-%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"><span class="toc-number">4.1.</span> <span class="toc-text">Passwall 科学上网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF"><span class="toc-number">4.2.</span> <span class="toc-text">青龙面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7%E3%80%81%E6%95%88%E6%9E%9C%E5%92%8C%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">稳定性、效果和问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">6.</span> <span class="toc-text">最后</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Nano Pi R2S 上手，小小升级一下家庭网络环境
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-08-16T09:22:19.000Z"
+                  itemprop="datePublished">2022-08-16</time>
+            
+                (Updated:
+                <time datetime="2022-08-16T09:25:25.000Z"
+                      itemprop="dateModified">2022-08-16</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+    </div>
+
+            
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>最近想要解放设备们的 CPU，让科学上网的体验变好一点点，顺手实现一些杂七杂八的功能满足折腾欲。在学校里我有一台 OpenWRT 的普通路由器，用起来非常不错，OpenWRT 基本可以实现所有我想要的功能，但毕竟是普通路由器，CPU 性能太弱，所以我的需求就定在了一款 CPU 性能更强的，能运行 OpenWRT 的 ARM 软路由，于是 Nano Pi R2S 进入了我的视野。</p>
+<p>要是软路由有排名，那 R2S 绝对是经典中的经典。小到无论如何都可以塞进弱电箱的体积，足够强大的性能和上手的容易程度都是软路由里数一数二的。虽然价格可能是49入国军，就不放出来了，但是只要我对这玩意有需求，那也不是不能接受。</p>
+<h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><p>好了，现在我们搞到了这 R2S，简单来上个手：</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220811160337177.webp" alt="R2S本体"></p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220811160419690.webp" alt="R2S网口侧"></p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220811160519105.webp" alt="R2S的USB2.0接口和Reset插口"></p>
+<p>R2S 外观非常简洁，没有多余的 IO，虽然原本不是作为软路由设计，但在设计上却给人一种天生为软路由而生之感：一个 WAN 一个 LAN 两个 RJ45 网口，一个 Micro SD 卡插槽，一个 USB 2.0 接口，完美覆盖软路由几乎所有使用场景。</p>
+<blockquote>
+<p>R2S 原本是作为边缘服务器设计，被我们硬生生的玩成了软路由。</p>
+</blockquote>
+<p>一体成型的金属外壳，非常有高级感，很有工业风，手感不错。由于 R2S 挑卡，挑电源（看到后面你就知道了）在购买机器时我直接买了已经经过测试的 Micro SD 卡和电源组合套餐，理论上来说，我不会遇到 SD 卡、电源与机器不兼容的问题。</p>
+<h2 id="刷个-OpenWRT-跑起来！"><a href="#刷个-OpenWRT-跑起来！" class="headerlink" title="刷个 OpenWRT 跑起来！"></a>刷个 OpenWRT 跑起来！</h2><p>先来看看这玩意儿的硬件规格：</p>
+<ul>
+<li>CPU: Rockchip RK3328, Quad-core Cortex-A53</li>
+<li>DDR4 RAM: 1GB</li>
+<li>Network：<ul>
+<li>10&#x2F;100&#x2F;1000M以太网口 x 1</li>
+<li>USB3.0转10&#x2F;100&#x2F;1000M以太网口 x 1</li>
+</ul>
+</li>
+<li>USB2.0 Host: Type-A x1</li>
+<li>MicroSD Slot x 1</li>
+<li>MicroUSB: 供电和Slave功能</li>
+<li>Debug Serial Port: 3.3V TTL电平，3Pin 2.54mm间距排针</li>
+<li>PC Size: 55.6 x 52mm</li>
+<li>Power Supply: DC 5V&#x2F;2A</li>
+<li>Temperature measuring range: 0℃ to 80℃</li>
+<li>OS&#x2F;Software: U-boot，Ubuntu-Core，OpenWrt</li>
+</ul>
+<p>这个硬件规格，装 Ubuntu 当服务器还是免了，但是跑个 OpenWRT 当路由器使绰绰有余。</p>
+<p>由于使用 Micro SD 卡作为启动介质，R2S 的刷机非常容易：取出 SD 卡，用读卡器接上电脑，把镜像烧写进 SD 卡，再把 SD 卡装回 R2S，完成。对于用 Ultra ISO 刻过 Windows 系统盘的老油条来说全都是熟悉的操作，完全没有任何难度可言，即使是新手也能很轻易的学会。让我们快进到登入 OpenWRT 的后台：</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220811173625242.webp" alt="R2S刷入OpenWRT后的后台界面"></p>
+<p>（此处应有Nice）</p>
+<p>狗都不用 R2S 官方编译的 OpenWRT，不仅没有中文翻译，没有好看的主题，各种插件还需要自行安装。懒得在官方固件上瞎折腾则可以直接选择别人打包好的固件。我使用了 BigDongDong 打包的带 Docker 固件，能满足我的所有需求。</p>
+<h2 id="让这玩意加入我的家庭网络"><a href="#让这玩意加入我的家庭网络" class="headerlink" title="让这玩意加入我的家庭网络"></a>让这玩意加入我的家庭网络</h2><p>要想让 R2S 加入我的家庭网络，有两种大致的方案：第一种，也是最直截了当的办法，即直接拿 R2S 当主路由使用；第二种方法稍微复杂，用 R2S 当旁路由，将原来主路由的网关指向旁路由。这两种方案各有优缺点，将 R2S 当主路由配置简单，只要你想，只需要将 R2S 接入光猫和原来的路由器之间，然后启动路由器，什么都不需要配置，直接开始上网。代价是这会让网络架构多一重出故障的概率，虽然这个概率很小。将 R2S 用作旁路由配置稍微复杂，但能实现某些设备直接走主路由，其余设备走旁路由的效果，缺点就是某些只有作为主路由才能实现的功能（比如你要建站而你原来的主路由不支持端口转发）无法实现。</p>
+<p>我无法接受让 R2S 作为旁路由的行为，想到数据包在两个路由由之间来回窜个两次才能被发出去情景，我还是选择了第一种方案——我不需要那么稳定的网络，大不了多重启几次。于是这就是新的网络拓补图：</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220812170317043.webp" alt="加入R2S后的网络拓补"></p>
+<p>图片<del>懒得自己画所以</del>来源于网络，无线路由器那里那个 WAN 请自行脑补成 LAN。</p>
+<p>为了让 R2S 能尽可能的与我的设备交互（比如控制某个设备是否启用科学上网），以及尽可能的减少 NAT 和网段的套娃，我们需要对原来的路由器进行一些设置，首先查看路由器是否有类似 AP模式（无线接入点模式）的功能，如果有那么直接启用这个模式就行。如果我的路由器有这个选项那我就不需要写下面这个部分了，只可惜，这 TP-LINK 电子垃圾并没有。</p>
+<h3 id="手动把原来的路由器设置成交换机"><a href="#手动把原来的路由器设置成交换机" class="headerlink" title="手动把原来的路由器设置成交换机"></a>手动把原来的路由器设置成交换机</h3><p>我不得不手动设置这个路由器，不过还好这并不是一件难事：首先把原本接在路由器 WAN 口的网线插到 LAN 口里，你没看错，<strong>LAN 口</strong>。然后登入原路由器的后台，关掉原路由器的 DHCP 服务器，打开原路由器的 LAN 口设置把原路由器的 LAN 口 IP 设置成与 R2S同一网段下的一个IP，例如：我的 R2S 的 IP 是 <code>192.168.2.1</code> ，所以我将原路由器的 LAN 口 IP 设置成 <code>192.168.2.2</code> 。设置好以后重启路由器，所有设备就和 R2S 同一个网段了，在 R2S 的后台也可以看到这些设备。这些操作的本质是把路由器变成一个带无线功能的交换机。</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220812172849779.webp" alt="在TP-LINK路由器的后台关闭路由器的DHCP服务器"></p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220812172531650.webp" alt="将路由器变成交换机后OpenWRT的后台可以看到所有设备"></p>
+<p>至此，基础的网络配置已经全部完成了，<del>本来就很乱的弱电箱更乱了</del>。</p>
+<h2 id="终于可以正式开始折腾了"><a href="#终于可以正式开始折腾了" class="headerlink" title="终于可以正式开始折腾了"></a>终于可以正式开始折腾了</h2><p>现在折腾的基础已经有了，那就开始折腾吧。</p>
+<h3 id="Passwall-科学上网"><a href="#Passwall-科学上网" class="headerlink" title="Passwall 科学上网"></a>Passwall 科学上网</h3><p>其实原本想用 Clash，不过 Clash 有多吃资源上网一搜就知道。</p>
+<p>关于 Passwall 怎么使用网上一搜一大把，这里我直接写我的用法：</p>
+<ul>
+<li>导入机场的订阅开启自动更新订阅，每天一更新</li>
+<li>选择一个位于香港的节点作为主节点</li>
+<li>开启自动切换，设置新加坡和美国的节点为 Fallback 节点（故障转移）</li>
+<li>开启 <code>ChinaDns-NG</code> 过滤被污染的 DNS 结果</li>
+</ul>
+<p>最后把之前所有设备上设置的 DoH 和 DoT 取消，让他们的 DNS 服务器直接指向 R2S，万事大吉，所有设备都可以科学上网了。<del>出于强迫症</del>我将家用摄像头排除在代理列表外，搞定。</p>
+<h3 id="青龙面板"><a href="#青龙面板" class="headerlink" title="青龙面板"></a>青龙面板</h3><p>既然这固件自带 Docker，那总得用起来吧？Docker 能干嘛？青龙面板安排。操作其实也很简单：把青龙面板的镜像拉取到 SD 卡上，然后部署启动容器启动就行。</p>
+<p>另外需要额外安装一些依赖，例如 Python 的 requests 库，Node.js 的 base64 库等，这里我随意贴一份依赖列表，可以自行取用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Node.js 下的依赖</span></span><br><span class="line">crypto-js</span><br><span class="line">prettytable</span><br><span class="line">dotenv</span><br><span class="line">jsdom</span><br><span class="line">date-fns</span><br><span class="line">tough-cookie</span><br><span class="line">tslib</span><br><span class="line">ws@7.4.3</span><br><span class="line">ts-md5</span><br><span class="line">jsdom -g</span><br><span class="line">jieba</span><br><span class="line">fs</span><br><span class="line">form-data</span><br><span class="line">json5</span><br><span class="line">global-agent</span><br><span class="line">png-js</span><br><span class="line">@types/node</span><br><span class="line">require</span><br><span class="line">typescript</span><br><span class="line">js-base64</span><br><span class="line">axios</span><br><span class="line">moment</span><br><span class="line"><span class="comment"># Python3 下的依赖</span></span><br><span class="line">requests</span><br><span class="line">canvas</span><br><span class="line">ping3</span><br><span class="line">jieba</span><br><span class="line">PyExecJS</span><br><span class="line">aiohttp</span><br></pre></td></tr></table></figure>
+
+<p>至于其他依赖基本可以看脚本运行的错误日志对症下药地安装，这里就不贴出来了。</p>
+<p>那么现在青龙面板有了，拿他干什么呢？</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220813181819566.webp" alt="充满任务的青龙面板定时任务界面"></p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220813162626204.webp" alt="青龙面板刷京豆"></p>
+<p>目前只是拿它跑跑脚本拿京豆，佛系看到什么功能就加上，虽然用的是家用 IP，被风控的概率比较低，但我还是尽量不多开脚本，且不说会不会被风控，毕竟这东西还是主路由，总不能一天到晚太占性能导致我的上网体验变差吧？如果真是这样那就舍本逐末了。</p>
+<p>至于脚本从哪里来，可以自行在 Github 上搜索依赖库拉库安装，说不定以后还要去 Gitee 上再找找，只能说，但愿 Github 不要被完全阻断导致一部分大佬往 Gitee 上跑。这里贴一个我用的库</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/okyyds/yydspure/tree/master">https://github.com/okyyds/yydspure/tree/master</a></p>
+<p>直接用定时任务拉库就行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/okyyds/yydspure.git <span class="string">&quot;jd_|jx_|gua_|jddj_|jdCookie&quot;</span> <span class="string">&quot;activity|backUp&quot;</span> <span class="string">&quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot;</span> <span class="string">&quot;master&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="稳定性、效果和问题"><a href="#稳定性、效果和问题" class="headerlink" title="稳定性、效果和问题"></a>稳定性、效果和问题</h2><p>为了稳定，暂时就折腾这么多了。</p>
+<p>那么稳定性怎么样？目前来看很好，没有遇到网上的各种烧坏，重启之类的问题，设置 Crontab 每周重启一次，非常稳定，这里有一个坑点： R2S 使用 Type-C 接口供电，却不支持 PD 协议。并且，虽然官方的技术规格里只需要 5V2A 的电源，但实际上需要尽量选择高于这个规格的电源，比如我的电源是 5V3A 的非 PD 协议电源，这就导致 R2S 的配套电源选择范围很窄，尽量选择店家 R2S 套餐里配好的电源。以下是一些网友的情况：</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220813182030465.webp" alt="什么值得买里烧坏的R2S和不稳定的R2S"></p>
+<p>前面也提到了 R2S 挑卡的问题，出于一些原因，R2S 与某些SD卡的兼容性欠佳，可以去 R2S 官方 Wiki 上找找兼容的 SD 卡列表。</p>
+<p>效果如何？不需要多说，因为家里的宽带只有 100 兆，任何一个软路由都可以轻松跑满。因为我的机场屏蔽了意义不大的测速，晚高峰（大概是晚高峰，周六下午六点半） Youtube 的话可以轻松跑到 12 万。</p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220813183052529.webp" alt="晚高峰Youtube可以跑到12万"></p>
+<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220815225712582.webp" alt="非晚高峰速度可到26万"></p>
+<p>这个速度和机场有比较大的关系，不过，只要5万以上，4k 就能随便拖着看，再往上意义不大。再就是青龙面板的效果，前面大家也都看到了。</p>
+<p>那么问题？其实问题主要集中在 IPV6 上，换上 R2S 后，哪怕我将所有 IPV6 相关的服务全都设成中继模式也没有办法正常使用 IPV6，而原来的路由器只要设置成桥模式即可，这个问题暂时没有找到解决方案。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>总体上，R2S 达到了我的预期，基本满足了我的需求，是一件我相对满意的产品。折腾乐趣无穷，但切莫上头，软路由这种东西，搞清自己的需求，不要忘记折腾原本的目的，够用就好，否则就是一个痛苦的无底洞。至于这个尚未解决的 IPV6 问题，佛系解决，实在不行看看能不能用 IPV6 NAT。</p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E6%89%8B"><span class="toc-number">1.</span> <span class="toc-text">上手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E4%B8%AA-OpenWRT-%E8%B7%91%E8%B5%B7%E6%9D%A5%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">刷个 OpenWRT 跑起来！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A9%E8%BF%99%E7%8E%A9%E6%84%8F%E5%8A%A0%E5%85%A5%E6%88%91%E7%9A%84%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C"><span class="toc-number">3.</span> <span class="toc-text">让这玩意加入我的家庭网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%8A%8A%E5%8E%9F%E6%9D%A5%E7%9A%84%E8%B7%AF%E7%94%B1%E5%99%A8%E8%AE%BE%E7%BD%AE%E6%88%90%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">3.1.</span> <span class="toc-text">手动把原来的路由器设置成交换机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%88%E4%BA%8E%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B%E6%8A%98%E8%85%BE%E4%BA%86"><span class="toc-number">4.</span> <span class="toc-text">终于可以正式开始折腾了</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Passwall-%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"><span class="toc-number">4.1.</span> <span class="toc-text">Passwall 科学上网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF"><span class="toc-number">4.2.</span> <span class="toc-text">青龙面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7%E3%80%81%E6%95%88%E6%9E%9C%E5%92%8C%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">稳定性、效果和问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">6.</span> <span class="toc-text">最后</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/08/nano-pi-r2s-hands-on/&title=Nano Pi R2S 上手，小小升级一下家庭网络环境"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/08/nano-pi-r2s-hands-on/&title=Nano Pi R2S 上手，小小升级一下家庭网络环境"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/08/nano-pi-r2s-hands-on/&text=Nano Pi R2S 上手，小小升级一下家庭网络环境"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Nano Pi R2S 上手，小小升级一下家庭网络环境&body=Check out this article: https://hexo.l3zc.com/2022/08/nano-pi-r2s-hands-on/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

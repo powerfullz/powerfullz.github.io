@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>为什么价格高昂的付费自习室能够在大学里存在</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="L3ZC" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2022/05/use-iptables-to-ban-lol-in-dorm/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2022/05/how-csust-bg-network-passwd-leaked/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/&title=为什么价格高昂的付费自习室能够在大学里存在"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/&title=为什么价格高昂的付费自习室能够在大学里存在"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/&text=为什么价格高昂的付费自习室能够在大学里存在"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=为什么价格高昂的付费自习室能够在大学里存在&body=Check out this article: https://hexo.l3zc.com/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        为什么价格高昂的付费自习室能够在大学里存在
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2022-05-24T12:54:21.000Z"
+                  itemprop="datePublished">2022-05-24</time>
+            
+                (Updated:
+                <time datetime="2022-08-02T09:19:01.000Z"
+                      itemprop="dateModified">2022-08-02</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a>, <a class="tag-link-link" href="/tags/%E7%89%A2%E9%AA%9A/" rel="tag">牢骚</a>
+    </div>
+
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>2022年3月，某大学的一个角落，一间名为北岸自习室的付费自习室分店开始营业，挂牌价格高达每小时5元，VIP区更甚。</p>
+<p>在一份北岸自习室的广告上，“新风空调全天开放、千兆wifi、安静私密、免费茶水“的优点被放在了非常显眼的位置。根据一位在前台接待的人士介绍，如果办卡，在每天都来的情况下，可将每个月的成本控制在100元左右。</p>
+<p>自习室的环境其实并没有宣传的那么好：新风空调全天开放只是一个噱头，实际操作时在生意不好的时候，新风空调会处于关闭的状态；千兆Wi-Fi实际上会给每人限速到40兆左右；更要命的是，自习室暴露在一个娱乐场所的噪声下，周六周日等时间，游玩的学生络绎不绝，噪声冲天。</p>
+<p>且不说是否值得用每月100元换取一个附带所宣传的优点的自习环境，每月100元的价格对于多数每月生活费并不宽裕的学生群体来说，是一个不小的负担，《2020中国大学生消费行为调查研究报告》的数据显示，在中国，大学生每月的平均生活费为1954元&#x2F;月，其中饮食花费至少占据每位大学生生活费的50%，那么，对于绝大多数大学生，与其支付昂贵的自习费用，换取一个并不怎么愉快的学习环境，绝大部分人会选择省下这100元，多喝几杯奶茶。</p>
+<p>我不相信，会有人在开始一门新生意时，连市场调查都不会做。不妨暂且假设，在消耗大量成本开设付费自习室之前，老板做了充足的市场调查，并且确定了这种调查是有利可图的。</p>
+<p>所以，利益究竟在哪里呢。</p>
+<p>以我的切身体会来看，比较容易联想到的原因有以下几个：图书馆里人太多，找不到位置是常有的事；图书馆里网络环境不佳；以及图书馆里的卫生条件比不上付费自习室（可能是我所在学校的特例）。</p>
+<blockquote>
+<p>健身房赚谁的钱？赚那些办了卡但是一年只来三四次的人的钱。</p>
+</blockquote>
+<p>据我了解的信息，这间自习室的会员数量不少，但正如前面所述，新风空调甚至在多数时候都是关闭的状态，这说明，有很多人办理了会员却并未经常前来自习。</p>
+<p>（未完待续）</p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "L3ZC";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/&title=为什么价格高昂的付费自习室能够在大学里存在"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/&title=为什么价格高昂的付费自习室能够在大学里存在"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/&text=为什么价格高昂的付费自习室能够在大学里存在"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=为什么价格高昂的付费自习室能够在大学里存在&body=Check out this article: https://hexo.l3zc.com/2022/05/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BB%B7%E6%A0%BC%E9%AB%98%E6%98%82%E7%9A%84%E4%BB%98%E8%B4%B9%E8%87%AA%E4%B9%A0%E5%AE%A4%E8%83%BD%E5%A4%9F%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E5%AD%98%E5%9C%A8/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i>
+    L3ZC 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
