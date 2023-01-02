@@ -56,15 +56,15 @@
                 <a href="#"><i class="fas fa-bars fa-2x"></i></a>
             </li>
             
-                <li><a href="/">首頁</a></li>
+                <li><a href="/">Home</a></li>
             
-                <li><a href="/archives/">文章</a></li>
+                <li><a href="/archives/">Articles</a></li>
             
-                <li><a href="/categories/">分類</a></li>
+                <li><a href="/categories/">Category</a></li>
             
-                <li><a href="/tags/">標籤</a></li>
+                <li><a href="/tags/">Tag</a></li>
             
-                <li><a href="/search/">搜尋</a></li>
+                <li><a href="/search/">Search</a></li>
             
         </ul>
     </div>
@@ -76,10 +76,10 @@
         
             <section id="search">
     <form>
-        <input type="text" class="search-input" id="search-input" placeholder="搜尋...">
+        <input type="text" class="search-input" id="search-input" placeholder="Search...">
     </form>
     <div id="search-result"></div>
-    <p class="search-no-result">沒有結果</p>
+    <p class="search-no-result">No results found.</p>
 </section>
         
     </div>
@@ -117,6 +117,43 @@
 <script src="/js/main.js"></script>
 
 <!-- search -->
+
+    
+<script src="/js/search.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var $inputArea = $("input#search-input");
+            var $resultArea = document.querySelector("div#search-result");
+
+            $inputArea.focus(function () {
+                var search_path = "search.xml";
+                if (search_path.length == 0) {
+                    search_path = "search.xml";
+                }
+                var path = "/" + search_path;
+                searchFunc(path, 'search-input', 'search-result');
+            });
+
+            $inputArea.keydown(function (e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                }
+            });
+
+            var observer = new MutationObserver(function (mutationsList, observer) {
+                if (mutationsList[0].addedNodes) {
+                    $(".search-no-result").show(200);
+                } else {
+                    $(".search-no-result").hide();
+                }
+            });
+
+            observer.observe($resultArea, {childList: true});
+
+        });
+    </script>
 
 </body>
 
