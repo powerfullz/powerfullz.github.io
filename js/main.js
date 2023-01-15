@@ -38,17 +38,15 @@ $(document).ready(function () {
         }
 
         /**
-         * Display the menu if the menu icon is clicked. also the damn navigation links
+         * Display the menu if the menu icon is clicked.
          */
         menuIcon.click(function () {
             if (menu.css("visibility") === "hidden") {
                 menu.css("visibility", "visible");
                 menuIcon.addClass("active");
-                nav.show();
             } else {
                 menu.css("visibility", "hidden");
                 menuIcon.removeClass("active");
-                nav.hide();
             }
             return false;
         });
