@@ -51,15 +51,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">Home</a></li>
+              <li><a href="/">首页</a></li>
           
-              <li><a href="/archives/">Articles</a></li>
+              <li><a href="/archives/">归档</a></li>
           
-              <li><a href="/categories/">Category</a></li>
+              <li><a href="/categories/">分类</a></li>
           
-              <li><a href="/tags/">Tag</a></li>
+              <li><a href="/tags/">标签</a></li>
           
-              <li><a href="/search/">Search</a></li>
+              <li><a href="/search/">搜索</a></li>
           
       </ul>
     </span>
@@ -80,10 +80,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -130,8 +130,8 @@
                   itemprop="datePublished">2023-02-02</time>
             
                 (Updated:
-                <time datetime="2023-02-03T09:27:34.581Z"
-                      itemprop="dateModified">2023-02-03</time>)
+                <time datetime="2023-02-04T03:51:46.111Z"
+                      itemprop="dateModified">2023-02-04</time>)
             
         
     </div>
@@ -172,7 +172,7 @@
 </ol>
 <p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/image-20230202195348596.png" alt="虚拟网络上添加IPv6地址空间"></p>
 <p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/image-20230202195456103.png" alt="给子网添加IPv6"></p>
-<h3 id="申请一个公共-IPv6-地址"><a href="#申请一个公共-IPv6-地址" class="headerlink" title="申请一个公共 IPv6 地址"></a>申请一个公共 IPv6 地址</h3><p>在搜索栏里搜索「公共 IP 地址「，然后按以下配置新建一个 IP：</p>
+<h3 id="申请一个公共-IPv6-地址"><a href="#申请一个公共-IPv6-地址" class="headerlink" title="申请一个公共 IPv6 地址"></a>申请一个公共 IPv6 地址</h3><p>在搜索栏里搜索「公共 IP 地址」，然后按以下配置新建一个 IP：</p>
 <table>
 <thead>
 <tr>
@@ -332,15 +332,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">首页</a></li>
                 
-                    <li><a href="/archives/">Articles</a></li>
+                    <li><a href="/archives/">归档</a></li>
                 
-                    <li><a href="/categories/">Category</a></li>
+                    <li><a href="/categories/">分类</a></li>
                 
-                    <li><a href="/tags/">Tag</a></li>
+                    <li><a href="/tags/">标签</a></li>
                 
-                    <li><a href="/search/">Search</a></li>
+                    <li><a href="/search/">搜索</a></li>
                 
             </ul>
         </div>
@@ -367,15 +367,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> Menu</a>
+                        aria-hidden="true"></i> 菜单</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> TOC</a>
+                        aria-hidden="true"></i> 目录</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> Top
+                                                                               aria-hidden="true"></i> 返回顶部
             </a>
         </div>
 
@@ -416,7 +416,7 @@
     <script type="text/javascript">
         $(function () {
             // copy-btn HTML
-            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
             btn += '<i class="far fa-clone"></i>';
             btn += '</span>';
             // mount it!
@@ -427,7 +427,7 @@
                 }
             });
             clip.on('success', function (e) {
-                e.trigger.setAttribute('aria-label', "Copied!");
+                e.trigger.setAttribute('aria-label', "复制成功!");
                 e.clearSelection();
             })
         })
