@@ -1590,68 +1590,58 @@ article .content .caption {
   content: ")";
 }
 .highlight {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  color: #b1e7e7;
-  background: #282c34;
+  color: #dfe;
 }
-.highlight .comment,
-.highlight .quote {
-  color: #969896;
-  font-style: italic;
-}
-.highlight .doctag,
-.highlight .keyword,
-.highlight .formula {
-  color: #c678dd;
-}
-.highlight .section,
-.highlight .name,
-.highlight .selector-tag,
-.highlight .deletion,
-.highlight .subst {
-  color: #e06c75;
-}
-.highlight .literal {
-  color: #56b6c2;
-}
-.highlight .string,
-.highlight .regexp,
-.highlight .addition,
-.highlight .attribute,
-.highlight .meta-string {
-  color: #98c379;
-}
-.highlight .built_in,
-.highlight .class .title {
-  color: #e6c07b;
-}
-.highlight .attr,
-.highlight .variable,
-.highlight .template-variable,
-.highlight .type,
-.highlight .selector-class,
-.highlight .selector-attr,
-.highlight .selector-pseudo,
-.highlight .number {
-  color: #d19a66;
-}
-.highlight .symbol,
-.highlight .bullet,
-.highlight .link,
-.highlight .meta,
-.highlight .selector-id,
-.highlight .title {
+.highlight .code .comment,
+.highlight .code .meta {
   color: #969896;
 }
-.highlight .emphasis {
-  font-style: italic;
+.highlight .code .string,
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .strong,
+.highlight .code .emphasis,
+.highlight .code .quote {
+  color: #df5000;
 }
-.highlight .strong {
-  font-weight: bold;
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .type {
+  color: #c9c;
 }
-.highlight .link {
+.highlight .code .literal,
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .attribute {
+  color: #0086b3;
+}
+.highlight .code .section,
+.highlight .code .name {
+  color: #63a35c;
+}
+.highlight .code .tag {
+  color: #969896;
+}
+.highlight .code .title,
+.highlight .code .attr,
+.highlight .code .selector-id,
+.highlight .code .selector-class,
+.highlight .code .selector-attr,
+.highlight .code .selector-pseudo {
+  color: #69c;
+}
+.highlight .code .params {
+  color: #f99157;
+}
+.highlight .code .addition {
+  color: #55a532;
+  background-color: #eaffea;
+}
+.highlight .code .deletion {
+  color: #bd2c00;
+  background-color: #ffecec;
+}
+.highlight .code .link {
   text-decoration: underline;
 }
 pre {
@@ -1778,6 +1768,7 @@ pre {
   padding: 0;
   border: none;
   background: none;
+  font-family: "Fira Code";
 }
 table {
   width: auto;
