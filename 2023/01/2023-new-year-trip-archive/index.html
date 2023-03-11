@@ -51,15 +51,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">首页</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">归档</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">分类</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">标签</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">搜索</a></li>
           
       </ul>
     </span>
@@ -87,8 +87,8 @@
       </ul>
       <span id="i-prev" class="info" style="display:none;">上一篇</span>
       <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -312,15 +312,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">首页</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">归档</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">分类</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">标签</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">搜索</a></li>
                 
             </ul>
         </div>
@@ -347,15 +347,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> 菜单</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> 目录</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
                         class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> 返回顶部
             </a>
         </div>
 
@@ -396,7 +396,7 @@
     <script type="text/javascript">
         $(function () {
             // copy-btn HTML
-            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
             btn += '<i class="far fa-clone"></i>';
             btn += '</span>';
             // mount it!
@@ -407,7 +407,7 @@
                 }
             });
             clip.on('success', function (e) {
-                e.trigger.setAttribute('aria-label', "Copied!");
+                e.trigger.setAttribute('aria-label', "复制成功!");
                 e.clearSelection();
             })
         })
