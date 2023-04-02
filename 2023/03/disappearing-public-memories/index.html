@@ -51,15 +51,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">Home</a></li>
+              <li><a href="/">首頁</a></li>
           
-              <li><a href="/archives/">Articles</a></li>
+              <li><a href="/archives/">文章</a></li>
           
-              <li><a href="/categories/">Category</a></li>
+              <li><a href="/categories/">分類</a></li>
           
-              <li><a href="/tags/">Tag</a></li>
+              <li><a href="/tags/">標籤</a></li>
           
-              <li><a href="/search/">Search</a></li>
+              <li><a href="/search/">搜尋</a></li>
           
       </ul>
     </span>
@@ -80,10 +80,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">回到頁首</span>
+      <span id="i-share" class="info" style="display:none;">分享</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -130,8 +130,8 @@
                   itemprop="datePublished">2023-03-30</time>
             
                 (Updated:
-                <time datetime="2023-03-30T07:56:53.149Z"
-                      itemprop="dateModified">2023-03-30</time>)
+                <time datetime="2023-04-01T03:59:36.519Z"
+                      itemprop="dateModified">2023-04-01</time>)
             
         
     </div>
@@ -148,8 +148,9 @@
   
     <div class="content" itemprop="articleBody">
       <p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202303301549608.webp" alt="曾经用于防疫的围栏残片"></p>
-<p>我有出门散步的习惯，每当学累了，我就出门到处转悠。</p>
-<p>说到散步，这也算是一种冥想吧，慢慢走在路上，不需要考虑任何事情，感受时光流逝，四季更迭，时不时说上一声：原来我还真</p>
+<p>我有出门散步的习惯，每当累了，我就出门到处转悠。</p>
+<p>说到散步，这也算是一种冥想吧，慢慢走在路上，不需要考虑任何事情，感受时光流逝，四季更迭，感受这一切真实发生的事情，给那颗劳累而漂泊无依的心一点真实的慰藉。</p>
+<p>我真的存在于这个世界啊！</p>
 
     </div>
 </article>
@@ -211,15 +212,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">首頁</a></li>
                 
-                    <li><a href="/archives/">Articles</a></li>
+                    <li><a href="/archives/">文章</a></li>
                 
-                    <li><a href="/categories/">Category</a></li>
+                    <li><a href="/categories/">分類</a></li>
                 
-                    <li><a href="/tags/">Tag</a></li>
+                    <li><a href="/tags/">標籤</a></li>
                 
-                    <li><a href="/search/">Search</a></li>
+                    <li><a href="/search/">搜尋</a></li>
                 
             </ul>
         </div>
@@ -246,15 +247,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> Menu</a>
+                        aria-hidden="true"></i> 選單</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> TOC</a>
+                        aria-hidden="true"></i> 文章目錄</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> Top
+                                                                               aria-hidden="true"></i> 頁首
             </a>
         </div>
 
@@ -295,7 +296,7 @@
     <script type="text/javascript">
         $(function () {
             // copy-btn HTML
-            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
             btn += '<i class="far fa-clone"></i>';
             btn += '</span>';
             // mount it!
@@ -306,7 +307,7 @@
                 }
             });
             clip.on('success', function (e) {
-                e.trigger.setAttribute('aria-label', "Copied!");
+                e.trigger.setAttribute('aria-label', "复制成功!");
                 e.clearSelection();
             })
         })
