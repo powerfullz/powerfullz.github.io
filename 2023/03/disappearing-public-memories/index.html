@@ -67,6 +67,11 @@
     <span id="actions">
       <ul>
           
+              <li><a class="icon" href="/2023/04/play-around-with-stable-diffusion/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
           
               <li><a class="icon" href="/2023/03/the-ridiculous-era/"><i class="fas fa-chevron-right"
                                                                            aria-hidden="true"
@@ -296,7 +301,7 @@
     <script type="text/javascript">
         $(function () {
             // copy-btn HTML
-            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
             btn += '<i class="far fa-clone"></i>';
             btn += '</span>';
             // mount it!
@@ -307,7 +312,7 @@
                 }
             });
             clip.on('success', function (e) {
-                e.trigger.setAttribute('aria-label', "复制成功!");
+                e.trigger.setAttribute('aria-label', "Copied!");
                 e.clearSelection();
             })
         })
