@@ -51,21 +51,26 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首页</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">归档</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分类</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">标签</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜索</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
     <br/>
     <span id="actions">
       <ul>
+          
+              <li><a class="icon" href="/2023/04/test-google-bard/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
           
           
               <li><a class="icon" href="/2023/03/disappearing-public-memories/"><i class="fas fa-chevron-right"
@@ -80,10 +85,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -101,7 +106,7 @@
 </ul>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DiffusionWrapper-has-859-52M-params"><span class="toc-number">1.1.</span> <span class="toc-text">DiffusionWrapper has 859.52M params</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">找模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E5%93%AA%E6%89%BE%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">去哪找？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%88%B0%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">找到的模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E5%90%97%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">可以自己训练模型吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">开始用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E2%80%A6%E2%80%A6%E4%B8%8D%E5%AF%B9%E5%95%8A"><span class="toc-number">3.1.</span> <span class="toc-text">这……不对啊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E9%97%AE%E9%A2%98"><span class="toc-number">3.2.</span> <span class="toc-text">找问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EasyNegative"><span class="toc-number">3.2.1.</span> <span class="toc-text">EasyNegative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VAE"><span class="toc-number">3.2.2.</span> <span class="toc-text">VAE</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E5%87%A0%E5%A4%A9%E7%94%9F%E6%88%90%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">4.</span> <span class="toc-text">这几天生成的图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B4%E9%97%B4%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">5.</span> <span class="toc-text">阴间的图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%A9%E7%8E%A9%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">玩玩插件</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DiffusionWrapper-has-859-52M-params"><span class="toc-number">1.1.</span> <span class="toc-text">DiffusionWrapper has 859.52M params</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">找模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E5%93%AA%E6%89%BE%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">去哪找？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%88%B0%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">找到的模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E5%90%97%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">可以自己训练模型吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">开始用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E2%80%A6%E2%80%A6%E4%B8%8D%E5%AF%B9%E5%95%8A"><span class="toc-number">3.1.</span> <span class="toc-text">这……不对啊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E9%97%AE%E9%A2%98"><span class="toc-number">3.2.</span> <span class="toc-text">找问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EasyNegative"><span class="toc-number">3.2.1.</span> <span class="toc-text">EasyNegative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VAE"><span class="toc-number">3.2.2.</span> <span class="toc-text">VAE</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E5%87%A0%E5%A4%A9%E7%94%9F%E6%88%90%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">4.</span> <span class="toc-text">这几天生成的图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B4%E9%97%B4%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">5.</span> <span class="toc-text">阴间的图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%A9%E7%8E%A9%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">玩玩插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#controlnet"><span class="toc-number">6.1.</span> <span class="toc-text">controlnet</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -130,8 +135,8 @@
                   itemprop="datePublished">2023-04-12</time>
             
                 (Updated:
-                <time datetime="2023-04-20T15:54:26.475Z"
-                      itemprop="dateModified">2023-04-20</time>)
+                <time datetime="2023-04-21T15:23:50.074Z"
+                      itemprop="dateModified">2023-04-21</time>)
             
         
     </div>
@@ -215,8 +220,15 @@
 <p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202348703.webp" alt="00019-3798999894"></p>
 <p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202349523.webp" alt="00025-20447565"></p>
 <p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202349442.webp" alt="00006-323134003"></p>
-<h2 id="阴间的图片"><a href="#阴间的图片" class="headerlink" title="阴间的图片"></a>阴间的图片</h2><p>鉴于这些图片可能引起不适，我决定将这些图片以链接的形式提供，好奇的同学请自行点击查看。</p>
-<h2 id="玩玩插件"><a href="#玩玩插件" class="headerlink" title="玩玩插件"></a>玩玩插件</h2>
+<h2 id="阴间的图片"><a href="#阴间的图片" class="headerlink" title="阴间的图片"></a>阴间的图片</h2><p>其实上面最后一张图的手指已经是有生成问题的，而生成的图片里还有更阴间的图片。</p>
+<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304212308772.webp" alt="00022-805092293"></p>
+<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304212309704.webp" alt="00020-2866285131"></p>
+<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304212310638.webp" alt="00021-2462655427"></p>
+<h2 id="玩玩插件"><a href="#玩玩插件" class="headerlink" title="玩玩插件"></a>玩玩插件</h2><p>这套 WebUI 还有插件可玩，这几天又心血来潮玩玩比较出名的插件。</p>
+<p>至于怎么安装插件，都是在这套 Web UI 的 Extensions 里。一是从官方仓库里拉取插件列表，二是自己找到插件的仓库链接拉库下载即可。</p>
+<p>我们来玩玩插件。</p>
+<h3 id="controlnet"><a href="#controlnet" class="headerlink" title="controlnet"></a>controlnet</h3><p>controlnet 可以通过草图控制画中人物的姿势，理论上可以解决上面生成的人物阴间的问题。</p>
+
     </div>
 </article>
 
@@ -277,21 +289,21 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首页</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">归档</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分类</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">标签</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜索</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
 
         <div id="toc-footer" style="display: none">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DiffusionWrapper-has-859-52M-params"><span class="toc-number">1.1.</span> <span class="toc-text">DiffusionWrapper has 859.52M params</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">找模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E5%93%AA%E6%89%BE%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">去哪找？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%88%B0%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">找到的模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E5%90%97%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">可以自己训练模型吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">开始用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E2%80%A6%E2%80%A6%E4%B8%8D%E5%AF%B9%E5%95%8A"><span class="toc-number">3.1.</span> <span class="toc-text">这……不对啊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E9%97%AE%E9%A2%98"><span class="toc-number">3.2.</span> <span class="toc-text">找问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EasyNegative"><span class="toc-number">3.2.1.</span> <span class="toc-text">EasyNegative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VAE"><span class="toc-number">3.2.2.</span> <span class="toc-text">VAE</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E5%87%A0%E5%A4%A9%E7%94%9F%E6%88%90%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">4.</span> <span class="toc-text">这几天生成的图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B4%E9%97%B4%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">5.</span> <span class="toc-text">阴间的图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%A9%E7%8E%A9%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">玩玩插件</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DiffusionWrapper-has-859-52M-params"><span class="toc-number">1.1.</span> <span class="toc-text">DiffusionWrapper has 859.52M params</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">找模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E5%93%AA%E6%89%BE%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">去哪找？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%88%B0%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">找到的模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%B7%B1%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E5%90%97%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">可以自己训练模型吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">开始用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E2%80%A6%E2%80%A6%E4%B8%8D%E5%AF%B9%E5%95%8A"><span class="toc-number">3.1.</span> <span class="toc-text">这……不对啊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E9%97%AE%E9%A2%98"><span class="toc-number">3.2.</span> <span class="toc-text">找问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EasyNegative"><span class="toc-number">3.2.1.</span> <span class="toc-text">EasyNegative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VAE"><span class="toc-number">3.2.2.</span> <span class="toc-text">VAE</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E5%87%A0%E5%A4%A9%E7%94%9F%E6%88%90%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">4.</span> <span class="toc-text">这几天生成的图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B4%E9%97%B4%E7%9A%84%E5%9B%BE%E7%89%87"><span class="toc-number">5.</span> <span class="toc-text">阴间的图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%A9%E7%8E%A9%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">玩玩插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#controlnet"><span class="toc-number">6.1.</span> <span class="toc-text">controlnet</span></a></li></ol></li></ol>
         </div>
 
         <div id="share-footer" style="display: none">
@@ -312,15 +324,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 菜单</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 目录</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 返回顶部
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 
@@ -361,7 +373,7 @@
     <script type="text/javascript">
         $(function () {
             // copy-btn HTML
-            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
             btn += '<i class="far fa-clone"></i>';
             btn += '</span>';
             // mount it!
@@ -372,7 +384,7 @@
                 }
             });
             clip.on('success', function (e) {
-                e.trigger.setAttribute('aria-label', "复制成功!");
+                e.trigger.setAttribute('aria-label', "Copied!");
                 e.clearSelection();
             })
         })
