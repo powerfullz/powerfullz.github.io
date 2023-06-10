@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">首页</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">归档</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">分类</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">标签</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">搜索</a></li>
           
       </ul>
     </span>
@@ -89,8 +89,8 @@
       </ul>
       <span id="i-prev" class="info" style="display:none;">上一篇</span>
       <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-08-19</time>
             
                 (Updated:
-                <time datetime="2023-05-16T09:40:44.271Z"
-                      itemprop="dateModified">2023-05-16</time>)
+                <time datetime="2023-06-06T13:40:14.000Z"
+                      itemprop="dateModified">2023-06-06</time>)
             
         
     </div>
@@ -160,7 +160,7 @@
 <p>We observe the provincial capital cities are not only government centers but are also hubs in the ISPs’ networks, and interISP connections are concentrated to a few routers across China.^[1]</p>
 </blockquote>
 <p>三大运营商网络之间的互通性并不高——数据跨网往往集中在几个数据中心进行而非随时随地的互联互通，例如，很多西部地区的数据包在重庆跨网。</p>
-<h2 id="少得可怜的总出口带宽"><a href="#少得可怜的总出口带宽" class="headerlink" title="少得可怜的总出口带宽"></a>少得可怜的总出口带宽</h2><p>根据工信部</p>
+<h2 id="少得可怜的总出口带宽"><a href="#少得可怜的总出口带宽" class="headerlink" title="少得可怜的总出口带宽"></a>少得可怜的总出口带宽</h2><p>根据一些非官方但可信度比较高的数据，中国大陆总出口带宽大约是20Tbps，作为对比，十年前的香港，总出口带宽就已经达到了40Tbps，这么少的人均出口带宽简直就是用一个吸管为长江引流，不炸才怪。</p>
 
     </div>
 </article>
@@ -222,15 +222,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">首页</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">归档</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">分类</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">标签</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">搜索</a></li>
                 
             </ul>
         </div>
@@ -257,15 +257,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> 菜单</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> 目录</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
                         class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> 返回顶部
             </a>
         </div>
 
@@ -306,7 +306,7 @@
     <script type="text/javascript">
         $(function () {
             // copy-btn HTML
-            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
             btn += '<i class="far fa-clone"></i>';
             btn += '</span>';
             // mount it!
@@ -317,7 +317,7 @@
                 }
             });
             clip.on('success', function (e) {
-                e.trigger.setAttribute('aria-label', "Copied!");
+                e.trigger.setAttribute('aria-label', "复制成功!");
                 e.clearSelection();
             })
         })
