@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="robots" content="noindex, nofollow">
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>Docker Minecraft 开服记</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="愚者千虑" type="application/atom+xml"/>
+    
+    <!-- analytics -->
+    <script async defer data-website-id="9e876464-9225-4771-b1ad-23e90f5af01e" src="https://analytics.l3zc.com/umami.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2023/06/clash-for-windows-is-not-opensourced/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2023/06/yudafus-blog/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/06/build-a-mc-server-with-docker/&title=Docker Minecraft 开服记"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/06/build-a-mc-server-with-docker/&title=Docker Minecraft 开服记"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/06/build-a-mc-server-with-docker/&text=Docker Minecraft 开服记"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Docker Minecraft 开服记&body=Check out this article: https://hexo.l3zc.com/2023/06/build-a-mc-server-with-docker/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9"><span class="toc-number">1.</span> <span class="toc-text">服务器选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Docker"><span class="toc-number">2.</span> <span class="toc-text">安装 Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-%E6%8D%A2%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">Docker 换源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%97%E7%95%A5%E9%83%A8%E7%BD%B2"><span class="toc-number">4.</span> <span class="toc-text">粗略部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%B0%83%E6%95%B4"><span class="toc-number">5.</span> <span class="toc-text">进一步调整</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="toc-number">5.1.</span> <span class="toc-text">固定版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BD%E5%90%8D%E5%8D%95"><span class="toc-number">5.2.</span> <span class="toc-text">白名单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E6%A0%87%E5%92%8C-MOTD"><span class="toc-number">5.3.</span> <span class="toc-text">图标和 MOTD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E7%89%88%E9%AA%8C%E8%AF%81"><span class="toc-number">5.4.</span> <span class="toc-text">正版验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E7%9A%84-docker-compose-yml"><span class="toc-number">5.5.</span> <span class="toc-text">最终的 docker-compose.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E4%BA%8B%E6%83%85"><span class="toc-number">6.</span> <span class="toc-text">一些杂七杂八的事情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RCON-%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number">6.1.</span> <span class="toc-text">RCON 的连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">6.2.</span> <span class="toc-text">安装插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">7.</span> <span class="toc-text">最后</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Docker Minecraft 开服记
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2023-06-09T05:52:54.000Z"
+                  itemprop="datePublished">2023-06-09</time>
+            
+                (Updated:
+                <time datetime="2023-06-15T08:03:40.361Z"
+                      itemprop="dateModified">2023-06-15</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </div>
+
+            
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>我大概从2013年开始接触到了 Minecraft ，算下来，今年正好是我接触 Minecraft 的第十个年头。</p>
+<p>熟悉 Docker 以后，我着手开始把我现在跑的服务容器化，从某种意义上，这非常「优雅」——可以很方便的管理各个服务，还不用担心各种环境不兼容的问题。</p>
+<p>暑假将至，为了方便和朋友们联机玩 MC，遂自行搭建一个服务器，顺便进一步熟悉 Docker 和 Docker Compose。</p>
+<h2 id="服务器选择"><a href="#服务器选择" class="headerlink" title="服务器选择"></a>服务器选择</h2><p>服务器有两个要求，一是性能要足够强，二是距离要足够近，目前我手头有三台机器，分别位于香港和洛杉矶，不是性能不够就是距离太远，延迟太高。所以，都无法满足需求。</p>
+<p>最近恰逢618，各大云主机厂商都有活动，遂购入一台某大厂轻量服务器，位于上海，2C4G5M，对于一个入门 MC 服务器来说完全足够。当然，买了这一个服务器不可能只是跑跑 MC，别的一些对带宽要求不高的服务我肯定也会放在上面。</p>
+<p>那么直接 Deploy，似乎用的还是 AMD 的新 EPYC，还行。</p>
+<h2 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h2><p>相比于一键脚本，我个人还是偏好手动安装 Docker。个人为了方便直接用了 Root，这不是最佳实践，尽可能用普通用户并在必要的时候用<code>sudo</code>。</p>
+<p>添加 PGP 密钥:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span></span><br></pre></td></tr></table></figure>
+
+<p>向<code>source.list</code>添加软件源：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> \</span></span><br><span class="line"><span class="language-bash">  <span class="string">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \</span></span></span><br><span class="line"><span class="string"><span class="language-bash">  <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span></span><br></pre></td></tr></table></figure>
+
+<p>更新软件包缓存并安装 Docker：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">apt update</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span></span><br></pre></td></tr></table></figure>
+
+<p>启动 Docker:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl <span class="built_in">enable</span> docker</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl start docker</span></span><br></pre></td></tr></table></figure>
+
+<p>至此 Docker 已经安装完成，顺遍装好了 Docker Compose。</p>
+<h2 id="Docker-换源"><a href="#Docker-换源" class="headerlink" title="Docker 换源"></a>Docker 换源</h2><p>国内服务器这点非常蛋疼。</p>
+<p>换源还要有一个命令行的文本编辑器，于是我决定先装个 Vim：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">apt install vim</span></span><br></pre></td></tr></table></figure>
+
+<p>编辑&#x2F;创建<code>etc/docker/daemon.json</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim etc/docker/daemon.json</span></span><br></pre></td></tr></table></figure>
+
+<p>编辑成如下内容:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">   <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">   <span class="string">&quot;https://mirror.ccs.tencentyun.com&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>https://mirror.ccs.tencentyun.com</code>是某大厂的内网镜像，内网拉取速度极快，还不计流量，不在内网里的服务器无法使用，应当换成下列镜像：</p>
+<ul>
+<li><code>https://hub-mirror.c.163.com</code></li>
+<li><code>https://ustc-edu-cn.mirror.aliyuncs.com</code></li>
+<li><code>https://mirror.baidubce.com</code></li>
+</ul>
+<p>随后重启 Docker 服务即可完成换源：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl restart docker</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="粗略部署"><a href="#粗略部署" class="headerlink" title="粗略部署"></a>粗略部署</h2><p>我部署服务的原则是先 Get it to work，再 Polish。</p>
+<p>对于 MC 这种 community driven 的游戏来说，社区的力量是强大的，基本上什么样的需求都能在社区里找到对应的解决方案。我直接采用了 <a target="_blank" rel="noopener" href="https://github.com/itzg/docker-minecraft-server">itzg&#x2F;docker-minecraft-server</a>。</p>
+<p>不得不吐槽的是，这个项目的文档写得实在是没有那么友好，摸索了一下，总算是把这个服务基本的跑起来了。这时我的<code>docker-compose.yml</code>如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mc:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">itzg/minecraft-server</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">25565</span><span class="string">:25565</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">    <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="comment"># attach a directory relative to the directory containing this compose file</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./minecraft-data:/data</span></span><br></pre></td></tr></table></figure>
+
+<p>这样的 Docker Compose 配置能以最新的版本把一个基础的 Vanilla Server 跑起来，只能勉强满足几个人的联机需求，肯定也没几个人会将这样的配置用到生产环境。</p>
+<h2 id="进一步调整"><a href="#进一步调整" class="headerlink" title="进一步调整"></a>进一步调整</h2><p>要进一步调整，要先确认调整的方向，否则就是无头苍蝇，误打误撞，没有目标，十分痛苦。实际感受一番后，我大致整理出了此时配置的问题，有些是 Vanilla 客户端的问题：</p>
+<ul>
+<li>版本不固定</li>
+<li>缺少基本的性能数据</li>
+<li>图标和 MOTD 需要调整</li>
+<li>没有白名单</li>
+<li>不能装插件</li>
+<li>有正版验证(无所谓，我有正版)</li>
+</ul>
+<p>有了这个方向，我就可以有目标的去调整这个 Server 的配置。接下来要做的，就是查阅这个项目的<a target="_blank" rel="noopener" href="https://docker-minecraft-server.readthedocs.io/en/latest/">文档</a>，做出自己需要的修改。</p>
+<h3 id="固定版本"><a href="#固定版本" class="headerlink" title="固定版本"></a>固定版本</h3><p>说实话 MC 的版本更新还挺频繁的，前一个版本尚未体验下一个版本就会出现。我暂时先固定这服务器的 MC 版本为<code>1.19.4</code>，日后充分游玩再慢慢升级。</p>
+<p>同时 Vanilla Server 实在是太垃圾，顺便将其换成 PAPER 岂不美哉？分别设置<code>VERSION</code>和<code>TYPE</code>两个环境变量即可。藉由 Paper 的优点，这样也同时解决了服务器插件和性能数据的问题。</p>
+<h3 id="白名单"><a href="#白名单" class="headerlink" title="白名单"></a>白名单</h3><p>设置<code>ENABLE_WHITELIST</code>和<code>ENFORCE_WHITELIST</code>两个环境变量，即可强制服务器核查白名单。同时，不要忘记将自己加入白名单，由于服务器的 OP 会被自动加入白名单，只需要将自己提前设置为 OP 即可，设置<code>OPS</code>即可做到这一点。</p>
+<h3 id="图标和-MOTD"><a href="#图标和-MOTD" class="headerlink" title="图标和 MOTD"></a>图标和 MOTD</h3><p>设置<code>ICON</code>和<code>MOTD</code>两个环境变量即可自定义服务器的图标和标语。</p>
+<h3 id="正版验证"><a href="#正版验证" class="headerlink" title="正版验证"></a>正版验证</h3><p>设置<code>ONLINE_MODE</code>变量即可控制正版验证的开关。</p>
+<p>需要注意的是，关闭<code>ONLINE_MODE</code>后，服务器会根据玩家的离线 UUID 判断身份，离线 UUID 和在线 UUID 不同，此时添加 OP 和黑白名单都需要改用离线 UUID 进行。</p>
+<h3 id="最终的-docker-compose-yml"><a href="#最终的-docker-compose-yml" class="headerlink" title="最终的 docker-compose.yml"></a>最终的 docker-compose.yml</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mc:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">itzg/minecraft-server</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">25565</span><span class="string">:25565</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">EULA:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">TYPE:</span> <span class="string">&quot;PAPER&quot;</span></span><br><span class="line">      <span class="attr">VERSION:</span> <span class="string">&quot;1.19.4&quot;</span></span><br><span class="line">      <span class="attr">VIEW_DISTANCE:</span> <span class="number">8</span></span><br><span class="line">      <span class="attr">ENABLE_WHITELIST:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">ENFORCE_WHITELIST:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">OPS:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="attr">ONLINE_MODE:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">      <span class="attr">SERVER_NAME:</span> <span class="string">&quot;Pub of NightCity&quot;</span></span><br><span class="line">      <span class="attr">MOTD:</span> <span class="string">&quot;Want to have a drink?&quot;</span></span><br><span class="line">      <span class="attr">ICON:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="attr">OVERRIDE_SERVER_PROPERTIES:</span> <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">    <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="comment"># attach a directory relative to the directory containing this compose file</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./minecraft-data:/data</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="一些杂七杂八的事情"><a href="#一些杂七杂八的事情" class="headerlink" title="一些杂七杂八的事情"></a>一些杂七杂八的事情</h2><h3 id="RCON-的连接"><a href="#RCON-的连接" class="headerlink" title="RCON 的连接"></a>RCON 的连接</h3><p>服务器运行后，若要在不进入游戏的情况下管理服务器，就需要用到 RCON。方法很简单，使用这个项目绑定的 rcon-cli 即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -i &lt;name_of_container&gt; rcon-cli</span></span><br></pre></td></tr></table></figure>
+
+<p>注意将<code>&lt;name_of_container&gt;</code>换成自己的容器名。</p>
+<p>作者还推荐了一个叫做<code>rcon-web-admin</code>的项目，打算过一阵子尝试。</p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>Paper 支持 Bukkit 的插件，还有自己的插件，插件数量上完全无需担心。</p>
+<p>我们在配置<code>docker-compose.yml</code>时，已经做了 bind 操作，会在<code>docker-compose.yml</code>所在目录的相对路径下创建一个叫做<code>minecraft-data</code>的文件夹，并绑定到容器的<code>data</code>目录，将下载好的插件<code>.jar</code>文件丢进<code>./minecraft-data/plugins</code>目录就完成了插件的安装。</p>
+<p>我选用了 World Edit，Grief Prevention 和 Dead Chest 三个插件，保证原汁原味的生存体验。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>如果你有开服经验并且偏向手动修改<code>server.properties</code>，将<code>OVERRIDE_SERVER_PROPERTIES</code>设置为<code>FALSE</code>即可将<code>server.properties</code>的控制权交还到我们手中，这也是一种配置的手段。</p>
+<p>Docker 开服还是相对容易的，社区已经造好了轮子，免去了很多不必要的麻烦。稍后我会继续 play around with the server，继续探索这个游戏无限的可能性。</p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "愚者千虑";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%89%E6%8B%A9"><span class="toc-number">1.</span> <span class="toc-text">服务器选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Docker"><span class="toc-number">2.</span> <span class="toc-text">安装 Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-%E6%8D%A2%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">Docker 换源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%97%E7%95%A5%E9%83%A8%E7%BD%B2"><span class="toc-number">4.</span> <span class="toc-text">粗略部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%B0%83%E6%95%B4"><span class="toc-number">5.</span> <span class="toc-text">进一步调整</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="toc-number">5.1.</span> <span class="toc-text">固定版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BD%E5%90%8D%E5%8D%95"><span class="toc-number">5.2.</span> <span class="toc-text">白名单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E6%A0%87%E5%92%8C-MOTD"><span class="toc-number">5.3.</span> <span class="toc-text">图标和 MOTD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E7%89%88%E9%AA%8C%E8%AF%81"><span class="toc-number">5.4.</span> <span class="toc-text">正版验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E7%9A%84-docker-compose-yml"><span class="toc-number">5.5.</span> <span class="toc-text">最终的 docker-compose.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E4%BA%8B%E6%83%85"><span class="toc-number">6.</span> <span class="toc-text">一些杂七杂八的事情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RCON-%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number">6.1.</span> <span class="toc-text">RCON 的连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">6.2.</span> <span class="toc-text">安装插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">7.</span> <span class="toc-text">最后</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/06/build-a-mc-server-with-docker/&title=Docker Minecraft 开服记"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/06/build-a-mc-server-with-docker/&title=Docker Minecraft 开服记"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/06/build-a-mc-server-with-docker/&text=Docker Minecraft 开服记"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Docker Minecraft 开服记&body=Check out this article: https://hexo.l3zc.com/2023/06/build-a-mc-server-with-docker/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i> 
+    <a href="/">L3ZC</a> 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
