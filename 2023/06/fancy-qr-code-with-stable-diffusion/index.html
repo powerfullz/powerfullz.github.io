@@ -26,7 +26,7 @@
         
     
     <!-- title -->
-    <title>郁达夫的博客</title>
+    <title>玩一下 Stable diffusion 生成二维码</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -69,13 +69,8 @@
     <span id="actions">
       <ul>
           
-              <li><a class="icon" href="/2023/06/build-a-mc-server-with-docker/"><i class="fas fa-chevron-left"
-                                                                           aria-hidden="true"
-                                                                           onmouseover="$('#i-prev').toggle();"
-                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
           
-          
-              <li><a class="icon" href="/2023/05/max-viable/"><i class="fas fa-chevron-right"
+              <li><a class="icon" href="/2023/06/clash-for-windows-is-not-opensourced/"><i class="fas fa-chevron-right"
                                                                            aria-hidden="true"
                                                                            onmouseover="$('#i-next').toggle();"
                                                                            onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -96,19 +91,19 @@
     <div id="share" style="display: none">
       <ul>
     <li><a class="icon"
-           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/06/yudafus-blog/&title=郁达夫的博客"><i
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/06/fancy-qr-code-with-stable-diffusion/&title=玩一下 Stable diffusion 生成二维码"><i
                     class="fab fa-qq " aria-hidden="true"></i></a></li>
     <li><a class="icon"
-           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/06/yudafus-blog/&title=郁达夫的博客"><i
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/06/fancy-qr-code-with-stable-diffusion/&title=玩一下 Stable diffusion 生成二维码"><i
                     class="fab fa-weibo " aria-hidden="true"></i></a></li>
-    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/06/yudafus-blog/&text=郁达夫的博客"><i
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/06/fancy-qr-code-with-stable-diffusion/&text=玩一下 Stable diffusion 生成二维码"><i
                     class="fab fa-twitter " aria-hidden="true"></i></a></li>
-    <li><a class="icon" href="mailto:?subject=郁达夫的博客&body=Check out this article: https://hexo.l3zc.com/2023/06/yudafus-blog/"><i
+    <li><a class="icon" href="mailto:?subject=玩一下 Stable diffusion 生成二维码&body=Check out this article: https://hexo.l3zc.com/2023/06/fancy-qr-code-with-stable-diffusion/"><i
                     class="fas fa-envelope " aria-hidden="true"></i></a></li>
 </ul>
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4"><span class="toc-number">2.</span> <span class="toc-text">参数调整</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -119,7 +114,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        郁达夫的博客
+        玩一下 Stable diffusion 生成二维码
     </h1>
 
       <div class="meta">
@@ -133,12 +128,12 @@
         
     <div class="postdate">
         
-            <time datetime="2023-06-08T10:52:26.000Z"
-                  itemprop="datePublished">2023-06-08</time>
+            <time datetime="2023-06-18T11:17:05.000Z"
+                  itemprop="datePublished">2023-06-18</time>
             
                 (Updated:
-                <time datetime="2023-06-13T07:23:31.877Z"
-                      itemprop="dateModified">2023-06-13</time>)
+                <time datetime="2023-06-22T12:37:29.947Z"
+                      itemprop="dateModified">2023-06-22</time>)
             
         
     </div>
@@ -146,30 +141,27 @@
           
     <div class="article-category">
         <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
     </div>
 
             
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Stable-Diffusion/" rel="tag">Stable Diffusion</a>
+    </div>
+
       </div>
   </header>
   
     <div class="content" itemprop="articleBody">
-      <p>何为博客？</p>
-<p>广义上的博客，便是当人们将自己原本留在心里，写在日记本，取自书上的东西加以整理加工，写成一篇文章时，就自然而然的形成了博客。一开始还不叫博客，甚至还没有公开发表，公开发表了，便是博客的雏形。</p>
-<p>自互联网出现，这套过程被搬到了网上，就成了标准意义上的「Weblog」。</p>
-<p>再回头看看我写的这个标题，连我自己都忍俊不禁，为自己不假思索起的标题感到些可笑——没有上网，怎么能叫 BLOG 呢？十分荒唐，但也不全无道理。之所以把标题起的不假思索，大抵是因为郁达夫的行文风格令我不由自主的将其与博客联系起来。在我看来，郁达夫发表的这些文章，无论怎么看，都太像是一个博客。</p>
-<p>以下节选自郁达夫的《记风雨茅庐》：</p>
-<blockquote>
-<p>自家想有一所房子的心愿，已经起了好几年了；明明知道创造欲是好，所有欲是坏的事情，但一轮到了自己的头上，总觉得衣食住行四件大事之中的最低限度的享有，是不可以不保住的。</p>
-<p>……</p>
-<p>自搬到杭州来住后，于不意之中，承友人之情，居然弄到了一块地，从此葬的问题总算解决了；但是住呢，占据的还是别人家的房子。去年春季，写了一篇短短的应景而不希望有什么结果的文章，说自己只想有一所小小的住宅；可是发表了不久，就来了一个回响。一位做建筑事业的朋友先来说：“你若要造房子，我们可以完全效劳。”。</p>
-<p>……</p>
-<p>四面一凑，于是起造一个风雨茅庐的计划即便成熟到了百分之八十，不知我者谓我有了钱，深知我者谓我冒了险，但是有钱也罢，冒险也罢，入秋以后，总之把这笑话勉强弄成了事实，在现在的寓所之旁，也竟丁丁笃笃地动起了工，造起了房子。</p>
-<p>……</p>
-<p>却也涂上了朱漆，嵌上了水泥，有点像是外国乡镇里的五六等贫民住宅的样子了；自己虽则不懂阳宅的地理，但在光线不甚明亮的清早或薄暮看起来，倒也觉得郭先生的设计，并没有弄什么玄虚，和科学的方法，仍旧还是对的。</p>
-</blockquote>
-<p>看到郁达夫「从发表文章到找到“知音”」的过程，不禁觉得倍感亲切，换而言之，博客的初衷，不就是如此吗？不得不感叹：原来我们今天在做的事情，至少一百多年以前，甚至更早，人们就已经在做了。倘若郁达夫能上网，这篇文章肯定会出现在他的博客上吧。</p>
-
+      <p>前些日子在网上看到一组十分惊艳的二维码：</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/IMG_6361.webp" alt="一个不寻常的二维码，乍一看是一个少女"></p>
+<p>最惊艳的是，这些不只是借二维码形式的艺术品，而都是真的可以扫出来的。具体的思路就是先生成一张原始的二维码，然后丢给 Stable Diffusion + ControlNet，控制二维码信息损失在可以接受的范围内，然后尽可能的让 Stable Diffusion 自由发挥。</p>
+<p>只可惜这套东西刚出来的那几天我在忙别的，但这东西毕竟也挺好玩的，现在终于有时间了，那么我们现在来好好玩玩这东西。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>像往常一样随便找一个生成二维码的工具，生成一张平凡的二维码，注意这个二维码不能包含太多信息。</p>
+<p>安装 Stable Diffusion 的部分可以参考我之前的文章“<a target="_blank" rel="noopener" href="https://l3zc.com/2023/04/play-around-with-stable-diffusion/">玩了几天Stable Diffusion</a>”。</p>
+<p>在 Stable Diffusion 的插件页面安装 ControlNet 插件，前期的准备工作就完成了。</p>
+<h2 id="参数调整"><a href="#参数调整" class="headerlink" title="参数调整"></a>参数调整</h2>
     </div>
 </article>
 
@@ -244,20 +236,20 @@
         </div>
 
         <div id="toc-footer" style="display: none">
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%B0%83%E6%95%B4"><span class="toc-number">2.</span> <span class="toc-text">参数调整</span></a></li></ol>
         </div>
 
         <div id="share-footer" style="display: none">
             <ul>
     <li><a class="icon"
-           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/06/yudafus-blog/&title=郁达夫的博客"><i
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/06/fancy-qr-code-with-stable-diffusion/&title=玩一下 Stable diffusion 生成二维码"><i
                     class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
     <li><a class="icon"
-           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/06/yudafus-blog/&title=郁达夫的博客"><i
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/06/fancy-qr-code-with-stable-diffusion/&title=玩一下 Stable diffusion 生成二维码"><i
                     class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
-    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/06/yudafus-blog/&text=郁达夫的博客"><i
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/06/fancy-qr-code-with-stable-diffusion/&text=玩一下 Stable diffusion 生成二维码"><i
                     class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-    <li><a class="icon" href="mailto:?subject=郁达夫的博客&body=Check out this article: https://hexo.l3zc.com/2023/06/yudafus-blog/"><i
+    <li><a class="icon" href="mailto:?subject=玩一下 Stable diffusion 生成二维码&body=Check out this article: https://hexo.l3zc.com/2023/06/fancy-qr-code-with-stable-diffusion/"><i
                     class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
 </ul>
         </div>

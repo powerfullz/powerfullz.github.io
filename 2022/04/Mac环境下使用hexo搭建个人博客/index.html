@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">Home</a></li>
+              <li><a href="/">首页</a></li>
           
-              <li><a href="/archives/">Articles</a></li>
+              <li><a href="/archives/">归档</a></li>
           
-              <li><a href="/categories/">Category</a></li>
+              <li><a href="/categories/">分类</a></li>
           
-              <li><a href="/tags/">Tag</a></li>
+              <li><a href="/tags/">标签</a></li>
           
-              <li><a href="/search/">Search</a></li>
+              <li><a href="/search/">搜索</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -108,7 +108,7 @@
 </ul>
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Homebrew"><span class="toc-number">1.1.</span> <span class="toc-text">安装Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Git"><span class="toc-number">1.2.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-number">1.3.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%89%80%E9%9C%80%E7%BB%84%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.4.</span> <span class="toc-text">测试所需组件是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEHexo%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">配置Hexo环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGit%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E5%88%B0GitHub"><span class="toc-number">3.</span> <span class="toc-text">配置Git部署网站到GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%A2%E6%88%B7%E7%AB%AFgit-%E6%B7%BB%E5%8A%A0SSH-Key%E5%88%B0github"><span class="toc-number">3.1.</span> <span class="toc-text">配置客户端git 添加SSH Key到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Github%E4%B8%8A%E6%96%B0%E5%BB%BA%E7%BD%91%E7%AB%99%E4%BB%93%E5%BA%93%EF%BC%8C%E5%B0%86%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%85%B3%E8%81%94%E5%88%B0Github%E4%B8%BB%E9%A1%B5"><span class="toc-number">3.2.</span> <span class="toc-text">在Github上新建网站仓库，将本地博客关联到Github主页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">绑定自定义域名（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">开始写作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text">Hexo常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BA%9B%E4%BB%80%E4%B9%88%E4%BA%8B%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">还可以做些什么事？</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Homebrew"><span class="toc-number">1.1.</span> <span class="toc-text">安装 Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Git-%E5%92%8C-Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">安装 Git 和 Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%89%80%E9%9C%80%E7%BB%84%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.3.</span> <span class="toc-text">测试所需组件是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="toc-number">2.</span> <span class="toc-text">安装 Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E5%88%B0GitHub"><span class="toc-number">3.</span> <span class="toc-text">部署网站到GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0SSH-Key%E5%88%B0github"><span class="toc-number">3.1.</span> <span class="toc-text">添加SSH Key到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Github%E4%B8%8A%E6%96%B0%E5%BB%BA%E7%BD%91%E7%AB%99%E4%BB%93%E5%BA%93%EF%BC%8C%E5%B0%86%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%85%B3%E8%81%94%E5%88%B0Github%E4%B8%BB%E9%A1%B5"><span class="toc-number">3.2.</span> <span class="toc-text">在Github上新建网站仓库，将本地博客关联到Github主页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">绑定自定义域名（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">开始写作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text">Hexo常用命令</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-04-30</time>
             
                 (Updated:
-                <time datetime="2022-05-21T04:56:56.000Z"
-                      itemprop="dateModified">2022-05-21</time>)
+                <time datetime="2023-06-28T13:28:31.979Z"
+                      itemprop="dateModified">2023-06-28</time>)
             
         
     </div>
@@ -157,88 +157,88 @@
       <p>网上大部分基于Hexo搭建个人博客的教程都是在Windows环境下实现的，Mac OS的教程很少，然而，Mac OS下完成这个任务远比Windows要容易。</p>
 <span id="more"></span>
 
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h3><p>打开终端，首先安装Homebrew，以便安装必要的组件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Note:出现<code>$</code>代表这是终端命令，请<strong>逐条</strong>在终端内执行，并且<strong>不要将<code>$</code>符号一并输入终端</strong>。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><p>Homebrew 是一个社区驱动的包管理器，它能方便我们安装我们需要的环境。在中国大陆，推荐使用镜像源安装 Homebrew，下面以中科大镜像源为例。</p>
+<p>设置环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> HOMEBREW_BREW_GIT_REMOTE=<span class="string">&quot;https://mirrors.ustc.edu.cn/brew.git&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> HOMEBREW_CORE_GIT_REMOTE=<span class="string">&quot;https://mirrors.ustc.edu.cn/homebrew-core.git&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=<span class="string">&quot;https://mirrors.ustc.edu.cn/homebrew-bottles&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> HOMEBREW_API_DOMAIN=<span class="string">&quot;https://mirrors.ustc.edu.cn/homebrew-bottles/api&quot;</span></span></span><br></pre></td></tr></table></figure>
 
-<p>当然，脚本随时可能失效，本文参考了<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/help/brew.git.html?highlight=homebrew#homebrew-linuxbrew">USTC的镜像</a>，也可以自行去网上找教程。</p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>Homebrew安装完成后，安装Git。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
+<p>运行中科大 Homebrew 安装脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://mirrors.ustc.edu.cn/misc/brew-install.sh)</span>&quot;</span></span></span><br></pre></td></tr></table></figure>
 
-<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+<p>如果你的网络环境良好（不在中国大陆），可以略过设置环境变量的步骤并直接使用正常的安装脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Git-和-Node-js"><a href="#安装-Git-和-Node-js" class="headerlink" title="安装 Git 和 Node.js"></a>安装 Git 和 Node.js</h3><p>Homebrew安装完成后，安装 Git 和 Node.js：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew install git</span><br><span class="line">$ brew install node</span><br></pre></td></tr></table></figure>
 
 <h3 id="测试所需组件是否安装成功"><a href="#测试所需组件是否安装成功" class="headerlink" title="测试所需组件是否安装成功"></a>测试所需组件是否安装成功</h3><p>依次输入下面的命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br><span class="line">node -v</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm -v</span><br><span class="line">$ node -v</span><br><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220501222045.png" alt="command_line_to_test_installation"></p>
 <p>出现npm、Node.js和git的版本号即代表安装成功。</p>
-<h2 id="配置Hexo环境"><a href="#配置Hexo环境" class="headerlink" title="配置Hexo环境"></a>配置Hexo环境</h2><p>我们使用npm命令来安装Hexo，在此之前，需要先在电脑上账户的主目录下创建一个文件夹。这里我使用blog作为文件夹的名称。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220501220001061.png" alt="创建存放博客的文件夹"></p>
-<p>选择创建在账户主文件夹下是为了方便日后在终端里切换到博客所在的目录。</p>
-<p>接着打开终端输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>我们使用 npm 命令安装 Hexo：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
-<p>等待安装完成后初始化博客</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+<p>等待安装完成后初始化博客：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
 
-<p>注意，<code>cd blog</code>的作用是切换到刚才创建好的blog文件夹中，也就是说，初始化博客的命令是作用在刚刚创建的blog文件夹下的。</p>
-<p>至此，博客已经初始化，依次执行以下两条命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>这条指令的作用是在你目前所在的目录下（默认是你的home目录）新建一个名为<code>blog</code>的文件夹（你可以将这条命令中的<code>blog</code>替换成任何你想要的名字），并在内初始化你的博客。<strong>之后所有的操作都在这个文件夹下进行，请确保在执行后文的操作前已经切换到了这个文件夹（cd blog）。</strong></p>
+<p>待初始化完成，切换到<code>blog</code>文件夹中，即可生成和预览博客。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 
-<p>完成后不要关闭终端，在浏览器内输入地址:</p>
-<p>127.0.0.1:4000</p>
-<p>可以预览博客网站</p>
+
+
+<p>执行<code>hexo s</code>命令后，通过浏览器访问<code>http://127.0.0.1:4000</code>可以预览你的博客，预览功能会实时监测博客的文件变化，并实时反馈在浏览器上，在调试博客前端时非常好用。</p>
 <p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/3389687468-4fe37c91b4f7e5b6_fix732.jpeg" alt="preview_your_hexo_blog"></p>
-<h2 id="配置Git部署网站到GitHub"><a href="#配置Git部署网站到GitHub" class="headerlink" title="配置Git部署网站到GitHub"></a>配置Git部署网站到GitHub</h2><p>首先你得有一个Github账号，没有的话自己去<a href="www.github.com">Github</a>上注册一个，当然如果你有别的静态网站托管服务可以自行研究把你的博客部署上去，本文用到的托管服务是Github Pages，下文提到的用户名均指你的Github用户名。</p>
-<h3 id="配置客户端git-添加SSH-Key到github"><a href="#配置客户端git-添加SSH-Key到github" class="headerlink" title="配置客户端git 添加SSH Key到github"></a>配置客户端git 添加SSH Key到github</h3><p>已经配置过的话请跳过此步</p>
-<p>在命令行输入配置用户名和账号的命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;username&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;example@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="部署网站到GitHub"><a href="#部署网站到GitHub" class="headerlink" title="部署网站到GitHub"></a>部署网站到GitHub</h2><p>执行<code>hexo g</code>命令后博客静态文件会生成在<code>public</code>文件夹下，只需要将这些文件上传到你的静态网站托管服务即可将站点发布到公网，本文用到的托管服务是Github Pages，下文提到的用户名均指你的Github用户名。</p>
+<h3 id="添加SSH-Key到github"><a href="#添加SSH-Key到github" class="headerlink" title="添加SSH Key到github"></a>添加SSH Key到github</h3><p>若之前使用过相关功能且已经配置过请跳过此步。</p>
+<p>配置Git用户名和账号：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;username&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;example@example.com&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>其中 <code>username</code> 是你的用户名，<code>example@example.com</code>是你github的登录邮箱<br>然后通过终端命令生成SSH Key</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;example@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>username</code> 是你的用户名，<code>example@example.com</code>是你 Github 的登录邮箱。</p>
+<p>然后通过终端命令生成 SSH Key：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;example@example.com&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>如果已经创建过会出现 <code>Overwrite (y/n)? n</code>提示可以输入 <code>n</code>，没有创建过的话三个回车就好，执行完成后会在<code>~/.ssh/id_rsa.pub</code>目录下生成 需要使用的 key，也就是公钥</p>
-<p>到账户主文件夹下同时按Command+Shift+.显示隐藏文件，找到.ssh文件夹，打开id_rsa.pub，将里面的内容全部复制。</p>
-<p>打开<a target="_blank" rel="noopener" href="https://github.com/settings/keys">GitHub_Settings_keys</a> 页面，新建New SSH Key，Title随意填，Key就把刚才复制的内容全都粘贴上去。然后点Add SSH Key即可</p>
+<p>如果已经创建过会出现 <code>Overwrite (y/n)? n</code>提示可以输入 <code>n</code>，没有创建过的话三个回车就好，执行完成后会在<code>~/.ssh/id_rsa.pub</code>目录下生成 需要使用的 key，也就是公钥。</p>
+<p>到账户主文件夹下同时按<code>Command+Shift+.</code>显示隐藏文件，找到<code>.ssh</code>文件夹，打开id_rsa.pub，将里面的内容全部复制。</p>
+<p>打开<a target="_blank" rel="noopener" href="https://github.com/settings/keys">GitHub_Settings_keys</a> 页面，新建New SSH Key，Title随意填，Key就把刚才复制的内容全都粘贴上去。然后点Add SSH Key即可。</p>
 <p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220501223200.png" alt="github_key_settings页面"></p>
-<p>然后命令行输入<code>ssh git@github.com</code></p>
+<p>完成这些工作以后可以通过以下命令测试是否配置成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh git@github.com</span></span><br></pre></td></tr></table></figure>
+
 <p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220501223851.png" alt="connecting_to_github_using_ssh"></p>
 <p>出现你的Github用户名代表配置成功。</p>
-<h3 id="在Github上新建网站仓库，将本地博客关联到Github主页"><a href="#在Github上新建网站仓库，将本地博客关联到Github主页" class="headerlink" title="在Github上新建网站仓库，将本地博客关联到Github主页"></a>在Github上新建网站仓库，将本地博客关联到Github主页</h3><p>在Github上新建一个仓库，Repository Name填<code>你的用户名.github.io</code>，仓库状态设为Public，然后Create Repository创建新的网站仓库。</p>
-<p>打开终端执行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h3 id="在Github上新建网站仓库，将本地博客关联到Github主页"><a href="#在Github上新建网站仓库，将本地博客关联到Github主页" class="headerlink" title="在Github上新建网站仓库，将本地博客关联到Github主页"></a>在Github上新建网站仓库，将本地博客关联到Github主页</h3><p>在Github上新建一个仓库，Repository Name 填<code>你的用户名.github.io</code>，仓库状态设为 Public，点击 Create Repository 创建新的网站仓库。</p>
+<p>安装 Hexo 的扩展 <code>hexo-deployer-git</code>，注意一定要在你的博客文件夹下执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<p>执行完以后终端窗口先不要关，在Finder(访达)中打开blog文件夹，打开其中的_config.yml文件，<strong>翻到底部</strong>，修改deploy部分为</p>
+<p>编辑博客安装文件夹下的<code>_config.yml</code>文件，<strong>翻到底部</strong>，修改deploy部分为：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:你的用户名/你的用户名.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
-<p>修改完成后按Command + S保存，此时就可以使用<code>hexo d</code>把存在本地的博客deploy到Github上了。</p>
-<p>回到终端，输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成博客</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment">#将博客推送到指定的地方，在这里是我们的Github仓库</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>修改完成后按Command + S保存，此时就可以使用<code>hexo d</code>把存在本地的博客deploy到Github上了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成博客</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment">#将博客推送到指定的地方，在这里是我们的Github仓库</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220502193153.png" alt="error_occured_when_deploying_hexo_to_githubpages"></p>
 <p>第一次执行hexo d命令时可能要求你输入你的Github账号和密码，这里如果依照提示按部就班输入你的账户密码会出现如图所示的报错，这是因为Github在2021年8月13日停止了使用账户密码认证的支持，这时需要在Gihub上<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">Developer Settings页面</a>上新建一个Personal Access Token代替密码就可以顺利deploy。</p>
 <p>执行完毕后，访问<code>你的用户名.github.io</code>就能看到你的博客了。</p>
-<h2 id="绑定自定义域名（可选）"><a href="#绑定自定义域名（可选）" class="headerlink" title="绑定自定义域名（可选）"></a>绑定自定义域名（可选）</h2><p>其实到这一步就可以开始写博客了，不过默认给的github.io域名要是不满意的话还可以绑定你自己的域名</p>
-<p>首先自行申请一个域名，然后登陆到域名申请的后台，添加两条解析记录</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220502194406.png" alt="bond_personal_domain_with_githubpages(DNS_settings)"></p>
-<p>第一条A记录是存放你博客的ip地址，这个可以通过ping你的博客地址得到，第二条CNAME记录是你的博客地址。</p>
+<h2 id="绑定自定义域名（可选）"><a href="#绑定自定义域名（可选）" class="headerlink" title="绑定自定义域名（可选）"></a>绑定自定义域名（可选）</h2><p>其实到这一步就可以开始写博客了，默认的 github.io 的域名是可以更换的：</p>
+<p>首先自行申请一个域名，登陆到域名申请的后台，添加一条<code>CNAME</code>解析记录：<code>你的用户名.github.io</code>。</p>
 <p>打开存放博客的Github仓库，进入Settings页面在pages选项里的Custom domain里填入你的域名，点击Save，勾选Enforce HTTPS，即可通过自定义域名访问你的博客。</p>
 <p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220502194922.png" alt="bond_personal_domain_with_githubpages(github_settings)"></p>
-<h2 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h2><p>在终端里执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">hexo new title</span><br><span class="line"><span class="comment">#可以理解为生成一个文件名为title的Markdown文件，注意title不能有空格</span></span><br></pre></td></tr></table></figure>
+<h2 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h2><p>生成一篇新文章：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure>
 
-<p>执行后会在blog&#x2F;source&#x2F;_post文件夹里生成一个名为<code>title.md</code>的文件，打开它即可使用Markdown语言开始写作。你问我什么是Markdown?自己去看<a target="_blank" rel="noopener" href="https://www.markdown.xyz/getting-started/">官方文档</a>。</p>
+<p>执行后会在<code>blog/source/_post</code>文件夹里生成一个名为<code>&lt;title&gt;.md</code>的文件，打开它即可使用 Markdown 开始写作</p>
 <p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220502195744.png" alt="markdown_metadata"></p>
-<p>值得一提的是，Hexo生成时真正显示的标题是<code>title.md</code>文件里title项的标题，不必过于计较生成新文章时标题的选择，因为真正的表题在这里修改。</p>
-<p>写作完成后，在终端里执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#注意以下命令需要切换到blog文件夹(cd blog)执行</span></span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>值得一提的是，Hexo生成时真正显示的标题是<code>&lt;title&gt;.md</code>文件里title项的标题，文件名影响的是生成后文章的永久链接。</p>
+<p>写作完成后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#注意以下命令需要切换到blog文件夹(cd blog)执行</span></span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 
-<p>即可将文章发布。</p>
-<h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#注意以下命令需要切换到blog文件夹(cd blog)执行</span></span><br><span class="line">hexo n <span class="string">&quot;文章名称&quot;</span>  =&gt; hexo new <span class="string">&quot;文章名称&quot;</span>  <span class="comment">#这两个都是创建新文章，前者是简写模式，下同，new后面加一个draft可以生成草稿</span></span><br><span class="line">hexo p  =&gt; hexo publish  <span class="comment">#发布草稿</span></span><br><span class="line">hexo g  =&gt; hexo generate  <span class="comment">#生成</span></span><br><span class="line">hexo s  =&gt; hexo server  <span class="comment">#启动服务预览</span></span><br><span class="line">hexo d  =&gt; hexo deploy  <span class="comment">#部署</span></span><br><span class="line"></span><br><span class="line">hexo server   <span class="comment">#Hexo 会监视文件变动并自动更新，无须重启服务器。</span></span><br><span class="line">hexo server -s   <span class="comment">#静态模式</span></span><br><span class="line">hexo server -p 5000   <span class="comment">#更改端口</span></span><br><span class="line">hexo server -i 192.168.1.1   <span class="comment">#自定义IP</span></span><br><span class="line">hexo clean   <span class="comment">#清除缓存，网页正常情况下可以忽略此条命令</span></span><br><span class="line">hexo g   <span class="comment">#生成静态网页</span></span><br><span class="line">hexo d   <span class="comment">#开始部署</span></span><br></pre></td></tr></table></figure>
+<p>即可将文章发布，根据主题的不同，最好在执行<code>hexo g</code>前先执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo clean</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="还可以做些什么事？"><a href="#还可以做些什么事？" class="headerlink" title="还可以做些什么事？"></a>还可以做些什么事？</h2><ul>
-<li>更换主题，Hexo有广泛完善的主题生态，可以自行去网上搜索，本站采用的主题在本站底部</li>
-<li>安装插件，Hexo有广泛完善的插件生态，可以实现很多功能</li>
-</ul>
+<p>以避免潜在的问题。</p>
+<h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#注意以下命令需要切换到blog文件夹(cd blog)执行</span></span><br><span class="line">hexo n <span class="string">&quot;文章名称&quot;</span>  =&gt; hexo new <span class="string">&quot;文章名称&quot;</span>  <span class="comment">#这两个都是创建新文章，前者是简写模式，下同，new后面加一个draft可以生成草稿</span></span><br><span class="line">hexo p  =&gt; hexo publish  <span class="comment">#发布草稿</span></span><br><span class="line">hexo g  =&gt; hexo generate  <span class="comment">#生成</span></span><br><span class="line">hexo s  =&gt; hexo server  <span class="comment">#启动服务预览</span></span><br><span class="line">hexo d  =&gt; hexo deploy  <span class="comment">#部署</span></span><br><span class="line"></span><br><span class="line">hexo server   <span class="comment">#Hexo 会监视文件变动并自动更新，无须重启服务器。</span></span><br><span class="line">hexo server -s   <span class="comment">#静态模式</span></span><br><span class="line">hexo server -p 5000   <span class="comment">#更改端口</span></span><br><span class="line">hexo server -i 192.168.1.1   <span class="comment">#自定义IP</span></span><br><span class="line">hexo clean   <span class="comment">#清除缓存，网页正常情况下可以忽略此条命令</span></span><br></pre></td></tr></table></figure>
 
     </div>
 </article>
@@ -300,21 +300,21 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">首页</a></li>
                 
-                    <li><a href="/archives/">Articles</a></li>
+                    <li><a href="/archives/">归档</a></li>
                 
-                    <li><a href="/categories/">Category</a></li>
+                    <li><a href="/categories/">分类</a></li>
                 
-                    <li><a href="/tags/">Tag</a></li>
+                    <li><a href="/tags/">标签</a></li>
                 
-                    <li><a href="/search/">Search</a></li>
+                    <li><a href="/search/">搜索</a></li>
                 
             </ul>
         </div>
 
         <div id="toc-footer" style="display: none">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Homebrew"><span class="toc-number">1.1.</span> <span class="toc-text">安装Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Git"><span class="toc-number">1.2.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-number">1.3.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%89%80%E9%9C%80%E7%BB%84%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.4.</span> <span class="toc-text">测试所需组件是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEHexo%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">配置Hexo环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGit%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E5%88%B0GitHub"><span class="toc-number">3.</span> <span class="toc-text">配置Git部署网站到GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%A2%E6%88%B7%E7%AB%AFgit-%E6%B7%BB%E5%8A%A0SSH-Key%E5%88%B0github"><span class="toc-number">3.1.</span> <span class="toc-text">配置客户端git 添加SSH Key到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Github%E4%B8%8A%E6%96%B0%E5%BB%BA%E7%BD%91%E7%AB%99%E4%BB%93%E5%BA%93%EF%BC%8C%E5%B0%86%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%85%B3%E8%81%94%E5%88%B0Github%E4%B8%BB%E9%A1%B5"><span class="toc-number">3.2.</span> <span class="toc-text">在Github上新建网站仓库，将本地博客关联到Github主页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">绑定自定义域名（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">开始写作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text">Hexo常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BA%9B%E4%BB%80%E4%B9%88%E4%BA%8B%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">还可以做些什么事？</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Homebrew"><span class="toc-number">1.1.</span> <span class="toc-text">安装 Homebrew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Git-%E5%92%8C-Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">安装 Git 和 Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%89%80%E9%9C%80%E7%BB%84%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.3.</span> <span class="toc-text">测试所需组件是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="toc-number">2.</span> <span class="toc-text">安装 Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E5%88%B0GitHub"><span class="toc-number">3.</span> <span class="toc-text">部署网站到GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0SSH-Key%E5%88%B0github"><span class="toc-number">3.1.</span> <span class="toc-text">添加SSH Key到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Github%E4%B8%8A%E6%96%B0%E5%BB%BA%E7%BD%91%E7%AB%99%E4%BB%93%E5%BA%93%EF%BC%8C%E5%B0%86%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%85%B3%E8%81%94%E5%88%B0Github%E4%B8%BB%E9%A1%B5"><span class="toc-number">3.2.</span> <span class="toc-text">在Github上新建网站仓库，将本地博客关联到Github主页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">绑定自定义域名（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">开始写作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text">Hexo常用命令</span></a></li></ol>
         </div>
 
         <div id="share-footer" style="display: none">
@@ -335,15 +335,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> Menu</a>
+                        aria-hidden="true"></i> 菜单</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> TOC</a>
+                        aria-hidden="true"></i> 目录</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> Top
+                                                                               aria-hidden="true"></i> 返回顶部
             </a>
         </div>
 
@@ -384,7 +384,7 @@
     <script type="text/javascript">
         $(function () {
             // copy-btn HTML
-            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
             btn += '<i class="far fa-clone"></i>';
             btn += '</span>';
             // mount it!
@@ -395,7 +395,7 @@
                 }
             });
             clip.on('success', function (e) {
-                e.trigger.setAttribute('aria-label', "Copied!");
+                e.trigger.setAttribute('aria-label', "复制成功!");
                 e.clearSelection();
             })
         })
