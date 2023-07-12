@@ -26,7 +26,7 @@
         
     
     <!-- title -->
-    <title>解决Hexo deploy到GithubPages时自定义域名失效的问题</title>
+    <title>真的「喜欢」这首歌吗</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -69,13 +69,8 @@
     <span id="actions">
       <ul>
           
-              <li><a class="icon" href="/2022/05/fuck-zhihuishu/"><i class="fas fa-chevron-left"
-                                                                           aria-hidden="true"
-                                                                           onmouseover="$('#i-prev').toggle();"
-                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
           
-          
-              <li><a class="icon" href="/2022/04/Mac%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"><i class="fas fa-chevron-right"
+              <li><a class="icon" href="/2023/07/repost-gan-wu-jing-dian/"><i class="fas fa-chevron-right"
                                                                            aria-hidden="true"
                                                                            onmouseover="$('#i-next').toggle();"
                                                                            onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -96,14 +91,14 @@
     <div id="share" style="display: none">
       <ul>
     <li><a class="icon"
-           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/04/resolve-githubpages-CNAME-Hexo/&title=解决Hexo deploy到GithubPages时自定义域名失效的问题"><i
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/07/really-a-loved-song/&title=真的「喜欢」这首歌吗"><i
                     class="fab fa-qq " aria-hidden="true"></i></a></li>
     <li><a class="icon"
-           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/04/resolve-githubpages-CNAME-Hexo/&title=解决Hexo deploy到GithubPages时自定义域名失效的问题"><i
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/07/really-a-loved-song/&title=真的「喜欢」这首歌吗"><i
                     class="fab fa-weibo " aria-hidden="true"></i></a></li>
-    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/04/resolve-githubpages-CNAME-Hexo/&text=解决Hexo deploy到GithubPages时自定义域名失效的问题"><i
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/07/really-a-loved-song/&text=真的「喜欢」这首歌吗"><i
                     class="fab fa-twitter " aria-hidden="true"></i></a></li>
-    <li><a class="icon" href="mailto:?subject=解决Hexo deploy到GithubPages时自定义域名失效的问题&body=Check out this article: https://hexo.l3zc.com/2022/04/resolve-githubpages-CNAME-Hexo/"><i
+    <li><a class="icon" href="mailto:?subject=真的「喜欢」这首歌吗&body=Check out this article: https://hexo.l3zc.com/2023/07/really-a-loved-song/"><i
                     class="fas fa-envelope " aria-hidden="true"></i></a></li>
 </ul>
     </div>
@@ -119,7 +114,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        解决Hexo deploy到GithubPages时自定义域名失效的问题
+        真的「喜欢」这首歌吗
     </h1>
 
       <div class="meta">
@@ -133,31 +128,38 @@
         
     <div class="postdate">
         
-            <time datetime="2022-04-30T10:07:38.000Z"
-                  itemprop="datePublished">2022-04-30</time>
+            <time datetime="2023-07-12T06:03:21.000Z"
+                  itemprop="datePublished">2023-07-12</time>
             
                 (Updated:
-                <time datetime="2022-05-21T04:55:11.000Z"
-                      itemprop="dateModified">2022-05-21</time>)
+                <time datetime="2023-07-12T06:56:25.000Z"
+                      itemprop="dateModified">2023-07-12</time>)
             
         
     </div>
 
           
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+    </div>
+
             
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a>
+        <a class="tag-link-link" href="/tags/%E6%84%9F%E6%83%B3/" rel="tag">感想</a>, <a class="tag-link-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a>
     </div>
 
       </div>
   </header>
   
     <div class="content" itemprop="articleBody">
-      <p>Github的repo有个自定义域名的功能，其实就是在repo的根目录下生成一个CNAME文件，里面放着自定义的域名，然而Hexo每次deploy都会把这个CNAME文件覆盖掉，结果就是自定义域名失效了。</p>
-<span id="more"></span>
-
-<p>解决方案很简单，<strong>把repo里的CNAME文件下载下来，放到Hexo的&#x2F;source目录里</strong>，个人猜测deploy是增量更新，只需经过第一次的deploy就不会出现丢CNAME的情况。</p>
+      <p>音乐是我生活中不可缺少的一部分，每次听自己想听的音乐，心情都会变得无比舒畅。</p>
+<p>我喜欢随机播放音乐，给自己寻找一些新鲜感。为了听到自己「想听」的音乐，随机到我不喜欢的音乐时，我自然会选择性的跳过，直达契合自己先下想听的那首曲子。</p>
+<p>时间一长，我发现：有些曲子，似乎不是什么想不想听的问题——几乎每次听歌遇到这些曲子，我都会选择跳过，很多都是第一次收藏以后就再也没有听过了。即使如此，我也不忍心将他们移出我的歌单，因为，那至少是我曾经「喜欢」过的曲子。思来想去，我依旧还是遇到他们就选择性的跳过，即使这样更加麻烦。</p>
+<p>这些所谓「喜欢」的音乐也影响到了推荐算法，很快，我的「每日推荐」「每周新发现」等歌单，被那些「似乎喜欢」的音乐充斥。每次听算法推荐的歌单，都有一种在逛 CSDN 的感觉，可以算作是「屎里刨金」吧。面对这种情况，我常常对推荐算法失望透顶，却又不得不承认，那些「似乎喜欢」的音乐，影响了推荐算法的成果。</p>
+<p>是我对「喜欢」这首歌的概念定义错了。对于那些听了一次就不再听的歌，我终于明白了，终究还是我「不喜欢」他们啊。给那些根本就「不喜欢」的歌按上红心，收藏起来，越积越多，甚至越发影响自己听那些真正「喜欢」的歌。这不是敝帚自珍，本末倒置吗？</p>
+<p>是时候清理那些「似乎喜欢」的歌了。</p>
 
     </div>
 </article>
@@ -239,14 +241,14 @@
         <div id="share-footer" style="display: none">
             <ul>
     <li><a class="icon"
-           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2022/04/resolve-githubpages-CNAME-Hexo/&title=解决Hexo deploy到GithubPages时自定义域名失效的问题"><i
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/07/really-a-loved-song/&title=真的「喜欢」这首歌吗"><i
                     class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
     <li><a class="icon"
-           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2022/04/resolve-githubpages-CNAME-Hexo/&title=解决Hexo deploy到GithubPages时自定义域名失效的问题"><i
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/07/really-a-loved-song/&title=真的「喜欢」这首歌吗"><i
                     class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
-    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2022/04/resolve-githubpages-CNAME-Hexo/&text=解决Hexo deploy到GithubPages时自定义域名失效的问题"><i
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/07/really-a-loved-song/&text=真的「喜欢」这首歌吗"><i
                     class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-    <li><a class="icon" href="mailto:?subject=解决Hexo deploy到GithubPages时自定义域名失效的问题&body=Check out this article: https://hexo.l3zc.com/2022/04/resolve-githubpages-CNAME-Hexo/"><i
+    <li><a class="icon" href="mailto:?subject=真的「喜欢」这首歌吗&body=Check out this article: https://hexo.l3zc.com/2023/07/really-a-loved-song/"><i
                     class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
 </ul>
         </div>
