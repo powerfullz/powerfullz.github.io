@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="robots" content="noindex, nofollow">
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/firacode/6.2.0/fira_code.min.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="愚者千虑" type="application/atom+xml"/>
+    
+    <!-- analytics -->
+    <script async src="https://analytics.l3zc.com/essentialdata.js" data-website-id="c2a05290-f418-4d43-9796-851225ff1851"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+          
+              <li><a class="icon" href="/2023/07/really-a-loved-song/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/07/rss-information-flow/&title=重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/07/rss-information-flow/&title=重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/07/rss-information-flow/&text=重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流&body=Check out this article: https://hexo.l3zc.com/2023/07/rss-information-flow/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RSSHub%EF%BC%9A%E4%B8%87%E7%89%A9%E7%9A%86%E5%8F%AF-RSS"><span class="toc-number">1.</span> <span class="toc-text">RSSHub：万物皆可 RSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSS-%E9%98%85%E8%AF%BB%E5%99%A8%E6%8E%A8%E8%8D%90"><span class="toc-number">2.</span> <span class="toc-text">RSS 阅读器推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">2.1.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Fluent-Reader"><span class="toc-number">2.1.1.</span> <span class="toc-text">Fluent Reader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThunderBird"><span class="toc-number">2.1.2.</span> <span class="toc-text">ThunderBird</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MacOS-%E5%92%8C-iOS"><span class="toc-number">2.2.</span> <span class="toc-text">MacOS 和 iOS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NetNewsWire"><span class="toc-number">2.2.1.</span> <span class="toc-text">NetNewsWire</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Reeder"><span class="toc-number">2.2.2.</span> <span class="toc-text">Reeder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fluent-Reader-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">Fluent Reader</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%8D%93"><span class="toc-number">2.3.</span> <span class="toc-text">安卓</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Fluent-Reader-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">Fluent Reader</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E6%84%9F%E8%A7%89%E8%BF%98%E7%BC%BA%E7%82%B9%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">总感觉还缺点什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5-FreshRSS-%E5%AE%8C%E5%96%84%E4%BD%93%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">以 FreshRSS 完善体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">4.1.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-FreshRSS"><span class="toc-number">4.2.</span> <span class="toc-text">设置 FreshRSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%90%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">4.3.</span> <span class="toc-text">设置各设备上的客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NetNewsWire-1"><span class="toc-number">4.3.1.</span> <span class="toc-text">NetNewsWire</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FluentReader"><span class="toc-number">4.3.2.</span> <span class="toc-text">FluentReader</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSS-%E8%AE%A2%E9%98%85%E4%BB%80%E4%B9%88%E5%91%A2"><span class="toc-number">5.</span> <span class="toc-text">RSS 订阅什么呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E2%80%A6%E2%80%A6"><span class="toc-number">6.</span> <span class="toc-text">最后……</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流
+    </h1>
+
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+                  L3ZC
+                    
+          </span>
+        </span>
+        
+    <div class="postdate">
+        
+            <time datetime="2023-07-17T12:33:00.000Z"
+                  itemprop="datePublished">2023-07-17</time>
+            
+                (Updated:
+                <time datetime="2023-07-20T14:07:58.032Z"
+                      itemprop="dateModified">2023-07-20</time>)
+            
+        
+    </div>
+
+          
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Docker/" rel="tag">Docker</a>, <a class="tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="tag-link-link" href="/tags/RSS/" rel="tag">RSS</a>
+    </div>
+
+      </div>
+  </header>
+  
+    <div class="content" itemprop="articleBody">
+      <p>不知从什么时候开始，我的生活就慢慢的被推荐算法淹没，推荐视频、猜你喜欢……，几乎每天，我都或多或少的被他们所影响。我曾半开玩笑：「网速越快，其传递的信息就越少」，甚至有些一语成谶。这并不是互联网能传递的信息变少了，而是越来越快的网速、越来越准的推荐算法养废了我们，夺走了我们从网上获取信息的能力与主动权。</p>
+<p>RSS 已是信息获取手段中的老古董了，但它的体验真的一点都不老古董：相反，用它来获取信息，体验极佳——不光无广告，还能让那些分散在一个一个网页上的信息自动跑到你面前，岂不美哉？我没有经历过那个时代，但听闻当年的大家，人人都拿着 Google Reader（Google 打造的 RSS 阅读器）读他们想读的内容，倒也真想回到那个年代体验一番。</p>
+<p>可惜 Google Reader 这一产品早就关停了，曾经大多数网站都提供的 RSS 订阅源也悉数消失，想要重新拾起 RSS，就需要一点折腾了。</p>
+<h2 id="RSSHub：万物皆可-RSS"><a href="#RSSHub：万物皆可-RSS" class="headerlink" title="RSSHub：万物皆可 RSS"></a>RSSHub：万物皆可 RSS</h2><p><a target="_blank" rel="noopener" href="https://github.com/DIYgod/RSSHub">https://github.com/DIYgod/RSSHub</a></p>
+<p>这是 <del>DIYDog</del>DIYGod 大佬发起的项目，就和它的标语一样，万物皆可 RSS，这个项目能通过爬取网页内容的方式生成 RSS 信息流，从而通过 RSS 订阅本不支持 RSS 的网站。</p>
+<p>由于是爬取，难免会受到目标网页反爬取策略的影响，而有的目标网页（比如大陆的政府网站）会屏蔽他国 IP 的访问，亦或者屏蔽掉风险 IP。这些因素就比较考验机房了，但只要不是被特别「照顾」的 IP，一般问题不大。出于这些原因，我在分别在洛杉矶和上海部署了 RSSHub。</p>
+<p>Docker 部署 RSSHub 非常简单，首先拉取已经写好的<code>docker-compose.yml</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> rsshub &amp;&amp; <span class="built_in">cd</span> rsshub</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://raw.githubusercontent.com/DIYgod/RSSHub/master/docker-compose.yml</span></span><br></pre></td></tr></table></figure>
+
+<p>然后检查有无需要修改的配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim docker-compose.yml</span></span><br></pre></td></tr></table></figure>
+
+<p>我最终修改完成后，配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">rsshub:</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">diygod/rsshub:chromium-bundled</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&#x27;1200:1200&#x27;</span></span><br><span class="line">        <span class="attr">environment:</span></span><br><span class="line">            <span class="attr">NODE_ENV:</span> <span class="string">production</span></span><br><span class="line">            <span class="attr">CACHE_TYPE:</span> <span class="string">redis</span></span><br><span class="line">            <span class="attr">REDIS_URL:</span> <span class="string">&#x27;redis://redis:6379/&#x27;</span></span><br><span class="line">        <span class="attr">depends_on:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">redis</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">redis:</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">redis:alpine</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">redis-data:/data</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">    <span class="attr">redis-data:</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么要新建一个 Redis 镜像？主要是懒得配置容器互联，而 RSSHub 用 Redis 占不了多少资源，遂直接写进一个<code>docker-compose.yml</code>里，省去容器互联的麻烦。</p>
+<p>启动编排：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker compose up		<span class="comment"># 老的写法是 docker-compose up</span></span></span><br></pre></td></tr></table></figure>
+
+<p>随后使用 Nginx 反代<code>localhost:1200</code>至域名，部署 SSL 证书，RSSHub 就全部搭建完成了。</p>
+<h2 id="RSS-阅读器推荐"><a href="#RSS-阅读器推荐" class="headerlink" title="RSS 阅读器推荐"></a>RSS 阅读器推荐</h2><p>RSSHub 可以解决掉大多数订阅源的问题，接下来推荐几个 RSS 阅读器，解决的是最后一步如何呈现到设备上的问题。</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><h4 id="Fluent-Reader"><a href="#Fluent-Reader" class="headerlink" title="Fluent Reader"></a>Fluent Reader</h4><p>我目前在用的 RSS 阅读器，开源小巧，遵循 Fluent Design，如果需要 Windows 上的免费 RSS 阅读器，那么大概率就是它了。需要注意的是，这是开源软件，但在应用商店里需要付费才能下载，不想付费则可以直接在 GitHub 上下载其安装包安装，当然，如果喜欢，鼓励大家支持这个项目。</p>
+<p>Github仓库：<a target="_blank" rel="noopener" href="https://github.com/yang991178/fluent-reader">https://github.com/yang991178/fluent-reader</a></p>
+<h4 id="ThunderBird"><a href="#ThunderBird" class="headerlink" title="ThunderBird"></a>ThunderBird</h4><p>这个不是 RSS 阅读器，但也提供了 RSS 功能，比较适合打造邮件 RSS All in one。</p>
+<p>ThunderBird 是由 Mozilla 基金会开发的一款开源邮件和新闻聚合客户端，已经有快 20 年的历史。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://www.thunderbird.net/zh-CN/">https://www.thunderbird.net/zh-CN/</a></p>
+<h3 id="MacOS-和-iOS"><a href="#MacOS-和-iOS" class="headerlink" title="MacOS 和 iOS"></a>MacOS 和 iOS</h3><h4 id="NetNewsWire"><a href="#NetNewsWire" class="headerlink" title="NetNewsWire"></a>NetNewsWire</h4><p>开源，Swift UI 原生编写，几乎完美的 RSS 阅读器，说实话我很惊讶这位作者维护这个项目的时间跨度。</p>
+<p>NetNewsWire 是由 Brent Simmon 出于爱好和支持 RSS 发展开发的 RSS 阅读器，遗憾的是，由于是 Swift UI 编写，只支持 Mac OS 和 iOS。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://netnewswire.com/">https://netnewswire.com/</a></p>
+<p>Github仓库：<a target="_blank" rel="noopener" href="https://github.com/Ranchero-Software/NetNewsWire">https://github.com/Ranchero-Software/NetNewsWire</a></p>
+<h4 id="Reeder"><a href="#Reeder" class="headerlink" title="Reeder"></a>Reeder</h4><p>这个就是收费 App 了，但功能做的很不错。作为「骨灰级」应用，Reeder 一度被人称为 iOS 与 macOS 上最好用的 RSS 阅读器。不光设计精致，还支持如桌面小组件等各种 Mac OS 和 iOS 上原生的功能，如果你的预算充足，可以考虑。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://reederapp.com/">https://reederapp.com/</a></p>
+<h4 id="Fluent-Reader-1"><a href="#Fluent-Reader-1" class="headerlink" title="Fluent Reader"></a>Fluent Reader</h4><p>又是之前提到的 Fluent Reader 也提供了 Mac 版本，实测在 Mac OS 上体验也还不错，在 iOS 上虽然看起来是原生 UI，但实际上是 React 写的跨平台版本，而且还需要收费，如果想要支持这个项目，可以考虑购买。</p>
+<p>Github仓库：<a target="_blank" rel="noopener" href="https://github.com/yang991178/fluent-reader">https://github.com/yang991178/fluent-reader</a></p>
+<p>Github仓库（Fluent Reader Lite）：<a target="_blank" rel="noopener" href="https://github.com/yang991178/fluent-reader-lite">https://github.com/yang991178/fluent-reader-lite</a></p>
+<h3 id="安卓"><a href="#安卓" class="headerlink" title="安卓"></a>安卓</h3><h4 id="Fluent-Reader-2"><a href="#Fluent-Reader-2" class="headerlink" title="Fluent Reader"></a>Fluent Reader</h4><p>又双叒是 Fluent Reader，在安卓上，Fluent Reader 依然是贴合 iOS 的 UI，用起来有点牛头人的感觉，若不在意这一点，体验倒还不错。</p>
+<p>除了 Fluent Reader 外，我似乎没有找到什么还在维护且支持 Fever API 或者 Google Reader API 的 APP，如果有欢迎在评论区留言。</p>
+<p>Github仓库：<a target="_blank" rel="noopener" href="https://github.com/yang991178/fluent-reader-lite">https://github.com/yang991178/fluent-reader-lite</a></p>
+<h2 id="总感觉还缺点什么？"><a href="#总感觉还缺点什么？" class="headerlink" title="总感觉还缺点什么？"></a>总感觉还缺点什么？</h2><p>理论上来说，解决了订阅源的问题，还解决了呈现在设备上的问题，我们已经还原出 Google Reader 的体验了，但我在实际使用中，总是觉得缺少了一些特性，体验并不完整。</p>
+<p>这个特性就是「同步」。我所希望的，是我在 A 设备上阅读，阅读进度可以同步到 B 设备上，在 A 设备上收藏的文章，打开 B 设备，能原封不动的呈现在我眼前。</p>
+<p>同时，还有一个体验上的要求：我希望我在拉取 Feed 时更加快速，不需要等待 RSSHub 抓取网页。</p>
+<p>于是，一个自托管的 RSS 聚合服务就很有必要了。</p>
+<h2 id="以-FreshRSS-完善体验"><a href="#以-FreshRSS-完善体验" class="headerlink" title="以 FreshRSS 完善体验"></a>以 FreshRSS 完善体验</h2><p>FreshRSS 是一个免费，自托管的 RSS 聚合器，相似的项目还有 Tiny Tiny RSS（TTRSS），选择 FreshRSS 是因为它提供两种 API，和各个 RSS 客户端配合的更好。</p>
+<p>Github仓库：<a target="_blank" rel="noopener" href="https://github.com/FreshRSS/FreshRSS">https://github.com/FreshRSS/FreshRSS</a></p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>部署 FreshRSS 的过程也很轻松。</p>
+<p>创建目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> freshrss</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> freshrss</span></span><br></pre></td></tr></table></figure>
+
+<p>创建<code>docker-compose.yml</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim docker-compose.yml		<span class="comment"># 或者任意编辑器编辑</span></span></span><br></pre></td></tr></table></figure>
+
+<p><code>docker-compose.yml</code>如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">freshrss:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">freshrss/freshrss:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">freshrss</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;9999:80&quot;</span>		<span class="comment"># 将9999更改成需要的端口</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/var/www/FreshRSS/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./extensions:/var/www/FreshRSS/extensions</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">PUID:</span> <span class="number">0</span></span><br><span class="line">      <span class="attr">PGID:</span> <span class="number">0</span></span><br><span class="line">      <span class="attr">CRON_MIN:</span> <span class="string">&quot;1,31&quot;</span></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">&quot;Asia/Shanghai&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>最后执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker compose up		<span class="comment"># 老的写法是 docker-compose up</span></span></span><br></pre></td></tr></table></figure>
+
+<p>随后反代端口，部署 SSL 证书。初始设置时，数据库选现有的数据库类型，如果没有部署数据库，直接选 SQLite 即可。至此，FreshRSS 部署完成。</p>
+<p>如果之前有订阅源，将其以 OPML 格式导出，然后导入 FreshRSS 就可以获得几乎无缝的体验。</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/%E6%88%AA%E5%B1%8F2023-07-18%2015.17.39.png" alt="FreshRSS"></p>
+<p>如果有现成的 PHP 环境而不想用 Docker 部署，还可以像安装 Wordpress 一样安装好 FreshRSS。</p>
+<h3 id="设置-FreshRSS"><a href="#设置-FreshRSS" class="headerlink" title="设置 FreshRSS"></a>设置 FreshRSS</h3><p>RssHub 充当的是提供订阅源的中心，而 FreshRSS 充当的是一个阅读订阅源的「Hub」，帮助我们集中管理订阅源，同步各设备间的阅读进度。现在订阅源已经集中管理起来，同步个设备间的阅读进度就需要 FreshRSS 提供的 API 了。</p>
+<p>FreshRSS 提供 GReader 和 Fever 两种 API，具体的启用方法如下：</p>
+<ol>
+<li>登入 FreshRSS 进入「设置」-&gt;「认证」开启「允许API 访问」</li>
+<li>进入「账户」在页面底部设置一个 API 密钥</li>
+<li>编辑<code>./freshrss/data/config.php</code>中的<code>base_url</code>，改为你的域名根目录地址，比如我的就需要改成<code>https://rss.nightcity.pub/</code></li>
+<li>转到<code>https://example.com/api/</code>查看检测是否通过</li>
+</ol>
+<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202307191728380.webp" alt="修改FreshRSS的配置示例1"></p>
+<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202307191730452.webp" alt="FreshRSS config.php 文件"></p>
+<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202307191731432.webp" alt="FreshRSS API 测试全部通过"></p>
+<h3 id="设置各设备上的客户端"><a href="#设置各设备上的客户端" class="headerlink" title="设置各设备上的客户端"></a>设置各设备上的客户端</h3><h4 id="NetNewsWire-1"><a href="#NetNewsWire-1" class="headerlink" title="NetNewsWire"></a>NetNewsWire</h4><p>部署完成后，在手机上和电脑上支持的应用里使用设置好的用户名和 API 密钥登陆，就可以享受到全程丝滑的 RSS 体验了，下面以 NetNewsWire 为例：</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230718154700897.png" alt="NetNewsWire集成FreshRSS"></p>
+<p>打开NetNewsWire添加账号的选项卡，NetNewsWire贴心的集成了FreshRSS，可以很方便的添加账号：</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230718155048961.png" alt="登陆信息"></p>
+<p>NetNewsWire 要求 Greader 的 API，直接在 &#x2F;api 上复制就可以了。</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230718155246945.png" alt="NetNewsWire效果"></p>
+<h4 id="FluentReader"><a href="#FluentReader" class="headerlink" title="FluentReader"></a>FluentReader</h4><p>在设置中选择 Google Reader API：</p>
+<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202307191734756.webp" alt="FluentReader设置"></p>
+<p>然后填入相关信息：</p>
+<ul>
+<li>API端点直接从<code>/api</code>网页上复制 Google Reader API 的 API 端点即可</li>
+<li>用户名填写安装 FreshRSS 时设置的用户名</li>
+<li>密码是前文设置的 API 秘钥</li>
+</ul>
+<p>即可设置完成。</p>
+<p>其他的客户端设置大同小异，无外乎上面两大类，可以参考上面的方法进行设置。</p>
+<h2 id="RSS-订阅什么呢"><a href="#RSS-订阅什么呢" class="headerlink" title="RSS 订阅什么呢"></a>RSS 订阅什么呢</h2><p>我们已经装好了 RSSHub，这极大的方便了我们的订阅以及丰富了我们的订阅源。RSSHub 的官方文档中维护着一份详细的支持列表，支持的项目不可谓不繁多：媒体、博客……甚至大学通知，Twitter 更新都能覆盖。</p>
+<p>以订阅「湖南省政府采购网」的「采购公告」为例，首先需要在 RSSHub 的文档中找到「湖南省政府采购网」以获取其订阅的「路由」：</p>
+<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230720180435763.png" alt="湖南省政府采购网的RSSHub文档"></p>
+<p>查询文档可知我们所需要的路由是<code>/gov/hunan/notice/:type</code>，其中<code>:type</code>是一个必选参数，我们需要获取的是「采购公告」所以<code>:type</code>应该是<code>cg</code>，最终需要的路由就是<code>/gov/hunan/notice/cg</code>。将这个路由附加在我们部署（反代）RSSHub 的网址后，即可得到完整的订阅地址，例如：部署rsshub的网址是<code>https://rsshub.app</code>，则最终的订阅地址为：<code>https://rsshub.app/gov/hunan/notice/cg</code>，将其加入 FreshRSS 的订阅即可。</p>
+<p>需要注意的是，FreshRSS 似乎不支持自动转换订阅链接里的非 ASCII 字符，如果你的订阅链接里含有这些字符，如<code>https://rsshub.app/sspai/tag/派早报</code>，则建议在浏览器内先访问一下，再将转换后的链接粘贴进 FreshRSS 以转换链接中的非 ASCII 字符。</p>
+<p>对于原本就有 RSS 的网站，推荐使用 RSSHub Radar，这是一款浏览器插件，可以实现 RSS 订阅源的自动嗅探，而不必在网站上四处寻找。推荐它是因为，它不光可以嗅探 RSS 链接，如果目标网站可以用 RSSHub 订阅，这个插件可以自动匹配支持的 RSSHub 路由。</p>
+<p>Github 仓库：<a target="_blank" rel="noopener" href="https://github.com/DIYgod/RSSHub-Radar">https://github.com/DIYgod/RSSHub-Radar</a></p>
+<h2 id="最后……"><a href="#最后……" class="headerlink" title="最后……"></a>最后……</h2><p>经过了这一番折腾，基本体验到了当时人人都用着 Google Reader 的乐趣。即便如此，属于 Google Reader 的时代终究还是过去了，那个人人都可以从网上收获纯粹的知识与快乐的时代，也已然一去不复返。这些年来网速越来越快，但给我的上网体验却越来越差。大多数人都开始上网的时候，内容农场，推荐算法……只要有利可图，互联网精神，那个曾经作为互联网基石的精神，就全被这些追逐利益的资本和官商勾结的政府抛在脑后。我甚至可以说：至少在中国，那个曾经「互联网」的理想已死。</p>
+<p>RSS 的没落只是大环境的缩影，「技术」固然需要进步，但没有与之相匹配的「人文」，这种进步就会成为一场灾难。以我们现在的状态来看，赛博朋克真的离我们不远——技术进步，不但不能消除不平等，反而会加剧压迫与控制。</p>
+<p>即使大环境再怎么黑暗，我们依然能看到一线生机，依然会有人去发扬几乎被大环境抛在脑后但弥足珍贵的互联网精神，散发光和热，通过自己的方式捍卫互联网的开放与自由。</p>
+<p>感谢所有这些开源项目的贡献者，也向所有热爱分享的同路人致敬。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://sspai.com/post/63202">https://sspai.com/post/63202</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.rsshub.app/">https://docs.rsshub.app/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://typecho.l3zc.com/archives/20/">https://typecho.l3zc.com/archives/20/</a></p>
+</li>
+</ul>
+<p>以及这篇文章里所有提到的链接。</p>
+
+    </div>
+</article>
+
+
+
+  <script>
+    //检测推送
+    var pushType = "";
+    var pushLink = "";
+    var siteName = "愚者千虑";
+
+    var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
+    //分情况推送
+    if (pushType === "cp") {
+      var title = siteName + "上又有新评论啦~!\n";
+      function send_valine_CoolPush() {
+        //获取元素信息
+        var pagename = document.title;
+        var wz = pagename.indexOf("|");
+        var res = pagename.substring(0, wz);
+        var pageurl = document.URL;
+        var ptime = new Date();
+        var vnick = document.getElementsByClassName("vnick vinput")[0].value;
+        var vmail = document.getElementsByClassName("vmail vinput")[0].value;
+        var vlink = document.getElementsByClassName("vlink vinput")[0].value;
+        var veditor = document.getElementsByClassName("veditor vinput")[0].value;
+        var data =
+          "昵称: " +
+          vnick +
+          "\n\n邮箱: " +
+          vmail +
+          "\n\n网站地址: " +
+          vlink +
+          "\n\n当前页面: " +
+          pagename +
+          "\n\n评论内容: " +
+          veditor +
+          "\n\n跳转链接: " +
+          pageurl +
+          "\n\n评论时间: " +
+          ptime.toLocaleString();
+        var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
+        httpRequest.open("POST", pushLink, true); //第二步：打开连接
+        httpRequest.setRequestHeader(
+          "Content-type",
+          "application/json"
+        ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+        var payload = { "t": title, "c": data }
+        httpRequest.send(JSON.stringify(payload)); //发送请求 将情头体写在send中
+      }
+      ValineButton.onclick = send_valine_CoolPush;
+    }
+  </script>
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RSSHub%EF%BC%9A%E4%B8%87%E7%89%A9%E7%9A%86%E5%8F%AF-RSS"><span class="toc-number">1.</span> <span class="toc-text">RSSHub：万物皆可 RSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSS-%E9%98%85%E8%AF%BB%E5%99%A8%E6%8E%A8%E8%8D%90"><span class="toc-number">2.</span> <span class="toc-text">RSS 阅读器推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">2.1.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Fluent-Reader"><span class="toc-number">2.1.1.</span> <span class="toc-text">Fluent Reader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThunderBird"><span class="toc-number">2.1.2.</span> <span class="toc-text">ThunderBird</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MacOS-%E5%92%8C-iOS"><span class="toc-number">2.2.</span> <span class="toc-text">MacOS 和 iOS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NetNewsWire"><span class="toc-number">2.2.1.</span> <span class="toc-text">NetNewsWire</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Reeder"><span class="toc-number">2.2.2.</span> <span class="toc-text">Reeder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fluent-Reader-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">Fluent Reader</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%8D%93"><span class="toc-number">2.3.</span> <span class="toc-text">安卓</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Fluent-Reader-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">Fluent Reader</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E6%84%9F%E8%A7%89%E8%BF%98%E7%BC%BA%E7%82%B9%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">总感觉还缺点什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5-FreshRSS-%E5%AE%8C%E5%96%84%E4%BD%93%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">以 FreshRSS 完善体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">4.1.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-FreshRSS"><span class="toc-number">4.2.</span> <span class="toc-text">设置 FreshRSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%90%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">4.3.</span> <span class="toc-text">设置各设备上的客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NetNewsWire-1"><span class="toc-number">4.3.1.</span> <span class="toc-text">NetNewsWire</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FluentReader"><span class="toc-number">4.3.2.</span> <span class="toc-text">FluentReader</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSS-%E8%AE%A2%E9%98%85%E4%BB%80%E4%B9%88%E5%91%A2"><span class="toc-number">5.</span> <span class="toc-text">RSS 订阅什么呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E2%80%A6%E2%80%A6"><span class="toc-number">6.</span> <span class="toc-text">最后……</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.l3zc.com/2023/07/rss-information-flow/&title=重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url=https://hexo.l3zc.com/2023/07/rss-information-flow/&title=重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hexo.l3zc.com/2023/07/rss-information-flow/&text=重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=重新捡起 RSS：RSSHub + FreshRSS 建立我的信息流&body=Check out this article: https://hexo.l3zc.com/2023/07/rss-information-flow/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+  <div class="footer-top">
+    &copy; 2023 <i class="fas fa-heart"></i> 
+    <a href="/">L3ZC</a> 
+  </div>
+
+  <div class="footer-bottom">
+     
+  </div>
+</footer>
+
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.0.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
