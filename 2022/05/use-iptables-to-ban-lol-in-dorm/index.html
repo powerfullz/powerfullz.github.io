@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">Home</a></li>
+              <li><a href="/">首頁</a></li>
           
-              <li><a href="/archives/">Articles</a></li>
+              <li><a href="/archives/">文章</a></li>
           
-              <li><a href="/categories/">Category</a></li>
+              <li><a href="/categories/">分類</a></li>
           
-              <li><a href="/tags/">Tag</a></li>
+              <li><a href="/tags/">標籤</a></li>
           
-              <li><a href="/search/">Search</a></li>
+              <li><a href="/search/">搜尋</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">回到頁首</span>
+      <span id="i-share" class="info" style="display:none;">分享</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-05-26</time>
             
                 (Updated:
-                <time datetime="2022-07-06T09:17:52.000Z"
-                      itemprop="dateModified">2022-07-06</time>)
+                <time datetime="2023-08-02T07:20:02.112Z"
+                      itemprop="dateModified">2023-08-02</time>)
             
         
     </div>
@@ -207,7 +207,8 @@
 <p>向路由器的iptables里添加以下随机丢包的规则：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Block LOL</span></span><br><span class="line">iptables -I FORWARD -p udp --dport 5000:5500 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 8393:8400 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 2099 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5223 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5222 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 5233 -m statistic --mode random --probability 0.3 -j DROP </span><br><span class="line">iptables -I FORWARD -p tcp --dport 8088 -m statistic --mode random --probability 0.3 -j DROP </span><br></pre></td></tr></table></figure>
 
-<p>2022.6.17更新：关于如何在 OpenWRT 上自定义 iptables 规则，有两种方法，第一种方法，打开 系统 -&gt; TTYD终端 将上面的命令一行一行复制进去回车，用这种方法，规则会在路由器重启或者 iptables 重启后失效，第二种方法，打开 网络 -&gt; 防火墙 找到 自定义规则 选项卡，将上述内容粘贴到这个页面已有内容的后面，<strong>注意不要覆盖文本框里原先的内容</strong>，完成后点击页面下方的 保存并应用，这样即使是重启路由器也不会重置 iptables 规则。</p>
+<p>关于如何在 OpenWRT 上自定义 iptables 规则，有两种方法，第一种方法，打开 系统 -&gt; TTYD终端 将上面的命令一行一行复制进去回车，用这种方法，规则会在路由器重启或者 iptables 重启后失效，第二种方法，打开 网络 -&gt; 防火墙 找到 自定义规则 选项卡，将上述内容粘贴到这个页面已有内容的后面，<strong>注意不要覆盖文本框里原先的内容</strong>，完成后点击页面下方的 保存并应用，这样即使是重启路由器也不会重置 iptables 规则。</p>
+<p><strong>这些 iptables 规则用到了 ipopt 模块，而一些固件不会默认安装 ipopt 模块，如果发现 iptables 对这些规则报错，请看后文的安装 ipopt 部分。</strong></p>
 <p>生效后，室友打英雄联盟就会在校园网本就1%到5%丢包率的基础上增加30%的丢包率。经过室友的盲测反馈（我怎么可能会让室友知情呢？！）放技能总是放不出去，打的非常不爽。</p>
 <p>但是这种方法似乎不适用于室友开加速器的情况，所以我们可以针对这种情况直接限制室友所有的流量，也就是说，不论室友的电脑发出什么数据包，都能享受到30%的丢包率，除非室友开热点，当然台式机是不可能的，这种方法就可以让所有的加速器都失效。前提是，室友的ip地址必须要提前确定，这也就是为什么需要提前给室友的电脑分配静态IP。</p>
 <p>向路由器的iptables里添加以下规则</p>
@@ -321,15 +322,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">首頁</a></li>
                 
-                    <li><a href="/archives/">Articles</a></li>
+                    <li><a href="/archives/">文章</a></li>
                 
-                    <li><a href="/categories/">Category</a></li>
+                    <li><a href="/categories/">分類</a></li>
                 
-                    <li><a href="/tags/">Tag</a></li>
+                    <li><a href="/tags/">標籤</a></li>
                 
-                    <li><a href="/search/">Search</a></li>
+                    <li><a href="/search/">搜尋</a></li>
                 
             </ul>
         </div>
@@ -356,15 +357,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> Menu</a>
+                        aria-hidden="true"></i> 選單</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> TOC</a>
+                        aria-hidden="true"></i> 文章目錄</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> Top
+                                                                               aria-hidden="true"></i> 頁首
             </a>
         </div>
 
