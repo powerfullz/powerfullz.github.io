@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-05-10</time>
             
                 (Updated:
-                <time datetime="2022-06-29T15:45:44.000Z"
-                      itemprop="dateModified">2022-06-29</time>)
+                <time datetime="2023-08-28T11:13:14.587Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -171,16 +171,16 @@
 <li>Code Runner(Jun Han)</li>
 <li>简体中文拓展：Chinese(Simplified)（可选）</li>
 </ul>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512191912.png" alt="C/C++扩展包"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220512191912.png" alt="C/C++扩展包"></p>
 <h2 id="新建并配置工作区"><a href="#新建并配置工作区" class="headerlink" title="新建并配置工作区"></a>新建并配置工作区</h2><p>新建一个文件夹作为工作区，注意<strong>文件夹名称不能出现中文和空格！！</strong>，这里根据我的需求，新建一个名为C_Homework的文件夹，随后在VS Code的菜单栏里选择：文件-&gt;打开文件夹，并信任此文件夹中文件的作者。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512204431.png" alt="你总不可能连自己都不信任吧？"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220512204431.png" alt="你总不可能连自己都不信任吧？"></p>
 <h2 id="测试C-x2F-C-环境是否正常"><a href="#测试C-x2F-C-环境是否正常" class="headerlink" title="测试C&#x2F;C++环境是否正常"></a>测试C&#x2F;C++环境是否正常</h2><p>打开后在VS Code左侧文件面板中刚刚创建好的文件夹里新建一个C&#x2F;C++文件，以.c&#x2F;.cpp作为拓展文件名，例如hello.c&#x2F;hello.cpp，然后写一个基本的C&#x2F;C++程序</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hello VSCode!&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>完成后按command + S保存文件，如果在之前的步骤里正确安装了Code Runner，则可以方便的编译运行代码，点击右上角的运行图标或者在编辑区右键选择Run Code，如果配置正确即可看到输出。注意Code Runner只是帮你简化了在控制台输命令的过程，所以需要自行保存文件后才能运作，当然也可以在设置成运行前自动保存。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512205834.png"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220512205834.png"></p>
 <h2 id="配置Debugger以调试程序"><a href="#配置Debugger以调试程序" class="headerlink" title="配置Debugger以调试程序"></a>配置Debugger以调试程序</h2><p>进入左侧的Debug菜单，点击上方运行与调试按钮，选择<strong>C++(GDB&#x2F;LLDB)</strong>-&gt;<strong>C&#x2F;C++: clang 生成活动文件</strong>以生成tasks.json文件</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220512214410.png"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220512214410.png"></p>
 <p>再次进入Debug菜单，点击<strong>创建lauch.json文件</strong>，选择C++(GDB&#x2F;LLDB)以创建launch.json，将以下配置粘贴到launch.json里，覆盖掉原本的内容</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;clang++ - Build and debug active file&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppdbg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;externalConsole&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;MIMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lldb&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;preLaunchTask&quot;</span><span class="punctuation">:</span> <span class="string">&quot;C/C++: clang 生成活动文件&quot;</span> <span class="comment">//没有安装简体中文插件则自行在task.json里复制粘贴换掉</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -248,15 +248,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -283,15 +283,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

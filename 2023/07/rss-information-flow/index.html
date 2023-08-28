@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2023-07-17</time>
             
                 (Updated:
-                <time datetime="2023-07-20T14:07:58.032Z"
-                      itemprop="dateModified">2023-07-20</time>)
+                <time datetime="2023-08-28T11:13:14.615Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -218,7 +218,7 @@
 
 <p>随后反代端口，部署 SSL 证书。初始设置时，数据库选现有的数据库类型，如果没有部署数据库，直接选 SQLite 即可。至此，FreshRSS 部署完成。</p>
 <p>如果之前有订阅源，将其以 OPML 格式导出，然后导入 FreshRSS 就可以获得几乎无缝的体验。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/%E6%88%AA%E5%B1%8F2023-07-18%2015.17.39.png" alt="FreshRSS"></p>
+<p><img src="https://imgcdn.nightcity.pub/%E6%88%AA%E5%B1%8F2023-07-18%2015.17.39.png" alt="FreshRSS"></p>
 <p>如果有现成的 PHP 环境而不想用 Docker 部署，还可以像安装 Wordpress 一样安装好 FreshRSS。</p>
 <h3 id="设置-FreshRSS"><a href="#设置-FreshRSS" class="headerlink" title="设置 FreshRSS"></a>设置 FreshRSS</h3><p>RssHub 充当的是提供订阅源的中心，而 FreshRSS 充当的是一个阅读订阅源的「Hub」，帮助我们集中管理订阅源，同步各设备间的阅读进度。现在订阅源已经集中管理起来，同步个设备间的阅读进度就需要 FreshRSS 提供的 API 了。</p>
 <p>FreshRSS 提供 GReader 和 Fever 两种 API，具体的启用方法如下：</p>
@@ -228,17 +228,17 @@
 <li>编辑<code>./freshrss/data/config.php</code>中的<code>base_url</code>，改为你的域名根目录地址，比如我的就需要改成<code>https://rss.nightcity.pub/</code></li>
 <li>转到<code>https://example.com/api/</code>查看检测是否通过</li>
 </ol>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202307191728380.webp" alt="修改FreshRSS的配置示例1"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202307191730452.webp" alt="FreshRSS config.php 文件"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202307191731432.webp" alt="FreshRSS API 测试全部通过"></p>
+<p><img src="https://imgcdn.nightcity.pub/202307191728380.webp" alt="修改FreshRSS的配置示例1"></p>
+<p><img src="https://imgcdn.nightcity.pub/202307191730452.webp" alt="FreshRSS config.php 文件"></p>
+<p><img src="https://imgcdn.nightcity.pub/202307191731432.webp" alt="FreshRSS API 测试全部通过"></p>
 <h3 id="设置各设备上的客户端"><a href="#设置各设备上的客户端" class="headerlink" title="设置各设备上的客户端"></a>设置各设备上的客户端</h3><h4 id="NetNewsWire-1"><a href="#NetNewsWire-1" class="headerlink" title="NetNewsWire"></a>NetNewsWire</h4><p>部署完成后，在手机上和电脑上支持的应用里使用设置好的用户名和 API 密钥登陆，就可以享受到全程丝滑的 RSS 体验了，下面以 NetNewsWire 为例：</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230718154700897.png" alt="NetNewsWire集成FreshRSS"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20230718154700897.png" alt="NetNewsWire集成FreshRSS"></p>
 <p>打开NetNewsWire添加账号的选项卡，NetNewsWire贴心的集成了FreshRSS，可以很方便的添加账号：</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230718155048961.png" alt="登陆信息"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20230718155048961.png" alt="登陆信息"></p>
 <p>NetNewsWire 要求 Greader 的 API，直接在 &#x2F;api 上复制就可以了。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230718155246945.png" alt="NetNewsWire效果"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20230718155246945.png" alt="NetNewsWire效果"></p>
 <h4 id="FluentReader"><a href="#FluentReader" class="headerlink" title="FluentReader"></a>FluentReader</h4><p>在设置中选择 Google Reader API：</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202307191734756.webp" alt="FluentReader设置"></p>
+<p><img src="https://imgcdn.nightcity.pub/202307191734756.webp" alt="FluentReader设置"></p>
 <p>然后填入相关信息：</p>
 <ul>
 <li>API端点直接从<code>/api</code>网页上复制 Google Reader API 的 API 端点即可</li>
@@ -249,7 +249,7 @@
 <p>其他的客户端设置大同小异，无外乎上面两大类，可以参考上面的方法进行设置。</p>
 <h2 id="RSS-订阅什么呢"><a href="#RSS-订阅什么呢" class="headerlink" title="RSS 订阅什么呢"></a>RSS 订阅什么呢</h2><p>我们已经装好了 RSSHub，这极大的方便了我们的订阅以及丰富了我们的订阅源。RSSHub 的官方文档中维护着一份详细的支持列表，支持的项目不可谓不繁多：媒体、博客……甚至大学通知，Twitter 更新都能覆盖。</p>
 <p>以订阅「湖南省政府采购网」的「采购公告」为例，首先需要在 RSSHub 的文档中找到「湖南省政府采购网」以获取其订阅的「路由」：</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230720180435763.png" alt="湖南省政府采购网的RSSHub文档"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20230720180435763.png" alt="湖南省政府采购网的RSSHub文档"></p>
 <p>查询文档可知我们所需要的路由是<code>/gov/hunan/notice/:type</code>，其中<code>:type</code>是一个必选参数，我们需要获取的是「采购公告」所以<code>:type</code>应该是<code>cg</code>，最终需要的路由就是<code>/gov/hunan/notice/cg</code>。将这个路由附加在我们部署（反代）RSSHub 的网址后，即可得到完整的订阅地址，例如：部署rsshub的网址是<code>https://rsshub.app</code>，则最终的订阅地址为：<code>https://rsshub.app/gov/hunan/notice/cg</code>，将其加入 FreshRSS 的订阅即可。</p>
 <p>需要注意的是，FreshRSS 似乎不支持自动转换订阅链接里的非 ASCII 字符，如果你的订阅链接里含有这些字符，如<code>https://rsshub.app/sspai/tag/派早报</code>，则建议在浏览器内先访问一下，再将转换后的链接粘贴进 FreshRSS 以转换链接中的非 ASCII 字符。</p>
 <p>对于原本就有 RSS 的网站，推荐使用 RSSHub Radar，这是一款浏览器插件，可以实现 RSS 订阅源的自动嗅探，而不必在网站上四处寻找。推荐它是因为，它不光可以嗅探 RSS 链接，如果目标网站可以用 RSSHub 订阅，这个插件可以自动匹配支持的 RSSHub 路由。</p>
@@ -328,15 +328,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -363,15 +363,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

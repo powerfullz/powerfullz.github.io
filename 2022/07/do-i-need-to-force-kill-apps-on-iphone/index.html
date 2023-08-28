@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-07-09</time>
             
                 (Updated:
-                <time datetime="2023-02-08T15:12:08.761Z"
-                      itemprop="dateModified">2023-02-08</time>)
+                <time datetime="2023-08-28T11:13:14.594Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -167,8 +167,8 @@
 <p>Fraser Speirs</p>
 </blockquote>
 <p>在网上搜索到的大部分中文内容会引用 Fraser Speirs 在他的一篇博客里很明确的指出的内容：iOS 的 Multitasking bar 实际上是 A list of recently used apps，所以，你不需要清理后台。但当我顺藤摸瓜找到这篇博客的原文时，却发现这篇博客发表时间在 2012 年。10 年过去了，这篇文章的内容自然是经不住沧海桑田，早已过时，情况早已发生了微妙的变化，苹果早就加入了各式各样的后台机制。这就衍生出了两个问题，苹果的后台机制是否真的会影响 iPhone 的续航和发热？杀后台是否有助于提升使用体验？</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220709153914893.webp" alt="一篇引用Fraser Speirs的文章"></p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220709154219470.webp" alt="Wayback Machine里的原文"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220709153914893.webp" alt="一篇引用Fraser Speirs的文章"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220709154219470.webp" alt="Wayback Machine里的原文"></p>
 <p>有趣的是，作者在某个时候关闭并存档了他的博客，在他的存档里却并未出现这篇文章，这意味着作者可能刻意删除了它。既然这种流传已久的说法是基于一篇早已过时的文章，结果自然是不可信的，根据这篇文章得出结论，是一个不负责任的营销号行为，我能做的唯有查找更新的资料以及亲身实践。</p>
 <h2 id="查找资料"><a href="#查找资料" class="headerlink" title="查找资料"></a>查找资料</h2><blockquote>
 <p>Some apps perform work for a short time while in the foreground and must continue uninterrupted if they go to the background. Other apps defer that work to perform in the background at a later time or even at night while the device charges. And some apps need background processing time at varied and unpredictable times, such as when an external event or message arrives.</p>
@@ -206,7 +206,7 @@
 <p>当应用程序被从“后台”划掉，其会被移出RAM，这样，应用程序将不会再运行。按照苹果的逻辑，前面所提到的一系列智能的后台机制都不会运作。不仅如此，重新从闪存载入APP会增加电量的消耗且徒增发热，比从直接从RAM“解冻”APP更加费时。这么一看，Craig说的是不是很有道理？是的，在Craig所处的环境里，这句话绝对可以称得上是“金玉良言”。</p>
 <p>可惜在中国，情况有些许不同。第一种情况是流氓应用，以中国第一产品经理的微信为例，在之前很长一段时间里（可能现在也是）微信会通过某种手段尽可能延长自己的后台存活时间，甚至于后台活动超过前台使用的时间。这自然会使耗电量增加。从后台列表，准确的说，是最近使用的应用列表强行杀掉微信，的确可以避免这种情况的发生。但微信在国内的地位不必我多说，从后台划掉微信会大幅增加微信的启动时长，每次打开微信看到“连接中……收取中”转圈转个老半天可比耗电更烦人。再者，没有人会希望为了省电而错过女朋友或者上司只打一次的微信电话。这种时候，停用微信的后台刷新可能是一个更好的选择。</p>
 <p>类似的情况发生在国内被墙的服务上，在没有代理的情况下，除非开发者专门对此作过优化，国内被封锁的服务、应用会出现一个较为尴尬的问题：按照计划，这些应用需要更新内容，但因遭到GFW的封锁，一直收不到服务器的回应，于是一直运行，直到触发系统的时间限制。前面已经提到过，这种情况下，APP会被系统“杀死”。对于第二种情况，解决方法有二：一是做好分流，24小时挂代理。二是和微信一样，停用这些应用的后台刷新。但无论如何，不要从后台直接杀死这些应用，因为直接杀死这些应用造成的体验远比耗电更糟。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/IMG_BF6525BCB5C1-1.webp" alt="QQ微信大量的后台时间"></p>
+<p><img src="https://imgcdn.nightcity.pub/IMG_BF6525BCB5C1-1.webp" alt="QQ微信大量的后台时间"></p>
 <h2 id="写个总结"><a href="#写个总结" class="headerlink" title="写个总结"></a>写个总结</h2><p>在写这篇文章时，我发现，越是写下去，越是背离了写这篇文章的初衷，即“提升使用体验”。技术为人文服务，智能手机归根结底只是我们手边的一个工具，与其费尽心机省电，不如按照自己觉得舒服的方式使用手机。耗电也好，卡顿也好，都由技术的进步解决。我们可以因兴趣使然研究这些技术问题，但绝不能让这些技术问题成为我们生活的全部，放下手机，放下这些技术问题，我们还有很多更有意义的事可以做，很多人可以聚，很多地方可以去玩。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/backgroundtasks/choosing_background_strategies_for_your_app">Choosing Background Strategies for Your App</a></p>
@@ -287,15 +287,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -322,15 +322,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

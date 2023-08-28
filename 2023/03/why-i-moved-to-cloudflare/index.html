@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2023-03-18</time>
             
                 (Updated:
-                <time datetime="2023-03-23T11:55:44.910Z"
-                      itemprop="dateModified">2023-03-23</time>)
+                <time datetime="2023-08-28T11:13:14.618Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -187,7 +187,7 @@
 <p>当时刚拿到服务器的时候，微软云的这三个优点让我没有不选择它的理由，但随着我的博客运行半年多，这台服务器的问题就慢慢开始突出了。</p>
 <p>首先就是让人非常难受的性能问题：如果说1C1G还能勉强说得过去的话，那么这个石头盘就真的太难受了。随着我的博客访问量逐渐增加，也就自然而然的引来了各路 Bot 的骚扰。这台服务器的综合性能甚至弱到了，只要有人用 1 秒一次的频率爆破我的后台，我的网站就会接近瘫痪。即使不瘫痪，TTFB 也会比正常情况下多1秒以上。</p>
 <p>性能问题甚至已经影响到了我的 SEO ：我已经多次收到邮件，提示我网页的打开速度太慢，需要优化，与此同时，我博客上来自谷歌的流量也显著降低，大概是因为搜索权重因为打开速度降低了不少。</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202303231923422.webp" alt="SEO 问题"></p>
+<p><img src="https://imgcdn.nightcity.pub/202303231923422.webp" alt="SEO 问题"></p>
 <p>即使性能如此糟糕，在相当长的一段时间里，我也还是通过缓存等办法勉强维持了网页体验的整体质量。但微软云随后进行了一波令人吐血的操作：换线路。原本电信直连的香港直接并入了东京 NTT（刚去看了一下竟然变成绕新加坡了？），Traceroute 一下全都变成了 AS4134，CN2 直接变成 163。真有你的，微软云。这下，Azure 的网络优势也几乎尽数失去。</p>
 <p>就算不好用，但是它免费啊，要什么自行车？</p>
 <p>免费真的那么好吗？微软也不是慈善机构，能在香港这种热门的地方提供免费的服务器属实已经非常良心了。我还能要求什么呢？<strong>我还能要求什么呢？</strong>通过前面的换线路事件，我大概也见识到了，对于免费的产品，我们真的无法要求什么，甚至连最基本的要求都不行。不光如此，只要微软政策一换，我就立马无法继续白嫖。</p>
@@ -258,15 +258,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -293,15 +293,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

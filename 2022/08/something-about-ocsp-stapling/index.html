@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-08-17</time>
             
                 (Updated:
-                <time datetime="2022-08-17T05:47:29.000Z"
-                      itemprop="dateModified">2022-08-17</time>)
+                <time datetime="2023-08-28T11:13:14.616Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -168,7 +168,7 @@
 </blockquote>
 <p>简单来说，OCSP 做的就是 CRL 的事——验证这个网站的 https 证书是否处于被吊销的状态。</p>
 <h3 id="所以为什么打开慢？"><a href="#所以为什么打开慢？" class="headerlink" title="所以为什么打开慢？"></a>所以为什么打开慢？</h3><p>我们搭建个人网站时大都没有很高的预算，例如我的网站原本托管在免费的 Github Pages 上，预算能省则省，更别提动辄几千一年的 SSL 证书了。于是你看到的非商业性质的个人网站大都采用了免费的 Let’s Encrypt 证书。而 Let’s Encrypt 的 OCSP 服务器 <code>ocsp.int-x3.letsencrypt.org</code> 线路非常垃圾，实测中部地区联通 traceroute 以供参考：</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220816165046969.webp" alt="Let&#39;s Encrypt OCSP服务器的拉胯线路"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220816165046969.webp" alt="Let&#39;s Encrypt OCSP服务器的拉胯线路"></p>
 <p>可以看到服务器在香港，线路却绕美国。这导致 一个很简单的 OCSP 查询请求需要 1 秒的时间来返回结果。这意味着无论你的服务器性能有多强，网络延迟有多低，只要部署的证书是 Let’s Encrypt，网站在 iPhone 上的加载时间就绝对不会快过一秒。这还不是最坏的情况，因为各种莫名其妙的原因，Let’s Encrypt 的 OCSP 服务器域名会时不时的被 GFW 通过 DNS 污染等方式阻断，这就导致客户端在一部分时间里根本无法查询 OCSP。</p>
 <h3 id="但为什么只有-iPhone-会加载慢呢？"><a href="#但为什么只有-iPhone-会加载慢呢？" class="headerlink" title="但为什么只有 iPhone 会加载慢呢？"></a>但为什么只有 iPhone 会加载慢呢？</h3><p>OCSP 协议有一个很要命的问题：用 https 的人越来越多，验证证书有效性的需求自然会越来越大，OCSP 服务器难道硬扛访问量？当然不是，不同浏览器都会有不同的 OCSP 验证超时时间，超时就先默认证书有效继续进行访问。但是有些”「注重用户体验」 的浏览器，比如 Chrome，自己在浏览器内部做了个本地列表，通过每次浏览器更新实现列表更新。直接查本地的列表速度就非常快了，当然也不存在什么 CA 的 OCSP 服务器被屏蔽的问题。缺点是并非实时更新。但并非所有浏览器都是所谓「注重用户体验」的浏览器，比如 Safari 就默认开启 OCSP 验证。自然无法避免这种中国特色的问题。Chrome 在全球有超过 70% 的市占率，而受 Chromium 开源项目的影响，国内一众「安全」「极速」浏览器都不存在这种问题，这几乎覆盖了国内桌面端所有用户群体。而苹果要求包括 Chrome 在内的所有 iOS 应用都要使用 Webkit 内核，这直接干死了所有的 iPhone 用户。</p>
 <h2 id="怎么解决？"><a href="#怎么解决？" class="headerlink" title="怎么解决？"></a>怎么解决？</h2><p>总不可能要求所有 iPhone 用户都自己关掉 OCSP 吧？那么解决方法就是——<del>换证书</del>。怎么可能，要是我真换了证书你也就看不到这篇文章了。虽然换证书，比如 Trust Asia 证书的确可以解决问题。但我不想因为换一个证书而告别 Let’s Encrypt 自动续期和支持泛域名的特性。</p>
@@ -178,8 +178,8 @@
 <p>然后重启 Nginx 服务，大功告成。由于我自己使用的是 Nginx，Apache 请自行搜索相关方法。</p>
 <p>然后，iPhone 用户也能愉快的访问你的网站而无需忍受恼人的 GFW 干扰 Let’s Encrypt 的 OCSP 服务器。</p>
 <p>那么效果如何呢？</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/ocsp-stapling-not-enabled.webp" alt="开启OCSP Stapling前排队时间超过1秒"></p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/ocsp-stapling-enabled.webp" alt="开启OCSP Stapling后排队时间仅200毫秒"></p>
+<p><img src="https://imgcdn.nightcity.pub/ocsp-stapling-not-enabled.webp" alt="开启OCSP Stapling前排队时间超过1秒"></p>
+<p><img src="https://imgcdn.nightcity.pub/ocsp-stapling-enabled.webp" alt="开启OCSP Stapling后排队时间仅200毫秒"></p>
 <p>可以看到，开启 OCSP Stapling 后，查询验证结果所需要的时间大幅缩短，反映到网站打开速度上是非常明显的感知。</p>
 <h2 id="什么东西这么牛逼？"><a href="#什么东西这么牛逼？" class="headerlink" title="什么东西这么牛逼？"></a>什么东西这么牛逼？</h2><p>OCSP 封装，顾名思义，即服务器缓存 OCSP 服务器的验证结果，并且在与客户端 SSL 握手时直接发送缓存结果。</p>
 <blockquote>
@@ -260,15 +260,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -295,15 +295,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

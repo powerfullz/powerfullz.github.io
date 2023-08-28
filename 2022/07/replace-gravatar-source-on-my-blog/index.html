@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-07-23</time>
             
                 (Updated:
-                <time datetime="2022-09-25T14:48:27.000Z"
-                      itemprop="dateModified">2022-09-25</time>)
+                <time datetime="2023-08-28T11:13:14.612Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -168,20 +168,20 @@
 
 <h2 id="自建Gravatar镜像：Nginx-反代-Gravatar-官方源"><a href="#自建Gravatar镜像：Nginx-反代-Gravatar-官方源" class="headerlink" title="自建Gravatar镜像：Nginx 反代 Gravatar 官方源"></a>自建Gravatar镜像：Nginx 反代 Gravatar 官方源</h2><p><strong>注意：这一部分仅适用于服务器在海外的同学，如果服务器在国内请直接绕道去看后面的部分</strong></p>
 <p>首先声明，为了方便管理网站，我使用了宝塔面板。在宝塔面板里使用你想要的域名新建一个网站，纯静态，数据库和FTP都不需要。完成后，转到这个网站的设置，找到反向代理选项，新建一个新的反向代理，填入目标 URL 为 <code>https://secure.gravatar.com</code>提交保存即可。到了这一步，尝试访问指派给网站的域名，别忘了加上&#x2F;avatar，如果出现了默认 Gravatar 头像即代表配置成功。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220724223648262.webp" alt="在宝塔面板里新建一个网站"></p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220724224045361.webp" alt="反向代理Gravatar官方源"></p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220724224804758.webp" alt="出现默认Gravatar头像即配置成功"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220724223648262.webp" alt="在宝塔面板里新建一个网站"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220724224045361.webp" alt="反向代理Gravatar官方源"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220724224804758.webp" alt="出现默认Gravatar头像即配置成功"></p>
 <p>配置成功后，除非你想看到 Chrome “不安全”的提示，否则别忘了给刚刚搭建好的镜像申请一个 SSL 证书。通常情况下直接使用 Let’s Encrypt 即可，打开网站的 SSL 选项，用 DNS 验证的方式申请一个 SSL 证书后开启强制 HTTPS 即可。到这一步，我们自己的 Gravatar 镜像就搭建完成了。</p>
 <h2 id="更换博客上的-Gravatar-源为国内可访问源"><a href="#更换博客上的-Gravatar-源为国内可访问源" class="headerlink" title="更换博客上的 Gravatar 源为国内可访问源"></a>更换博客上的 Gravatar 源为国内可访问源</h2><h3 id="Wordpress"><a href="#Wordpress" class="headerlink" title="Wordpress"></a>Wordpress</h3><p>对于 Wordpress，Google 上搜索到的相关文章大部分都通过修改主题的<code>functions.php</code>文件，加入如下的函数来实现。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getV2exAvatar</span>(<span class="params"><span class="variable">$avatar</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$avatar</span> = <span class="title function_ invoke__">str_replace</span>(<span class="keyword">array</span>(<span class="string">&quot;www.gravatar.com/avatar&quot;</span>,<span class="string">&quot;0.gravatar.com/avatar&quot;</span>,<span class="string">&quot;1.gravatar.com/avatar&quot;</span>,<span class="string">&quot;2.gravatar.com/avatar&quot;</span>),<span class="string">&quot;cdn.v2ex.com/gravatar&quot;</span>,<span class="variable">$avatar</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$avatar</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">add_filter</span>(<span class="string">&#x27;get_avatar&#x27;</span>, <span class="string">&#x27;getV2exAvatar&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>实测在 MDx 主题上这种方法无效，故使用了另一种方法：打开网站目录，找到<code>/wp-includes</code>里的<code>link-templates.php</code>，在这个文件中搜索“gravatar”，大约在这个文件4378行的位置就可以发现 Gravatar 的链接，替换链接为国内可访问的镜像源即可。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220724231147789.webp" alt="替换链接为国内的镜像源"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220724231147789.webp" alt="替换链接为国内的镜像源"></p>
 <p>至于插件，暂时没有找到还在更新且能完美实现这个功能的插件，如果有欢迎评论。</p>
 <h2 id="Typecho"><a href="#Typecho" class="headerlink" title="Typecho"></a>Typecho</h2><p>对于 Typecho，方法与 Wordpress 大同小异，找到网站根目录，打开<code>/var/Typecho/</code>目录下的<code>Common.php</code>文件。大约在 836 行左右的地方可以找到 Gravatar 官方源的地址，替换为国内可访问源即可。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220725104210264.webp" alt="Typecho替换Gravatar官方源后的效果"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220725104210264.webp" alt="Typecho替换Gravatar官方源后的效果"></p>
 <p>不过，某些 Typecho 主题可能不会调用 Typecho 的模板函数，而是使用主题内的函数，这时需要对主题文件作额外的修改。回到网站根目录，打开<code>/usr/themes/</code>下你的主题根目录，主题获取 Gravatar 的相关代码一般在<code>comments.php</code>里，打开<code>comments.php</code>搜索”avatar” 找到 Gravatar 官方源的地址替换为国内可访问源即可。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20220725105114445.webp" alt="某些Typecho主题会自写模板函数"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220725105114445.webp" alt="某些Typecho主题会自写模板函数"></p>
 <h2 id="推荐的Gravatar源"><a href="#推荐的Gravatar源" class="headerlink" title="推荐的Gravatar源"></a>推荐的Gravatar源</h2><p>目前只推荐自建源和七牛云源，后续可能会寻找新源，如果有欢迎评论。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://gravatar.l3zc.com			#自建源，已停用</span><br><span class="line">https://dn-qiniu-avatar.qbox.me/avatar/			#七牛云源，很快，推荐</span><br></pre></td></tr></table></figure>
 
@@ -247,15 +247,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -282,15 +282,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

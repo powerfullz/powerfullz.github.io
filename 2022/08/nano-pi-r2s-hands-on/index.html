@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-08-16</time>
             
                 (Updated:
-                <time datetime="2022-08-16T09:25:25.000Z"
-                      itemprop="dateModified">2022-08-16</time>)
+                <time datetime="2023-08-28T11:13:14.606Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -157,9 +157,9 @@
       <p>最近想要解放设备们的 CPU，让科学上网的体验变好一点点，顺手实现一些杂七杂八的功能满足折腾欲。在学校里我有一台 OpenWRT 的普通路由器，用起来非常不错，OpenWRT 基本可以实现所有我想要的功能，但毕竟是普通路由器，CPU 性能太弱，所以我的需求就定在了一款 CPU 性能更强的，能运行 OpenWRT 的 ARM 软路由，于是 Nano Pi R2S 进入了我的视野。</p>
 <p>要是软路由有排名，那 R2S 绝对是经典中的经典。小到无论如何都可以塞进弱电箱的体积，足够强大的性能和上手的容易程度都是软路由里数一数二的。虽然价格可能是49入国军，就不放出来了，但是只要我对这玩意有需求，那也不是不能接受。</p>
 <h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><p>好了，现在我们搞到了这 R2S，简单来上个手：</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220811160337177.webp" alt="R2S本体"></p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220811160419690.webp" alt="R2S网口侧"></p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220811160519105.webp" alt="R2S的USB2.0接口和Reset插口"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220811160337177.webp" alt="R2S本体"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220811160419690.webp" alt="R2S网口侧"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220811160519105.webp" alt="R2S的USB2.0接口和Reset插口"></p>
 <p>R2S 外观非常简洁，没有多余的 IO，虽然原本不是作为软路由设计，但在设计上却给人一种天生为软路由而生之感：一个 WAN 一个 LAN 两个 RJ45 网口，一个 Micro SD 卡插槽，一个 USB 2.0 接口，完美覆盖软路由几乎所有使用场景。</p>
 <blockquote>
 <p>R2S 原本是作为边缘服务器设计，被我们硬生生的玩成了软路由。</p>
@@ -185,17 +185,17 @@
 </ul>
 <p>这个硬件规格，装 Ubuntu 当服务器还是免了，但是跑个 OpenWRT 当路由器使绰绰有余。</p>
 <p>由于使用 Micro SD 卡作为启动介质，R2S 的刷机非常容易：取出 SD 卡，用读卡器接上电脑，把镜像烧写进 SD 卡，再把 SD 卡装回 R2S，完成。对于用 Ultra ISO 刻过 Windows 系统盘的老油条来说全都是熟悉的操作，完全没有任何难度可言，即使是新手也能很轻易的学会。让我们快进到登入 OpenWRT 的后台：</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220811173625242.webp" alt="R2S刷入OpenWRT后的后台界面"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220811173625242.webp" alt="R2S刷入OpenWRT后的后台界面"></p>
 <p>（此处应有Nice）</p>
 <p>狗都不用 R2S 官方编译的 OpenWRT，不仅没有中文翻译，没有好看的主题，各种插件还需要自行安装。懒得在官方固件上瞎折腾则可以直接选择别人打包好的固件。我使用了 BigDongDong 打包的带 Docker 固件，能满足我的所有需求。</p>
 <h2 id="让这玩意加入我的家庭网络"><a href="#让这玩意加入我的家庭网络" class="headerlink" title="让这玩意加入我的家庭网络"></a>让这玩意加入我的家庭网络</h2><p>要想让 R2S 加入我的家庭网络，有两种大致的方案：第一种，也是最直截了当的办法，即直接拿 R2S 当主路由使用；第二种方法稍微复杂，用 R2S 当旁路由，将原来主路由的网关指向旁路由。这两种方案各有优缺点，将 R2S 当主路由配置简单，只要你想，只需要将 R2S 接入光猫和原来的路由器之间，然后启动路由器，什么都不需要配置，直接开始上网。代价是这会让网络架构多一重出故障的概率，虽然这个概率很小。将 R2S 用作旁路由配置稍微复杂，但能实现某些设备直接走主路由，其余设备走旁路由的效果，缺点就是某些只有作为主路由才能实现的功能（比如你要建站而你原来的主路由不支持端口转发）无法实现。</p>
 <p>我无法接受让 R2S 作为旁路由的行为，想到数据包在两个路由由之间来回窜个两次才能被发出去情景，我还是选择了第一种方案——我不需要那么稳定的网络，大不了多重启几次。于是这就是新的网络拓补图：</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220812170317043.webp" alt="加入R2S后的网络拓补"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220812170317043.webp" alt="加入R2S后的网络拓补"></p>
 <p>图片<del>懒得自己画所以</del>来源于网络，无线路由器那里那个 WAN 请自行脑补成 LAN。</p>
 <p>为了让 R2S 能尽可能的与我的设备交互（比如控制某个设备是否启用科学上网），以及尽可能的减少 NAT 和网段的套娃，我们需要对原来的路由器进行一些设置，首先查看路由器是否有类似 AP模式（无线接入点模式）的功能，如果有那么直接启用这个模式就行。如果我的路由器有这个选项那我就不需要写下面这个部分了，只可惜，这 TP-LINK 电子垃圾并没有。</p>
 <h3 id="手动把原来的路由器设置成交换机"><a href="#手动把原来的路由器设置成交换机" class="headerlink" title="手动把原来的路由器设置成交换机"></a>手动把原来的路由器设置成交换机</h3><p>我不得不手动设置这个路由器，不过还好这并不是一件难事：首先把原本接在路由器 WAN 口的网线插到 LAN 口里，你没看错，<strong>LAN 口</strong>。然后登入原路由器的后台，关掉原路由器的 DHCP 服务器，打开原路由器的 LAN 口设置把原路由器的 LAN 口 IP 设置成与 R2S同一网段下的一个IP，例如：我的 R2S 的 IP 是 <code>192.168.2.1</code> ，所以我将原路由器的 LAN 口 IP 设置成 <code>192.168.2.2</code> 。设置好以后重启路由器，所有设备就和 R2S 同一个网段了，在 R2S 的后台也可以看到这些设备。这些操作的本质是把路由器变成一个带无线功能的交换机。</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220812172849779.webp" alt="在TP-LINK路由器的后台关闭路由器的DHCP服务器"></p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220812172531650.webp" alt="将路由器变成交换机后OpenWRT的后台可以看到所有设备"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220812172849779.webp" alt="在TP-LINK路由器的后台关闭路由器的DHCP服务器"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220812172531650.webp" alt="将路由器变成交换机后OpenWRT的后台可以看到所有设备"></p>
 <p>至此，基础的网络配置已经全部完成了，<del>本来就很乱的弱电箱更乱了</del>。</p>
 <h2 id="终于可以正式开始折腾了"><a href="#终于可以正式开始折腾了" class="headerlink" title="终于可以正式开始折腾了"></a>终于可以正式开始折腾了</h2><p>现在折腾的基础已经有了，那就开始折腾吧。</p>
 <h3 id="Passwall-科学上网"><a href="#Passwall-科学上网" class="headerlink" title="Passwall 科学上网"></a>Passwall 科学上网</h3><p>其实原本想用 Clash，不过 Clash 有多吃资源上网一搜就知道。</p>
@@ -213,8 +213,8 @@
 
 <p>至于其他依赖基本可以看脚本运行的错误日志对症下药地安装，这里就不贴出来了。</p>
 <p>那么现在青龙面板有了，拿他干什么呢？</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220813181819566.webp" alt="充满任务的青龙面板定时任务界面"></p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220813162626204.webp" alt="青龙面板刷京豆"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220813181819566.webp" alt="充满任务的青龙面板定时任务界面"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220813162626204.webp" alt="青龙面板刷京豆"></p>
 <p>目前只是拿它跑跑脚本拿京豆，佛系看到什么功能就加上，虽然用的是家用 IP，被风控的概率比较低，但我还是尽量不多开脚本，且不说会不会被风控，毕竟这东西还是主路由，总不能一天到晚太占性能导致我的上网体验变差吧？如果真是这样那就舍本逐末了。</p>
 <p>至于脚本从哪里来，可以自行在 Github 上搜索依赖库拉库安装，说不定以后还要去 Gitee 上再找找，只能说，但愿 Github 不要被完全阻断导致一部分大佬往 Gitee 上跑。这里贴一个我用的库</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/okyyds/yydspure/tree/master">https://github.com/okyyds/yydspure/tree/master</a></p>
@@ -223,11 +223,11 @@
 
 <h2 id="稳定性、效果和问题"><a href="#稳定性、效果和问题" class="headerlink" title="稳定性、效果和问题"></a>稳定性、效果和问题</h2><p>为了稳定，暂时就折腾这么多了。</p>
 <p>那么稳定性怎么样？目前来看很好，没有遇到网上的各种烧坏，重启之类的问题，设置 Crontab 每周重启一次，非常稳定，这里有一个坑点： R2S 使用 Type-C 接口供电，却不支持 PD 协议。并且，虽然官方的技术规格里只需要 5V2A 的电源，但实际上需要尽量选择高于这个规格的电源，比如我的电源是 5V3A 的非 PD 协议电源，这就导致 R2S 的配套电源选择范围很窄，尽量选择店家 R2S 套餐里配好的电源。以下是一些网友的情况：</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220813182030465.webp" alt="什么值得买里烧坏的R2S和不稳定的R2S"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220813182030465.webp" alt="什么值得买里烧坏的R2S和不稳定的R2S"></p>
 <p>前面也提到了 R2S 挑卡的问题，出于一些原因，R2S 与某些SD卡的兼容性欠佳，可以去 R2S 官方 Wiki 上找找兼容的 SD 卡列表。</p>
 <p>效果如何？不需要多说，因为家里的宽带只有 100 兆，任何一个软路由都可以轻松跑满。因为我的机场屏蔽了意义不大的测速，晚高峰（大概是晚高峰，周六下午六点半） Youtube 的话可以轻松跑到 12 万。</p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220813183052529.webp" alt="晚高峰Youtube可以跑到12万"></p>
-<p><img src="https://picked-1301273887.cos.accelerate.myqcloud.com/image-20220815225712582.webp" alt="非晚高峰速度可到26万"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220813183052529.webp" alt="晚高峰Youtube可以跑到12万"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20220815225712582.webp" alt="非晚高峰速度可到26万"></p>
 <p>这个速度和机场有比较大的关系，不过，只要5万以上，4k 就能随便拖着看，再往上意义不大。再就是青龙面板的效果，前面大家也都看到了。</p>
 <p>那么问题？其实问题主要集中在 IPV6 上，换上 R2S 后，哪怕我将所有 IPV6 相关的服务全都设成中继模式也没有办法正常使用 IPV6，而原来的路由器只要设置成桥模式即可，这个问题暂时没有找到解决方案。</p>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>总体上，R2S 达到了我的预期，基本满足了我的需求，是一件我相对满意的产品。折腾乐趣无穷，但切莫上头，软路由这种东西，搞清自己的需求，不要忘记折腾原本的目的，够用就好，否则就是一个痛苦的无底洞。至于这个尚未解决的 IPV6 问题，佛系解决，实在不行看看能不能用 IPV6 NAT。</p>
@@ -292,15 +292,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -327,15 +327,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

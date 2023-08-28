@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2023-01-10</time>
             
                 (Updated:
-                <time datetime="2023-01-27T05:04:31.361Z"
-                      itemprop="dateModified">2023-01-27</time>)
+                <time datetime="2023-08-28T11:13:14.617Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -155,14 +155,14 @@
   
     <div class="content" itemprop="articleBody">
       <p>Traceroute 是一个很常用的网络 debug 工具，它（应该）会列出你的数据包在到达最终目的地的路上经过的所有路由节点，如果你 traceroute 我的网站，你会得到看起来像这样的内容：</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230110161809741.png" alt="image-20230110161809741"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20230110161809741.png" alt="image-20230110161809741"></p>
 <p>traceroute通过 <code>Time To Live</code>或者 IPV6 下的 <code>Hop Limit</code>实现追踪的效果</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/n6nzkD1NN0" alt="IPv6 packet diagram"></p>
+<p><img src="https://imgcdn.nightcity.pub/n6nzkD1NN0" alt="IPv6 packet diagram"></p>
 <p>这个数值的用意是通过限制数据包能通过的最长「逻辑距离」（最多能通过几个节点），防止数据包在网络故障的情况下在网络上被无限循环广播。每当数据包经过一个节点，这个数值就会减少，这个值减小到0时，路由节点就会丢弃这个数据包：举个例子，网络故障的情况下，一个 IPV4 数据包的 TTL 为65，经过64个节点时，其TTL会等于65-64&#x3D;1，经过第65个节点时，TTL 会降为0，那么，第66个节点在发现这个数据包的 TTL 为0时就会将其直接丢弃。</p>
 <p>但做到这一步并没有解决所有问题：出于礼貌原因，当一个数据包丢失了，我们还要想办法通知发送这个数据包的人——既然一个数据包能够从发送者到达丢弃它的服务器，那么丢弃它的服务器和发送者之间一定是可以通信的。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/BPMu8w53FU" alt="IPv6 ICMP packet in wireshark"></p>
+<p><img src="https://imgcdn.nightcity.pub/BPMu8w53FU" alt="IPv6 ICMP packet in wireshark"></p>
 <p>那么 traceroute 的设计思想是：首先设置一个极低的 TTL，并向目标服务器发包，小幅增加这个 TTL，再次向服务器发包，重复这个步骤，直到可以到达目标服务器为止，通过这个做法，traceroute就可以通过前面提到的，数据包被丢弃后的「回执」向我们展示我们与目标服务器之间的「路径」。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/nZMBkDESh7" alt="how a traceroute works gif"></p>
+<p><img src="https://imgcdn.nightcity.pub/nZMBkDESh7" alt="how a traceroute works gif"></p>
 <p>traceroute 工具通常还会贴心的帮你查询好对应 IP 的反向 DNS，便于我们查看途径节点的相关信息。尽管设置 IP 的反向 DNS 并非必须，大多数运营商都会设置反向 DNS 以方便用户或者他们自己 Debug。</p>
 <p>重要的是，如果买下一个 IP 区段，你便可以将这个区段内的 IP 的反向 DNS 改成 Whatever you want。于是乎，一位仁兄突发奇想，买下了一个 IP 区段，于是就有了下面的 TraceRoute 民谣:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\l3zc&gt; tracert -h 100 bad.horse</span><br><span class="line"></span><br><span class="line">通过最多 100 个跃点跟踪</span><br><span class="line">到 bad.horse [162.252.205.157] 的路由:</span><br><span class="line"></span><br><span class="line">  1    &lt;1 毫秒   &lt;1 毫秒   &lt;1 毫秒 192.168.0.1</span><br><span class="line">  2     2 ms     1 ms     1 ms  192.168.1.1</span><br><span class="line">  3     5 ms     4 ms     4 ms  100.66.128.1</span><br><span class="line">  4     4 ms     4 ms     4 ms  58.20.125.137</span><br><span class="line">  5     5 ms     4 ms     4 ms  119.39.126.117</span><br><span class="line">  6     *       27 ms    27 ms  219.158.98.69</span><br><span class="line">  7    32 ms    30 ms    30 ms  219.158.5.158</span><br><span class="line">  8    29 ms    30 ms    31 ms  219.158.16.66</span><br><span class="line">  9   172 ms   175 ms   174 ms  219.158.98.10</span><br><span class="line"> 10   179 ms   175 ms   174 ms  ix-xe-8-2-5-0.tcore1.sqn-sanjose.as6453.net [63.243.205.93]</span><br><span class="line"> 11   226 ms   225 ms   236 ms  if-ae-1-2.tcore2.sqn-sanjose.as6453.net [63.243.205.2]</span><br><span class="line"> 12   222 ms   222 ms     *     if-ae-51-2.tcore2.ct8-chicago.as6453.net [64.86.79.14]</span><br><span class="line"> 13   224 ms   225 ms   225 ms  if-ae-22-2.tcore1.ct8-chicago.as6453.net [64.86.79.2]</span><br><span class="line"> 14   223 ms   223 ms   223 ms  if-ae-8-2.tcore2.tnk-toronto.as6453.net [66.110.48.1]</span><br><span class="line"> 15   223 ms   223 ms   223 ms  if-ae-2-2.tcore1.tnk-toronto.as6453.net [64.86.33.89]</span><br><span class="line"> 16   225 ms   224 ms   225 ms  64.86.33.58</span><br><span class="line"> 17   223 ms   223 ms   223 ms  67.223.96.90 [67.223.96.90]</span><br><span class="line"> 18   225 ms   224 ms   224 ms  bad.horse [162.252.205.130]</span><br><span class="line"> 19   228 ms   228 ms   229 ms  bad.horse [162.252.205.131]</span><br><span class="line"> 20   239 ms   237 ms   235 ms  bad.horse [162.252.205.132]</span><br><span class="line"> 21   244 ms   245 ms   248 ms  bad.horse [162.252.205.133]</span><br><span class="line"> 22   243 ms   243 ms   243 ms  he.rides.across.the.nation [162.252.205.134]</span><br><span class="line"> 23   248 ms   249 ms   249 ms  the.thoroughbred.of.sin [162.252.205.135]</span><br><span class="line"> 24   263 ms   259 ms   261 ms  he.got.the.application [162.252.205.136]</span><br><span class="line"> 25   267 ms   268 ms   267 ms  that.you.just.sent.in [162.252.205.137]</span><br><span class="line"> 26   266 ms   266 ms   266 ms  it.needs.evaluation [162.252.205.138]</span><br><span class="line"> 27   267 ms   266 ms   267 ms  so.let.the.games.begin [162.252.205.139]</span><br><span class="line"> 28   275 ms   274 ms   274 ms  a.heinous.crime [162.252.205.140]</span><br><span class="line"> 29   280 ms   280 ms   280 ms  a.show.of.force [162.252.205.141]</span><br><span class="line"> 30   292 ms   293 ms   292 ms  a.murder.would.be.nice.of.course [162.252.205.142]</span><br><span class="line"> 31   293 ms   290 ms   290 ms  bad.horse [162.252.205.143]</span><br><span class="line"> 32   301 ms   302 ms   302 ms  bad.horse [162.252.205.144]</span><br><span class="line"> 33   297 ms   296 ms   297 ms  bad.horse [162.252.205.145]</span><br><span class="line"> 34   308 ms   307 ms   307 ms  he-s.bad [162.252.205.146]</span><br><span class="line"> 35   309 ms   309 ms   308 ms  the.evil.league.of.evil [162.252.205.147]</span><br><span class="line"> 36   314 ms   314 ms   313 ms  is.watching.so.beware [162.252.205.148]</span><br><span class="line"> 37   322 ms   323 ms   322 ms  the.grade.that.you.receive [162.252.205.149]</span><br><span class="line"> 38   327 ms   326 ms   326 ms  will.be.your.last.we.swear [162.252.205.150]</span><br><span class="line"> 39   327 ms   329 ms   330 ms  so.make.the.bad.horse.gleeful [162.252.205.151]</span><br><span class="line"> 40   331 ms   331 ms   331 ms  or.he-ll.make.you.his.mare [162.252.205.152]</span><br><span class="line"> 41   339 ms   339 ms   339 ms  o_o [162.252.205.153]</span><br><span class="line"> 42   345 ms   346 ms   346 ms  you-re.saddled.up [162.252.205.154]</span><br><span class="line"> 43   348 ms   348 ms   348 ms  there-s.no.recourse [162.252.205.155]</span><br><span class="line"> 44   351 ms   350 ms   350 ms  it-s.hi-ho.silver [162.252.205.156]</span><br><span class="line"> 45   363 ms   363 ms   361 ms  signed.bad.horse [162.252.205.157]</span><br><span class="line"></span><br><span class="line">跟踪完成。</span><br><span class="line">PS C:\Users\l3zc&gt;</span><br></pre></td></tr></table></figure>
@@ -171,7 +171,7 @@
 <iframe src="//player.bilibili.com/player.html?aid=265008545&bvid=BV1sY4112714&cid=959455567&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <p>某位仁兄甚至用这个做了一份他的简历：</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/image-20230110161519369.png" alt="image-20230110161519369"></p>
+<p><img src="https://imgcdn.nightcity.pub/image-20230110161519369.png" alt="image-20230110161519369"></p>
 <h2 id="如何实现？"><a href="#如何实现？" class="headerlink" title="如何实现？"></a>如何实现？</h2><p>看起来很美好，但是这如何实现？</p>
 <p>我们可以轻松的更改 Reverse DNS 的设置。最大的问题是，如何让数据包按照我们希望的路线穿行。</p>
 <p>在物理上将节点按顺序连接显然不现实，现在能被想到的有两种办法：要么在单个节点上将很多虚拟的接口按顺序分配 IP 并串联起来并将他们用作「节点」，要么在用户网络层上做手脚，生成假的「超限」消息，凭空生成一条不存在的路由线路。</p>
@@ -241,15 +241,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -276,15 +276,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

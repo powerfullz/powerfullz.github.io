@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2023-04-12</time>
             
                 (Updated:
-                <time datetime="2023-04-21T15:23:50.074Z"
-                      itemprop="dateModified">2023-04-21</time>)
+                <time datetime="2023-08-28T11:13:14.610Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -174,36 +174,36 @@
 <p>这套东西只在 Python 3.10.6 上测试过，当时用 Python 3.11 时安装过程出现了报错，如果现在用的是 Python 3.11 记得换成 Python 3.10.6，修改环境变量，然后重启电脑。</p>
 <h3 id="DiffusionWrapper-has-859-52M-params"><a href="#DiffusionWrapper-has-859-52M-params" class="headerlink" title="DiffusionWrapper has 859.52M params"></a>DiffusionWrapper has 859.52M params</h3><p>正常情况下，这套脚本会自动下载所需要的依赖。记得我当时在部署的时候是半夜，挂着终端代理，这个脚本跑了半天。第二天起来，依然卡在昨天晚上的地方，也就是<code>DiffusionWrapper has 859.52M params</code>。</p>
 <p>上课回来，在网上一搜索，才发现遇到这个问题的人还真不少，Github 上也有人在<code>stable-diffusion-webui</code>的官方库里提了 issue，看起来是<code>hugging-face</code>的<code>file-download.py</code>出现了bug，而非<code>stable-diffusion-webui</code>本身的问题。这是解决方案：<a target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/7901#issuecomment-1498002872">Github上的解决方案</a>。</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304182154737.webp" alt="修改hugging_face"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304182154737.webp" alt="修改hugging_face"></p>
 <p>定位到<code>&lt;INSTALL_FOLDER&gt;\stable-diffusion-webui\venv\Lib\site-packages\huggingface_hub\file_download.py</code>的 1262 行，将其修改为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blob_path = os.path.join(storage_folder, <span class="string">&quot;blobs&quot;</span>, etag[<span class="number">3</span>:])</span><br></pre></td></tr></table></figure>
 
 <p>重新运行<code>webui-user.bat</code>，这次 webui 顺利启动了。</p>
 <p><code>stable-diffusion-webui</code>跑在本地默认的端口号是7860，访问<code>http://localhost:7860</code>就可以看到这套 Web UI 了。</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304182205790.webp" alt="stable-diffusion启动"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304182206103.webp" alt="stable-diffusion-webui界面"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304182205790.webp" alt="stable-diffusion启动"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304182206103.webp" alt="stable-diffusion-webui界面"></p>
 <h2 id="找模型"><a href="#找模型" class="headerlink" title="找模型"></a>找模型</h2><p>部署工作至此已告一段落，但<code>stable-diffusion-webui</code>部署下来自带的模型生成的图片并不符合我的需求和口味，我相信大部分人也不会只用这个默认的模型，那么随后的一件事就是找模型。</p>
 <h3 id="去哪找？"><a href="#去哪找？" class="headerlink" title="去哪找？"></a>去哪找？</h3><p>起初我也不知道去哪找，于是就傻乎乎的 Google 了一下：stable diffusion anime model。别说，还真奏效了。搜出来的结果里立刻就出现了<a target="_blank" rel="noopener" href="https://huggingface.co/">Hugging face</a>和<a target="_blank" rel="noopener" href="https://civitai.com/">Civit-AI</a>。Civit-AI还能直观的看到每个模型的预览图。</p>
 <p>除此之外，Reddit 等论坛上，像我一样的个人博客上，都可以看到网友们的模型推荐，用这种方式找模型也很不错。</p>
 <p>Problem solved.</p>
 <h3 id="找到的模型"><a href="#找到的模型" class="headerlink" title="找到的模型"></a>找到的模型</h3><p>就这么去了 Civit-AI 的首页，第一眼就被<code>counterfeit</code>模型吸引了。</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304182217584.webp" alt="counterfeit模型"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304182217584.webp" alt="counterfeit模型"></p>
 <p>除此之外，<code>Anything</code>也是非常流行的模型，也被我收入囊中。</p>
 <h3 id="可以自己训练模型吗？"><a href="#可以自己训练模型吗？" class="headerlink" title="可以自己训练模型吗？"></a>可以自己训练模型吗？</h3><p>先说结论：理论上来说，可以。但我这个 3060 Laptop……还是算了吧。</p>
 <p>Stable diffusion 有几种主要的训练方法，Textual Inversion, Hyper Network, Dream booth, Lora。即使是配置要求最低的 Lora，也要求至少 8G 的显存，而 3060 Laptop 只有 6G 显存。既然如此，就不折磨自己了，还是直接用训练好的现成模型吧，感谢社区。</p>
 <h2 id="开始用"><a href="#开始用" class="headerlink" title="开始用"></a>开始用</h2><p>一开始我在 CivitAI 上下载下来<code>Counterfeit-V2.5</code>模型，CivitAI 上只有一个 4.1G 的<code>CounterfeitV25_25.safetensors</code>文件。我将其下载下来丢进了<code>&lt;INSTALL DIR&gt;\stable-diffusion-webui\models\Stable-diffusion</code>文件夹，刷新一下Web UI的模型列表就看到了这个模型，于是我就很顺利的加载了这个模型开始用了。</p>
 <h3 id="这……不对啊"><a href="#这……不对啊" class="headerlink" title="这……不对啊"></a>这……不对啊</h3><p>先来看看这个时候的生成效果：</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304192355517.webp" alt="00000-2669052925"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304192355527.webp" alt="00012-2065576542"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304192356328.webp" alt="00035-3723924490"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304192355517.webp" alt="00000-2669052925"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304192355527.webp" alt="00012-2065576542"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304192356328.webp" alt="00035-3723924490"></p>
 <p>这……不对啊。怎么感觉我被这个模型的样图给骗了？</p>
 <p>来看看作者生成的样图：</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/002.webp" alt="002"></p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/007.webp" alt="007"></p>
+<p><img src="https://imgcdn.nightcity.pub/002.webp" alt="002"></p>
+<p><img src="https://imgcdn.nightcity.pub/007.webp" alt="007"></p>
 <p>我们用的真的是同一个模型吗？可以看到我和作者生成了一张大体十分相似的图片，那是我用和作者相同的 Prompt 和种子生成的，作者生成的图片，不论是画面细节，还是色彩，都和我一开始用这个模型的时候生成的几乎完全不是一个东西，难道我是下错模型了？</p>
 <h3 id="找问题"><a href="#找问题" class="headerlink" title="找问题"></a>找问题</h3><p>我在论坛里翻找遇到相同问题的帖子，发现其实遇到同样问题的人还真不少，大多数人都抱怨生成的图片细节不够，色彩不够鲜艳。根据我的经验，肯定是少装了些什么东西。</p>
 <h4 id="EasyNegative"><a href="#EasyNegative" class="headerlink" title="EasyNegative"></a>EasyNegative</h4><p>EasyNegative 可以被看做一个 Super Prompt，用于改善模型生成图片的质量。</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202328404.webp" alt="EasyNegative效果"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304202328404.webp" alt="EasyNegative效果"></p>
 <p>谷歌 EasyNegative 第一个出来的就是为<code>counterfeit-v2.5</code>模型设计，于是我便下载下来使用了。链接附上：<a target="_blank" rel="noopener" href="https://huggingface.co/datasets/gsdf/EasyNegative">gsdf EasyNegative</a></p>
 <blockquote>
 <p>This is a Negative Embedding trained with Counterfeit. Please use it in the “\stable-diffusion-webui\embeddings” folder.<br>It can be used with other models, but the effectiveness is not certain.</p>
@@ -211,21 +211,21 @@
 <p>这套 EasyNegative 同样适用于 <code>AbyssOrangeMix2</code>，<code>anything</code>等模型，我愿称之为必备。</p>
 <p>到了这一步，我总算是知道为什么所有人的 Prompt 里总要有个<code>EasyNegative</code>了，原来是个 Super Prompt。</p>
 <p>装好 Easy Negative，生成的图片就正常多了。</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202338251.webp" alt="00004-3723924490"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304202338251.webp" alt="00004-3723924490"></p>
 <p>但总感觉色彩还是不好看啊……是不是还缺了什么？</p>
 <h4 id="VAE"><a href="#VAE" class="headerlink" title="VAE"></a>VAE</h4><p>我在 Hugging Face 上看了一下，这里模型作者提供了远远不止一个的文件。</p>
 <p>VAE 的全程是 Variational Autoencoder。旨在帮助用户更好的渲染图像，其中也包括了色彩的部分。而不知出于什么原因，作者只在 Hugging Face 上提供了他的 VAE。</p>
 <p>装好 VAE，再次生成图像，这下的图像终于完全正常了。</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202346271.webp" alt="00008-3723924490"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304202346271.webp" alt="00008-3723924490"></p>
 <h2 id="这几天生成的图片"><a href="#这几天生成的图片" class="headerlink" title="这几天生成的图片"></a>这几天生成的图片</h2><p>这是我挑选的一些图片</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202348504.webp" alt="00009-3723924490"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202348703.webp" alt="00019-3798999894"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202349523.webp" alt="00025-20447565"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304202349442.webp" alt="00006-323134003"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304202348504.webp" alt="00009-3723924490"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304202348703.webp" alt="00019-3798999894"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304202349523.webp" alt="00025-20447565"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304202349442.webp" alt="00006-323134003"></p>
 <h2 id="阴间的图片"><a href="#阴间的图片" class="headerlink" title="阴间的图片"></a>阴间的图片</h2><p>其实上面最后一张图的手指已经是有生成问题的，而生成的图片里还有更阴间的图片。</p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304212308772.webp" alt="00022-805092293"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304212309704.webp" alt="00020-2866285131"></p>
-<p><img src="https://picked-1301273887.cos-dualstack.ap-nanjing.myqcloud.com/202304212310638.webp" alt="00021-2462655427"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304212308772.webp" alt="00022-805092293"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304212309704.webp" alt="00020-2866285131"></p>
+<p><img src="https://imgcdn.nightcity.pub/202304212310638.webp" alt="00021-2462655427"></p>
 <h2 id="玩玩插件"><a href="#玩玩插件" class="headerlink" title="玩玩插件"></a>玩玩插件</h2><p>这套 WebUI 还有插件可玩，这几天又心血来潮玩玩比较出名的插件。</p>
 <p>至于怎么安装插件，都是在这套 Web UI 的 Extensions 里。一是从官方仓库里拉取插件列表，二是自己找到插件的仓库链接拉库下载即可。</p>
 <p>我们来玩玩插件。</p>
@@ -291,15 +291,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -326,15 +326,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 

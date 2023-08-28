@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首頁</a></li>
+              <li><a href="/">Home</a></li>
           
-              <li><a href="/archives/">文章</a></li>
+              <li><a href="/archives/">Articles</a></li>
           
-              <li><a href="/categories/">分類</a></li>
+              <li><a href="/categories/">Category</a></li>
           
-              <li><a href="/tags/">標籤</a></li>
+              <li><a href="/tags/">Tag</a></li>
           
-              <li><a href="/search/">搜尋</a></li>
+              <li><a href="/search/">Search</a></li>
           
       </ul>
     </span>
@@ -87,10 +87,10 @@
                                         onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
                                         onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">回到頁首</span>
-      <span id="i-share" class="info" style="display:none;">分享</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2022-04-30</time>
             
                 (Updated:
-                <time datetime="2023-06-28T13:28:31.979Z"
-                      itemprop="dateModified">2023-06-28</time>)
+                <time datetime="2023-08-28T11:13:14.602Z"
+                      itemprop="dateModified">2023-08-28</time>)
             
         
     </div>
@@ -174,7 +174,7 @@
 <h3 id="测试所需组件是否安装成功"><a href="#测试所需组件是否安装成功" class="headerlink" title="测试所需组件是否安装成功"></a>测试所需组件是否安装成功</h3><p>依次输入下面的命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm -v</span><br><span class="line">$ node -v</span><br><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220501222045.png" alt="command_line_to_test_installation"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220501222045.png" alt="command_line_to_test_installation"></p>
 <p>出现npm、Node.js和git的版本号即代表安装成功。</p>
 <h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>我们使用 npm 命令安装 Hexo：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
@@ -189,7 +189,7 @@
 
 
 <p>执行<code>hexo s</code>命令后，通过浏览器访问<code>http://127.0.0.1:4000</code>可以预览你的博客，预览功能会实时监测博客的文件变化，并实时反馈在浏览器上，在调试博客前端时非常好用。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/3389687468-4fe37c91b4f7e5b6_fix732.jpeg" alt="preview_your_hexo_blog"></p>
+<p><img src="https://imgcdn.nightcity.pub/3389687468-4fe37c91b4f7e5b6_fix732.jpeg" alt="preview_your_hexo_blog"></p>
 <h2 id="部署网站到GitHub"><a href="#部署网站到GitHub" class="headerlink" title="部署网站到GitHub"></a>部署网站到GitHub</h2><p>执行<code>hexo g</code>命令后博客静态文件会生成在<code>public</code>文件夹下，只需要将这些文件上传到你的静态网站托管服务即可将站点发布到公网，本文用到的托管服务是Github Pages，下文提到的用户名均指你的Github用户名。</p>
 <h3 id="添加SSH-Key到github"><a href="#添加SSH-Key到github" class="headerlink" title="添加SSH Key到github"></a>添加SSH Key到github</h3><p>若之前使用过相关功能且已经配置过请跳过此步。</p>
 <p>配置Git用户名和账号：</p>
@@ -202,11 +202,11 @@
 <p>如果已经创建过会出现 <code>Overwrite (y/n)? n</code>提示可以输入 <code>n</code>，没有创建过的话三个回车就好，执行完成后会在<code>~/.ssh/id_rsa.pub</code>目录下生成 需要使用的 key，也就是公钥。</p>
 <p>到账户主文件夹下同时按<code>Command+Shift+.</code>显示隐藏文件，找到<code>.ssh</code>文件夹，打开id_rsa.pub，将里面的内容全部复制。</p>
 <p>打开<a target="_blank" rel="noopener" href="https://github.com/settings/keys">GitHub_Settings_keys</a> 页面，新建New SSH Key，Title随意填，Key就把刚才复制的内容全都粘贴上去。然后点Add SSH Key即可。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220501223200.png" alt="github_key_settings页面"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220501223200.png" alt="github_key_settings页面"></p>
 <p>完成这些工作以后可以通过以下命令测试是否配置成功：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh git@github.com</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220501223851.png" alt="connecting_to_github_using_ssh"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220501223851.png" alt="connecting_to_github_using_ssh"></p>
 <p>出现你的Github用户名代表配置成功。</p>
 <h3 id="在Github上新建网站仓库，将本地博客关联到Github主页"><a href="#在Github上新建网站仓库，将本地博客关联到Github主页" class="headerlink" title="在Github上新建网站仓库，将本地博客关联到Github主页"></a>在Github上新建网站仓库，将本地博客关联到Github主页</h3><p>在Github上新建一个仓库，Repository Name 填<code>你的用户名.github.io</code>，仓库状态设为 Public，点击 Create Repository 创建新的网站仓库。</p>
 <p>安装 Hexo 的扩展 <code>hexo-deployer-git</code>，注意一定要在你的博客文件夹下执行：</p>
@@ -218,18 +218,18 @@
 <p>修改完成后按Command + S保存，此时就可以使用<code>hexo d</code>把存在本地的博客deploy到Github上了：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成博客</span></span><br><span class="line">$ hexo g</span><br><span class="line"><span class="comment">#将博客推送到指定的地方，在这里是我们的Github仓库</span></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220502193153.png" alt="error_occured_when_deploying_hexo_to_githubpages"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220502193153.png" alt="error_occured_when_deploying_hexo_to_githubpages"></p>
 <p>第一次执行hexo d命令时可能要求你输入你的Github账号和密码，这里如果依照提示按部就班输入你的账户密码会出现如图所示的报错，这是因为Github在2021年8月13日停止了使用账户密码认证的支持，这时需要在Gihub上<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">Developer Settings页面</a>上新建一个Personal Access Token代替密码就可以顺利deploy。</p>
 <p>执行完毕后，访问<code>你的用户名.github.io</code>就能看到你的博客了。</p>
 <h2 id="绑定自定义域名（可选）"><a href="#绑定自定义域名（可选）" class="headerlink" title="绑定自定义域名（可选）"></a>绑定自定义域名（可选）</h2><p>其实到这一步就可以开始写博客了，默认的 github.io 的域名是可以更换的：</p>
 <p>首先自行申请一个域名，登陆到域名申请的后台，添加一条<code>CNAME</code>解析记录：<code>你的用户名.github.io</code>。</p>
 <p>打开存放博客的Github仓库，进入Settings页面在pages选项里的Custom domain里填入你的域名，点击Save，勾选Enforce HTTPS，即可通过自定义域名访问你的博客。</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220502194922.png" alt="bond_personal_domain_with_githubpages(github_settings)"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220502194922.png" alt="bond_personal_domain_with_githubpages(github_settings)"></p>
 <h2 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h2><p>生成一篇新文章：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure>
 
 <p>执行后会在<code>blog/source/_post</code>文件夹里生成一个名为<code>&lt;title&gt;.md</code>的文件，打开它即可使用 Markdown 开始写作</p>
-<p><img src="https://picked-1301273887.cos.ap-nanjing.myqcloud.com/20220502195744.png" alt="markdown_metadata"></p>
+<p><img src="https://imgcdn.nightcity.pub/20220502195744.png" alt="markdown_metadata"></p>
 <p>值得一提的是，Hexo生成时真正显示的标题是<code>&lt;title&gt;.md</code>文件里title项的标题，文件名影响的是生成后文章的永久链接。</p>
 <p>写作完成后执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#注意以下命令需要切换到blog文件夹(cd blog)执行</span></span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
@@ -300,15 +300,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首頁</a></li>
+                    <li><a href="/">Home</a></li>
                 
-                    <li><a href="/archives/">文章</a></li>
+                    <li><a href="/archives/">Articles</a></li>
                 
-                    <li><a href="/categories/">分類</a></li>
+                    <li><a href="/categories/">Category</a></li>
                 
-                    <li><a href="/tags/">標籤</a></li>
+                    <li><a href="/tags/">Tag</a></li>
                 
-                    <li><a href="/search/">搜尋</a></li>
+                    <li><a href="/search/">Search</a></li>
                 
             </ul>
         </div>
@@ -335,15 +335,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 選單</a>
+                        aria-hidden="true"></i> Menu</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 文章目錄</a>
+                        aria-hidden="true"></i> TOC</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
-                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 頁首
+                                                                               aria-hidden="true"></i> Top
             </a>
         </div>
 
