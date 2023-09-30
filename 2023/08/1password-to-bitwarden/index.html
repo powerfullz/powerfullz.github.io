@@ -108,7 +108,7 @@
 </ul>
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">进阶配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E6%96%B0%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C"><span class="toc-number">1.2.1.</span> <span class="toc-text">禁止新用户注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">启用推送更新</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -137,8 +137,8 @@
                   itemprop="datePublished">2023-08-05</time>
             
                 (Updated:
-                <time datetime="2023-08-31T07:18:00.265Z"
-                      itemprop="dateModified">2023-08-31</time>)
+                <time datetime="2023-09-11T09:25:08.000Z"
+                      itemprop="dateModified">2023-09-11</time>)
             
         
     </div>
@@ -159,7 +159,33 @@
   </header>
   
     <div class="content" itemprop="articleBody">
-      <p>之前我的密码管理在用 1Password，体验其实只能算是不差，因为它没有针对中国市场做过本土化，所以</p>
+      <p>之前我的密码管理在用 1Password，体验其实只能算是不差，由于没有针对中国市场做专门的本土化，所以其实这个产品和中国用户是有比较大的脱节的，体现在实际使用上就会发现，国内 APP 无论用户群体大小，几乎没有被适配的例子。加上其服务器不在国内，而且线路没有针对中国大陆做专门的优化，同步速度也是非常一般的。整体用下来，这两个原因让 1Password 的实际使用体验非常一般。</p>
+<p>驱动我迁移的最大因素是价格，1Password 在国区 Appstore 的订阅价格是 238￥&#x2F;年。其实不是很贵，但作为对比，我手上有两台相对廉价的 VPS，一台是 Racknerd 位于 LA 的 2C2.5G，25.88$ 一年；一台是位于上海的 2C4G 腾讯云轻量，600￥&#x2F;三年。前面提到的两者订阅价格都比 1Password 便宜，既然同样的价格能用来干更多的事情，只用来开一个 1Password 订阅显然不划算。</p>
+<p>说是「逃离」，逃离的是 1Password 的价格和使用体验的不对称而且 1Password 的数据也并非不能导出，从这方面想，说是「迁移」也许更加合适。在此之前我用过一次 Bitwarden，当时它给我的感受是虽然界面丑了点，但该有功能都有，足以满足我的需求。最重要的是，它开源免费并且可以自托管。于是在我 1Password 订阅到期后，我换到了 Bitwarden。</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>起初我想部署 Bitwarden 官方 Docker 镜像，毕竟这不同于一般服务，这里保存的是重要的登录信息，比起节省服务器资源，保障其稳定性和安全性显然更加重要。直到看了 Bitwarden 官方 Docker 部署教程，不光资源消耗量大，某些功能还需要付费。相比之下，Vault Warden 部署就十分简单，而且功能支持也日趋完善，稳定性也足够用在生产环境。遂最终选择 Vault Warden。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dani-garcia/vaultwarden">https://github.com/dani-garcia/vaultwarden</a></p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>新建目录和<code>docker-compose.yml</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> vault-warden</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> vault-warden</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim docker-compose.yml</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你不熟悉<code>vim</code>等命令行编辑器，也可以用其他编辑器编辑<code>docker-compose.yml</code>。</p>
+<p>编辑<code>docker-compose.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">vaultwarden:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">vaultwarden/server:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">vaultwarden</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">DOMAIN:</span> <span class="string">&quot;https://vaultwarden.example.com&quot;</span>  <span class="comment"># 您的域名；Vaultwarden 需要知道它是 https 才能正确处理附件</span></span><br><span class="line">      </span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">12345</span><span class="string">:80</span>	<span class="comment"># 将 12345 换成需要的端口</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./vw-data:/data</span></span><br></pre></td></tr></table></figure>
+
+<p>启动编排：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker compose up</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你使用的是老的 Docker Compose，则应使用这个写法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker-compose up</span></span><br></pre></td></tr></table></figure>
+
+<p>随后反代前面设置的端口，部署 SSL 证书即可。</p>
+<h3 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h3><h4 id="禁止新用户注册"><a href="#禁止新用户注册" class="headerlink" title="禁止新用户注册"></a>禁止新用户注册</h4><p>访问新部署的 Vault Warden 并注册账号，随后向<code>docker-compose.yml</code>添加以下环境变量：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">SIGNUPS_ALLOWED:</span> <span class="string">&quot;false&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>以禁止新用户注册。</p>
+<h4 id="启用推送更新"><a href="#启用推送更新" class="headerlink" title="启用推送更新"></a>启用推送更新</h4><p>推送更新分网页端的 WebSocket 和手机应用的推送更新，尤其是 iOS 的推送更新直到不久之前才被 Vault Warden 实现（<a target="_blank" rel="noopener" href="https://github.com/dani-garcia/vaultwarden/pull/3304%EF%BC%89%E3%80%82">https://github.com/dani-garcia/vaultwarden/pull/3304）。</a></p>
+<p>最终的<code>docker-compose.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">vault-warden:</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">vaultwarden/server:latest</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">vault-warden</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;25635:80&quot;</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;25636:3012&quot;</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;/vaultwarden/data/:/data/&quot;</span></span><br><span class="line">        <span class="attr">environment:</span></span><br><span class="line">            <span class="attr">SIGNUPS_ALLOWED:</span> <span class="string">&quot;false&quot;</span></span><br><span class="line">            <span class="attr">WEBSOCKET_ENABLED:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line">            <span class="attr">PUSH_ENABLED:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line">            <span class="attr">PUSH_INSTALLATION_ID:</span> <span class="string">&quot;ce5e2106-f69d-4f9d-9ddf-b04400a192bd&quot;</span></span><br><span class="line">            <span class="attr">PUSH_INSTALLATION_KEY:</span> <span class="string">&quot;fgxipZubZrm48yxWhsnM&quot;</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">&quot;always&quot;</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 </article>
@@ -235,7 +261,7 @@
         </div>
 
         <div id="toc-footer" style="display: none">
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">进阶配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E6%96%B0%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C"><span class="toc-number">1.2.1.</span> <span class="toc-text">禁止新用户注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E6%8E%A8%E9%80%81%E6%9B%B4%E6%96%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">启用推送更新</span></a></li></ol></li></ol></li></ol>
         </div>
 
         <div id="share-footer" style="display: none">
