@@ -36,7 +36,7 @@
     <!-- rss -->
     
     
-        <link rel="alternate" href="/true" title="愚者千虑" type="application/atom+xml"/>
+        <link rel="alternate" href="/true" title="旧文存底" type="application/atom+xml"/>
     
     <!-- analytics -->
     <script defer data-domain="hexo.l3zc.com" src="https://analytics.nightcity.pub/js/script.js"></script>
@@ -53,15 +53,15 @@
     <span id="nav">
       <ul>
           
-              <li><a href="/">首页</a></li>
+              <li><a href="/">首頁</a></li>
           
-              <li><a href="/archives/">归档</a></li>
+              <li><a href="/archives/">文章</a></li>
           
-              <li><a href="/categories/">分类</a></li>
+              <li><a href="/categories/">分類</a></li>
           
-              <li><a href="/tags/">标签</a></li>
+              <li><a href="/tags/">標籤</a></li>
           
-              <li><a href="/search/">搜索</a></li>
+              <li><a href="/search/">搜尋</a></li>
           
       </ul>
     </span>
@@ -89,8 +89,8 @@
       </ul>
       <span id="i-prev" class="info" style="display:none;">上一篇</span>
       <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-top" class="info" style="display:none;">回到頁首</span>
+      <span id="i-share" class="info" style="display:none;">分享</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -249,7 +249,7 @@
     //检测推送
     var pushType = "";
     var pushLink = "";
-    var siteName = "愚者千虑";
+    var siteName = "旧文存底";
 
     var ValineButton = document.getElementsByClassName("vsubmit vbtn")[0];
     //分情况推送
@@ -300,15 +300,15 @@
         <div id="nav-footer" style="display: none">
             <ul>
                 
-                    <li><a href="/">首页</a></li>
+                    <li><a href="/">首頁</a></li>
                 
-                    <li><a href="/archives/">归档</a></li>
+                    <li><a href="/archives/">文章</a></li>
                 
-                    <li><a href="/categories/">分类</a></li>
+                    <li><a href="/categories/">分類</a></li>
                 
-                    <li><a href="/tags/">标签</a></li>
+                    <li><a href="/tags/">標籤</a></li>
                 
-                    <li><a href="/search/">搜索</a></li>
+                    <li><a href="/search/">搜尋</a></li>
                 
             </ul>
         </div>
@@ -335,15 +335,15 @@
         <div id="actions-footer">
             <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
                         class="fas fa-bars fa-lg"
-                        aria-hidden="true"></i> 菜单</a>
+                        aria-hidden="true"></i> 選單</a>
             <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
                         class="fas fa-list fa-lg"
-                        aria-hidden="true"></i> 目录</a>
+                        aria-hidden="true"></i> 文章目錄</a>
             <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
                         class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
             <a id="top" style="display:none" class="icon" href="#"
                onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
-                                                                               aria-hidden="true"></i> 返回顶部
+                                                                               aria-hidden="true"></i> 頁首
             </a>
         </div>
 
@@ -384,7 +384,7 @@
     <script type="text/javascript">
         $(function () {
             // copy-btn HTML
-            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
             btn += '<i class="far fa-clone"></i>';
             btn += '</span>';
             // mount it!
@@ -395,7 +395,7 @@
                 }
             });
             clip.on('success', function (e) {
-                e.trigger.setAttribute('aria-label', "复制成功!");
+                e.trigger.setAttribute('aria-label', "Copied!");
                 e.clearSelection();
             })
         })
